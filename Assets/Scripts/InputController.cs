@@ -11,6 +11,10 @@ public class InputController : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
     }
 
+    // ===================== Short about ======================================
+    // press F1 to enable disable DebugMode, disabled by default
+    // Uses (R)estart, (N)odeSpawn, (M)iningRigSpawn, (B)oxSpawn
+
     void Update()
     {
 
