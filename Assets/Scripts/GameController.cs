@@ -12,11 +12,17 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
     //Texts
-    private Text boxAmountText;     
+    private Text boxAmountText;
+
+    //Objects
+    [SerializeField] private GameObject box;
+    [SerializeField] private GameObject miningRig;
+    [SerializeField] private GameObject node;
 
     //General
     private int boxAmount = 0;
     [SerializeField] private int phaseAmount = 5;
+    public int currentPhase = 1;
     private int sceneAtm; //Current scene
 
     //STATE
@@ -50,7 +56,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-
     void Start()
     {
         sceneAtm = 0;
@@ -64,6 +69,7 @@ public class GameController : MonoBehaviour
     private void Restart()
     {
         DestroyAll();
+        boxAmount = 0;
         SceneManager.LoadScene(sceneAtm);
         state = GameControllerState.GAME;
     }
@@ -81,37 +87,42 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    private void DebugSpawnNode()
-    {
-
-    }
-
     private void DebugSpawnBox()
     {
+        Instantiate(box, transform.position + transform.TransformDirection(Vector3.forward) * 2, transform.rotation, null);
+    }
 
+    private void DebugSpawnMiningRig()
+    {
+        Instantiate(miningRig, transform.position + transform.TransformDirection(Vector3.forward) * 2, transform.rotation, null);
+    }
+
+    private void DebugSpawnNode()
+    {
+        Instantiate(node, transform.position + transform.TransformDirection(Vector3.forward) * 2 + transform.TransformDirection(Vector3.down) * 2, transform.rotation, null);
     }
 
     private void DestroyAll()
     {
-        //for (Player p in GameObject.FindObjectOfType<Player>())
+        //foreach (Player p in GameObject.FindObjectsOfType<Player>())
         //{
         //    Destroy(p);
         //}
 
-        //for (Box b in GameObject.FindObjectOfType<Box>())
-        //{
-        //    Destroy(b);
-        //}
+        foreach (Box b in GameObject.FindObjectsOfType<Box>())
+        {
+            Destroy(b);
+        }
 
-        //for (MiningRig mr in GameObject.FindObjectOfType<MiningRig>())
+        //foreach (MiningRig mr in GameObject.FindObjectsOfType<MiningRig>())
         //{
         //    Destroy(mr);
         //}
 
-        //for (MiningNode mn in GameObject.FindObjectOfType<MiningNode>())
-        //{
-        //    Destroy(mn);
-        //}
+        foreach (MiningNode mn in GameObject.FindObjectsOfType<MiningNode>())
+        {
+            Destroy(mn);
+        }
     }
 
 }

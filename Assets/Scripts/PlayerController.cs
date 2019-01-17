@@ -16,17 +16,9 @@ public class PlayerController : MonoBehaviour {
 		PlayerMove();
     }
 
-	void PlayerMove()
+	public void PlayerMove()
 	{
-		//playerMoveX = Input.GetAxisRaw("Horizontal");
-		//playerMoveY = Input.GetAxisRaw("Vertical");
-
-		Vector3 playerMoveY = Vector3.forward * Input.GetAxisRaw("Vertical");
-		Vector3 playerMoveX = Vector3.right * Input.GetAxisRaw("Horizontal");
-
-		Vector3 movement = playerMoveY + playerMoveX;
-		movement = movement.normalized * playerSpeed;
-
-		rb.velocity = movement;
+        Vector3 moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
 	}
 }
