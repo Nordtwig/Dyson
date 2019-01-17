@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (Input.GetButtonDown("Jump") && hasBox)
         {
+            hasBox = false;
             Box box = GetComponentInChildren<Box>(true);
             box.DropBox();
         }
