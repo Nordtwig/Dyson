@@ -49,7 +49,7 @@ public class MiningRig : MonoBehaviour
             if (!pickedUp)
             {
                 rend.material.color = Color.green;
-                StartCoroutine(BoxSpawn());
+                StartCoroutine(CoBoxSpawn());
             }
         }
     }
@@ -64,12 +64,12 @@ public class MiningRig : MonoBehaviour
     }
 
     //Coroutine that uses for loop to create boxes in the rigs proximity within a set interval
-    private IEnumerator BoxSpawn()
+    private IEnumerator CoBoxSpawn()
     {
         for (int i = 0; i < 5; i++)
         {
             Instantiate(box, new Vector3(Random.Range(player.transform.position.x + 1, player.transform.position.x + 10), player.transform.position.y + 10,
-                    player.transform.position.z), Quaternion.identity);
+                        player.transform.position.z), Quaternion.identity);
             yield return new WaitForSeconds(timeBetweenBoxes);
             if (pickedUp)
             {
