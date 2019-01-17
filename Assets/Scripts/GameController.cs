@@ -18,12 +18,14 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject box;
     [SerializeField] private GameObject miningRig;
     [SerializeField] private GameObject node;
+    private PlayerController player;
 
     //General
     private int boxAmount = 0;
     [SerializeField] private int phaseAmount = 5;
     public int currentPhase = 1;
-    private int sceneAtm; //Current scene
+    private int sceneAtm = 0; //Current scene
+    private bool debugMode = false;
 
     //STATE
     public GameControllerState state = GameControllerState.NULL;
@@ -58,15 +60,10 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        sceneAtm = 0;
-    }
-
-    void Update()
-    {
 
     }
 
-    private void Restart()
+    public void Restart()
     {
         DestroyAll();
         boxAmount = 0;
@@ -87,19 +84,28 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    private void DebugSpawnBox()
+    public void DebugSpawnBox()
     {
-        Instantiate(box, transform.position + transform.TransformDirection(Vector3.forward) * 2, transform.rotation, null);
+        if (player)
+            Instantiate(box, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+        else
+            player = FindObjectOfType<PlayerController>();
     }
 
-    private void DebugSpawnMiningRig()
+    public void DebugSpawnMiningRig()
     {
-        Instantiate(miningRig, transform.position + transform.TransformDirection(Vector3.forward) * 2, transform.rotation, null);
+        if (player)
+            Instantiate(miningRig, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+        else
+            player = FindObjectOfType<PlayerController>();
     }
 
-    private void DebugSpawnNode()
+    public void DebugSpawnNode()
     {
-        Instantiate(node, transform.position + transform.TransformDirection(Vector3.forward) * 2 + transform.TransformDirection(Vector3.down) * 2, transform.rotation, null);
+        if (player)
+            Instantiate(node, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+        else
+            player = FindObjectOfType<PlayerController>();
     }
 
     private void DestroyAll()
@@ -123,6 +129,16 @@ public class GameController : MonoBehaviour
         {
             Destroy(mn);
         }
+    }
+
+    public bool GetDebugMode()
+    {
+        return debugMode;
+    }
+
+    public void SetDebugMode(bool value)
+    {
+        debugMode = value;
     }
 
 }

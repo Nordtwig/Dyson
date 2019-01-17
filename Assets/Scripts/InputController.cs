@@ -1,0 +1,55 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InputController : MonoBehaviour
+{
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+
+
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            GameController.instance.SetDebugMode(!GameController.instance.GetDebugMode()); //inverts the value of DebugMode
+            Debug.Log(GameController.instance.GetDebugMode());
+        }
+
+        CheckAndRunDebugKeys();
+    }
+
+    //Checks if any debug key has been pressed and executes that command is DebugMode is true
+    private void CheckAndRunDebugKeys()
+    {
+        if (GameController.instance.GetDebugMode())
+        {
+            Debug.Log("test");
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                GameController.instance.Restart();
+            }
+
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                GameController.instance.DebugSpawnNode();
+                Debug.Log("spawn node");
+            }
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                GameController.instance.DebugSpawnMiningRig();
+                Debug.Log("spawn miningrig");
+            }
+
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                GameController.instance.DebugSpawnBox();
+                Debug.Log("test spawn box");
+            }
+        }
+    }
+}
