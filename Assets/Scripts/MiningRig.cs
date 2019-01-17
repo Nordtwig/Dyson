@@ -10,12 +10,13 @@ public class MiningRig : MonoBehaviour
     private GameObject player;
     public GameObject box;
     public GameObject rigStatus;
+    private int resourceValue;
     MeshRenderer rend;
     
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        rend = rigStatus.GetComponent<MeshRenderer>();
+        rend = rigStatus.GetComponent<MeshRenderer>(); 
         rend.material.color = Color.red;
     }
 
@@ -51,8 +52,9 @@ public class MiningRig : MonoBehaviour
         {
             if (!pickedUp)
             {
+                ;
                 rend.material.color = Color.green;
-                StartCoroutine(CoBoxSpawn());
+                StartCoroutine(CoBoxSpawn(other.gameObject.GetComponent<MiningNode>()));
             }
         }
     }
@@ -67,12 +69,14 @@ public class MiningRig : MonoBehaviour
     }
 
     //Coroutine that uses for loop to create boxes in the rigs proximity within a set interval
-    private IEnumerator CoBoxSpawn()
+    private IEnumerator CoBoxSpawn(MiningNode miningNode)
     {
-        for (int i = 0; i < 5; i++)
+        int originalResourceValue = miningNode.resourceValue;
+        for (int i = 0; i < originalResourceValue; i++)
         {
             Instantiate(box, new Vector3(Random.Range(player.transform.position.x + 1, player.transform.position.x + 10), player.transform.position.y + 10,
                         player.transform.position.z), Quaternion.identity);
+            miningNode.OnBoxSpawn();
             yield return new WaitForSeconds(timeBetweenBoxes);
             if (pickedUp)
             {

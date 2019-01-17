@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MiningNode : MonoBehaviour
 {
-    [SerializeField] private int resourceValue = 5;
+    public int resourceValue = 5;
     
-    void OnBoxSpawn()
+    public void OnBoxSpawn()
     {
         resourceValue--;
         if (resourceValue == 0)
