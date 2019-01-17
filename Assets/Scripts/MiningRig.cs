@@ -33,6 +33,7 @@ public class MiningRig : MonoBehaviour
         pickedUp = true;
     }
 
+    //Rig is un-parented, spawns on players position and changes the bool to false
     public void ReleaseRig()
     {
         gameObject.transform.SetParent(null);
@@ -40,21 +41,20 @@ public class MiningRig : MonoBehaviour
         pickedUp = false;
     }
 
+    //If the object collides with the "Node" tag AND picked up is false(released), changes color to green and starts spawning boxes
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("trigging");
         if (other.tag == "Node")
         {
-            Debug.Log("inNode");
             if (!pickedUp)
             {
                 rend.material.color = Color.green;
-                //Code to start mining process
                 StartCoroutine(BoxSpawn());
             }
         }
     }
 
+    //If exiting node collider, change color to red
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Node")
@@ -63,6 +63,7 @@ public class MiningRig : MonoBehaviour
         }
     }
 
+    //Coroutine that uses for loop to create boxes in the rigs proximity within a set interval
     private IEnumerator BoxSpawn()
     {
         for (int i = 0; i < 5; i++)
