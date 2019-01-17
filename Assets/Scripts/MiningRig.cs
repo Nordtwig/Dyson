@@ -15,6 +15,12 @@ public class MiningRig : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rend = rigStatus.GetComponent<MeshRenderer>();
+        rend.material.color = Color.red;
+    }
+
+    private void OnEnable()
+    {
+        rend.material.color = Color.red;
     }
 
     //Rig is parented to player on pickup, despawns and changes a bool to indicate the player is carrying it
@@ -35,26 +41,30 @@ public class MiningRig : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("trigging");
         if (other.tag == "Node")
         {
-            rend.material.color = Color.green;
+            Debug.Log("inNode");
             if (!pickedUp)
             {
-                rend.material.color = Color.white;
+                rend.material.color = Color.green;
                 //Code to start mining process
-                BoxSpawn();
+                Invoke("BoxSpawn", 2f);
             }
         }
     }
 
-    private void OnTriggerExit(Collider MiningNode)
+    private void OnTriggerExit(Collider other)
     {
-        rend.material.color = Color.red;
+        if (other.tag == "Node")
+        {
+            rend.material.color = Color.red;
+        }
     }
 
     private void BoxSpawn()
     {
-        Instantiate(box, new Vector3(Random.Range(transform.position.x + 1, transform.position.x + 10), transform.position.y + 1, transform.position.z), 
-                    Quaternion.identity);
+        Instantiate(box, new Vector3(Random.Range(player.transform.position.x + 1, player.transform.position.x + 10), player.transform.position.y + 10,
+                    player.transform.position.z), Quaternion.identity);
     }
 }
