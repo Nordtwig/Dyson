@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1646751849581537708}
   m_Layer: 0
   m_Name: MiningNodeCenterpoint
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8330719112252811643, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 5867011866046929777, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 1574515658910876189, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 2406955237510784989, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 2230882296444408888, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 6789394302042801488, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 1830468195592988830, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 1022439930637934611, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 3338483016355175739, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 5460635429128200664, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 6629662906496910211, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 263674768787121597, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+    - {fileID: 2225038572684583238, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
 --- !u!4 &4036471482032801758 stripped
 Transform:
