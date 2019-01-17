@@ -12,7 +12,7 @@ public class SLS : MonoBehaviour
         {
             //Debug.Log("Box has been delivered");
             Destroy(other.gameObject);
+            GameController.instance.BoxDelivered();
         }
-        GameController.instance.BoxDelivered();
     }
 }
