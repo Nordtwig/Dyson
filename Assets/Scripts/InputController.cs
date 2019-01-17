@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
+    PlayerController player;
+
     void Start()
     {
-        
+        player = FindObjectOfType<PlayerController>();
     }
 
     void Update()
