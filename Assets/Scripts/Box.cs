@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-
     private GameObject player;
 
     public void PickUpBox()
@@ -14,11 +13,6 @@ public class Box : MonoBehaviour
         transform.SetParent(player.transform);
         transform.position = player.transform.position;
         gameObject.SetActive(false);
-    }
-    public void ScoreBox()
-    {
-        Debug.Log("A box has been scored");
-        Destroy(gameObject);
     }
 
     public void DropBox()
