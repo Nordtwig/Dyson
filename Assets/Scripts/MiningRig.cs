@@ -21,7 +21,10 @@ public class MiningRig : MonoBehaviour
 
     private void OnEnable()
     {
-        rend.material.color = Color.red;
+        if (rend != null)
+        {
+            rend.material.color = Color.red;
+        }
     }
 
     //Rig is parented to player on pickup, despawns and changes a bool to indicate the player is carrying it
