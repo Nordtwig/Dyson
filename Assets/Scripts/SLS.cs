@@ -10,8 +10,8 @@ public class SLS : MonoBehaviour
     {
         if (other.tag == "Box")
         {
-            Debug.Log("Box has been delivered");
-            Destroy(other);
+            //Debug.Log("Box has been delivered");
+            Destroy(other.gameObject);
         }
         GameController.instance.BoxDelivered();
     }
