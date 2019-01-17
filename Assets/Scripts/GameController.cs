@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour
         state = GameControllerState.GAME;
     }
 
-    private void BoxDelivered() 
+    public void BoxDelivered() 
     {
         boxAmount++;
         Debug.Log(boxAmount + "/" + phaseAmount + " Boxes delivered");
