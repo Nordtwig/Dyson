@@ -6,6 +6,7 @@ public class MiningRig : MonoBehaviour
 {
 
     [SerializeField] bool pickedUp;
+    [SerializeField] int timeBetweenBoxes = 2;
     private GameObject player;
     public GameObject box;
     public GameObject rigStatus;
@@ -49,7 +50,7 @@ public class MiningRig : MonoBehaviour
             {
                 rend.material.color = Color.green;
                 //Code to start mining process
-                Invoke("BoxSpawn", 2f);
+                StartCoroutine(BoxSpawn());
             }
         }
     }
@@ -62,9 +63,17 @@ public class MiningRig : MonoBehaviour
         }
     }
 
-    private void BoxSpawn()
+    private IEnumerator BoxSpawn()
     {
-        Instantiate(box, new Vector3(Random.Range(player.transform.position.x + 1, player.transform.position.x + 10), player.transform.position.y + 10,
+        for (int i = 0; i < 5; i++)
+        {
+            Instantiate(box, new Vector3(Random.Range(player.transform.position.x + 1, player.transform.position.x + 10), player.transform.position.y + 10,
                     player.transform.position.z), Quaternion.identity);
+            yield return new WaitForSeconds(timeBetweenBoxes);
+            if (pickedUp)
+            {
+                yield break;
+            }
+        }
     }
 }
