@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///  Heimer created core, edited by Robin
+/// </summary>
+
 public class MiningNode : MonoBehaviour
 {
     public int resourceValue = 5;

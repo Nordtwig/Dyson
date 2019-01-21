@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Created by Svedlund and Heimer
+/// </summary>
+
 public class Box : MonoBehaviour
 {
     private GameObject player;
@@ -10,7 +14,6 @@ public class Box : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
-
     public void PickUpBox()
     {
         player.GetComponent<PlayerController>().hasBox = true;
