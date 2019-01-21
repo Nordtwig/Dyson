@@ -68,7 +68,6 @@ public class MiningRig : MonoBehaviour
                 Debug.Log(minedNode);
                 if (functioning)
                 {
-                    rend.material.color = Color.green;
                     StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
                 }
             }
@@ -103,6 +102,7 @@ public class MiningRig : MonoBehaviour
                     minedNode = null;
                     rend.material.color = Color.red;
                 }
+                rend.material.color = Color.green;
                 Instantiate(box, new Vector3(Random.Range(transform.position.x + 1, transform.position.x + 10), transform.position.y + 10,
                         transform.position.z), Quaternion.identity);
             }
