@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class MiningRig : MonoBehaviour
 {
-
     [SerializeField] bool pickedUp;
     [SerializeField] int timeBetweenBoxes = 2;
+    [SerializeField] private GameObject box;
+    [SerializeField] private GameObject rigStatus;
+    [SerializeField] private GameObject casing;
     private GameObject player;
-    public GameObject box;
-    public GameObject rigStatus;
-    MeshRenderer rend;
-    MiningNode minedNode;
+    private MeshRenderer rend;
+    private MiningNode minedNode; //currently minedNode set to null when no minedNode
+
+    public bool functioning = true;
 
     void Start()
     {
@@ -54,9 +56,18 @@ public class MiningRig : MonoBehaviour
             {
                 minedNode = other.GetComponent<MiningNode>();
                 Debug.Log(minedNode);
-                rend.material.color = Color.green;
-                StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
+                if (functioning)
+                {
+                    rend.material.color = Color.green;
+                    StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
+                }
             }
+        }
+
+        if (other.tag == "Asteroid")
+        {
+            functioning = false;
+            casing.GetComponent<MeshRenderer>().material.color = new Color(0.6f, 0, 0);
         }
     }
 
@@ -75,7 +86,7 @@ public class MiningRig : MonoBehaviour
     {
         for (int i = 0; i < resourseAmount; i++)
         {
-            if (minedNode)
+            if (functioning && minedNode)
             {
                 if (!minedNode.OnBoxSpawn()) //Do when empty 
                 {
@@ -84,6 +95,10 @@ public class MiningRig : MonoBehaviour
                 }
                 Instantiate(box, new Vector3(Random.Range(player.transform.position.x + 1, player.transform.position.x + 10), player.transform.position.y + 10,
                         player.transform.position.z), Quaternion.identity);
+            }
+            else
+            {
+                rend.material.color = Color.red;
             }
 
             yield return new WaitForSeconds(timeBetweenBoxes);
@@ -97,4 +112,13 @@ public class MiningRig : MonoBehaviour
         yield return null;
     }
 
+    public void Repair()
+    {
+        functioning = true;
+        casing.GetComponent<MeshRenderer>().material.color = Color.white;
+        if (minedNode)
+        {
+            StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
+        }
+    }
 }
