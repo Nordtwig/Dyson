@@ -31,4 +31,12 @@ public class Box : MonoBehaviour
         gameObject.SetActive(true);
         transform.position = player.transform.position + player.transform.TransformDirection(Vector3.forward * 3);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Meteroid")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
