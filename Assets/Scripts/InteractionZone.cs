@@ -23,6 +23,10 @@ public class InteractionZone : MonoBehaviour
         {
             other.gameObject.GetComponent<Box>().PickUpBox();
         }
+        else if (other.tag == "Rig" && !other.gameObject.GetComponent<MiningRig>().functioning && !player.GetComponent<PlayerController>().hasBox)
+        {
+            other.gameObject.GetComponent<MiningRig>().Repair();
+        }
         else if (other.tag == "Rig" && !player.GetComponent<PlayerController>().hasBox)
         {
             other.gameObject.GetComponent<MiningRig>().PickUpRig();

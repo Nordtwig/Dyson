@@ -31,7 +31,6 @@ public class InputController : MonoBehaviour
     {
         if (GameController.instance.GetDebugMode())
         {
-            Debug.Log("test");
             if (Input.GetKeyDown(KeyCode.R))
             {
                 GameController.instance.Restart();
@@ -52,7 +51,7 @@ public class InputController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.B))
             {
                 GameController.instance.DebugSpawnBox();
-                Debug.Log("test spawn box");
+                Debug.Log("spawn box");
             }
         }
     }
