@@ -7,6 +7,7 @@ TagManager:
   - Asteroid
   - Box
   - Node
+  - Rig
   layers:
   - Default
   - TransparentFX

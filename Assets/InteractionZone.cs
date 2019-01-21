@@ -15,11 +15,13 @@ public class InteractionZone : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         
-        if (other.tag == "Box" && !player.GetComponent<PlayerController>().hasBox )
+        if (other.tag == "Box" && !player.GetComponent<PlayerController>().hasBox)
         {
-            //FindObjectOfType<PlayerController>().hasBox = true;
-            Debug.Log("Funkar!");
             other.gameObject.GetComponent<Box>().PickUpBox();
+        }
+        else if (other.tag == "Rig" && !player.GetComponent<PlayerController>().hasBox)
+        {
+            other.gameObject.GetComponent<MiningRig>().PickUpRig();
         }
     }
 }

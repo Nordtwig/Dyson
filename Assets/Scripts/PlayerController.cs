@@ -29,16 +29,19 @@ public class PlayerController : MonoBehaviour {
 
     public void PlayerInteraction()
     {
-        //if (interactionZone.gameObject.activeInHierarchy == true)
-        //{
-        //    interactionZone.gameObject.SetActive(false);
-        //}
-
         if (Input.GetButtonDown("Jump") && hasBox)
         {
             hasBox = false;
-            Box box = GetComponentInChildren<Box>(true);
-            box.DropBox();
+            if (GetComponentInChildren<Box>(true))
+            {
+                Box box = GetComponentInChildren<Box>(true);
+                box.DropBox();
+            }
+            else if (GetComponentInChildren<MiningRig>(true))
+            {
+                MiningRig rig = GetComponentInChildren<MiningRig>(true);
+                rig.DropRig();
+            }
         }
 
         else if (Input.GetButtonDown("Jump") && !hasBox)

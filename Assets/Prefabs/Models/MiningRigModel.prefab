@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 1969691110}
   m_Layer: 0
   m_Name: MiningRigModel
-  m_TagString: Untagged
+  m_TagString: Rig
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickedUp: 0
+  timeBetweenBoxes: 2
   box: {fileID: 2968500262769446227, guid: 8ae88b175eb6c734d8fa27ad45389144, type: 3}
   rigStatus: {fileID: 3018194331202256115}
 --- !u!114 &1969691110
