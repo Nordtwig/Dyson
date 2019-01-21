@@ -235,6 +235,8 @@ MonoBehaviour:
   timeBetweenBoxes: 2
   box: {fileID: 2968500262769446227, guid: 8ae88b175eb6c734d8fa27ad45389144, type: 3}
   rigStatus: {fileID: 3018194331202256115}
+  casing: {fileID: 2137856263019396071}
+  functioning: 1
 --- !u!114 &1969691110
 MonoBehaviour:
   m_ObjectHideFlags: 0
