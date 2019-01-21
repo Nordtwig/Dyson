@@ -77,6 +77,7 @@ public class MiningRig : MonoBehaviour
         {
             functioning = false;
             casing.GetComponent<MeshRenderer>().material.color = new Color(0.6f, 0, 0);
+            rend.material.color = Color.red;
         }
     }
 
