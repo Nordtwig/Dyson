@@ -68,7 +68,7 @@ public class MiningRig : MonoBehaviour
             }
         }
 
-        if (other.tag == "Asteroid")
+        if (other.tag == "Meteroid")
         {
             functioning = false;
             casing.GetComponent<MeshRenderer>().material.color = new Color(0.6f, 0, 0);

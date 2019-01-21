@@ -8,6 +8,7 @@ TagManager:
   - Box
   - Node
   - Rig
+  - Meteroid
   layers:
   - Default
   - TransparentFX
