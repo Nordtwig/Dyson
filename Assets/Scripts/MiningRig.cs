@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// modified by Heimer
+/// </summary>
+
 public class MiningRig : MonoBehaviour
 {
     [SerializeField] bool pickedUp;
@@ -41,7 +45,7 @@ public class MiningRig : MonoBehaviour
         pickedUp = true;
     }
 
-    //Rig is un-parented, spawns on players position and changes the bool to false
+    //Rig is un-parented, spawns in front of player and changes the bool to false
     public void DropRig()
     {
         gameObject.transform.SetParent(null);
