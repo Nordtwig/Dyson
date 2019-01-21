@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Created by Svedlund and Heimer, modified by Heimer
+/// </summary>
+
 public class InteractionZone : MonoBehaviour
 {
     private Box box;

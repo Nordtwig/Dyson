@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///  Heimer created core, edited by Robin
+///  Created by Heimer, modified by Robin
 /// </summary>
 
 public class MiningNode : MonoBehaviour

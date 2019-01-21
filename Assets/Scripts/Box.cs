@@ -14,6 +14,8 @@ public class Box : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
+
+    //box is parented to player and disabled for transport, player hasBox bool sets to true
     public void PickUpBox()
     {
         player.GetComponent<PlayerController>().hasBox = true;
@@ -23,6 +25,7 @@ public class Box : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    //Box is unparented, reactivated and placed in front of player. player hasBox bool is set to false
     public void DropBox()
     {
         player.GetComponent<PlayerController>().hasBox = false;
