@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour {
 
     public void PlayerInteraction()
     {
+        //if (interactionZone.gameObject.activeInHierarchy == true)
+        //{
+        //    interactionZone.gameObject.SetActive(false);
+        //}
+
         if (Input.GetButtonDown("Jump") && hasBox)
         {
             hasBox = false;
