@@ -75,7 +75,17 @@ public class GameController : MonoBehaviour
     {
         boxAmount++;
         Debug.Log(boxAmount + "/" + phaseAmount + " Boxes delivered");
+        if (boxAmount >= phaseAmount)
+        {
+            FindObjectOfType<Sled>().Launch();
+            boxAmount = 0;
+        }
         // Set UI text instead
+    }
+
+    public int GetAmountOfDeliveredBoxes()
+    {
+        return boxAmount;
     }
 
     public void MainMenu()

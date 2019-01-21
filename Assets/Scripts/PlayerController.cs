@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	Rigidbody rb;
+	private Rigidbody rb;
     public Collider interactionZone;
     public bool hasBox;
 

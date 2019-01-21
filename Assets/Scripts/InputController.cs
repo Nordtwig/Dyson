@@ -17,8 +17,6 @@ public class InputController : MonoBehaviour
 
     void Update()
     {
-
-
         if (Input.GetKeyDown(KeyCode.F1))
         {
             GameController.instance.SetDebugMode(!GameController.instance.GetDebugMode()); //inverts the value of DebugMode
