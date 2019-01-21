@@ -97,8 +97,8 @@ public class MiningRig : MonoBehaviour
                     minedNode = null;
                     rend.material.color = Color.red;
                 }
-                Instantiate(box, new Vector3(Random.Range(player.transform.position.x + 1, player.transform.position.x + 10), player.transform.position.y + 10,
-                        player.transform.position.z), Quaternion.identity);
+                Instantiate(box, new Vector3(Random.Range(transform.position.x + 1, transform.position.x + 10), transform.position.y + 10,
+                        transform.position.z), Quaternion.identity);
             }
             else
             {
