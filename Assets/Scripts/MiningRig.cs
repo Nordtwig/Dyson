@@ -10,13 +10,13 @@ public class MiningRig : MonoBehaviour
     private GameObject player;
     public GameObject box;
     public GameObject rigStatus;
-    private int resourceValue;
     MeshRenderer rend;
-    
+    MiningNode minedNode;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        rend = rigStatus.GetComponent<MeshRenderer>(); 
+        rend = rigStatus.GetComponent<MeshRenderer>();
         rend.material.color = Color.red;
     }
 
@@ -52,9 +52,10 @@ public class MiningRig : MonoBehaviour
         {
             if (!pickedUp)
             {
-                ;
+                minedNode = other.GetComponent<MiningNode>();
+                Debug.Log(minedNode);
                 rend.material.color = Color.green;
-                StartCoroutine(CoBoxSpawn(other.gameObject.GetComponent<MiningNode>()));
+                StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
             }
         }
     }
@@ -64,24 +65,36 @@ public class MiningRig : MonoBehaviour
     {
         if (other.tag == "Node")
         {
+            minedNode = null;
             rend.material.color = Color.red;
         }
     }
 
     //Coroutine that uses for loop to create boxes in the rigs proximity within a set interval
-    private IEnumerator CoBoxSpawn(MiningNode miningNode)
+    private IEnumerator CoBoxSpawn(int resourseAmount)
     {
-        int originalResourceValue = miningNode.resourceValue;
-        for (int i = 0; i < originalResourceValue; i++)
+        for (int i = 0; i < resourseAmount; i++)
         {
-            Instantiate(box, new Vector3(Random.Range(player.transform.position.x + 1, player.transform.position.x + 10), player.transform.position.y + 10,
+            if (minedNode)
+            {
+                if (!minedNode.OnBoxSpawn()) //Do when empty 
+                {
+                    minedNode = null;
+                    rend.material.color = Color.red;
+                }
+                Instantiate(box, new Vector3(Random.Range(player.transform.position.x + 1, player.transform.position.x + 10), player.transform.position.y + 10,
                         player.transform.position.z), Quaternion.identity);
-            miningNode.OnBoxSpawn();
+            }
+
             yield return new WaitForSeconds(timeBetweenBoxes);
             if (pickedUp)
             {
                 yield break;
             }
         }
+        minedNode = null;
+        rend.material.color = Color.red;
+        yield return null;
     }
+
 }
