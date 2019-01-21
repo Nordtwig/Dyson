@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script creator Ulrik. Modified by Robin, 
+/// </summary>
+
 public class PlayerController : MonoBehaviour {
 
 	private Rigidbody rb;

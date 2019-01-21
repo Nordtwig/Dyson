@@ -16,6 +16,7 @@ public class MiningRig : MonoBehaviour
     private GameObject player;
     private MeshRenderer rend;
     private MiningNode minedNode; //currently minedNode set to null when no minedNode
+    private Color baseColor;
 
     public bool functioning = true;
 
@@ -24,6 +25,7 @@ public class MiningRig : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         rend = rigStatus.GetComponent<MeshRenderer>();
         rend.material.color = Color.red;
+        baseColor = casing.GetComponent<MeshRenderer>().material.color;
     }
 
     private void OnEnable()
@@ -115,7 +117,6 @@ public class MiningRig : MonoBehaviour
                 yield break;
             }
         }
-        minedNode = null;
         rend.material.color = Color.red;
         yield return null;
     }
@@ -123,7 +124,7 @@ public class MiningRig : MonoBehaviour
     public void Repair()
     {
         functioning = true;
-        casing.GetComponent<MeshRenderer>().material.color = Color.white;
+        casing.GetComponent<MeshRenderer>().material.color = baseColor;
         if (minedNode)
         {
             StartCoroutine(CoBoxSpawn(minedNode.resourceValue));

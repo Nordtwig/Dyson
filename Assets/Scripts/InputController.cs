@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script creator Robin
+/// </summary>
+
 public class InputController : MonoBehaviour
 {
     PlayerController player;

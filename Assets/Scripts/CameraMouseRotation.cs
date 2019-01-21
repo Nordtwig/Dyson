@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Script creator Robin
+/// </summary>
 public class CameraMouseRotation : MonoBehaviour
 {
     public float speedH = 2.0f;
