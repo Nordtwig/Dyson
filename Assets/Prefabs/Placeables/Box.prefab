@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ebe29da7e0e7b41bb85cf53aecea85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationFreeze: 1
+  fallingSpeed: 1
 --- !u!54 &2968500262769446224
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,10 +144,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2968500262769446229}
     m_Modifications:
-    - target: {fileID: 100000, guid: 91d625bfbf53079438c96a78ae1a8f4e, type: 3}
-      propertyPath: m_Name
-      value: BoxModel
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 91d625bfbf53079438c96a78ae1a8f4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -189,6 +187,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 91d625bfbf53079438c96a78ae1a8f4e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 91d625bfbf53079438c96a78ae1a8f4e, type: 3}
+      propertyPath: m_Name
+      value: BoxModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91d625bfbf53079438c96a78ae1a8f4e, type: 3}
