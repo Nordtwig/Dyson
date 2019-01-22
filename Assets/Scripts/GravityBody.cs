@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent (typeof (Rigidbody))]
 public class GravityBody : MonoBehaviour {
     [SerializeField] private bool rotationFreeze = true;
+
+	[Range (0.1f, 2f), SerializeField, Tooltip("1 = Unmodified, 1.X = Falls faster, 0.X = Falls slower")]
+	float fallingSpeed = 1f;
     GravityAttractor asteroid;
 
     void Awake() {
@@ -15,6 +18,6 @@ public class GravityBody : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        asteroid.Attract(transform);
+        asteroid.Attract(transform, fallingSpeed);
     }
 }

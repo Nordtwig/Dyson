@@ -16,6 +16,7 @@ public class MiningRig : MonoBehaviour
     private GameObject player;
     private MeshRenderer rend;
     private MiningNode minedNode; //currently minedNode set to null when no minedNode
+    private Color baseColor;
 
     public bool functioning = true;
 
@@ -24,6 +25,7 @@ public class MiningRig : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         rend = rigStatus.GetComponent<MeshRenderer>();
         rend.material.color = Color.red;
+        baseColor = casing.GetComponent<MeshRenderer>().material.color;
     }
 
     private void OnEnable()
@@ -52,7 +54,7 @@ public class MiningRig : MonoBehaviour
         gameObject.SetActive(true);
         pickedUp = false;
         player.GetComponent<PlayerController>().hasBox = false;
-        transform.position = player.transform.position + player.transform.TransformDirection(Vector3.forward * 3);
+        transform.position = player.transform.position + player.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 3);
     }
 
     //If the object collides with the "Node" tag AND picked up is false(released), changes color to green and starts spawning boxes
@@ -66,7 +68,6 @@ public class MiningRig : MonoBehaviour
                 Debug.Log(minedNode);
                 if (functioning)
                 {
-                    rend.material.color = Color.green;
                     StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
                 }
             }
@@ -76,6 +77,7 @@ public class MiningRig : MonoBehaviour
         {
             functioning = false;
             casing.GetComponent<MeshRenderer>().material.color = new Color(0.6f, 0, 0);
+            rend.material.color = Color.red;
         }
     }
 
@@ -101,8 +103,8 @@ public class MiningRig : MonoBehaviour
                     minedNode = null;
                     rend.material.color = Color.red;
                 }
-                Instantiate(box, new Vector3(Random.Range(transform.position.x + 1, transform.position.x + 10), transform.position.y + 10,
-                        transform.position.z), Quaternion.identity);
+                rend.material.color = Color.green;
+                Instantiate(box, transform.TransformDirection(Vector3.up * 55 + Vector3.right * Random.Range(-10, 10) + Vector3.forward * Random.Range(-10, 10)), Quaternion.identity);
             }
             else
             {
@@ -115,7 +117,6 @@ public class MiningRig : MonoBehaviour
                 yield break;
             }
         }
-        minedNode = null;
         rend.material.color = Color.red;
         yield return null;
     }
@@ -123,7 +124,7 @@ public class MiningRig : MonoBehaviour
     public void Repair()
     {
         functioning = true;
-        casing.GetComponent<MeshRenderer>().material.color = Color.white;
+        casing.GetComponent<MeshRenderer>().material.color = baseColor;
         if (minedNode)
         {
             StartCoroutine(CoBoxSpawn(minedNode.resourceValue));

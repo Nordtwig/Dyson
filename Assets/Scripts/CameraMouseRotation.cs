@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Script creator Robin
+/// </summary>
 public class CameraMouseRotation : MonoBehaviour
 {
     public float speedH = 2.0f;
@@ -15,7 +17,7 @@ public class CameraMouseRotation : MonoBehaviour
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
 
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        transform.localEulerAngles = new Vector3(pitch, yaw, 0.0f);
     }
 
 }

@@ -32,7 +32,7 @@ public class Box : MonoBehaviour
         //Debug.Log("A box has been dropped");
         gameObject.transform.SetParent(null);
         gameObject.SetActive(true);
-        transform.position = player.transform.position + player.transform.TransformDirection(Vector3.forward * 3);
+        transform.position = player.transform.position + player.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 3);
     }
 
     private void OnTriggerEnter(Collider other)

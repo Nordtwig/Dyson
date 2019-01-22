@@ -8,7 +8,6 @@ using UnityEngine;
 
 public class InteractionZone : MonoBehaviour
 {
-    private Box box;
     private GameObject player;
 
     private void Start()
@@ -25,11 +24,11 @@ public class InteractionZone : MonoBehaviour
         }
         else if (other.tag == "Rig" && !other.gameObject.GetComponent<MiningRig>().functioning && !player.GetComponent<PlayerController>().hasBox)
         {
-            other.gameObject.GetComponent<MiningRig>().Repair();
+            other.gameObject.GetComponentInChildren<MiningRig>().Repair();
         }
         else if (other.tag == "Rig" && !player.GetComponent<PlayerController>().hasBox)
         {
-            other.gameObject.GetComponent<MiningRig>().PickUpRig();
+            other.gameObject.GetComponentInChildren<MiningRig>().PickUpRig();
         }
     }
 }

@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
+
+/// <summary>
+/// Script creator Robin
+/// </summary>
 
 public class GameController : MonoBehaviour
 {
@@ -19,6 +24,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject miningRig;
     [SerializeField] private GameObject node;
     private PlayerController player;
+    private Text timeText;
+    private GameObject gameOverText;
 
     //General
     private int boxAmount = 0;
@@ -26,6 +33,7 @@ public class GameController : MonoBehaviour
     public int currentPhase = 1;
     private int sceneAtm = 0; //Current scene
     private bool debugMode = false;
+    public float totalTimeInPhase;
 
     //STATE
     public GameControllerState state = GameControllerState.NULL;
@@ -60,7 +68,14 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        timeText = GameObject.Find("TimeLeftInPhase").GetComponent<Text>();
+        gameOverText = GameObject.Find("GameOverText");
+        gameOverText.SetActive(false);
+    }
 
+    private void Update()
+    {
+        PhaseTimer();
     }
 
     public void Restart()
@@ -77,7 +92,7 @@ public class GameController : MonoBehaviour
         Debug.Log(boxAmount + "/" + phaseAmount + " Boxes delivered");
         if (boxAmount >= phaseAmount)
         {
-            FindObjectOfType<Sled>().Launch();
+            StartCoroutine(FindObjectOfType<Sled>().Launch());
             boxAmount = 0;
         }
         // Set UI text instead
@@ -149,6 +164,29 @@ public class GameController : MonoBehaviour
     public void SetDebugMode(bool value)
     {
         debugMode = value;
+    }
+
+    public void PhaseTimer()
+    {
+        
+        string timer = String.Format("Time Remaining: {0:0}:{1:00}", (int)totalTimeInPhase / 60, (int)totalTimeInPhase % 60);
+        timeText.text = timer;
+        totalTimeInPhase -= Time.deltaTime;
+
+        if (totalTimeInPhase <= 30)
+        {
+            timeText.color = Color.red;
+        }
+        else
+        {
+            timeText.color = Color.black;
+        }
+
+        if (totalTimeInPhase <= 0)
+        {
+            gameOverText.SetActive(true);    
+            //GameOver Condition!
+        }
     }
 
 }
