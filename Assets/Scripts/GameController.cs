@@ -18,13 +18,14 @@ public class GameController : MonoBehaviour
 
     //Texts
     private Text boxAmountText;
+	private Text timeText;
+	private Text currentPhaseText;
 
-    //Objects
-    [SerializeField] private GameObject box;
+	//Objects
+	[SerializeField] private GameObject box;
     [SerializeField] private GameObject miningRig;
     [SerializeField] private GameObject node;
     private PlayerController player;
-    private Text timeText;
     private GameObject gameOverText;
 
     //General
@@ -35,8 +36,16 @@ public class GameController : MonoBehaviour
     private bool debugMode = false;
     public float totalTimeInPhase;
 
-    //STATE
-    public GameControllerState state = GameControllerState.NULL;
+	//Phase Specifics
+	[Header("Phase Specifics")]
+	[SerializeField] private int phase1BoxAmount;
+	[SerializeField] private int phase2BoxAmount;
+	[SerializeField] private int phase3BoxAmount;
+	[SerializeField] private int phase4BoxAmount;
+	[SerializeField] private int phase5BoxAmount;
+
+	//STATE
+	public GameControllerState state = GameControllerState.NULL;
 
     public enum GameControllerState
     {
@@ -69,9 +78,12 @@ public class GameController : MonoBehaviour
     void Start()
     {
         timeText = GameObject.Find("TimeLeftInPhase").GetComponent<Text>();
-        gameOverText = GameObject.Find("GameOverText");
+		currentPhaseText = GameObject.Find("CurrentPhaseText").GetComponent<Text>();
+		boxAmountText = GameObject.Find("BoxAmountText").GetComponent<Text>();
+		gameOverText = GameObject.Find("GameOverText");
         gameOverText.SetActive(false);
-    }
+		SetBoxAmountText();
+	}
 
     private void Update()
     {
@@ -79,10 +91,11 @@ public class GameController : MonoBehaviour
         {
             //DO THINGS THAT SHOULD BE DONE IN EVERY PHASE
             PhaseTimer();
+			currentPhaseText.text = "Current Phase: " + currentPhase;
 
-            if (currentPhase == 1)
+			if (currentPhase == 1)
             {
-                //DO PHASE SPECIFIC THINGS (EG. Set phase specific time, boxAmount, building dyson, etc.)
+                
             }
 
             else if (currentPhase == 2)
@@ -145,45 +158,55 @@ public class GameController : MonoBehaviour
     }
 
     public void BoxDelivered()
-    {
-        boxAmount++;
-        Debug.Log(boxAmount + "/" + phaseAmount + " Boxes delivered");
-        if (boxAmount >= phaseAmount)
-        {
+	{
+		boxAmount++;
+		//Debug.Log(boxAmount + "/" + phaseAmount + " Boxes delivered");
+		if (boxAmount >= phaseAmount)
+		{
             StartCoroutine(FindObjectOfType<Sled>().CoLaunch());
-            IncrementPhase();
-        }
-        // Set UI text instead
-    }
+			Invoke("IncrementPhase", 2f);
+			Invoke("SetBoxAmountText", 2f);
+		}
+		SetBoxAmountText();
+		// Set UI text instead
+	}
 
-    // ============================= PHASE CHANGING STUFF HERE =============================
-    private void IncrementPhase()
+	private void SetBoxAmountText()
+	{
+		boxAmountText.text = "Boxes Delivered: " + boxAmount + "/" + phaseAmount;
+	}
+
+	// ============================= PHASE CHANGING STUFF HERE =============================
+	private void IncrementPhase()
     {
-        boxAmount = 0;
+		currentPhase++;
+		boxAmount = 0;
 
-        if(currentPhase == 1)
+		if (currentPhase == 1)
         {
-            
-        }
+			//DO PHASE SPECIFIC THINGS (EG. Set phase specific time, boxAmount, building dyson, etc.)
+			phaseAmount = phase1BoxAmount;
+		}
 
-        else if (currentPhase == 2)
+		else if (currentPhase == 2)
         {
-
-        }
+			phaseAmount = phase2BoxAmount;
+			totalTimeInPhase = 180f;
+		}
 
         else if (currentPhase == 3)
         {
-
+			phaseAmount = phase3BoxAmount;
         }
 
         else if (currentPhase == 4)
         {
-
+			phaseAmount = phase4BoxAmount;
         }
 
         else if (currentPhase == 5)
         {
-
+			phaseAmount = phase5BoxAmount;
         }
     }
 
