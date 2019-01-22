@@ -54,7 +54,7 @@ public class MiningRig : MonoBehaviour
         gameObject.SetActive(true);
         pickedUp = false;
         player.GetComponent<PlayerController>().hasBox = false;
-        transform.position = player.transform.position + player.transform.TransformDirection(Vector3.forward * 3);
+        transform.position = player.transform.position + player.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 3);
     }
 
     //If the object collides with the "Node" tag AND picked up is false(released), changes color to green and starts spawning boxes
@@ -104,8 +104,7 @@ public class MiningRig : MonoBehaviour
                     rend.material.color = Color.red;
                 }
                 rend.material.color = Color.green;
-                Instantiate(box, new Vector3(Random.Range(transform.position.x + 1, transform.position.x + 10), transform.position.y + 10,
-                        transform.position.z), Quaternion.identity);
+                Instantiate(box, transform.TransformDirection(Vector3.up * 55 + Vector3.right * Random.Range(-10, 10) + Vector3.forward * Random.Range(-10, 10)), Quaternion.identity);
             }
             else
             {

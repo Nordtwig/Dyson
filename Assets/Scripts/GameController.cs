@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     public void Restart()
@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
         Debug.Log(boxAmount + "/" + phaseAmount + " Boxes delivered");
         if (boxAmount >= phaseAmount)
         {
-            FindObjectOfType<Sled>().Launch();
+            StartCoroutine(FindObjectOfType<Sled>().Launch());
             boxAmount = 0;
         }
         // Set UI text instead
