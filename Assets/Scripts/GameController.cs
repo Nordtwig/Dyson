@@ -77,13 +77,18 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        timeText = GameObject.Find("TimeLeftInPhase").GetComponent<Text>();
-		currentPhaseText = GameObject.Find("CurrentPhaseText").GetComponent<Text>();
-		boxAmountText = GameObject.Find("BoxAmountText").GetComponent<Text>();
-		gameOverText = GameObject.Find("GameOverText");
-        gameOverText.SetActive(false);
-		SetBoxAmountText();
+        StartUp();
 	}
+
+    private void StartUp()
+    {
+        timeText = GameObject.Find("TimeLeftInPhase").GetComponent<Text>();
+        currentPhaseText = GameObject.Find("CurrentPhaseText").GetComponent<Text>();
+        boxAmountText = GameObject.Find("BoxAmountText").GetComponent<Text>();
+        gameOverText = GameObject.Find("GameOverText");
+        gameOverText.SetActive(false);
+        SetBoxAmountText();
+    }
 
     private void Update()
     {
@@ -147,7 +152,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            timeText.color = Color.black;
+            timeText.color = Color.green;
         }
 
         if (totalTimeInPhase <= 0)
@@ -216,6 +221,7 @@ public class GameController : MonoBehaviour
         boxAmount = 0;
         SceneManager.LoadScene(sceneAtm);
         state = GameControllerState.GAME;
+        StartUp();
     }
 
     public void MainMenu()
