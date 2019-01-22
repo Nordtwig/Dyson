@@ -49,4 +49,5 @@ MonoBehaviour:
   node: {fileID: 2786884455184307268, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
   phaseAmount: 5
   currentPhase: 1
+  totalTimeInPhase: 180
   state: 1
