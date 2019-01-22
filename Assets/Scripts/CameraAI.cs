@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// Christoffer Brandt
+/// </summary>
 
 public class CameraAI : MonoBehaviour
 {
