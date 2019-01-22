@@ -37,7 +37,7 @@ public class CameraFollow : MonoBehaviour
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
 
-        rotY.localEulerAngles = new Vector3(pitch, 0.0f, 0.0f);
+        //rotY.localEulerAngles = new Vector3(pitch, 0.0f, 0.0f);
         rotX.localEulerAngles = new Vector3(0.0f, yaw, 0.0f);
     }
 }
