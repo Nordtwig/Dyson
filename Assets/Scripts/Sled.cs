@@ -22,7 +22,7 @@ public class Sled : MonoBehaviour
         sledStartRotation = sled.transform.rotation;
     }
 
-    public IEnumerator Launch()
+    public IEnumerator CoLaunch()
     {
         if (!coroutineRunning)
         {
