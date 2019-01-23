@@ -167,5 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62104d0efbd876e429690e61da267854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miningNode: {fileID: 6555483470141781774, guid: 499aacac0e10d104098d48eee3360165,
+    type: 3}
+  randomNodeSpawnChance: 0.05
   dangerZone: {fileID: 6230382871793767043, guid: 65916c4d47401a6408640b1da83f45d0,
     type: 3}

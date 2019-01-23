@@ -148,18 +148,11 @@ public class GameController : MonoBehaviour
     public void BoxDelivered()
 	{
 		boxAmount++;
-		if (boxAmount >= phaseAmount)
-		{
-            StartCoroutine(FindObjectOfType<Sled>().CoLaunch());
-			Invoke("IncrementPhase", 2f);
-            FindObjectOfType<BarScript>().InvokeProgressBarUpdate(2);
-		}
-
         FindObjectOfType<BarScript>().ProgressBarUpdate();
 	}
 
 	// ============================= PHASE CHANGING STUFF HERE =============================
-	private void IncrementPhase()
+	public void IncrementPhase()
     {
         if (currentPhase != phaseSpecifics.Length - 1)
         {
