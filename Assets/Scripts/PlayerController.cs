@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour {
     private IEnumerator CoInteractionZoneHandler()
     {
         interactionZone.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         interactionZone.gameObject.SetActive(false);
         yield return null;
     }

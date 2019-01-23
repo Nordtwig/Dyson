@@ -1557,6 +1557,16 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2968500262769446225, guid: 8ae88b175eb6c734d8fa27ad45389144,
+        type: 3}
+      propertyPath: fallingSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968500262769446225, guid: 8ae88b175eb6c734d8fa27ad45389144,
+        type: 3}
+      propertyPath: rotationFreeze
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7095585309488811737, guid: 8ae88b175eb6c734d8fa27ad45389144,
         type: 3}
       propertyPath: player

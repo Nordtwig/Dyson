@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationFreeze: 1
-  fallingSpeed: 1
+  fallingSpeed: 3
 --- !u!65 &252111484
 BoxCollider:
   m_ObjectHideFlags: 0
