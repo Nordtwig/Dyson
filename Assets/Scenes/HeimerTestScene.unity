@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7f390dfc602a44192a1d9c79fc45cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCount: 5
+  initialSpawnCount: 10
   miningNode: {fileID: 6555483470141781774, guid: 499aacac0e10d104098d48eee3360165,
     type: 3}
 --- !u!1001 &1184671222
