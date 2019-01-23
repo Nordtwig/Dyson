@@ -17,7 +17,6 @@ public class InteractionZone : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        
         if (other.tag == "Box" && !player.GetComponent<PlayerController>().hasBox)
         {
             other.gameObject.GetComponent<Box>().PickUpBox();
