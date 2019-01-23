@@ -4,36 +4,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Script creator Ulrik. Modified by Robin, 
+/// Script creator Ulrik. Modified/cleaned by Robin, 
 /// </summary>
 
 public class PlayerController : MonoBehaviour {
 
 	private Rigidbody rb;
-    public Collider interactionZone;
+    [SerializeField] private Collider interactionZone;
+
     public bool hasBox;
-
-
     public float playerSpeed;
+    private bool coRunning = false;
 
     void Start() {
 		rb = GetComponent<Rigidbody>();
     }
 
-    void Update() {
-		PlayerMove();
-        PlayerInteraction();
-    }
-
-    public void PlayerMove()
+    public void PlayerMove(float moveX, float moveY)
 	{
-        Vector3 moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * playerSpeed * Time.deltaTime;
+        Vector3 moveDirection = new Vector3(moveX, 0, moveY).normalized * playerSpeed * Time.deltaTime;
         rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
     }
 
     public void PlayerInteraction()
     {
-        if (Input.GetButtonDown("Jump") && hasBox)
+        if (hasBox)
         {
             hasBox = false;
             if (GetComponentInChildren<Box>(true))
@@ -48,14 +43,18 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        else if (Input.GetButtonDown("Jump") && !hasBox)
+        else if (!coRunning)
         {
-            interactionZone.gameObject.SetActive(true);
+            StartCoroutine(CoInteractionZoneHandler());
         }
 
-        if (Input.GetButtonUp("Jump"))
-        {
-            interactionZone.gameObject.SetActive(false);
-        }
+    }
+
+    private IEnumerator CoInteractionZoneHandler()
+    {
+        interactionZone.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        interactionZone.gameObject.SetActive(false);
+        yield return null;
     }
 }

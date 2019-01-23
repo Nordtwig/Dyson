@@ -8,20 +8,20 @@ using UnityEngine.UI;
 
 public class barScript : MonoBehaviour
 {
-    public Slider progressBar;
+    public Slider ProgressBar;
     public float maxBoxes = 5, percentageNumber;
     public Text Percentage, NextTurnText;
 
     void Start()
     {
-        progressBar.value = (float) GameController.instance.GetAmountOfDeliveredBoxes() / maxBoxes;
+        ProgressBar.value = (float) GameController.instance.GetAmountOfDeliveredBoxes() / maxBoxes;
         percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() / maxBoxes) * 100;
         Percentage.text = percentageNumber.ToString();
     }
 
     void ProgressBarUpdate()
     {
-        progressBar.value = GameController.instance.GetAmountOfDeliveredBoxes() / maxBoxes;
+        ProgressBar.value = GameController.instance.GetAmountOfDeliveredBoxes() / maxBoxes;
         if (GameController.instance.GetAmountOfDeliveredBoxes() <= 5)
         {
             NextTurn();

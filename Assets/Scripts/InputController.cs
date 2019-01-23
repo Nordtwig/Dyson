@@ -27,7 +27,20 @@ public class InputController : MonoBehaviour
             Debug.Log(GameController.instance.GetDebugMode());
         }
 
+        CheckAndRunPlayerKeys();
+
         CheckAndRunDebugKeys();
+    }
+
+    private void CheckAndRunPlayerKeys()
+    {
+        player.PlayerMove(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            player.PlayerInteraction();
+        }
+        
     }
 
     //Checks if any debug key has been pressed and executes that command is DebugMode is true
