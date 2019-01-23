@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Made by Robin
+/// </summary>
+
 public class SafeZone : MonoBehaviour
 {
 

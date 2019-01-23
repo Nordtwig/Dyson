@@ -9,6 +9,7 @@ TagManager:
   - Node
   - Rig
   - Meteroid
+  - LaunchButton
   layers:
   - Default
   - TransparentFX

@@ -273,7 +273,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7044608364892185544}
   - component: {fileID: 7044608364892185559}
-  - component: {fileID: 7044608364892185558}
   m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -352,15 +351,3 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7044608364892185558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7044608364892185547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bb5cef41cf1a3848bdc270368ddf998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

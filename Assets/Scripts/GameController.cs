@@ -148,7 +148,7 @@ public class GameController : MonoBehaviour
     public void BoxDelivered()
 	{
 		boxAmount++;
-        FindObjectOfType<BarScript>().ProgressBarUpdate();
+        FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
 	}
 
 	// ============================= PHASE CHANGING STUFF HERE =============================

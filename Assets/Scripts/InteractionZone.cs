@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Created by Svedlund and Heimer, modified by Heimer
+/// Created by Svedlund and Heimer, modified by Heimer, Robin
 /// </summary>
 
 public class InteractionZone : MonoBehaviour
@@ -21,7 +21,7 @@ public class InteractionZone : MonoBehaviour
         {
             StartCoroutine(FindObjectOfType<Sled>().CoLaunch());
             GameController.instance.IncrementPhase();
-            FindObjectOfType<BarScript>().ProgressBarUpdate();
+            FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
         }
         else if (other.tag == "Box" && !player.GetComponent<PlayerController>().hasBox)
         {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// Christoffer Brandt, Modified by Robin
 /// </summary>
 
-public class BarScript : MonoBehaviour
+public class ProgressBarScript : MonoBehaviour
 {
     private Slider progressBar;
     private Text percentage;
@@ -17,7 +17,7 @@ public class BarScript : MonoBehaviour
     {
         progressBar = FindObjectOfType<Slider>();
         percentage = GameObject.Find("Percentage").GetComponent<Text>();
-        progressBar.value = (float) GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount;
+        progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount;
         percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount) * 100;
         percentage.text = percentageNumber.ToString() + "% of Boxes delivered";
     }
@@ -25,8 +25,8 @@ public class BarScript : MonoBehaviour
     public void ProgressBarUpdate()
     {
         progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount;
-        percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes()*100) / GameController.instance.phaseAmount;
-        if (percentageNumber != 100)
+        percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() * 100) / GameController.instance.phaseAmount;
+        if (percentageNumber < 100)
         {
             string temp = percentageNumber.ToString();
             percentage.text = temp + "% of Boxes delivered";
@@ -35,7 +35,7 @@ public class BarScript : MonoBehaviour
         {
             percentage.text = "Ready to launch!";
         }
-        
+
     }
 
     public void InvokeProgressBarUpdate(int time)
