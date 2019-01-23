@@ -17,7 +17,13 @@ public class InteractionZone : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Box" && !player.GetComponent<PlayerController>().hasBox)
+        if (other.tag == "LaunchButton" && GameController.instance.GetAmountOfDeliveredBoxes() >= GameController.instance.phaseAmount)
+        {
+            StartCoroutine(FindObjectOfType<Sled>().CoLaunch());
+            GameController.instance.IncrementPhase();
+            FindObjectOfType<BarScript>().ProgressBarUpdate();
+        }
+        else if (other.tag == "Box" && !player.GetComponent<PlayerController>().hasBox)
         {
             other.gameObject.GetComponent<Box>().PickUpBox();
         }

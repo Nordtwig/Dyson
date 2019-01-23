@@ -26,8 +26,16 @@ public class BarScript : MonoBehaviour
     {
         progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount;
         percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes()*100) / GameController.instance.phaseAmount;
-        string temp = percentageNumber.ToString();
-        percentage.text = temp + "% of Boxes delivered";
+        if (percentageNumber != 100)
+        {
+            string temp = percentageNumber.ToString();
+            percentage.text = temp + "% of Boxes delivered";
+        }
+        else
+        {
+            percentage.text = "Ready to launch!";
+        }
+        
     }
 
     public void InvokeProgressBarUpdate(int time)
