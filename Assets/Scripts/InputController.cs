@@ -27,7 +27,7 @@ public class InputController : MonoBehaviour
             Debug.Log(GameController.instance.GetDebugMode());
         }
 
-
+        CheckAndRunPlayerKeys();
 
         CheckAndRunDebugKeys();
     }

@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 
     public bool hasBox;
     public float playerSpeed;
+    private bool coRunning = false;
 
     void Start() {
 		rb = GetComponent<Rigidbody>();
@@ -42,11 +43,18 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        else 
+        else if (!coRunning)
         {
-            interactionZone.gameObject.SetActive(true);
+            StartCoroutine(CoInteractionZoneHandler());
         }
 
+    }
+
+    private IEnumerator CoInteractionZoneHandler()
+    {
+        interactionZone.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
         interactionZone.gameObject.SetActive(false);
+        yield return null;
     }
 }
