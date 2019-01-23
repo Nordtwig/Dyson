@@ -11,16 +11,10 @@ public class MeteroidSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(CoSpawnMeteroids());
+        StartCoroutine(CoSpawnMeteroids(timeBetweenSpawns));
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public IEnumerator CoSpawnMeteroids()
+    
+    public IEnumerator CoSpawnMeteroids(float timeBetweenSpawns)
     {
         while (true)
         {

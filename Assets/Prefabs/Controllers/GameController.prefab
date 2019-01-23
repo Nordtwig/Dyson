@@ -44,10 +44,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 2968500262769446227, guid: 8ae88b175eb6c734d8fa27ad45389144, type: 3}
-  miningRig: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
+  miningRig: {fileID: 1346940179161717314, guid: afe146540c7d5a141a697b0584727db5,
     type: 3}
   node: {fileID: 2786884455184307268, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
   phaseAmount: 5
-  currentPhase: 1
+  currentPhase: 0
   totalTimeInPhase: 180
-  state: 1
+  phaseSpecifics:
+  - totalTimeInPhase: 0
+    phaseBoxAmount: 0
+    timeBetweenMeteroids: 0
+  - totalTimeInPhase: 180
+    phaseBoxAmount: 5
+    timeBetweenMeteroids: 3
+  - totalTimeInPhase: 180
+    phaseBoxAmount: 7
+    timeBetweenMeteroids: 2
+  - totalTimeInPhase: 180
+    phaseBoxAmount: 10
+    timeBetweenMeteroids: 1
+  - totalTimeInPhase: 180
+    phaseBoxAmount: 12
+    timeBetweenMeteroids: 0.5
+  - totalTimeInPhase: 180
+    phaseBoxAmount: 15
+    timeBetweenMeteroids: 0.1
+  state: 3
