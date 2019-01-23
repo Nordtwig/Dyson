@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
 
     //General
     private int boxAmount = 0;
-    [SerializeField] private int phaseAmount = 5;
+    public int phaseAmount = 5;
     public int currentPhase = 0;
     private int sceneAtm = 0; //Current scene
     private bool debugMode = false;
@@ -75,19 +75,16 @@ public class GameController : MonoBehaviour
     {
         StartUp();
         IncrementPhase();
-        SetBoxAmountText();
 	}
 
     private void StartUp()
     {
         timeText = GameObject.Find("TimeLeftInPhase").GetComponent<Text>();
         currentPhaseText = GameObject.Find("CurrentPhaseText").GetComponent<Text>();
-        boxAmountText = GameObject.Find("BoxAmountText").GetComponent<Text>();
         meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
         gameOverText = GameObject.Find("GameOverText");
 
         gameOverText.SetActive(false);
-        SetBoxAmountText();
     }
 
     private void Update()
@@ -151,21 +148,14 @@ public class GameController : MonoBehaviour
     public void BoxDelivered()
 	{
 		boxAmount++;
-		//Debug.Log(boxAmount + "/" + phaseAmount + " Boxes delivered");
 		if (boxAmount >= phaseAmount)
 		{
             StartCoroutine(FindObjectOfType<Sled>().CoLaunch());
 			Invoke("IncrementPhase", 2f);
-			Invoke("SetBoxAmountText", 2f);
+            FindObjectOfType<BarScript>().InvokeProgressBarUpdate(2);
 		}
-        
-        SetBoxAmountText();
-		// Set UI text instead
-	}
 
-	private void SetBoxAmountText()
-	{
-		boxAmountText.text = "Boxes Delivered: " + boxAmount + "/" + phaseAmount;
+        FindObjectOfType<BarScript>().ProgressBarUpdate();
 	}
 
 	// ============================= PHASE CHANGING STUFF HERE =============================

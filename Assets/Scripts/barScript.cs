@@ -3,33 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
-/// Christoffer Brandt
+/// Christoffer Brandt, Modified by Robin
 /// </summary>
 
-public class barScript : MonoBehaviour
+public class BarScript : MonoBehaviour
 {
-    public Slider ProgressBar;
-    public float maxBoxes = 5, percentageNumber;
-    public Text Percentage, NextTurnText;
+    private Slider progressBar;
+    private Text percentage;
+
+    private float percentageNumber;
 
     void Start()
     {
-        ProgressBar.value = (float) GameController.instance.GetAmountOfDeliveredBoxes() / maxBoxes;
-        percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() / maxBoxes) * 100;
-        Percentage.text = percentageNumber.ToString();
+        progressBar = FindObjectOfType<Slider>();
+        percentage = GameObject.Find("Percentage").GetComponent<Text>();
+        progressBar.value = (float) GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount;
+        percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount) * 100;
+        percentage.text = percentageNumber.ToString() + "% of Boxes delivered";
     }
 
-    void ProgressBarUpdate()
+    public void ProgressBarUpdate()
     {
-        ProgressBar.value = GameController.instance.GetAmountOfDeliveredBoxes() / maxBoxes;
-        if (GameController.instance.GetAmountOfDeliveredBoxes() <= 5)
-        {
-            NextTurn();
-        }
+        progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount;
+        percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes()*100) / GameController.instance.phaseAmount;
+        string temp = percentageNumber.ToString();
+        percentage.text = temp + "% of Boxes delivered";
     }
 
-    void NextTurn()
+    public void InvokeProgressBarUpdate(int time)
     {
-        NextTurnText.text = NextTurnText.ToString();
+        Invoke("ProgressBarUpdate", time);
     }
+
 }
