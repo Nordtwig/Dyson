@@ -19,9 +19,7 @@ public class Box : MonoBehaviour
     public void PickUpBox()
     {
         player.GetComponent<PlayerController>().hasBox = true;
-        //Debug.Log("A box has been picked up");
         transform.SetParent(player.transform);
-        transform.position = player.transform.position;
         gameObject.SetActive(false);
     }
 
@@ -29,7 +27,6 @@ public class Box : MonoBehaviour
     public void DropBox()
     {
         player.GetComponent<PlayerController>().hasBox = false;
-        //Debug.Log("A box has been dropped");
         gameObject.transform.SetParent(null);
         gameObject.SetActive(true);
         transform.position = player.transform.position + player.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 3);

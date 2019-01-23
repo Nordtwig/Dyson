@@ -39,7 +39,6 @@ public class MiningRig : MonoBehaviour
     //Rig is parented to player on pickup, despawns and changes a bool to indicate the player is carrying it
     public void PickUpRig()
     {
-
         transform.SetParent(player.transform);
         transform.position = player.transform.position;
         gameObject.SetActive(false);
