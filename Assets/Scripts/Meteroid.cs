@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script creator Petter, Modified by Heimer
+/// </summary>
+
 public class Meteroid : MonoBehaviour
 {
     //If meteroid collides with asteroid, spawns a miningnode according to percentage
