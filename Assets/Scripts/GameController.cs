@@ -27,22 +27,18 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject node;
     private PlayerController player;
     private GameObject gameOverText;
+    private MeteroidSpawner meteroidSpawner;
 
     //General
     private int boxAmount = 0;
-    [SerializeField] private int phaseAmount = 5;
-    public int currentPhase = 1;
+    public int phaseAmount = 5;
+    public int currentPhase = 0;
     private int sceneAtm = 0; //Current scene
     private bool debugMode = false;
     public float totalTimeInPhase;
 
-	//Phase Specifics
-	[Header("Phase Specifics")]
-	[SerializeField] private int phase1BoxAmount;
-	[SerializeField] private int phase2BoxAmount;
-	[SerializeField] private int phase3BoxAmount;
-	[SerializeField] private int phase4BoxAmount;
-	[SerializeField] private int phase5BoxAmount;
+    //Phase Specifics
+    public PhaseSpecifics[] phaseSpecifics;
 
 	//STATE
 	public GameControllerState state = GameControllerState.NULL;
@@ -78,16 +74,17 @@ public class GameController : MonoBehaviour
     void Start()
     {
         StartUp();
+        IncrementPhase();
 	}
 
     private void StartUp()
     {
         timeText = GameObject.Find("TimeLeftInPhase").GetComponent<Text>();
         currentPhaseText = GameObject.Find("CurrentPhaseText").GetComponent<Text>();
-        boxAmountText = GameObject.Find("BoxAmountText").GetComponent<Text>();
+        meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
         gameOverText = GameObject.Find("GameOverText");
+
         gameOverText.SetActive(false);
-        SetBoxAmountText();
     }
 
     private void Update()
@@ -98,30 +95,13 @@ public class GameController : MonoBehaviour
             PhaseTimer();
 			currentPhaseText.text = "Current Phase: " + currentPhase;
 
-			if (currentPhase == 1)
+            for (int i = 0; i < phaseSpecifics.Length; i++)
             {
-                
+                if (i == currentPhase)
+                {
+                    
+                }
             }
-
-            else if (currentPhase == 2)
-            {
-
-            }
-
-            else if (currentPhase == 3)
-            {
-
-            }
-
-            else if (currentPhase == 4)
-            {
-
-            }
-
-            else if (currentPhase == 5)
-            {
-
-            } 
         }
 
         else if (state == GameControllerState.MAINMENU)
@@ -144,8 +124,11 @@ public class GameController : MonoBehaviour
     {
         string timer = String.Format("Time Remaining: {0:0}:{1:00}", (int)totalTimeInPhase / 60, (int)totalTimeInPhase % 60);
         timeText.text = timer;
-        totalTimeInPhase -= Time.deltaTime;
-
+        if (!gameOverText.activeInHierarchy)
+        {
+            totalTimeInPhase -= Time.deltaTime;
+        }
+        
         if (totalTimeInPhase <= 30)
         {
             timeText.color = Color.red;
@@ -165,53 +148,34 @@ public class GameController : MonoBehaviour
     public void BoxDelivered()
 	{
 		boxAmount++;
-		//Debug.Log(boxAmount + "/" + phaseAmount + " Boxes delivered");
 		if (boxAmount >= phaseAmount)
 		{
             StartCoroutine(FindObjectOfType<Sled>().CoLaunch());
 			Invoke("IncrementPhase", 2f);
-			Invoke("SetBoxAmountText", 2f);
+            FindObjectOfType<BarScript>().InvokeProgressBarUpdate(2);
 		}
-		SetBoxAmountText();
-		// Set UI text instead
-	}
 
-	private void SetBoxAmountText()
-	{
-		boxAmountText.text = "Boxes Delivered: " + boxAmount + "/" + phaseAmount;
+        FindObjectOfType<BarScript>().ProgressBarUpdate();
 	}
 
 	// ============================= PHASE CHANGING STUFF HERE =============================
 	private void IncrementPhase()
     {
-		currentPhase++;
-		boxAmount = 0;
-
-		if (currentPhase == 1)
+        if (currentPhase != phaseSpecifics.Length - 1)
         {
-			//DO PHASE SPECIFIC THINGS (EG. Set phase specific time, boxAmount, building dyson, etc.)
-			phaseAmount = phase1BoxAmount;
-		}
-
-		else if (currentPhase == 2)
-        {
-			phaseAmount = phase2BoxAmount;
-			totalTimeInPhase = 180f;
-		}
-
-        else if (currentPhase == 3)
-        {
-			phaseAmount = phase3BoxAmount;
+            currentPhase++;
+            boxAmount = 0;
+            phaseAmount = phaseSpecifics[currentPhase].phaseBoxAmount;
+            totalTimeInPhase = phaseSpecifics[currentPhase].totalTimeInPhase;
+            StartCoroutine(meteroidSpawner.CoSpawnMeteroids(phaseSpecifics[currentPhase].timeBetweenMeteroids));
         }
-
-        else if (currentPhase == 4)
+        else if (currentPhase == phaseSpecifics.Length - 1 && boxAmount == phaseAmount)
         {
-			phaseAmount = phase4BoxAmount;
-        }
-
-        else if (currentPhase == 5)
-        {
-			phaseAmount = phase5BoxAmount;
+            Debug.Log("Test");
+            gameOverText.GetComponent<Text>().fontSize = 10;
+            gameOverText.GetComponent<Text>().color = Color.white;
+            gameOverText.GetComponent<Text>().text = "Congrats, you created a Dyson Sphere!";
+            gameOverText.SetActive(true);
         }
     }
 
