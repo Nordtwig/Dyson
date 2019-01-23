@@ -98,13 +98,13 @@ public class MiningRig : MonoBehaviour
         {
             if (functioning && minedNode)
             {
+                rend.material.color = Color.green;
+                Instantiate(box, transform.TransformDirection(Vector3.up * 55 + Vector3.right * Random.Range(-10, 10) + Vector3.forward * Random.Range(-10, 10)), Quaternion.identity);
                 if (!minedNode.OnBoxSpawn()) //Do when empty 
                 {
                     minedNode = null;
                     rend.material.color = Color.red;
                 }
-                rend.material.color = Color.green;
-                Instantiate(box, transform.TransformDirection(Vector3.up * 55 + Vector3.right * Random.Range(-10, 10) + Vector3.forward * Random.Range(-10, 10)), Quaternion.identity);
             }
             else
             {
