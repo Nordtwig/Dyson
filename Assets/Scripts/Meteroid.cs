@@ -42,7 +42,7 @@ public class Meteroid : MonoBehaviour
 			playerDistance = player.GetComponent<Transform>().position - transform.position;
 			if (playerDistance.sqrMagnitude < meteoroidHitBox)
 			{
-				player.rb.velocity = player.transform.TransformDirection(Vector3.up * upForce) + (playerDistance.normalized / playerDistance.sqrMagnitude) * sideForce;
+				player.rb.velocity = player.transform.TransformDirection(Vector3.up * upForce) + (playerDistance.normalized / Mathf.Clamp(playerDistance.sqrMagnitude, 1, 10)) * sideForce;
 			}
 
 			spawnValue = Random.Range(0f, 1f);
@@ -58,6 +58,6 @@ public class Meteroid : MonoBehaviour
 
     private void DestroyMeteroid()
     {
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(transform.parent.gameObject);
     }
 }
