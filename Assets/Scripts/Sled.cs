@@ -17,12 +17,10 @@ public class Sled : MonoBehaviour
     private Vector3 sledStartPosition;
     private Quaternion sledStartRotation;
     private bool coroutineRunning = false;
-    private Text launchText;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        launchText = GameObject.Find("LaunchTimerText").GetComponent<Text>();
         sled = FindObjectOfType<Sled>();
         sledStartPosition = sled.transform.position;
         sledStartRotation = sled.transform.rotation;
@@ -37,17 +35,19 @@ public class Sled : MonoBehaviour
     {
         if (!coroutineRunning)
         {
+            GameController.instance.hijackedTimerText = true;
             coroutineRunning = true;
-            launchText.text = "3";
+            GameController.instance.timeText.color = Color.red;
+            GameController.instance.timeText.text = "Launch in: 3";
             yield return new WaitForSeconds(1f);
-            launchText.text = "2";
+            GameController.instance.timeText.text = "Launch in: 2";
             yield return new WaitForSeconds(1f);
-            launchText.text = "1";
+            GameController.instance.timeText.text = "Launch in: 1";
             yield return new WaitForSeconds(1f);
-            launchText.text = "Launch!";
+            GameController.instance.timeText.text = "Launch!";
             rb.velocity = transform.TransformDirection(Vector3.up * launchSpeed);
             yield return new WaitForSeconds(1f);
-            launchText.text = "";
+            GameController.instance.hijackedTimerText = false;
             yield return new WaitForSeconds(9f);
             transform.position = sledStartPosition;
             transform.rotation = sledStartRotation;

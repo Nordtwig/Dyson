@@ -14,13 +14,13 @@ public class InteractionZone : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
-
+    
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "LaunchButton" && GameController.instance.GetAmountOfDeliveredBoxes() >= GameController.instance.phaseAmount)
         {
             FindObjectOfType<Sled>().StartLaunchCo();
-            GameController.instance.IncrementPhase();
+            GameController.instance.InvokeIncrementPhase(3);
             FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
         }
         else if (other.tag == "Box" && !player.GetComponent<PlayerController>().hasBox)

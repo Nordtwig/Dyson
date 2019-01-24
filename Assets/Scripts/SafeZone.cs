@@ -11,7 +11,7 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Meteroid" || other.tag == "Node")
+        if (other.tag == "Meteroid" || other.tag == "Node" || other.tag == "DangerZone")
         {
             Destroy(other.gameObject);
         }

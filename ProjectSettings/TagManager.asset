@@ -10,6 +10,7 @@ TagManager:
   - Rig
   - Meteroid
   - LaunchButton
+  - DangerZone
   layers:
   - Default
   - TransparentFX

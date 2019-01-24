@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
 
     //Texts
     private Text boxAmountText;
-	private Text timeText;
+	public Text timeText;
 	private Text currentPhaseText;
 
 	//Objects
@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
     public int currentPhase = 0;
     private int sceneAtm = 0; //Current scene
     private bool debugMode = false;
+    public bool hijackedTimerText = false;
     public float totalTimeInPhase;
 
     //Phase Specifics
@@ -93,7 +94,6 @@ public class GameController : MonoBehaviour
         {
             //DO THINGS THAT SHOULD BE DONE IN EVERY PHASE
             PhaseTimer();
-			currentPhaseText.text = "Current Phase: " + currentPhase;
 
             for (int i = 0; i < phaseSpecifics.Length; i++)
             {
@@ -122,20 +122,24 @@ public class GameController : MonoBehaviour
 
     public void PhaseTimer()
     {
-        string timer = String.Format("Time Remaining: {0:0}:{1:00}", (int)totalTimeInPhase / 60, (int)totalTimeInPhase % 60);
-        timeText.text = timer;
+        
         if (!gameOverText.activeInHierarchy)
         {
             totalTimeInPhase -= Time.deltaTime;
         }
-        
-        if (totalTimeInPhase <= 30)
+
+        if (!hijackedTimerText)
         {
-            timeText.color = Color.red;
-        }
-        else
-        {
-            timeText.color = Color.green;
+            string timer = String.Format("Time Remaining: {0:0}:{1:00}", (int)totalTimeInPhase / 60, (int)totalTimeInPhase % 60);
+            timeText.text = timer;
+            if (totalTimeInPhase <= 30)
+            {
+                timeText.color = Color.red;
+            }
+            else
+            {
+                timeText.color = Color.green;
+            }
         }
 
         if (totalTimeInPhase <= 0)
@@ -156,8 +160,11 @@ public class GameController : MonoBehaviour
     {
         if (currentPhase != phaseSpecifics.Length - 1)
         {
-            currentPhase++;
             boxAmount = 0;
+            if (currentPhase != 0)
+                FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
+            currentPhase++;
+            currentPhaseText.text = "Current Phase: " + currentPhase;
             phaseAmount = phaseSpecifics[currentPhase].phaseBoxAmount;
             totalTimeInPhase = phaseSpecifics[currentPhase].totalTimeInPhase;
             StartCoroutine(meteroidSpawner.CoSpawnMeteroids(phaseSpecifics[currentPhase].timeBetweenMeteroids));
@@ -172,6 +179,13 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void InvokeIncrementPhase(int time)
+    {
+        Invoke("IncrementPhase", time);
+    }
+    // =======================================================================================
+
+    
     public void Restart()
     {
         DestroyAll();
