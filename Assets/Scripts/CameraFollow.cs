@@ -19,14 +19,12 @@ public class CameraFollow : MonoBehaviour
 
     Vector3 offset;
 
-    // Start is called before the first frame update
     void Start()
     {
         offset = anchorPos.position - gameObject.transform.position;
         Cursor.visible = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         gameObject.transform.position = anchorPos.position + offset;
