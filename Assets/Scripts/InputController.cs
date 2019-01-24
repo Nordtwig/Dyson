@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Script creator Robin
@@ -9,10 +10,13 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     PlayerController player;
+    Text helpText;
 
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
+        helpText = GameObject.Find("HelpText").GetComponent<Text>();
+        helpText.enabled = false;
     }
 
     // ===================== Short about ======================================
@@ -25,6 +29,10 @@ public class InputController : MonoBehaviour
         {
             GameController.instance.SetDebugMode(!GameController.instance.GetDebugMode()); //inverts the value of DebugMode
             Debug.Log(GameController.instance.GetDebugMode());
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            helpText.enabled = !helpText.enabled;
         }
 
         CheckAndRunPlayerKeys();
