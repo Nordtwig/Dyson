@@ -39,10 +39,10 @@ MonoBehaviour:
     value: 0
   maxLuminance:
     overrideState: 1
-    value: 9
+    value: 3
   keyValue:
     overrideState: 1
-    value: 2
+    value: 1.5
   eyeAdaptation:
     overrideState: 1
     value: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
     value: 2
   speedDown:
     overrideState: 1
-    value: 0
+    value: 1
 --- !u!114 &114724124534644088
 MonoBehaviour:
   m_ObjectHideFlags: 3
