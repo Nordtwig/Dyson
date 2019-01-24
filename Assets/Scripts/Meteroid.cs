@@ -18,8 +18,16 @@ public class Meteroid : MonoBehaviour
     [SerializeField] GameObject dangerZone;
     private GameObject zone;
 
+	private PlayerController player;
+	private Vector3 playerDistance;
+	private float meteoroidHitBox = 50f;
+	[Range(1, 5), SerializeField] float upForce = 2;
+	[Range (10, 200), SerializeField] int sideForce = 100;
+
     private void Start()
     {
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit))
         {
@@ -31,7 +39,13 @@ public class Meteroid : MonoBehaviour
     {
         if (other.tag == "Asteroid")
         {
-            spawnValue = Random.Range(0f, 1f);
+			playerDistance = player.GetComponent<Transform>().position - transform.position;
+			if (playerDistance.sqrMagnitude < meteoroidHitBox)
+			{
+				player.rb.velocity = player.transform.TransformDirection(Vector3.up * upForce) + (playerDistance.normalized / playerDistance.sqrMagnitude) * sideForce;
+			}
+
+			spawnValue = Random.Range(0f, 1f);
             if (spawnValue <= randomNodeSpawnChance)
             {
                 miningNodeSpawnRotation = gameObject.GetComponentInParent<Transform>().rotation;

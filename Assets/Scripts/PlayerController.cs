@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	private Rigidbody rb;
+	public Rigidbody rb;
     [SerializeField] private Collider interactionZone;
 
     public bool hasBox;
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private IEnumerator CoInteractionZoneHandler()
+	private IEnumerator CoInteractionZoneHandler()
     {
         interactionZone.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.1f);

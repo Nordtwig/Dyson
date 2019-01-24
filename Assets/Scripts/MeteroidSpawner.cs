@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeteroidSpawner : MonoBehaviour
 {
 
-    [SerializeField] float timeBetweenSpawns = 3f;
+    float timeBetweenSpawns = 3f;
     [SerializeField] GameObject meteroid;
     
     // Start is called before the first frame update

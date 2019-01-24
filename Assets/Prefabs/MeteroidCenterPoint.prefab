@@ -173,6 +173,8 @@ MonoBehaviour:
   randomNodeSpawnChance: 0.05
   dangerZone: {fileID: 6230382871793767043, guid: 65916c4d47401a6408640b1da83f45d0,
     type: 3}
+  upForce: 2
+  sideForce: 100
 --- !u!1001 &2677478018175672288
 PrefabInstance:
   m_ObjectHideFlags: 0
