@@ -24,7 +24,6 @@ public class Sled : MonoBehaviour
         sled = FindObjectOfType<Sled>();
         sledStartPosition = sled.transform.position;
         sledStartRotation = sled.transform.rotation;
-		launchText = GameObject.Find("LaunchTimerText").GetComponent<Text>();
 	}
 
 	public void StartLaunchCo()
