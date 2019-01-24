@@ -46,6 +46,8 @@ public class Sled : MonoBehaviour
             yield return new WaitForSeconds(1f);
             launchText.text = "Launch!";
             rb.velocity = transform.TransformDirection(Vector3.up * launchSpeed);
+            yield return new WaitForSeconds(1f);
+            launchText.text = "";
             yield return new WaitForSeconds(9f);
             transform.position = sledStartPosition;
             transform.rotation = sledStartRotation;

@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     public bool hasBox;
     public float playerSpeed;
     private bool coRunning = false;
+    private bool jumping = false;
 
     void Start() {
 		rb = GetComponent<Rigidbody>();
@@ -24,6 +25,15 @@ public class PlayerController : MonoBehaviour {
 	{
         Vector3 moveDirection = new Vector3(moveX, 0, moveY).normalized * playerSpeed * Time.deltaTime;
         rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
+    }
+
+    public void PlayerJump()
+    {
+        if (!jumping)
+        {
+            jumping = true;
+            rb.velocity = transform.TransformDirection(Vector3.up * 10);
+        }
     }
 
     public void PlayerInteraction()
@@ -47,7 +57,6 @@ public class PlayerController : MonoBehaviour {
         {
             StartCoroutine(CoInteractionZoneHandler());
         }
-
     }
 
     private IEnumerator CoInteractionZoneHandler()
@@ -56,5 +65,13 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         interactionZone.gameObject.SetActive(false);
         yield return null;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Asteroid")
+        {
+            jumping = false;
+        }
     }
 }

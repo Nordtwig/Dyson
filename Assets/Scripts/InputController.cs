@@ -38,9 +38,14 @@ public class InputController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            player.PlayerJump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             player.PlayerInteraction();
         }
-        
+
     }
 
     //Checks if any debug key has been pressed and executes that command is DebugMode is true
