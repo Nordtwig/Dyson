@@ -23,6 +23,8 @@ public class Meteroid : MonoBehaviour
 	private float meteoroidHitBox = 50f;
 	[Range(1, 5), SerializeField] float upForce = 2;
 	[Range (10, 200), SerializeField] int sideForce = 100;
+    [SerializeField] int minDistanceHurled = 10;
+    [SerializeField] int maxDistanceHurled = 15;
 
     private void Start()
     {
@@ -42,7 +44,7 @@ public class Meteroid : MonoBehaviour
 			playerDistance = player.GetComponent<Transform>().position - transform.position;
 			if (playerDistance.sqrMagnitude < meteoroidHitBox)
 			{
-				player.rb.velocity = player.transform.TransformDirection(Vector3.up * upForce) + (playerDistance.normalized / Mathf.Clamp(playerDistance.sqrMagnitude, 1, 10)) * sideForce;
+				player.rb.velocity = player.transform.TransformDirection(Vector3.up * upForce) + (playerDistance.normalized / Mathf.Clamp(playerDistance.sqrMagnitude, minDistanceHurled, maxDistanceHurled)) * sideForce;
 			}
 
 			spawnValue = Random.Range(0f, 1f);
