@@ -33,7 +33,7 @@ public class InteractionZone : MonoBehaviour
         }
         else if (other.tag == "Rig" && !player.GetComponent<PlayerController>().hasBox)
         {
-            other.gameObject.GetComponentInChildren<MiningRig>().PickUpRig();
+            other.gameObject.GetComponentInChildren<MiningRig>().StartCoPickUpRig();
         }
     }
 }

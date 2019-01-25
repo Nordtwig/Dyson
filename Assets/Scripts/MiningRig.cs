@@ -40,14 +40,21 @@ public class MiningRig : MonoBehaviour
     }
 
     //Rig is parented to player on pickup, despawns and changes a bool to indicate the player is carrying it
-    public void PickUpRig()
+    private IEnumerator CoPickUpRig()
     {
+        animator.ResetTrigger("OnNodeDeploy");
+        animator.SetTrigger("OnPickUp");
+        yield return new WaitForSeconds(1f);
         transform.SetParent(player.transform);
         transform.position = player.transform.position;
-        animator.SetTrigger("OnPickUp");
         gameObject.SetActive(false);
         player.GetComponent<PlayerController>().hasBox = true;
         pickedUp = true;
+    }
+
+    public void StartCoPickUpRig()
+    {
+        StartCoroutine("CoPickUpRig");
     }
 
     //Rig is un-parented, spawns in front of player and changes the bool to false
@@ -77,13 +84,12 @@ public class MiningRig : MonoBehaviour
                 }
             }
         }
+    }
 
-        if (other.tag == "Meteroid")
-        {
-            functioning = false;
-            //casing.GetComponent<MeshRenderer>().material.color = new Color(0.6f, 0, 0);
-            rend.material.color = Color.red;
-        }
+    public void BreakRig()
+    {
+        functioning = false;
+        rend.material.color = Color.red;
     }
 
     //If exiting node collider, change color to red
@@ -92,6 +98,7 @@ public class MiningRig : MonoBehaviour
         if (other.tag == "Node")
         {
             animator.ResetTrigger("OnNodeDeploy");
+            animator.SetTrigger("OnPickUp");
             minedNode = null;
             rend.material.color = Color.red;
         }
@@ -100,6 +107,7 @@ public class MiningRig : MonoBehaviour
     //Coroutine that uses for loop to create boxes in the rigs proximity within a set interval
     private IEnumerator CoBoxSpawn(int resourseAmount)
     {
+        yield return new WaitForSeconds(2.8f);
         for (int i = 0; i < resourseAmount; i++)
         {
             if (functioning && minedNode)
