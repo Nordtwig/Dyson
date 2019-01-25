@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 
     public bool hasBox;
     public float playerSpeed;
+    private float basePlayerSpeed;
     private bool coRunning = false;
     private bool grounded = false;
     private float rotationSpeed = 5f;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
 		rb = GetComponent<Rigidbody>();
         RotX = GameObject.Find("RotX");
+        basePlayerSpeed = playerSpeed;
     }
 
     public void PlayerMove(float moveX, float moveY)
@@ -41,7 +43,8 @@ public class PlayerController : MonoBehaviour {
     {
         if (grounded)
         {
-            rb.velocity += transform.TransformDirection(Vector3.up * 10);
+            rb.velocity += transform.TransformDirection(Vector3.up * 15);
+            playerSpeed *= 2;
         }
     }
 
@@ -81,6 +84,7 @@ public class PlayerController : MonoBehaviour {
         if (collision.collider.tag == "Asteroid")
         {
             grounded = true;
+            playerSpeed = basePlayerSpeed;
         }
     }
 
@@ -89,6 +93,7 @@ public class PlayerController : MonoBehaviour {
         if (collision.collider.tag == "Asteroid")
         {
             grounded = false;
+            playerSpeed = basePlayerSpeed;
         }
     }
 }
