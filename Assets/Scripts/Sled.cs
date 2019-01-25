@@ -45,7 +45,7 @@ public class Sled : MonoBehaviour
             GameController.instance.timeText.text = "Launch in: 1";
             yield return new WaitForSeconds(1f);
             GameController.instance.timeText.text = "Launch!";
-            rb.velocity = transform.TransformDirection(Vector3.up * launchSpeed);
+            rb.velocity = transform.TransformDirection(Vector3.forward * launchSpeed);
             yield return new WaitForSeconds(1f);
             GameController.instance.hijackedTimerText = false;
             yield return new WaitForSeconds(9f);
