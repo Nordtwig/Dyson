@@ -14,6 +14,7 @@ public class InputController : MonoBehaviour
 
     PlayerController player;
     Text helpText;
+    private bool jumpButtonDown = false;
 
     private void Awake()
     {
@@ -69,6 +70,17 @@ public class InputController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             player.PlayerJump();
+            jumpButtonDown = true;
+        }
+
+        if (Input.GetButton("Jump") && jumpButtonDown)
+        {
+            player.ContinuedJump();
+        }
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            jumpButtonDown = false;
         }
 
         if (Input.GetKeyDown(KeyCode.E))

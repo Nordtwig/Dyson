@@ -96,4 +96,9 @@ public class PlayerController : MonoBehaviour {
             playerSpeed = basePlayerSpeed;
         }
     }
+    
+    public void ContinuedJump()
+    {
+        rb.velocity += transform.TransformDirection(Vector3.up * Time.deltaTime * 5);
+    }
 }
