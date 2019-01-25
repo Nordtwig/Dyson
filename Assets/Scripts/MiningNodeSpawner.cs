@@ -24,7 +24,8 @@ public class MiningNodeSpawner : MonoBehaviour
     {
         for (int i = 0; i < spawnCount; i++)
         {
-            Instantiate(miningNode, transform.position, Random.rotation);
+            GameObject myNode = Instantiate(miningNode, transform.position, Random.rotation);
+            myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
         }
     }
 }

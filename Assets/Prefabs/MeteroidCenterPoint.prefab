@@ -171,6 +171,8 @@ MonoBehaviour:
   miningNode: {fileID: 6555483470141781774, guid: 499aacac0e10d104098d48eee3360165,
     type: 3}
   randomNodeSpawnChance: 0.5
+  MetroidImpactVFX: {fileID: 4725057483793481314, guid: feb18ae808cfd08449fff5c53b590954,
+    type: 3}
   dangerZone: {fileID: 6230382871793767043, guid: 65916c4d47401a6408640b1da83f45d0,
     type: 3}
   upForce: 2

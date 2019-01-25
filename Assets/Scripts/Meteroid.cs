@@ -13,6 +13,7 @@ public class Meteroid : MonoBehaviour
     private Quaternion miningNodeSpawnRotation;
     [SerializeField] float randomNodeSpawnChance;
     private float spawnValue;
+    [SerializeField] GameObject MetroidImpactVFX;
 
     //If meteroid collides with asteroid, spawns a miningnode according to percentage
     [SerializeField] GameObject dangerZone;
@@ -62,7 +63,10 @@ public class Meteroid : MonoBehaviour
             if (spawnValue <= randomNodeSpawnChance)
             {
                 miningNodeSpawnRotation = gameObject.GetComponentInParent<Transform>().rotation;
-                Instantiate(miningNode, miningNode.transform.position, miningNodeSpawnRotation);
+                GameObject myNode = Instantiate(miningNode, miningNode.transform.position, miningNodeSpawnRotation);
+                myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
+
+                Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation);
             }
             Destroy(zone);
             Invoke("DestroyMeteroid", 0.2f);
