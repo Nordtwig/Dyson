@@ -22,7 +22,6 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         offset = anchorPos.position - gameObject.transform.position;
-        Cursor.visible = false;
     }
 
     void Update()
