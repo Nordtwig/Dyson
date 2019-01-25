@@ -35,11 +35,11 @@ public class PlayerController : MonoBehaviour {
 	{
         if (grounded)
         {
-            moveDirection = new Vector3(moveX, 0, moveY).normalized * playerSpeed * Time.deltaTime;
+            moveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
             transform.rotation = RotX.transform.rotation;
         }
         model.transform.rotation = RotX.transform.rotation;
-        rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
+        rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
 
     }
 
@@ -85,8 +85,18 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        grounded = true;
-        playerSpeed = basePlayerSpeed;
+        if (other.tag != "Player" && other.tag != "Sanctuary")
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Player" && other.tag != "Sanctuary")
+        {
+            playerSpeed = basePlayerSpeed;
+        }
     }
 
     private void OnTriggerExit(Collider other)
