@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f019ca801991e409ff864c67b9113f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   interactionZone: {fileID: 4413189863291876932}
   hasBox: 0
   playerSpeed: 10

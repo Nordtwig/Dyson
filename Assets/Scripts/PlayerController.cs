@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private Collider interactionZone;
 
     private GameObject RotX;
+    private GameObject model;
 
     public bool hasBox;
     public float playerSpeed;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
 		rb = GetComponent<Rigidbody>();
         RotX = GameObject.Find("RotX");
+        model = this.gameObject.transform.GetChild(1).gameObject;
         basePlayerSpeed = playerSpeed;
     }
 
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour {
             moveDirection = new Vector3(moveX, 0, moveY).normalized * playerSpeed * Time.deltaTime;
             transform.rotation = RotX.transform.rotation;
         }
+        model.transform.rotation = RotX.transform.rotation;
         rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
 
     }
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (grounded)
         {
+            grounded = false;
             rb.velocity += transform.TransformDirection(Vector3.up * 15);
             playerSpeed *= 2;
         }
