@@ -9,8 +9,30 @@ using UnityEngine.UI;
 
 public class InputController : MonoBehaviour
 {
+    //SINGLETON
+    public static InputController instance;
+
     PlayerController player;
     Text helpText;
+
+    private void Awake()
+    {
+        if (instance)
+        {
+            Destroy(gameObject);
+        }
+
+        else
+        {
+            if (!instance)
+            {
+                instance = this;
+                DontDestroyOnLoad(instance);
+
+                instance.enabled = true;
+            }
+        }
+    }
 
     void Start()
     {
@@ -23,7 +45,7 @@ public class InputController : MonoBehaviour
     // press F1 to enable disable DebugMode, disabled by default
     // Uses (R)estart, (N)odeSpawn, (M)iningRigSpawn, (B)oxSpawn
 
-    void Update()
+    public void CheckKeys()
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {

@@ -94,6 +94,7 @@ public class GameController : MonoBehaviour
         {
             //DO THINGS THAT SHOULD BE DONE IN EVERY PHASE
             PhaseTimer();
+            InputController.instance.CheckKeys();
 
             for (int i = 0; i < phaseSpecifics.Length; i++)
             {
@@ -145,6 +146,7 @@ public class GameController : MonoBehaviour
         if (totalTimeInPhase <= 0)
         {
             gameOverText.SetActive(true);
+            state = GameControllerState.GAMEOVER;
             //GameOver Condition!
         }
     }
@@ -185,13 +187,16 @@ public class GameController : MonoBehaviour
     }
     // =======================================================================================
 
-    public void Restart()
+    public IEnumerator Restart()
     {
         DestroyAll();
-        boxAmount = 0;
         SceneManager.LoadScene(sceneAtm);
+        yield return new WaitForSeconds(1);
         state = GameControllerState.GAME;
+        boxAmount = 0;
+        currentPhase = 0;
         StartUp();
+        IncrementPhase();
     }
 
     public void MainMenu()
@@ -199,27 +204,33 @@ public class GameController : MonoBehaviour
         instance.state = GameControllerState.MAINMENU;
         SceneManager.LoadScene(0);
     }
+    
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    
 
     private void DestroyAll()
     {
         foreach (PlayerController p in GameObject.FindObjectsOfType<PlayerController>())
         {
-            Destroy(p.transform);
+            Destroy(p.gameObject);
         }
 
         foreach (Box b in GameObject.FindObjectsOfType<Box>())
         {
-            Destroy(b.transform);
+            Destroy(b.gameObject);
         }
 
         foreach (MiningRig mr in GameObject.FindObjectsOfType<MiningRig>())
         {
-            Destroy(mr.transform);
+            Destroy(mr.gameObject);
         }
 
         foreach (MiningNode mn in GameObject.FindObjectsOfType<MiningNode>())
         {
-            Destroy(mn.transform);
+            Destroy(mn.gameObject);
         }
     }
 
