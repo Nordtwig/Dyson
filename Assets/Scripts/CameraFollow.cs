@@ -5,14 +5,12 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
 
-    public Transform anchorPos;
-    public Transform asteroid;
+    private Transform anchorPos;
+    private Transform asteroid;
+    private Transform rotX;
 
-    public Transform rotY;
-    public Transform rotX;
-
-    public float speedH = 2.0f;
-    public float speedV = 2.0f;
+    private float speedH = 2.0f;
+    private float speedV = 2.0f;
 
     private float yaw = 0.0f;
     private float pitch = 0.0f;
@@ -21,6 +19,10 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
+        anchorPos = GameObject.Find("CameraAnchor").transform;
+        rotX = GameObject.Find("RotX").transform;
+        asteroid = GameObject.FindGameObjectWithTag("Asteroid").transform;
+
         offset = anchorPos.position - gameObject.transform.position;
     }
 
