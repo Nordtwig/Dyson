@@ -19,6 +19,7 @@ public class Meteroid : MonoBehaviour
     private GameObject zone;
 
 	private PlayerController player;
+    private GameObject[] boxes;
 	private Vector3 playerDistance;
 	private float meteoroidHitBox = 50f;
 	[Range(1, 5), SerializeField] float upForce = 2;
@@ -39,6 +40,16 @@ public class Meteroid : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        boxes = GameObject.FindGameObjectsWithTag("Box");
+        for (int i = 0; i < boxes.Length; i++)
+        {
+            float boxDistance = (boxes[i].transform.position - transform.position).sqrMagnitude;
+            if (boxDistance < meteoroidHitBox)
+            {
+                Destroy(boxes[i]);
+            }
+        }
+
         if (other.tag == "Asteroid")
         {
 			playerDistance = player.GetComponent<Transform>().position - transform.position;
