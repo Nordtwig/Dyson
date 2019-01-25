@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour {
     public bool hasBox;
     public float playerSpeed;
     private bool coRunning = false;
-    private bool jumping = false;
+    private bool grounded = false;
+    Vector3 moveDirection = Vector3.zero;
 
     void Start() {
 		rb = GetComponent<Rigidbody>();
@@ -23,16 +24,19 @@ public class PlayerController : MonoBehaviour {
 
     public void PlayerMove(float moveX, float moveY)
 	{
-        Vector3 moveDirection = new Vector3(moveX, 0, moveY).normalized * playerSpeed * Time.deltaTime;
+        if (grounded)
+        {
+            moveDirection = new Vector3(moveX, 0, moveY).normalized * playerSpeed * Time.deltaTime;
+        }
         rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
+
     }
 
     public void PlayerJump()
     {
-        if (!jumping)
+        if (grounded)
         {
-            jumping = true;
-            rb.velocity = transform.TransformDirection(Vector3.up * 10);
+            rb.velocity += transform.TransformDirection(Vector3.up * 10);
         }
     }
 
@@ -71,7 +75,15 @@ public class PlayerController : MonoBehaviour {
     {
         if (collision.collider.tag == "Asteroid")
         {
-            jumping = false;
+            grounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.tag == "Asteroid")
+        {
+            grounded = false;
         }
     }
 }
