@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 
     public bool hasBox;
     public float playerSpeed;
+    public float jumpHeight = 10;
     private float basePlayerSpeed;
     private bool coRunning = false;
     private bool grounded = false;
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour {
         if (grounded)
         {
             grounded = false;
-            rb.velocity += transform.TransformDirection(Vector3.up * 10);
+            rb.velocity += transform.TransformDirection(Vector3.up * jumpHeight);
             playerSpeed *= 2;
         }
     }
