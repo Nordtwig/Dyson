@@ -12,6 +12,7 @@ TagManager:
   - LaunchButton
   - DangerZone
   - Ramp
+  - Sanctuary
   layers:
   - Default
   - TransparentFX
