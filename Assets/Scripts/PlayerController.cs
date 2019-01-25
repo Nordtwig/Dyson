@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
         if (grounded)
         {
             grounded = false;
-            rb.velocity += transform.TransformDirection(Vector3.up * 15);
+            rb.velocity += transform.TransformDirection(Vector3.up * 10);
             playerSpeed *= 2;
         }
     }
