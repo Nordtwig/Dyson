@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,9 +13,11 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private Collider interactionZone;
 
     private GameObject RotX;
+    private GameObject model;
 
     public bool hasBox;
     public float playerSpeed;
+    public float jumpHeight = 10;
     private float basePlayerSpeed;
     private bool coRunning = false;
     private bool grounded = false;
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
 		rb = GetComponent<Rigidbody>();
         RotX = GameObject.Find("RotX");
+        model = this.gameObject.transform.GetChild(1).gameObject;
         basePlayerSpeed = playerSpeed;
     }
 
@@ -32,10 +35,11 @@ public class PlayerController : MonoBehaviour {
 	{
         if (grounded)
         {
-            moveDirection = new Vector3(moveX, 0, moveY).normalized * playerSpeed * Time.deltaTime;
+            moveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
             transform.rotation = RotX.transform.rotation;
         }
-        rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
+        model.transform.rotation = RotX.transform.rotation;
+        rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
 
     }
 
@@ -43,7 +47,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (grounded)
         {
-            rb.velocity += transform.TransformDirection(Vector3.up * 15);
+            rb.velocity += transform.TransformDirection(Vector3.up * jumpHeight);
             playerSpeed *= 2;
         }
     }
@@ -79,24 +83,44 @@ public class PlayerController : MonoBehaviour {
         yield return null;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.collider.tag == "Asteroid" || collision.collider.tag == "Ramp")
+        if (other.tag != "Player" && other.tag != "Sanctuary")
         {
             grounded = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Player" && other.tag != "Sanctuary")
+        {
             playerSpeed = basePlayerSpeed;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.collider.tag == "Asteroid" || collision.collider.tag == "Ramp")
-        {
-            grounded = false;
-            playerSpeed = basePlayerSpeed;
-        }
+        grounded = false;
     }
-    
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.tag == "Asteroid")
+    //    {
+    //        grounded = true;
+    //        playerSpeed = basePlayerSpeed;
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.collider.tag == "Asteroid")
+    //    {
+    //        grounded = false;
+    //    }
+    //}
+
     public void ContinuedJump()
     {
         rb.velocity += transform.TransformDirection(Vector3.up * Time.deltaTime * 5);
