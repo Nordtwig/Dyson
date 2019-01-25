@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// modified by Heimer
+/// modified by Heimer, Christoffer Brandt, Robin
 /// </summary>
 
 public class MiningRig : MonoBehaviour
@@ -98,7 +98,7 @@ public class MiningRig : MonoBehaviour
             if (functioning && minedNode)
             {
                 rend.material.color = Color.green;
-                Instantiate(box, transform.TransformDirection(Vector3.up * 55 + Vector3.right * Random.Range(-10, 10) + Vector3.forward * Random.Range(-10, 10)), Quaternion.identity);
+                EjectBox();
                 if (!minedNode.OnBoxSpawn()) //Do when empty 
                 {
                     minedNode = null;
@@ -128,5 +128,12 @@ public class MiningRig : MonoBehaviour
         {
             StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
         }
+    }
+
+    //Ejects a boc in a random direction from the MiningRig
+    public void EjectBox()
+    {
+        GameObject go = Instantiate(box, transform.TransformDirection(Vector3.up * 50), Quaternion.identity);
+        go.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.up * 15 + Vector3.forward * Random.Range(-10, 10) + Vector3.right * Random.Range(-10, 10));
     }
 }
