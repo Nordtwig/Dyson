@@ -12,10 +12,13 @@ public class PlayerController : MonoBehaviour {
 	public Rigidbody rb;
     [SerializeField] private Collider interactionZone;
 
+    public GameObject RotX;
+
     public bool hasBox;
     public float playerSpeed;
     private bool coRunning = false;
     private bool grounded = false;
+    private float rotationSpeed = 5f;
     Vector3 moveDirection = Vector3.zero;
 
     void Start() {
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour {
         if (grounded)
         {
             moveDirection = new Vector3(moveX, 0, moveY).normalized * playerSpeed * Time.deltaTime;
+            transform.rotation = RotX.transform.rotation;
         }
         rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
 
