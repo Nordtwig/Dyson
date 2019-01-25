@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour {
     {
         if (grounded)
         {
-            grounded = false;
             rb.velocity += transform.TransformDirection(Vector3.up * jumpHeight);
             playerSpeed *= 2;
         }
@@ -98,7 +97,6 @@ public class PlayerController : MonoBehaviour {
         if (collision.collider.tag == "Asteroid" || collision.collider.tag == "Ramp")
         {
             grounded = false;
-            playerSpeed = basePlayerSpeed;
         }
     }
     
