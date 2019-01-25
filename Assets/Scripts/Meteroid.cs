@@ -21,6 +21,7 @@ public class Meteroid : MonoBehaviour
 
 	private PlayerController player;
     private GameObject[] boxes;
+    private GameObject[] miningRigs;
 	private Vector3 playerDistance;
 	private float meteoroidHitBox = 50f;
 	[Range(1, 5), SerializeField] float upForce = 2;
@@ -42,6 +43,17 @@ public class Meteroid : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         boxes = GameObject.FindGameObjectsWithTag("Box");
+        miningRigs = GameObject.FindGameObjectsWithTag("Rig");
+
+        for (int i = 0; i < miningRigs.Length; i++)
+        {
+            float rigdistance = (miningRigs[i].transform.position - transform.position).sqrMagnitude;
+            if (rigdistance < meteoroidHitBox)
+            {
+                miningRigs[i].GetComponent<MiningRig>().BreakRig();
+            }
+        }
+
         for (int i = 0; i < boxes.Length; i++)
         {
             float boxDistance = (boxes[i].transform.position - transform.position).sqrMagnitude;
