@@ -6,11 +6,12 @@ public class EjectBox : MonoBehaviour
 {
     public GameObject BoxEjected;
     public Transform SpawnpointBox;
+    public float timer;
 
     void Start()
     {
         Instantiate(BoxEjected, SpawnpointBox.position, SpawnpointBox.rotation);
-        Destroy(BoxEjected, 1f);
+        Destroy(BoxEjected, 1);
     }
 
     void Update()
