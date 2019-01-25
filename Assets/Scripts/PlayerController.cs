@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Asteroid" || collision.collider.tag == "Ramp")
+        if (collision.collider.tag == "Asteroid")
         {
             grounded = true;
             playerSpeed = basePlayerSpeed;
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.collider.tag == "Asteroid" || collision.collider.tag == "Ramp")
+        if (collision.collider.tag == "Asteroid")
         {
             grounded = false;
         }
