@@ -66,7 +66,8 @@ public class Meteroid : MonoBehaviour
                 GameObject myNode = Instantiate(miningNode, miningNode.transform.position, miningNodeSpawnRotation);
                 myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
 
-                Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation);
+                GameObject myVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation);
+                Destroy(myVFX, 3);
             }
             Destroy(zone);
             Invoke("DestroyMeteroid", 0.2f);
