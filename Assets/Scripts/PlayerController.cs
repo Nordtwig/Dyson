@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	public Rigidbody rb;
     [SerializeField] private Collider interactionZone;
 
-    public GameObject RotX;
+    private GameObject RotX;
 
     public bool hasBox;
     public float playerSpeed;
@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
 		rb = GetComponent<Rigidbody>();
+        RotX = GameObject.Find("RotX");
     }
 
     public void PlayerMove(float moveX, float moveY)

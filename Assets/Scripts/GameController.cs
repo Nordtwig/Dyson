@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour
     {
         StartUp();
         IncrementPhase();
-	}
+    }
 
     private void StartUp()
     {
@@ -86,6 +86,8 @@ public class GameController : MonoBehaviour
         gameOverText = GameObject.Find("GameOverText");
 
         gameOverText.SetActive(false);
+
+        Cursor.visible = false; // TODO SHOULD NOT BE HERE ONCE WE HAVE MAIN MENU
     }
 
     private void Update()
@@ -146,7 +148,8 @@ public class GameController : MonoBehaviour
         if (totalTimeInPhase <= 0)
         {
             gameOverText.SetActive(true);
-            state = GameControllerState.GAMEOVER;
+            Cursor.visible = true;
+            state = GameControllerState.GAMEOVER; 
             //GameOver Condition!
         }
     }
