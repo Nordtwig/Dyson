@@ -83,23 +83,34 @@ public class PlayerController : MonoBehaviour {
         yield return null;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.collider.tag == "Asteroid")
-        {
-            grounded = true;
-            playerSpeed = basePlayerSpeed;
-        }
+        grounded = true;
+        playerSpeed = basePlayerSpeed;
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.collider.tag == "Asteroid")
-        {
-            grounded = false;
-        }
+        grounded = false;
     }
-    
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.tag == "Asteroid")
+    //    {
+    //        grounded = true;
+    //        playerSpeed = basePlayerSpeed;
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.collider.tag == "Asteroid")
+    //    {
+    //        grounded = false;
+    //    }
+    //}
+
     public void ContinuedJump()
     {
         rb.velocity += transform.TransformDirection(Vector3.up * Time.deltaTime * 5);
