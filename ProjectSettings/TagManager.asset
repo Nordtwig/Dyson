@@ -11,6 +11,7 @@ TagManager:
   - Meteroid
   - LaunchButton
   - DangerZone
+  - Ramp
   layers:
   - Default
   - TransparentFX
