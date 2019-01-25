@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 /// <summary>
 /// modified by Heimer, Christoffer Brandt, Robin
@@ -15,6 +16,7 @@ public class MiningRig : MonoBehaviour
     [SerializeField] private GameObject casing;
     private GameObject player;
     private MeshRenderer rend;
+    private Animator animator;
     private MiningNode minedNode; //currently minedNode set to null when no minedNode
     private Color baseColor;
 
@@ -25,7 +27,8 @@ public class MiningRig : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         rend = rigStatus.GetComponent<MeshRenderer>();
         rend.material.color = Color.red;
-        baseColor = casing.GetComponent<MeshRenderer>().material.color;
+        //baseColor = casing.GetComponent<MeshRenderer>().material.color;
+        animator = gameObject.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -41,6 +44,7 @@ public class MiningRig : MonoBehaviour
     {
         transform.SetParent(player.transform);
         transform.position = player.transform.position;
+        animator.SetTrigger("OnPickUp");
         gameObject.SetActive(false);
         player.GetComponent<PlayerController>().hasBox = true;
         pickedUp = true;
@@ -63,6 +67,8 @@ public class MiningRig : MonoBehaviour
         {
             if (!pickedUp)
             {
+                animator.ResetTrigger("OnPickUp");
+                animator.SetTrigger("OnNodeDeploy");
                 minedNode = other.GetComponent<MiningNode>();
                 Debug.Log(minedNode);
                 if (functioning)
@@ -75,7 +81,7 @@ public class MiningRig : MonoBehaviour
         if (other.tag == "Meteroid")
         {
             functioning = false;
-            casing.GetComponent<MeshRenderer>().material.color = new Color(0.6f, 0, 0);
+            //casing.GetComponent<MeshRenderer>().material.color = new Color(0.6f, 0, 0);
             rend.material.color = Color.red;
         }
     }
@@ -85,6 +91,7 @@ public class MiningRig : MonoBehaviour
     {
         if (other.tag == "Node")
         {
+            animator.ResetTrigger("OnNodeDeploy");
             minedNode = null;
             rend.material.color = Color.red;
         }

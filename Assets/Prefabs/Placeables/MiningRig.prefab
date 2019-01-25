@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1346940179161717308}
   - component: {fileID: 1346940179161717309}
   - component: {fileID: 252111484}
+  - component: {fileID: 4520137292359708892}
   m_Layer: 0
   m_Name: MiningRig
   m_TagString: Rig
@@ -51,7 +52,7 @@ MonoBehaviour:
   timeBetweenBoxes: 2
   box: {fileID: 2968500262769446227, guid: 8ae88b175eb6c734d8fa27ad45389144, type: 3}
   rigStatus: {fileID: 4274915727754834493}
-  casing: {fileID: 1088316423903360297}
+  casing: {fileID: 6210056389918580255}
   functioning: 1
 --- !u!54 &1346940179161717308
 Rigidbody:
@@ -94,8 +95,27 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7598588, y: 2.077732, z: 2.014531}
-  m_Center: {x: -0.1105715, y: 1.036089, z: -0.03505358}
+  m_Size: {x: 2.0319276, y: 1.4781227, z: 2.014531}
+  m_Center: {x: -0.008660793, y: 0.73628426, z: -0.03505361}
+--- !u!95 &4520137292359708892
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346940179161717314}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 97fcabb233e6af743b91948a5ef60789, type: 3}
+  m_Controller: {fileID: 9100000, guid: 6762d245ac02a94479fbc5a7c30c2c43, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1346940178545430222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,20 +188,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1969691110, guid: 3ddcc190e2278544f9458a2b9c6be41b, type: 3}
-    - {fileID: 1969691107, guid: 3ddcc190e2278544f9458a2b9c6be41b, type: 3}
-    - {fileID: 1969691111, guid: 3ddcc190e2278544f9458a2b9c6be41b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ddcc190e2278544f9458a2b9c6be41b, type: 3}
---- !u!4 &8072657584089464652 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7113046083515003266, guid: 3ddcc190e2278544f9458a2b9c6be41b,
+--- !u!1 &6210056389918580255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
     type: 3}
   m_PrefabInstance: {fileID: 1346940178545430222}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1088316423903360297 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2137856263019396071, guid: 3ddcc190e2278544f9458a2b9c6be41b,
+--- !u!4 &8072657584089464652 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7113046083515003266, guid: 3ddcc190e2278544f9458a2b9c6be41b,
     type: 3}
   m_PrefabInstance: {fileID: 1346940178545430222}
   m_PrefabAsset: {fileID: 0}
