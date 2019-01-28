@@ -9,10 +9,12 @@ using UnityEngine;
 public class InteractionZone : MonoBehaviour
 {
     private GameObject player;
+    private AudioManager audioManager;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        audioManager = FindObjectOfType<AudioManager>();
     }
     
     public void OnTriggerEnter(Collider other)
@@ -31,6 +33,7 @@ public class InteractionZone : MonoBehaviour
         {
             player.GetComponent<PlayerController>().holdingItem = true;
             other.gameObject.GetComponent<Box>().PickUpBox();
+            audioManager.Play("Pickup");
         }
         else if (other.tag == "SanctuaryHolder" && !player.GetComponent<PlayerController>().holdingItem)
         {
@@ -44,6 +47,7 @@ public class InteractionZone : MonoBehaviour
         else if (other.tag == "Rig" && !player.GetComponent<PlayerController>().holdingItem)
         {
             other.gameObject.GetComponentInChildren<MiningRig>().StartCoPickUpRig();
+            audioManager.Play("Pickup");
         }
     }
 }
