@@ -42,14 +42,29 @@ public class MiningRig : MonoBehaviour
     //Rig is parented to player on pickup, despawns and changes a bool to indicate the player is carrying it
     private IEnumerator CoPickUpRig()
     {
-        animator.ResetTrigger("OnNodeDeploy");
-        animator.SetTrigger("OnPickUp");
-        yield return new WaitForSeconds(1f);
+        
+        if (animator.GetBool("OnNodeDeploy") || animator.GetBool("Empty") || animator.GetBool("OnMining"))
+        {
+            animator.SetBool("Empty", false);
+            animator.SetBool("OnMining", false);
+            animator.SetBool("OnNodeDeploy", false);
+            animator.SetBool("OnPickUp", true);
+            pickedUp = true;
+            yield return new WaitForSeconds(2f);
+        }
+        else
+        {
+            animator.SetBool("Empty", false);
+            animator.SetBool("OnMining", false);
+            animator.SetBool("OnNodeDeploy", false);
+            animator.SetBool("OnPickUp", true);
+            pickedUp = true;
+        }
         transform.SetParent(player.transform);
         transform.position = player.transform.position;
         gameObject.SetActive(false);
         player.GetComponent<PlayerController>().hasBox = true;
-        pickedUp = true;
+        yield return null;
     }
 
     public void StartCoPickUpRig()
@@ -60,6 +75,7 @@ public class MiningRig : MonoBehaviour
     //Rig is un-parented, spawns in front of player and changes the bool to false
     public void DropRig()
     {
+        animator.SetBool("OnPickUp", false);
         gameObject.transform.SetParent(null);
         gameObject.SetActive(true);
         pickedUp = false;
@@ -74,8 +90,8 @@ public class MiningRig : MonoBehaviour
         {
             if (!pickedUp)
             {
-                animator.ResetTrigger("OnPickUp");
-                animator.SetTrigger("OnNodeDeploy");
+                animator.SetBool("OnPickUp", false);
+                animator.SetBool("OnNodeDeploy", true);
                 minedNode = other.GetComponent<MiningNode>();
                 Debug.Log(minedNode);
                 if (functioning)
@@ -108,6 +124,7 @@ public class MiningRig : MonoBehaviour
     private IEnumerator CoBoxSpawn(int resourseAmount)
     {
         yield return new WaitForSeconds(2.8f);
+        animator.SetBool("OnMining", true);
         for (int i = 0; i < resourseAmount; i++)
         {
             if (functioning && minedNode)
@@ -132,13 +149,15 @@ public class MiningRig : MonoBehaviour
             }
         }
         rend.material.color = Color.red;
+        animator.SetBool("OnMining", false);
+        animator.SetBool("OnNodeDeploy", false);
+        animator.SetBool("Empty", true);
         yield return null;
     }
 
     public void Repair()
     {
         functioning = true;
-        casing.GetComponent<MeshRenderer>().material.color = baseColor;
         if (minedNode)
         {
             StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
