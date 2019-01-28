@@ -35,7 +35,7 @@ public class InputController : MonoBehaviour
         }
     }
 
-    void Start()
+    public void StartUp()
     {
         player = FindObjectOfType<PlayerController>();
         helpText = GameObject.Find("HelpText").GetComponent<Text>();

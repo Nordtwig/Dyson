@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour {
     private bool grounded = false;
     private float rotationSpeed = 5f;
     Vector3 moveDirection = Vector3.zero;
+    Vector3 airMoveDirection = Vector3.zero;
+    private float timeOfJump = 0;
 
     void Start() {
         interactionZone = FindObjectOfType<InteractionZone>();
@@ -37,11 +39,24 @@ public class PlayerController : MonoBehaviour {
 	{
         if (grounded)
         {
-            moveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
+            moveDirection = transform.TransformDirection(new Vector3(moveX, 0, moveY).normalized * Time.deltaTime);
             transform.rotation = RotX.transform.rotation;
+            model.transform.rotation = RotX.transform.rotation;
+            rb.MovePosition(rb.position + moveDirection * playerSpeed);
+            timeOfJump = Time.time;
         }
-        model.transform.rotation = RotX.transform.rotation;
-        rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
+        else
+        {
+            airMoveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
+            model.transform.rotation = RotX.transform.rotation;
+            rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
+            if (airMoveDirection != Vector3.zero)
+            {
+                rb.velocity += transform.TransformDirection(airMoveDirection * playerSpeed);
+
+            }
+        }
+        
 
     }
 
@@ -116,6 +131,7 @@ public class PlayerController : MonoBehaviour {
         if (other.tag != "Player" && other.tag != "Sanctuary")
         {
             playerSpeed = basePlayerSpeed;
+            rb.velocity = Vector3.zero;
         }
     }
 
