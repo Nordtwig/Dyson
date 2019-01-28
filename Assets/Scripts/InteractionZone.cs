@@ -32,13 +32,17 @@ public class InteractionZone : MonoBehaviour
             player.GetComponent<PlayerController>().holdingItem = true;
             other.gameObject.GetComponent<Box>().PickUpBox();
         }
+        else if (other.tag == "SanctuaryHolder" && !player.GetComponent<PlayerController>().holdingItem)
+        {
+            player.GetComponent<PlayerController>().holdingItem = true;
+            other.gameObject.GetComponent<Box>().PickUpBox();
+        }
         else if (other.tag == "Rig" && !other.gameObject.GetComponent<MiningRig>().functioning && !player.GetComponent<PlayerController>().holdingItem)
         {
             other.gameObject.GetComponentInChildren<MiningRig>().Repair();
         }
         else if (other.tag == "Rig" && !player.GetComponent<PlayerController>().holdingItem)
         {
-            player.GetComponent<PlayerController>().holdingItem = true;
             other.gameObject.GetComponentInChildren<MiningRig>().StartCoPickUpRig();
         }
     }

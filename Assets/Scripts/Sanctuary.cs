@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Made by Robin
-/// </summary>
-
-public class SafeZone : MonoBehaviour
+public class Sanctuary : MonoBehaviour
 {
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "DangerZone")
@@ -16,10 +11,9 @@ public class SafeZone : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.tag == "Meteroid")
+        if (other.tag == "Meteroid" || other.tag == "Node")
         {
             Destroy(other.transform.parent.gameObject);
         }
     }
-
 }

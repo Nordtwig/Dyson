@@ -44,7 +44,8 @@ public class MiningRig : MonoBehaviour
     //Rig is parented to player on pickup, despawns and changes a bool to indicate the player is carrying it
     private IEnumerator CoPickUpRig()
     {
-        
+        player.holdingItem = true;
+
         if (animator.GetBool("OnNodeDeploy") || animator.GetBool("Empty") || animator.GetBool("OnMining"))
         {
             animator.SetBool("Empty", false);
@@ -52,7 +53,7 @@ public class MiningRig : MonoBehaviour
             animator.SetBool("OnNodeDeploy", false);
             animator.SetBool("OnPickUp", true);
             pickedUp = true;
-            yield return new WaitForSeconds(2f);
+            //yield return new WaitForSeconds(2f);
         }
         else
         {

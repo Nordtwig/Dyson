@@ -10,7 +10,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public Rigidbody rb;
-    [SerializeField] private Collider interactionZone;
+    private InteractionZone interactionZone;
 
     private GameObject RotX;
     private GameObject model;
@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour {
     Vector3 moveDirection = Vector3.zero;
 
     void Start() {
+        interactionZone = FindObjectOfType<InteractionZone>();
+        interactionZone.gameObject.SetActive(false);
 		rb = GetComponent<Rigidbody>();
         RotX = GameObject.Find("RotX");
         model = this.gameObject.transform.GetChild(1).gameObject;
@@ -97,6 +99,7 @@ public class PlayerController : MonoBehaviour {
                 MiningRig rig = GetComponentInChildren<MiningRig>(true);
                 rig.ThrowRig();
             }
+            holdingItem = false;
         }
     }
 

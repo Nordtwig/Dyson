@@ -13,6 +13,7 @@ TagManager:
   - DangerZone
   - Ramp
   - Sanctuary
+  - SanctuaryHolder
   layers:
   - Default
   - TransparentFX
