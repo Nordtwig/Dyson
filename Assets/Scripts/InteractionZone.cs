@@ -23,16 +23,22 @@ public class InteractionZone : MonoBehaviour
             GameController.instance.InvokeIncrementPhase(3);
             FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
         }
-        else if (other.tag == "Box" && !player.GetComponent<PlayerController>().hasBox)
+        else if (other.tag == "LaunchButton" && GameController.instance.GetAmountOfDeliveredBoxes() <= GameController.instance.phaseAmount)
         {
+            Debug.Log("You don't have enough of a load to send it yet");
+        }
+        else if (other.tag == "Box" && !player.GetComponent<PlayerController>().holdingItem)
+        {
+            player.GetComponent<PlayerController>().holdingItem = true;
             other.gameObject.GetComponent<Box>().PickUpBox();
         }
-        else if (other.tag == "Rig" && !other.gameObject.GetComponent<MiningRig>().functioning && !player.GetComponent<PlayerController>().hasBox)
+        else if (other.tag == "Rig" && !other.gameObject.GetComponent<MiningRig>().functioning && !player.GetComponent<PlayerController>().holdingItem)
         {
             other.gameObject.GetComponentInChildren<MiningRig>().Repair();
         }
-        else if (other.tag == "Rig" && !player.GetComponent<PlayerController>().hasBox)
+        else if (other.tag == "Rig" && !player.GetComponent<PlayerController>().holdingItem)
         {
+            player.GetComponent<PlayerController>().holdingItem = true;
             other.gameObject.GetComponentInChildren<MiningRig>().StartCoPickUpRig();
         }
     }

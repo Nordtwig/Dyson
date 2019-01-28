@@ -88,6 +88,11 @@ public class InputController : MonoBehaviour
             player.PlayerInteraction();
         }
 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            player.ThrowItem();
+        }
+
     }
 
     //Checks if any debug key has been pressed and executes that command is DebugMode is true
