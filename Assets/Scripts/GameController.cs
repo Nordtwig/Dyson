@@ -87,6 +87,8 @@ public class GameController : MonoBehaviour
         meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
         gameOverText = GameObject.Find("GameOverText");
 
+        InputController.instance.StartUp();
+
         gameOverText.SetActive(false);
     }
 
@@ -202,6 +204,7 @@ public class GameController : MonoBehaviour
         currentPhase = 0;
         StartUp();
         IncrementPhase();
+        yield return null;
     }
 
     public void MainMenu()

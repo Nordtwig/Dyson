@@ -94,11 +94,11 @@ public class MiningRig : MonoBehaviour
     //If the object collides with the "Node" tag AND picked up is false(released), changes color to green and starts spawning boxes
     private void OnTriggerEnter(Collider other)
 	{
-		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 		if (other.tag == "Node")
         {
             if (!pickedUp)
             {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                 animator.SetBool("OnPickUp", false);
                 animator.SetBool("OnNodeDeploy", true);
                 minedNode = other.GetComponent<MiningNode>();
