@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeteroidSpawner : MonoBehaviour
 {
 
-    float timeBetweenSpawns = 3f;
+    [SerializeField] float timeBetweenSpawns = 3f;
     [SerializeField] GameObject meteroid;
     private GameObject newMeteoroid;
     private Transform meteoroids;
