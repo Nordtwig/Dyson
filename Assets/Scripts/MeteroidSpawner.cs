@@ -7,10 +7,13 @@ public class MeteroidSpawner : MonoBehaviour
 
     float timeBetweenSpawns = 3f;
     [SerializeField] GameObject meteroid;
+    private GameObject newMeteoroid;
+    private Transform meteoroids;
     
     // Start is called before the first frame update
     void Start()
     {
+        meteoroids = GameObject.Find("Meteoroids").transform;
         StartCoroutine(CoSpawnMeteroids(timeBetweenSpawns));
     }
     
@@ -18,9 +21,8 @@ public class MeteroidSpawner : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(meteroid, transform.position, Quaternion.Euler(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0, 360f)));
+            newMeteoroid = Instantiate(meteroid, transform.position, Quaternion.Euler(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0, 360f)), meteoroids);
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
-        
     }
 }

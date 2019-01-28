@@ -29,14 +29,17 @@ public class Meteroid : MonoBehaviour
     [SerializeField] int minDistanceHurled = 10;
     [SerializeField] int maxDistanceHurled = 15;
 
+    private Transform meteoroids;
+
     private void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        meteoroids = GameObject.Find("Meteoroids").transform;
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit))
         {
-            zone = Instantiate(dangerZone, hit.point, Quaternion.identity);
+            zone = Instantiate(dangerZone, hit.point, Quaternion.identity, meteoroids);
         }
     }
 
@@ -78,7 +81,7 @@ public class Meteroid : MonoBehaviour
                 GameObject myNode = Instantiate(miningNode, miningNode.transform.position, miningNodeSpawnRotation);
                 myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
 
-                GameObject myVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation);
+                GameObject myVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
                 Destroy(myVFX, 30);
             }
             Destroy(zone);
