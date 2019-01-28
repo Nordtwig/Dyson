@@ -14,17 +14,19 @@ public class MiningRig : MonoBehaviour
     [SerializeField] private GameObject box;
     [SerializeField] private GameObject rigStatus;
     [SerializeField] private GameObject casing;
-    private GameObject player;
+    private PlayerController player;
     private MeshRenderer rend;
     private Animator animator;
     private MiningNode minedNode; //currently minedNode set to null when no minedNode
     private Color baseColor;
+    private Rigidbody rb;
 
     public bool functioning = true;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody>();
+        player = FindObjectOfType<PlayerController>();
         rend = rigStatus.GetComponent<MeshRenderer>();
         rend.material.color = Color.red;
         //baseColor = casing.GetComponent<MeshRenderer>().material.color;
@@ -63,7 +65,6 @@ public class MiningRig : MonoBehaviour
         transform.SetParent(player.transform);
         transform.position = player.transform.position;
         gameObject.SetActive(false);
-        player.GetComponent<PlayerController>().hasBox = true;
         yield return null;
     }
 
@@ -79,8 +80,13 @@ public class MiningRig : MonoBehaviour
         gameObject.transform.SetParent(null);
         gameObject.SetActive(true);
         pickedUp = false;
-        player.GetComponent<PlayerController>().hasBox = false;
         transform.position = player.transform.position + player.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 3);
+    }
+
+    public void ThrowRig()
+    {
+        DropRig();
+        rb.velocity += player.rb.velocity*2 + player.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 10);
     }
 
     //If the object collides with the "Node" tag AND picked up is false(released), changes color to green and starts spawning boxes
@@ -93,7 +99,6 @@ public class MiningRig : MonoBehaviour
                 animator.SetBool("OnPickUp", false);
                 animator.SetBool("OnNodeDeploy", true);
                 minedNode = other.GetComponent<MiningNode>();
-                Debug.Log(minedNode);
                 if (functioning)
                 {
                     StartCoroutine(CoBoxSpawn(minedNode.resourceValue));

@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     private GameObject RotX;
     private GameObject model;
 
-    public bool hasBox;
+    public bool holdingItem;
     public float playerSpeed;
     public float jumpHeight = 10;
     private float basePlayerSpeed;
@@ -54,9 +54,9 @@ public class PlayerController : MonoBehaviour {
 
     public void PlayerInteraction()
     {
-        if (hasBox)
+        if (holdingItem)
         {
-            hasBox = false;
+            holdingItem = false;
             if (GetComponentInChildren<Box>(true))
             {
                 Box box = GetComponentInChildren<Box>(true);
@@ -81,6 +81,23 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         interactionZone.gameObject.SetActive(false);
         yield return null;
+    }
+
+    public void ThrowItem()
+    {
+        if (holdingItem)
+        {
+            if (GetComponentInChildren<Box>(true))
+            {
+                Box box = GetComponentInChildren<Box>(true);
+                box.ThrowBox();
+            }
+            else if (GetComponentInChildren<MiningRig>(true))
+            {
+                MiningRig rig = GetComponentInChildren<MiningRig>(true);
+                rig.ThrowRig();
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
