@@ -81,7 +81,8 @@ public class MiningRig : MonoBehaviour
         gameObject.SetActive(true);
         pickedUp = false;
         transform.position = player.transform.position + player.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 3);
-    }
+		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+	}
 
     public void ThrowRig()
     {
@@ -91,14 +92,16 @@ public class MiningRig : MonoBehaviour
 
     //If the object collides with the "Node" tag AND picked up is false(released), changes color to green and starts spawning boxes
     private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Node")
+	{
+		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+		if (other.tag == "Node")
         {
             if (!pickedUp)
             {
                 animator.SetBool("OnPickUp", false);
                 animator.SetBool("OnNodeDeploy", true);
                 minedNode = other.GetComponent<MiningNode>();
+				transform.position = minedNode.transform.position;
                 if (functioning)
                 {
                     StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
