@@ -30,16 +30,28 @@ public class Meteroid : MonoBehaviour
     [SerializeField] int maxDistanceHurled = 15;
 
     private Transform meteoroids;
+    private bool headingTowardsSanctuary;
+    private Collider sanctuaryCollider;
 
     private void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         meteoroids = GameObject.Find("Meteoroids").transform;
 
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit))
+        Ray ray = new Ray(transform.position, transform.parent.parent.position - transform.position);
+        RaycastHit movingToSanctuary;
+        if (Physics.Raycast(ray, out movingToSanctuary, (transform.position - meteoroids.position).sqrMagnitude))
         {
-            zone = Instantiate(dangerZone, hit.point, Quaternion.identity, meteoroids);
+            if (movingToSanctuary.collider.tag == "Sanctuary")
+            {
+                headingTowardsSanctuary = true;
+            }
+        }
+
+        RaycastHit hit;
+        if (headingTowardsSanctuary == false && Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit))
+        {
+            StartCoroutine(CoSpawnDangerZone(hit));
         }
     }
 
@@ -92,5 +104,11 @@ public class Meteroid : MonoBehaviour
     private void DestroyMeteroid()
     {
         Destroy(transform.parent.gameObject);
+    }
+
+    private IEnumerator CoSpawnDangerZone(RaycastHit hit)
+    {
+        yield return new WaitForSeconds(0.1f);
+        zone = Instantiate(dangerZone, hit.point, Quaternion.identity, meteoroids);
     }
 }
