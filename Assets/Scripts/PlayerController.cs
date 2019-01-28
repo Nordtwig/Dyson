@@ -41,22 +41,22 @@ public class PlayerController : MonoBehaviour {
         {
             moveDirection = transform.TransformDirection(new Vector3(moveX, 0, moveY).normalized * Time.deltaTime);
             transform.rotation = RotX.transform.rotation;
-            model.transform.rotation = RotX.transform.rotation;
-            rb.MovePosition(rb.position + moveDirection * playerSpeed);
+            
             timeOfJump = Time.time;
         }
-        else
-        {
-            airMoveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
-            model.transform.rotation = RotX.transform.rotation;
-            rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
-            if (airMoveDirection != Vector3.zero)
-            {
-                rb.velocity += transform.TransformDirection(airMoveDirection * playerSpeed);
+        //else
+        //{
+        //    airMoveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
+        //    model.transform.rotation = RotX.transform.rotation;
+        //    rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
+        //    if (airMoveDirection != Vector3.zero)
+        //    {
+        //        rb.velocity += transform.TransformDirection(airMoveDirection * playerSpeed);
 
-            }
-        }
-        
+        //    }
+        //}
+        model.transform.rotation = RotX.transform.rotation;
+        rb.MovePosition(rb.position + moveDirection * playerSpeed);
 
     }
 
