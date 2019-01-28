@@ -105,7 +105,7 @@ public class GameController : MonoBehaviour
                     
                 }
             }
-        }
+        } 
 
         else if (state == GameControllerState.MAINMENU)
         {
@@ -190,11 +190,13 @@ public class GameController : MonoBehaviour
     }
     // =======================================================================================
 
-    public IEnumerator Restart()
+    public IEnumerator CoRestart()
     {
+        Debug.Log("Reached restart enumerator");
         DestroyAll();
         SceneManager.LoadScene(sceneAtm);
         yield return new WaitForSeconds(1);
+        Debug.Log("reached GameController reset");
         state = GameControllerState.GAME;
         boxAmount = 0;
         currentPhase = 0;
