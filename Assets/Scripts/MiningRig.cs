@@ -111,6 +111,14 @@ public class MiningRig : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            AudioManager.instance.PlayOnPos("Rig Collision", transform.position);
+        }
+    }
+
     public void BreakRig()
     {
         functioning = false;

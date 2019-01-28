@@ -45,4 +45,12 @@ public class Box : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            AudioManager.instance.PlayOnPos("Box Collision", transform.position);
+        }
+    }
 }
