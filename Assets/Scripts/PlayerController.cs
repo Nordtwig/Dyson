@@ -75,6 +75,11 @@ public class PlayerController : MonoBehaviour {
                 Box box = GetComponentInChildren<Box>(true);
                 box.DropBox();
             }
+            else if (GetComponentInChildren<Chunk>(true))
+            {
+                Chunk chunk = GetComponentInChildren<Chunk>(true);
+                chunk.DropChunk();
+            }
             else if (GetComponentInChildren<MiningRig>(true))
             {
                 MiningRig rig = GetComponentInChildren<MiningRig>(true);
@@ -104,6 +109,11 @@ public class PlayerController : MonoBehaviour {
             {
                 Box box = GetComponentInChildren<Box>(true);
                 box.ThrowBox(throwStrength);
+            }
+            else if (GetComponentInChildren<Chunk>(true))
+            {
+                Chunk chunk = GetComponentInChildren<Chunk>(true);
+                chunk.ThrowChunk(throwStrength);
             }
             else if (GetComponentInChildren<MiningRig>(true))
             {
