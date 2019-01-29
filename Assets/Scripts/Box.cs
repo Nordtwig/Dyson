@@ -37,15 +37,7 @@ public class Box : MonoBehaviour
         DropBox();
         rb.velocity += player.rb.velocity * 2 + player.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 10 * throwStrength);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Meteroid")
-        {
-            Destroy(gameObject);
-        }
-    }
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Asteroid")
