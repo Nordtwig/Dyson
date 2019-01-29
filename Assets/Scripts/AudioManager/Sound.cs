@@ -25,6 +25,10 @@ public class Sound {
     [Range(0f, 1f)]
     public float spatialBlend = 0f;
 
+    public bool sound3d = false;
+
+    public bool playOnAwake = false;
+
 	public bool loop = false;
 
 	public AudioMixerGroup mixerGroup;

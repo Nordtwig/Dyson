@@ -50,7 +50,7 @@ public class Box : MonoBehaviour
     {
         if (collision.gameObject.tag == "Asteroid")
         {
-            AudioManager.instance.PlayOnPos("Box Collision", transform.position);
+            AudioManager.instance.PlayOnPos("Box Collision", transform);
         }
     }
 }

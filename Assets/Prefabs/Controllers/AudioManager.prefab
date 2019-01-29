@@ -46,7 +46,7 @@ MonoBehaviour:
   mixerGroup: {fileID: 24300002, guid: e01f830518fc69b4fa6b08bb0a2a5105, type: 2}
   sounds:
   - name: Pickup
-    clip: {fileID: 8300000, guid: 1db289a449c216a43bae03baddc70914, type: 3}
+    clip: {fileID: 8300000, guid: 0e9d93ab24fed65418456694edc3728e, type: 3}
     volume: 1
     volumeVariance: 0.05
     pitch: 1

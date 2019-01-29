@@ -115,7 +115,7 @@ public class MiningRig : MonoBehaviour
     {
         if (collision.gameObject.tag == "Asteroid")
         {
-            AudioManager.instance.PlayOnPos("Rig Collision", transform.position);
+            AudioManager.instance.PlayOnPos("Rig Collision", transform);
         }
     }
 
