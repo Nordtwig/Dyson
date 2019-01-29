@@ -8,6 +8,10 @@ using UnityEngine;
 
 public class MiningNode : MonoBehaviour
 {
+	[SerializeField] private GameObject nodeMaterial;
+
+	private MeshRenderer meshRend;
+
 	public int resourceValue;
 	int metalRandom;
 
@@ -25,6 +29,7 @@ public class MiningNode : MonoBehaviour
 	public void Start()
 	{
 		metalRandom = Random.Range(1, 10);
+		meshRend = nodeMaterial.GetComponent<MeshRenderer>();
 
 		if (metalRandom < 2)
 		{
@@ -34,15 +39,28 @@ public class MiningNode : MonoBehaviour
 		{
 			state = MetalVarieties.SILVER;
 		}
-		else if (metalRandom < 11)
+		else
 		{
 			state = MetalVarieties.COPPER;
 		}
+
+		NodeMaterial();
 	}
 
-	public void randomForMetal()
+	public void NodeMaterial()
 	{
-
+		if (state == MetalVarieties.GOLD)
+		{
+			// Get material
+		}
+		else if (state == MetalVarieties.SILVER)
+		{
+			// Get material
+		}
+		else if (state == MetalVarieties.COPPER)
+		{
+			// Get material
+		}
 	}
 
 	public bool OnBoxSpawn()
