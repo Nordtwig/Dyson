@@ -29,9 +29,9 @@ public class MiningNode : MonoBehaviour
 	public void Start()
 	{
 		metalRandom = Random.Range(1, 10);
-		meshRend = nodeMaterial.GetComponent<MeshRenderer>();
+        //meshRend = nodeMaterial.GetComponent<MeshRenderer>();
 
-		if (metalRandom < 2)
+        if (metalRandom < 2)
 		{
 			state = MetalVarieties.GOLD;
 		}

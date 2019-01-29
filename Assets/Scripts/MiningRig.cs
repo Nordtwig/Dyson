@@ -24,7 +24,7 @@ public class MiningRig : MonoBehaviour
 
     void Start()
     {
-        box = GameObject.Find("GettableBox");
+        box = GameObject.Find("GetableBox");
         rb = GetComponent<Rigidbody>();
         player = FindObjectOfType<PlayerController>();
         rigStatusRend = transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>();
@@ -190,7 +190,7 @@ public class MiningRig : MonoBehaviour
     //Ejects a boc in a random direction from the MiningRig
     public void EjectBox()
     {
-        GameObject go = Instantiate(box, transform.TransformDirection(Vector3.up * 50), Quaternion.identity);
+        GameObject go = Instantiate(box, transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity);
         go.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.up * 15 + Vector3.forward * Random.Range(-10, 10) + Vector3.right * Random.Range(-10, 10));
     }
 }
