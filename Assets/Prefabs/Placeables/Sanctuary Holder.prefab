@@ -522,15 +522,14 @@ PrefabInstance:
     - target: {fileID: 2736726829976734071, guid: 77def54caf9bc0c4f86f12979482dc47,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2736726829976734071, guid: 77def54caf9bc0c4f86f12979482dc47,
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2736726829976734068, guid: 77def54caf9bc0c4f86f12979482dc47, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77def54caf9bc0c4f86f12979482dc47, type: 3}
 --- !u!1 &5023729363137193799 stripped
 GameObject:
