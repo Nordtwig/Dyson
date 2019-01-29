@@ -15,6 +15,7 @@ public class InputController : MonoBehaviour
     PlayerController player;
     Text helpText;
     private bool jumpButtonDown = false;
+    [HideInInspector] public float eTime = 0;
 
     private void Awake()
     {
@@ -83,14 +84,23 @@ public class InputController : MonoBehaviour
             jumpButtonDown = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.E))
         {
-            player.PlayerInteraction();
+            if (eTime < 0.5f)
+            {
+                player.PlayerInteraction();
+            }
+            else
+            {
+                player.ThrowItem(Mathf.Clamp(eTime, 0, 2f));
+            }
+            eTime = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+
+        if (Input.GetKey(KeyCode.E))
         {
-            player.ThrowItem();
+            eTime += Time.deltaTime;
         }
 
     }

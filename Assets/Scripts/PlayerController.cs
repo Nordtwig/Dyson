@@ -100,19 +100,19 @@ public class PlayerController : MonoBehaviour {
         yield return null;
     }
 
-    public void ThrowItem()
+    public void ThrowItem(float throwStrength)
     {
         if (holdingItem)
         {
             if (GetComponentInChildren<Box>(true))
             {
                 Box box = GetComponentInChildren<Box>(true);
-                box.ThrowBox();
+                box.ThrowBox(throwStrength);
             }
             else if (GetComponentInChildren<MiningRig>(true))
             {
                 MiningRig rig = GetComponentInChildren<MiningRig>(true);
-                rig.ThrowRig();
+                rig.ThrowRig(throwStrength);
             }
             holdingItem = false;
         }

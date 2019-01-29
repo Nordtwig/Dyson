@@ -85,10 +85,10 @@ public class MiningRig : MonoBehaviour
 		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 	}
 
-    public void ThrowRig()
+    public void ThrowRig(float throwStrength)
     {
         DropRig();
-        rb.velocity += player.rb.velocity*2 + player.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 10);
+        rb.velocity += player.rb.velocity*2 + player.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 5 * throwStrength);
     }
 
     //If the object collides with the "Node" tag AND picked up is false(released), changes color to green and starts spawning boxes
@@ -142,6 +142,7 @@ public class MiningRig : MonoBehaviour
     {
         yield return new WaitForSeconds(2.8f);
         animator.SetBool("OnMining", true);
+        rend.material.color = Color.green;
         for (int i = 0; i < resourseAmount; i++)
         {
             yield return new WaitForSeconds(timeBetweenBoxes);

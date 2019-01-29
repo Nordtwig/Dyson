@@ -32,10 +32,10 @@ public class Box : MonoBehaviour
         transform.position = player.transform.position + player.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 3);
     }
 
-    public void ThrowBox()
+    public void ThrowBox(float throwStrength)
     {
         DropBox();
-        rb.velocity += player.rb.velocity * 2 + player.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 20);
+        rb.velocity += player.rb.velocity * 2 + player.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 10 * throwStrength);
     }
 
     private void OnTriggerEnter(Collider other)
