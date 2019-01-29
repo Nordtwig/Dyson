@@ -52,26 +52,68 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0.05
     spatialBlend: 0
+    sound3d: 0
+    playOnAwake: 0
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Box Collision
     clip: {fileID: 8300000, guid: 1e7293aab19b6c649ba5ca012a51f157, type: 3}
     volume: 1
-    volumeVariance: 0.05
+    volumeVariance: 0.1
     pitch: 1
-    pitchVariance: 0.5
-    spatialBlend: 0.9
+    pitchVariance: 0.3
+    spatialBlend: 0.95
+    sound3d: 1
+    playOnAwake: 0
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Rig Collision
     clip: {fileID: 8300000, guid: 6270c609916889b47b8a157ddf56cd8d, type: 3}
     volume: 1
-    volumeVariance: 0.05
+    volumeVariance: 0.1
     pitch: 1
-    pitchVariance: 0.5
-    spatialBlend: 0.9
+    pitchVariance: 0.3
+    spatialBlend: 0.95
+    sound3d: 1
+    playOnAwake: 0
     loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 5dd1f70a4450c7e498eb368702f19c63, type: 3}
+    volume: 1
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    spatialBlend: 0
+    sound3d: 0
+    playOnAwake: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Meteoroid Loop
+    clip: {fileID: 8300000, guid: a68b2b7b5f858fb46bf6f562192859c8, type: 3}
+    volume: 1
+    volumeVariance: 0.01
+    pitch: 1.05
+    pitchVariance: 0.2
+    spatialBlend: 0.99
+    sound3d: 1
+    playOnAwake: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Meteoroid Explosion
+    clip: {fileID: 8300000, guid: 1ceee7be0829bfc40ac5abc77c92c1bd, type: 3}
+    volume: 1
+    volumeVariance: 0.01
+    pitch: 1.05
+    pitchVariance: 0.2
+    spatialBlend: 0.543
+    sound3d: 1
+    playOnAwake: 1
+    loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}

@@ -67,7 +67,6 @@ public class AudioManager : MonoBehaviour
         }
         if (position.gameObject.GetComponent<AudioSource>() == null)
         {
-            Debug.Log("Adding AudioSource to object");
             s.source = position.gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.loop = s.loop;

@@ -37,6 +37,7 @@ public class Meteroid : MonoBehaviour
     {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         meteoroids = GameObject.Find("Meteoroids").transform;
+        AudioManager.instance.PlayOnPos("Meteoroid Loop", transform);
 
         Ray ray = new Ray(transform.position, transform.parent.parent.position - transform.position);
         RaycastHit movingToSanctuary;
@@ -59,6 +60,7 @@ public class Meteroid : MonoBehaviour
     {
         boxes = GameObject.FindGameObjectsWithTag("Box");
         miningRigs = GameObject.FindGameObjectsWithTag("Rig");
+        //AudioManager.instance.PlayOnPos("Meteoroid Explosion", transform);
 
         for (int i = 0; i < miningRigs.Length; i++)
         {
@@ -80,7 +82,7 @@ public class Meteroid : MonoBehaviour
 
         if (other.tag == "Asteroid")
         {
-			playerDistance = player.GetComponent<Transform>().position - transform.position;
+            playerDistance = player.GetComponent<Transform>().position - transform.position;
 			if (playerDistance.sqrMagnitude < meteoroidHitBox)
 			{
 				player.rb.velocity = player.transform.TransformDirection(Vector3.up * upForce) + (playerDistance.normalized / Mathf.Clamp(playerDistance.sqrMagnitude, minDistanceHurled, maxDistanceHurled)) * sideForce;
@@ -96,14 +98,16 @@ public class Meteroid : MonoBehaviour
                 GameObject myVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
                 Destroy(myVFX, 30);
             }
+
             Destroy(zone);
-            Invoke("DestroyMeteroid", 0.2f);
+            Invoke("DestroyMeteroid", 3f);
         }
     }
 
     private void DestroyMeteroid()
     {
         Destroy(transform.parent.gameObject);
+
     }
 
     private IEnumerator CoSpawnDangerZone(RaycastHit hit)
