@@ -62,6 +62,7 @@ public class MiningRig : MonoBehaviour
             animator.SetBool("OnPickUp", true);
             pickedUp = true;
         }
+        coBoxSpawnRunning = false;
         transform.SetParent(player.transform);
         transform.position = player.transform.position;
         gameObject.SetActive(false);
@@ -122,6 +123,7 @@ public class MiningRig : MonoBehaviour
     {
         functioning = false;
         rigStatusRend.material.color = Color.red;
+        coBoxSpawnRunning = false;
     }
 
     //If exiting node collider, change color to red
@@ -144,10 +146,20 @@ public class MiningRig : MonoBehaviour
             coBoxSpawnRunning = true;
             yield return new WaitForSeconds(2.8f);
             animator.SetBool("OnMining", true);
-            rigStatusRend.material.color = Color.green;
             for (int i = 0; i < resourseAmount; i++)
             {
-                yield return new WaitForSeconds(timeBetweenBoxes);
+                for (int w = 0; w < timeBetweenBoxes; w++)
+                {
+                    if (functioning && minedNode)
+                    {
+                        rigStatusRend.material.color = Color.green;
+                    }
+                    else
+                    {
+                        rigStatusRend.material.color = Color.red;
+                    }
+                    yield return new WaitForSeconds(1);
+                }
 
                 if (functioning && minedNode)
                 {
