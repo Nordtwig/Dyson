@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickedUp: 0
-  timeBetweenBoxes: 2
+  timeBetweenBoxes: 15
   box: {fileID: 2968500262769446227, guid: 8ae88b175eb6c734d8fa27ad45389144, type: 3}
   rigStatus: {fileID: 4274915727754834493}
   casing: {fileID: 6210056389918580255}

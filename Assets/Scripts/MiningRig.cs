@@ -9,8 +9,8 @@ using UnityEngine.Animations;
 
 public class MiningRig : MonoBehaviour
 {
-    [SerializeField] bool pickedUp;
-    [SerializeField] int timeBetweenBoxes = 2;
+    [SerializeField] private bool pickedUp;
+    [SerializeField] private int timeBetweenBoxes = 2;
     [SerializeField] private GameObject box;
     [SerializeField] private GameObject rigStatus;
     [SerializeField] private GameObject casing;
@@ -144,6 +144,8 @@ public class MiningRig : MonoBehaviour
         animator.SetBool("OnMining", true);
         for (int i = 0; i < resourseAmount; i++)
         {
+            yield return new WaitForSeconds(timeBetweenBoxes);
+
             if (functioning && minedNode)
             {
                 rend.material.color = Color.green;
@@ -159,7 +161,6 @@ public class MiningRig : MonoBehaviour
                 rend.material.color = Color.red;
             }
 
-            yield return new WaitForSeconds(timeBetweenBoxes);
             if (pickedUp)
             {
                 yield break;
