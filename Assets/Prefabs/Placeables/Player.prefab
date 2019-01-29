@@ -251,6 +251,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   holdingItem: 0
   playerSpeed: 10
+  playerAirControllSpeed: 4
   jumpHeight: 10
 --- !u!114 &6513087753959887819
 MonoBehaviour:

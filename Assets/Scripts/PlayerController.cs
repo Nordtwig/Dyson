@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 
     public bool holdingItem;
     public float playerSpeed;
+    public float playerAirControllSpeed = 4;
     public float jumpHeight = 7;
     private float basePlayerSpeed;
     private bool coRunning = false;
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour {
             airMoveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
             model.transform.rotation = RotX.transform.rotation;
             rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
-            rb.MovePosition(rb.position + transform.TransformDirection(airMoveDirection)); //aircontroll
+            rb.MovePosition(rb.position + transform.TransformDirection(airMoveDirection * playerAirControllSpeed)); //aircontroll
         }
 
     }
@@ -126,7 +127,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag != "Player" && other.tag != "Sanctuary")
+        if (other.tag != "Player" && other.tag != "Sanctuary" && other.tag != "DangerZone")
         {
             grounded = true;
         }
@@ -134,7 +135,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player" && other.tag != "Sanctuary")
+        if (other.tag != "Player" && other.tag != "Sanctuary" && other.tag != "DangerZone")
         {
             playerSpeed = basePlayerSpeed;
             rb.velocity = Vector3.zero;
@@ -148,6 +149,6 @@ public class PlayerController : MonoBehaviour {
 
     public void ContinuedJump()
     {
-        rb.velocity += transform.TransformDirection(Vector3.up * Time.deltaTime * 2.5f);
+        rb.velocity += transform.TransformDirection(Vector3.up * Time.deltaTime * 4);
     }
 }
