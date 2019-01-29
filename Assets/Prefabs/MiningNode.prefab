@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028d759175a28fc419cd04eaf08e7c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeMaterial: {fileID: 0}
+  nodeMaterial: {fileID: 2786884455184307268}
   resourceValue: 5
   state: 1
 --- !u!1 &3080038296861897303
