@@ -82,11 +82,15 @@ public class GameController : MonoBehaviour
     {
         Cursor.visible = false; // TODO SHOULD NOT BE HERE ONCE WE HAVE MAIN MENU
 
+        //Update all dependencies in GameController. 
         timeText = GameObject.Find("TimeLeftInPhase").GetComponent<Text>();
         currentPhaseText = GameObject.Find("CurrentPhaseText").GetComponent<Text>();
         meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
         gameOverText = GameObject.Find("GameOverText");
+        player = FindObjectOfType<PlayerController>();
 
+
+        //Update all other instances for their dependencies.
         InputController.instance.StartUp();
 
         gameOverText.SetActive(false);
@@ -188,7 +192,7 @@ public class GameController : MonoBehaviour
 
     public void InvokeIncrementPhase(int time)
     {
-        Invoke("IncrementPhase", time);
+        Invoke("IncrementPhase", time); 
     }
     // =======================================================================================
 

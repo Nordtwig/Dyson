@@ -9,11 +9,11 @@ using UnityEngine;
 public class Meteroid : MonoBehaviour
 {
     //If meteroid collides with asteroid, spawns a miningnode according to percentage
-    [SerializeField] GameObject miningNode;
     private Quaternion miningNodeSpawnRotation;
-    [SerializeField] float randomNodeSpawnChance;
     private float spawnValue;
     [SerializeField] GameObject MetroidImpactVFX;
+    [SerializeField] GameObject miningNode;
+    [SerializeField] float randomNodeSpawnChance = 0.1f;
 
     //If meteroid collides with asteroid, spawns a miningnode according to percentage
     [SerializeField] GameObject dangerZone;
@@ -37,8 +37,10 @@ public class Meteroid : MonoBehaviour
     {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         meteoroids = GameObject.Find("Meteoroids").transform;
+        miningNode = GameObject.Find("GetableMiningNode");
+        dangerZone = GameObject.Find("GetableDangerZone");
 
-        Ray ray = new Ray(transform.position, transform.parent.parent.position - transform.position);
+        Ray ray = new Ray(transform.position, transform.parent.position - transform.position);
         RaycastHit movingToSanctuary;
         if (Physics.Raycast(ray, out movingToSanctuary, (transform.position - meteoroids.position).sqrMagnitude))
         {
