@@ -9,11 +9,11 @@ using UnityEngine;
 public class Meteroid : MonoBehaviour
 {
     //If meteroid collides with asteroid, spawns a miningnode according to percentage
-    [SerializeField] GameObject miningNode;
     private Quaternion miningNodeSpawnRotation;
-    [SerializeField] float randomNodeSpawnChance;
     private float spawnValue;
     [SerializeField] GameObject MetroidImpactVFX;
+    [SerializeField] GameObject miningNode;
+    [SerializeField] float randomNodeSpawnChance = 0.1f;
 
     //If meteroid collides with asteroid, spawns a miningnode according to percentage
     [SerializeField] GameObject dangerZone;
@@ -23,7 +23,7 @@ public class Meteroid : MonoBehaviour
     private GameObject[] boxes;
     private GameObject[] miningRigs;
 	private Vector3 playerDistance;
-	private float meteoroidHitBox = 50f;
+	private float meteoroidHitBox = 7f;
 	[Range(1, 5), SerializeField] float upForce = 2;
 	[Range (10, 200), SerializeField] int sideForce = 100;
     [SerializeField] int minDistanceHurled = 10;
@@ -37,9 +37,11 @@ public class Meteroid : MonoBehaviour
     {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         meteoroids = GameObject.Find("Meteoroids").transform;
+        miningNode = GameObject.Find("GetableMiningNode");
+        dangerZone = GameObject.Find("GetableDangerZone");
         AudioManager.instance.PlayOnPos("Meteoroid Loop", transform);
 
-        Ray ray = new Ray(transform.position, transform.parent.parent.position - transform.position);
+        Ray ray = new Ray(transform.position, transform.parent.position - transform.position);
         RaycastHit movingToSanctuary;
         if (Physics.Raycast(ray, out movingToSanctuary, (transform.position - meteoroids.position).sqrMagnitude))
         {
@@ -58,11 +60,30 @@ public class Meteroid : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        boxes = GameObject.FindGameObjectsWithTag("Box");
-        miningRigs = GameObject.FindGameObjectsWithTag("Rig");
-        //AudioManager.instance.PlayOnPos("Meteoroid Explosion", transform);
+        //boxes = GameObject.FindGameObjectsWithTag("Box");
+        //miningRigs = GameObject.FindGameObjectsWithTag("Rig");
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, meteoroidHitBox);
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            if (hitColliders[i].tag == "Box")
+            {
+                Vector3 boxDistance = hitColliders[i].GetComponent<Transform>().position - transform.position;
+                hitColliders[i].GetComponent<Rigidbody>().velocity = hitColliders[i].transform.TransformDirection(Vector3.up * upForce) + (boxDistance.normalized / Mathf.Clamp(boxDistance.sqrMagnitude, minDistanceHurled, maxDistanceHurled)) * sideForce;
+            }
 
-        for (int i = 0; i < miningRigs.Length; i++)
+            if (hitColliders[i].tag == "Player")
+            {
+                playerDistance = player.GetComponent<Transform>().position - transform.position;
+                player.rb.velocity = player.transform.TransformDirection(Vector3.up * upForce) + (playerDistance.normalized / Mathf.Clamp(playerDistance.sqrMagnitude, minDistanceHurled, maxDistanceHurled)) * sideForce;
+            }
+
+            if (hitColliders[i].tag == "Rig")
+            {
+                hitColliders[i].GetComponent<MiningRig>().BreakRig();
+            }
+        }
+
+        /*for (int i = 0; i < miningRigs.Length; i++)
         {
             float rigdistance = (miningRigs[i].transform.position - transform.position).sqrMagnitude;
             if (rigdistance < meteoroidHitBox)
@@ -73,20 +94,20 @@ public class Meteroid : MonoBehaviour
 
         for (int i = 0; i < boxes.Length; i++)
         {
-            float boxDistance = (boxes[i].transform.position - transform.position).sqrMagnitude;
-            if (boxDistance < meteoroidHitBox)
+            Vector3 boxDistance = boxes[i].GetComponent<Transform>().position - transform.position;
+            if (boxDistance.sqrMagnitude < meteoroidHitBox)
             {
-                Destroy(boxes[i]);
+                boxes[i].GetComponent<Rigidbody>().velocity = boxes[i].transform.TransformDirection(Vector3.up * upForce) + (boxDistance.normalized / Mathf.Clamp(boxDistance.sqrMagnitude, minDistanceHurled, maxDistanceHurled)) * sideForce;
             }
-        }
+        }*/
 
         if (other.tag == "Asteroid")
         {
-            playerDistance = player.GetComponent<Transform>().position - transform.position;
+			/*playerDistance = player.GetComponent<Transform>().position - transform.position;
 			if (playerDistance.sqrMagnitude < meteoroidHitBox)
 			{
 				player.rb.velocity = player.transform.TransformDirection(Vector3.up * upForce) + (playerDistance.normalized / Mathf.Clamp(playerDistance.sqrMagnitude, minDistanceHurled, maxDistanceHurled)) * sideForce;
-			}
+			}*/
 
 			spawnValue = Random.Range(0f, 1f);
             if (spawnValue <= randomNodeSpawnChance)

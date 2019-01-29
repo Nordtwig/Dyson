@@ -11,33 +11,32 @@ public class MiningRig : MonoBehaviour
 {
     [SerializeField] private bool pickedUp;
     [SerializeField] private int timeBetweenBoxes = 2;
-    [SerializeField] private GameObject box;
-    [SerializeField] private GameObject rigStatus;
-    [SerializeField] private GameObject casing;
+    private GameObject box;
     private PlayerController player;
-    private MeshRenderer rend;
+    private MeshRenderer rigStatusRend;
     private Animator animator;
     private MiningNode minedNode; //currently minedNode set to null when no minedNode
     private Color baseColor;
     private Rigidbody rb;
+    private bool coBoxSpawnRunning = false;
 
     public bool functioning = true;
 
     void Start()
     {
+        box = GameObject.Find("GettableBox");
         rb = GetComponent<Rigidbody>();
         player = FindObjectOfType<PlayerController>();
-        rend = rigStatus.GetComponent<MeshRenderer>();
-        rend.material.color = Color.red;
-        //baseColor = casing.GetComponent<MeshRenderer>().material.color;
+        rigStatusRend = transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>();
+        rigStatusRend.material.color = Color.red;
         animator = gameObject.GetComponent<Animator>();
     }
 
     private void OnEnable()
     {
-        if (rend != null)
+        if (rigStatusRend != null)
         {
-            rend.material.color = Color.red;
+            rigStatusRend.material.color = Color.red;
         }
     }
 
@@ -122,7 +121,7 @@ public class MiningRig : MonoBehaviour
     public void BreakRig()
     {
         functioning = false;
-        rend.material.color = Color.red;
+        rigStatusRend.material.color = Color.red;
     }
 
     //If exiting node collider, change color to red
@@ -133,44 +132,49 @@ public class MiningRig : MonoBehaviour
             animator.ResetTrigger("OnNodeDeploy");
             animator.SetTrigger("OnPickUp");
             minedNode = null;
-            rend.material.color = Color.red;
+            rigStatusRend.material.color = Color.red;
         }
     }
 
     //Coroutine that uses for loop to create boxes in the rigs proximity within a set interval
     private IEnumerator CoBoxSpawn(int resourseAmount)
     {
-        yield return new WaitForSeconds(2.8f);
-        animator.SetBool("OnMining", true);
-        rend.material.color = Color.green;
-        for (int i = 0; i < resourseAmount; i++)
+        if (!coBoxSpawnRunning)
         {
-            yield return new WaitForSeconds(timeBetweenBoxes);
-
-            if (functioning && minedNode)
+            coBoxSpawnRunning = true;
+            yield return new WaitForSeconds(2.8f);
+            animator.SetBool("OnMining", true);
+            rigStatusRend.material.color = Color.green;
+            for (int i = 0; i < resourseAmount; i++)
             {
-                rend.material.color = Color.green;
-                EjectBox();
-                if (!minedNode.OnBoxSpawn()) //Do when empty 
+                yield return new WaitForSeconds(timeBetweenBoxes);
+
+                if (functioning && minedNode)
                 {
-                    minedNode = null;
-                    rend.material.color = Color.red;
+                    rigStatusRend.material.color = Color.green;
+                    EjectBox();
+                    if (!minedNode.OnBoxSpawn()) //Do when empty 
+                    {
+                        minedNode = null;
+                        rigStatusRend.material.color = Color.red;
+                    }
+                }
+                else
+                {
+                    rigStatusRend.material.color = Color.red;
+                }
+
+                if (pickedUp)
+                {
+                    yield break;
                 }
             }
-            else
-            {
-                rend.material.color = Color.red;
-            }
-
-            if (pickedUp)
-            {
-                yield break;
-            }
+            rigStatusRend.material.color = Color.red;
+            animator.SetBool("OnMining", false);
+            animator.SetBool("OnNodeDeploy", false);
+            animator.SetBool("Empty", true);
+            coBoxSpawnRunning = false;
         }
-        rend.material.color = Color.red;
-        animator.SetBool("OnMining", false);
-        animator.SetBool("OnNodeDeploy", false);
-        animator.SetBool("Empty", true);
         yield return null;
     }
 
