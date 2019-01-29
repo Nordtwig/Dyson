@@ -124,7 +124,6 @@ public class Meteroid : MonoBehaviour
                 GameObject groundImpactVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
                 Destroy(groundImpactVFX, 5);
             }
-
             Destroy(zone);
             Invoke("DestroyMeteroid", 3f);
         }

@@ -11,6 +11,9 @@ public class MiningRig : MonoBehaviour
 {
     [SerializeField] private bool pickedUp;
     [SerializeField] private int timeBetweenBoxes = 2;
+    [SerializeField] AudioClip rigCollision;
+    [SerializeField] AudioClip drillingLoop;
+    [SerializeField] AudioClip deployBox;
     private GameObject box;
     private PlayerController player;
     private MeshRenderer rigStatusRend;
@@ -115,7 +118,6 @@ public class MiningRig : MonoBehaviour
     {
         if (collision.gameObject.tag == "Asteroid")
         {
-            AudioManager.instance.PlayOnPos("Rig Collision", transform);
         }
     }
 
