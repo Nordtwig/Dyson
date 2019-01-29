@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 
     public bool holdingItem;
     public float playerSpeed;
-    public float jumpHeight = 10;
+    public float jumpHeight = 7;
     private float basePlayerSpeed;
     private bool coRunning = false;
     private bool grounded = false;
@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour {
             rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
             if (airMoveDirection != Vector3.zero && timeOfAirControl < 1)
             {
-                rb.velocity += transform.TransformDirection(airMoveDirection * basePlayerSpeed);
+                //rb.velocity += transform.TransformDirection(airMoveDirection * basePlayerSpeed);
+                rb.MovePosition(rb.position + transform.TransformDirection(airMoveDirection));
                 timeOfAirControl += Time.deltaTime;
             }
         }
@@ -65,7 +66,7 @@ public class PlayerController : MonoBehaviour {
         if (grounded)
         {
             rb.velocity += transform.TransformDirection(Vector3.up * jumpHeight);
-            playerSpeed *= 2;
+            playerSpeed *= 1.5f;
             AudioManager.instance.PlayOnPos("Jump", transform);
         }
     }
@@ -161,6 +162,6 @@ public class PlayerController : MonoBehaviour {
 
     public void ContinuedJump()
     {
-        rb.velocity += transform.TransformDirection(Vector3.up * Time.deltaTime * 5);
+        rb.velocity += transform.TransformDirection(Vector3.up * Time.deltaTime);
     }
 }

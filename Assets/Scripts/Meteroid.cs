@@ -113,7 +113,7 @@ public class Meteroid : MonoBehaviour
             if (spawnValue <= randomNodeSpawnChance)
             {
                 miningNodeSpawnRotation = gameObject.GetComponentInParent<Transform>().rotation;
-                GameObject myNode = Instantiate(miningNode, miningNode.transform.position, miningNodeSpawnRotation);
+                GameObject myNode = Instantiate(miningNode, Vector3.zero, miningNodeSpawnRotation);
                 myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
 
                 GameObject myVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
