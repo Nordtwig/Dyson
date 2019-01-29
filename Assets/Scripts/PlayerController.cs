@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour {
     Vector3 moveDirection = Vector3.zero;
     Vector3 airMoveDirection = Vector3.zero;
     private float timeOfJump = 0;
-    private float timeOfAirControl = 0;
 
     void Start() {
         interactionZone = FindObjectOfType<InteractionZone>();
@@ -51,12 +50,7 @@ public class PlayerController : MonoBehaviour {
             airMoveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
             model.transform.rotation = RotX.transform.rotation;
             rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
-            if (airMoveDirection != Vector3.zero && timeOfAirControl < 1)
-            {
-                //rb.velocity += transform.TransformDirection(airMoveDirection * basePlayerSpeed);
-                rb.MovePosition(rb.position + transform.TransformDirection(airMoveDirection));
-                timeOfAirControl += Time.deltaTime;
-            }
+            rb.MovePosition(rb.position + transform.TransformDirection(airMoveDirection)); //aircontroll
         }
 
     }
@@ -134,7 +128,6 @@ public class PlayerController : MonoBehaviour {
         {
             playerSpeed = basePlayerSpeed;
             rb.velocity = Vector3.zero;
-            timeOfAirControl = 0;
         }
     }
 
@@ -143,25 +136,8 @@ public class PlayerController : MonoBehaviour {
         grounded = false;
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.collider.tag == "Asteroid")
-    //    {
-    //        grounded = true;
-    //        playerSpeed = basePlayerSpeed;
-    //    }
-    //}
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.collider.tag == "Asteroid")
-    //    {
-    //        grounded = false;
-    //    }
-    //}
-
     public void ContinuedJump()
     {
-        rb.velocity += transform.TransformDirection(Vector3.up * Time.deltaTime);
+        rb.velocity += transform.TransformDirection(Vector3.up * Time.deltaTime * 2.5f);
     }
 }
