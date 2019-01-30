@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Made by Noah and Robin
+/// </summary>
+
 public class CameraFollow : MonoBehaviour
 {
 
