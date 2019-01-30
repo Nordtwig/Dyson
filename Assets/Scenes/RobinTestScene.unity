@@ -254,22 +254,22 @@ PrefabInstance:
     - target: {fileID: 1103392877781629065, guid: b618223789228454c9991e1409522209,
         type: 3}
       propertyPath: minDistanceHurled
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1103392877781629065, guid: b618223789228454c9991e1409522209,
         type: 3}
       propertyPath: maxDistanceHurled
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1103392877781629065, guid: b618223789228454c9991e1409522209,
         type: 3}
       propertyPath: upForce
-      value: 0.2
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 1103392877781629065, guid: b618223789228454c9991e1409522209,
         type: 3}
       propertyPath: sideForce
-      value: 0.5
+      value: 187.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b618223789228454c9991e1409522209, type: 3}
