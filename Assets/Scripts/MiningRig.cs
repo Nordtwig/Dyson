@@ -11,9 +11,12 @@ public class MiningRig : MonoBehaviour
 {
     [SerializeField] private bool pickedUp;
     [SerializeField] private int timeBetweenBoxes = 2;
-    [SerializeField] AudioClip rigCollision;
-    [SerializeField] AudioClip drillingLoop;
-    [SerializeField] AudioClip deployBox;
+
+    private AudioSource rigCollision;
+    private AudioSource drillingLoop;
+    private AudioSource deployBox;
+    private AudioSource disableRig;
+
     private GameObject box;
     private PlayerController player;
     private MeshRenderer rigStatusRend;
@@ -33,6 +36,11 @@ public class MiningRig : MonoBehaviour
         rigStatusRend = transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>();
         rigStatusRend.material.color = Color.red;
         animator = gameObject.GetComponent<Animator>();
+        AudioSource[] audios = GetComponents<AudioSource>();
+        rigCollision = audios[0];
+        drillingLoop = audios[1];
+        deployBox = audios[2];
+        disableRig = audios[3];
     }
 
     private void OnEnable()
@@ -106,6 +114,7 @@ public class MiningRig : MonoBehaviour
                 animator.SetBool("OnNodeDeploy", true);
                 minedNode = other.GetComponent<MiningNode>();
 				transform.position = minedNode.transform.position;
+                
                 if (functioning)
                 {
                     StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
@@ -118,11 +127,16 @@ public class MiningRig : MonoBehaviour
     {
         if (collision.gameObject.tag == "Asteroid")
         {
+            rigCollision.Play();
         }
     }
 
     public void BreakRig()
     {
+        if (functioning)
+        {
+            disableRig.Play();
+        }
         functioning = false;
         rigStatusRend.material.color = Color.red;
         coBoxSpawnRunning = false;
@@ -148,6 +162,7 @@ public class MiningRig : MonoBehaviour
             coBoxSpawnRunning = true;
             yield return new WaitForSeconds(2.8f);
             animator.SetBool("OnMining", true);
+            drillingLoop.Play();
             for (int i = 0; i < resourseAmount; i++)
             {
                 for (int w = 0; w < timeBetweenBoxes; w++)
@@ -159,6 +174,7 @@ public class MiningRig : MonoBehaviour
                     else
                     {
                         rigStatusRend.material.color = Color.red;
+                        drillingLoop.Stop();
                     }
                     yield return new WaitForSeconds(1);
                 }
@@ -183,6 +199,7 @@ public class MiningRig : MonoBehaviour
                     yield break;
                 }
             }
+            drillingLoop.Stop();
             rigStatusRend.material.color = Color.red;
             animator.SetBool("OnMining", false);
             animator.SetBool("OnNodeDeploy", false);
@@ -206,5 +223,6 @@ public class MiningRig : MonoBehaviour
     {
         GameObject go = Instantiate(box, transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity);
         go.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.up * 15 + Vector3.forward * Random.Range(-10, 10) + Vector3.right * Random.Range(-10, 10));
+        deployBox.Play();
     }
 }
