@@ -8,7 +8,8 @@ using UnityEngine;
 
 public class MiningNode : MonoBehaviour
 {
-	[SerializeField] private GameObject nodeMaterial;
+	[SerializeField] private Material[] nodeMaterials;
+	private Material baseMaterial;
 
 	private MeshRenderer meshRend;
 
@@ -21,27 +22,29 @@ public class MiningNode : MonoBehaviour
 	public enum MetalVarieties
 	{
 		NULL = 1,
-		GOLD,
-		SILVER,
-		COPPER,
+		CINNABAR,
+		TUNGSTEN,
+		COBALT,
 	}
 
 	public void Start()
 	{
-		metalRandom = Random.Range(1, 10);
-        //meshRend = nodeMaterial.GetComponent<MeshRenderer>();
+        meshRend = GetComponent<MeshRenderer>();
+        baseMaterial = meshRend.material;
+
+		metalRandom = Random.Range(0, 10);
 
         if (metalRandom < 2)
 		{
-			state = MetalVarieties.GOLD;
+			state = MetalVarieties.COBALT;
 		}
 		else if (metalRandom < 5)
 		{
-			state = MetalVarieties.SILVER;
+			state = MetalVarieties.TUNGSTEN;
 		}
 		else
 		{
-			state = MetalVarieties.COPPER;
+			state = MetalVarieties.CINNABAR;
 		}
 
 		NodeMaterial();
@@ -49,19 +52,31 @@ public class MiningNode : MonoBehaviour
 
 	public void NodeMaterial()
 	{
-		if (state == MetalVarieties.GOLD)
+		if (state == MetalVarieties.CINNABAR)
 		{
-			// Get material
+			foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
+            {
+                m.material = nodeMaterials[0];
+            }
+            meshRend.material = baseMaterial;
 		}
-		else if (state == MetalVarieties.SILVER)
+		else if (state == MetalVarieties.TUNGSTEN)
 		{
-			// Get material
-		}
-		else if (state == MetalVarieties.COPPER)
+            foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
+            {
+                m.material = nodeMaterials[1];
+            }
+            meshRend.material = baseMaterial;
+        }
+        else if (state == MetalVarieties.COBALT)
 		{
-			// Get material
-		}
-	}
+            foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
+            {
+                m.material = nodeMaterials[2];
+            }
+            meshRend.material = baseMaterial;
+        }
+    }
 
 	public bool OnBoxSpawn()
     {
