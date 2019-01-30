@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Created by Svedlund and Heimer
+/// Created by Svedlund and Heimer, slightly midified by Robin
 /// </summary>
 
 public class Box : MonoBehaviour
