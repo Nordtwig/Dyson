@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Script creator Petter, Modified by Heimer
+/// Script creator Petter, Modified by Heimer, slightly Robin
 /// </summary>
 
 public class Meteroid : MonoBehaviour
