@@ -15,7 +15,7 @@ public class MiningNodeSpawner : MonoBehaviour
 
     void Start()
     {
-        miningNode = FindObjectOfType<MiningNode>().transform.parent.gameObject;
+        miningNode = GameObject.Find("GetableMiningNode");
         SpawnNode(initialSpawnCount);
     }
 
