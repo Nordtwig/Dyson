@@ -54,7 +54,8 @@ public class MiningNode : MonoBehaviour
 	{
 		if (state == MetalVarieties.CINNABAR)
 		{
-			foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
+            resourceValue = Random.Range(1, 4);
+			foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>()) 
             {
                 m.material = nodeMaterials[0];
             }
@@ -62,6 +63,7 @@ public class MiningNode : MonoBehaviour
 		}
 		else if (state == MetalVarieties.TUNGSTEN)
 		{
+            resourceValue = Random.Range(2, 6);
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
             {
                 m.material = nodeMaterials[1];
@@ -70,6 +72,7 @@ public class MiningNode : MonoBehaviour
         }
         else if (state == MetalVarieties.COBALT)
 		{
+            resourceValue = Random.Range(3, 9);
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
             {
                 m.material = nodeMaterials[2];
@@ -80,7 +83,6 @@ public class MiningNode : MonoBehaviour
 
 	public bool OnBoxSpawn()
     {
-		resourceValue = Random.Range(1, 5);
 		resourceValue--;
         if (resourceValue == 0)
         {
