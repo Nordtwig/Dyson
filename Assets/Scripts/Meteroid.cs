@@ -19,7 +19,10 @@ public class Meteroid : MonoBehaviour
     [SerializeField] GameObject dangerZone;
     private GameObject zone;
 
-	private PlayerController player;
+    private AudioSource meteoriteLoop;
+
+
+    private PlayerController player;
     private GameObject[] boxes;
     private GameObject[] miningRigs;
 	private float meteoroidHitBox = 7f;
@@ -38,7 +41,8 @@ public class Meteroid : MonoBehaviour
         meteoroids = GameObject.Find("Meteoroids").transform;
         miningNode = GameObject.Find("GetableMiningNode");
         dangerZone = GameObject.Find("GetableDangerZone");
-        AudioManager.instance.PlayOnPos("Meteoroid Loop", transform);
+        AudioSource[] audios = GetComponents<AudioSource>();
+        meteoriteLoop = audios[0];
 
         Ray ray = new Ray(transform.position, transform.parent.position - transform.position);
         RaycastHit movingToSanctuary;
@@ -123,8 +127,9 @@ public class Meteroid : MonoBehaviour
                 GameObject groundImpactVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
                 Destroy(groundImpactVFX, 5);
             }
+            meteoriteLoop.Stop();
             Destroy(zone);
-            Invoke("DestroyMeteroid", 3f);
+            Invoke("DestroyMeteroid", 0.2f);
         }
     }
 

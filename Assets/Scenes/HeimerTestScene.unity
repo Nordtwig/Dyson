@@ -251,7 +251,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8048092126479102109, guid: b618223789228454c9991e1409522209,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.185
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7461242328576567708, guid: b618223789228454c9991e1409522209, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b618223789228454c9991e1409522209, type: 3}
 --- !u!1001 &202608360
 PrefabInstance:
@@ -1013,8 +1019,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpawnCount: 10
-  miningNode: {fileID: 6555483470141781774, guid: 499aacac0e10d104098d48eee3360165,
-    type: 3}
 --- !u!1001 &1184671222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1085,7 +1089,7 @@ PrefabInstance:
     - target: {fileID: 5975889087304617555, guid: eb20888ec865ced43b56cd3d31067e10,
         type: 3}
       propertyPath: timeBetweenSpawns
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb20888ec865ced43b56cd3d31067e10, type: 3}
