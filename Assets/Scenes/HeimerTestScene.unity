@@ -1085,7 +1085,7 @@ PrefabInstance:
     - target: {fileID: 5975889087304617555, guid: eb20888ec865ced43b56cd3d31067e10,
         type: 3}
       propertyPath: timeBetweenSpawns
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb20888ec865ced43b56cd3d31067e10, type: 3}

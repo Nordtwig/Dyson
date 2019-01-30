@@ -10,12 +10,12 @@ public class MiningNodeSpawner : MonoBehaviour
 {
     [Tooltip("Amount of Nodes generated during startup")]
     [SerializeField] int initialSpawnCount = 10;
-    [Tooltip("miningNodeCenterpoint prefab goes here")]
-    [SerializeField] GameObject miningNode;
+    private GameObject miningNode;
 
 
     void Start()
     {
+        miningNode = GameObject.Find("GetableMiningNode");
         SpawnNode(initialSpawnCount);
     }
 

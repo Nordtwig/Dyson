@@ -22,12 +22,11 @@ public class Meteroid : MonoBehaviour
 	private PlayerController player;
     private GameObject[] boxes;
     private GameObject[] miningRigs;
-	private Vector3 playerDistance;
 	private float meteoroidHitBox = 7f;
-	[Range(1, 5), SerializeField] float upForce = 2;
-	[Range (10, 200), SerializeField] int sideForce = 100;
-    [SerializeField] int minDistanceHurled = 10;
-    [SerializeField] int maxDistanceHurled = 15;
+	[SerializeField] float upForce = 2;
+	[SerializeField] float sideForce = 100;
+    [SerializeField] int minDistanceReduction = 10;
+    [SerializeField] int maxDistanceReduction = 15;
 
     private Transform meteoroids;
     private bool headingTowardsSanctuary;
@@ -67,14 +66,14 @@ public class Meteroid : MonoBehaviour
         {
             if (hitColliders[i].tag == "Box")
             {
-                Vector3 boxDistance = hitColliders[i].GetComponent<Transform>().position - transform.position;
-                hitColliders[i].GetComponent<Rigidbody>().velocity = hitColliders[i].transform.TransformDirection(Vector3.up * upForce) + (boxDistance.normalized / Mathf.Clamp(boxDistance.sqrMagnitude, minDistanceHurled, maxDistanceHurled)) * sideForce;
+                Vector3 boxDistance = hitColliders[i].transform.position - transform.position;
+                hitColliders[i].GetComponent<Rigidbody>().velocity = hitColliders[i].transform.TransformDirection((Vector3.up / Mathf.Clamp(boxDistance.sqrMagnitude, minDistanceReduction, maxDistanceReduction)) * upForce) + (boxDistance.normalized / Mathf.Clamp(boxDistance.sqrMagnitude, minDistanceReduction, maxDistanceReduction)) * sideForce;
             }
 
             if (hitColliders[i].tag == "Player")
             {
-                playerDistance = player.GetComponent<Transform>().position - transform.position;
-                player.rb.velocity = player.transform.TransformDirection(Vector3.up * upForce) + (playerDistance.normalized / Mathf.Clamp(playerDistance.sqrMagnitude, minDistanceHurled, maxDistanceHurled)) * sideForce;
+                Vector3 playerDistance = player.transform.position - transform.position;
+                player.rb.velocity = player.transform.TransformDirection((Vector3.up / Mathf.Clamp(playerDistance.sqrMagnitude, minDistanceReduction, maxDistanceReduction)) * upForce) + (playerDistance.normalized / Mathf.Clamp(playerDistance.sqrMagnitude, minDistanceReduction, maxDistanceReduction)) * sideForce;
             }
 
             if (hitColliders[i].tag == "Rig")
