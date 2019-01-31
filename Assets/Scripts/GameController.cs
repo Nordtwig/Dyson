@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
 	[SerializeField] private GameObject box;
     [SerializeField] private GameObject miningRig;
     [SerializeField] private GameObject node;
+    [SerializeField] private GameObject chunk;
     private PlayerController player;
     private GameObject gameOverText;
     private MeteroidSpawner meteroidSpawner;
@@ -204,7 +205,7 @@ public class GameController : MonoBehaviour
         StopAllCoroutines();
         SceneManager.LoadScene(sceneAtm);
         state = GameControllerState.NULL;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         Debug.Log("reached GameController reset");
         state = GameControllerState.GAME;
         boxAmount = 0;
@@ -267,26 +268,22 @@ public class GameController : MonoBehaviour
 
     public void DebugSpawnBox()
     {
-        if (player)
-            Instantiate(box, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
-        else
-            player = FindObjectOfType<PlayerController>();
+        Instantiate(box, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
     }
 
     public void DebugSpawnMiningRig()
     {
-        if (player)
-            Instantiate(miningRig, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
-        else
-            player = FindObjectOfType<PlayerController>();
+        Instantiate(miningRig, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
     }
 
     public void DebugSpawnNode()
     {
-        if (player)
-            Instantiate(node, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
-        else
-            player = FindObjectOfType<PlayerController>();
+        Instantiate(node, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+    }
+
+    public void DebugSpawnChunk()
+    {
+        Instantiate(node, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
     }
 
 }
