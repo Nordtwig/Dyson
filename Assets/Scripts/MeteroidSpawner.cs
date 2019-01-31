@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MeteroidSpawner : MonoBehaviour
 {
-
-    [SerializeField] float timeBetweenSpawns = 3f;
     private GameObject meteoroid;
     private GameObject newMeteoroid;
     private Transform meteoroids;
@@ -16,7 +14,6 @@ public class MeteroidSpawner : MonoBehaviour
         meteoroids = GameObject.Find("Meteoroids").transform;
         meteoroid = FindObjectOfType<Meteroid>().transform.parent.gameObject;
         meteoroid.SetActive(false);
-        StartCoroutine(CoSpawnMeteroids(timeBetweenSpawns));
     }
     
     public IEnumerator CoSpawnMeteroids(float timeBetweenSpawns)
@@ -25,7 +22,7 @@ public class MeteroidSpawner : MonoBehaviour
         {
             newMeteoroid = Instantiate(meteoroid, transform.position, Random.rotation, meteoroids);
             newMeteoroid.SetActive(true);
-            yield return new WaitForSeconds(timeBetweenSpawns);
+            yield return new WaitForSeconds(Random.Range(timeBetweenSpawns/2, timeBetweenSpawns*2));
         }
     }
 }

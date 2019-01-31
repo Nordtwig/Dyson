@@ -201,8 +201,10 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Reached restart enumerator");
         DestroyAll();
+        StopAllCoroutines();
         SceneManager.LoadScene(sceneAtm);
-        yield return new WaitForSeconds(1);
+        state = GameControllerState.NULL;
+        yield return new WaitForSeconds(2);
         Debug.Log("reached GameController reset");
         state = GameControllerState.GAME;
         boxAmount = 0;
