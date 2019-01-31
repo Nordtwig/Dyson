@@ -21,9 +21,12 @@ public class InteractionZone : MonoBehaviour
     {
         if (other.tag == "LaunchButton" && GameController.instance.GetAmountOfDeliveredBoxes() >= GameController.instance.phaseAmount)
         {
-            FindObjectOfType<Sled>().StartLaunchCo();
-            GameController.instance.InvokeIncrementPhase(3);
-            FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
+            if (!FindObjectOfType<Sled>().coroutineRunning)
+            {
+                FindObjectOfType<Sled>().StartLaunchCo();
+                GameController.instance.InvokeIncrementPhase(3);
+                FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
+            }
         }
         else if (other.tag == "LaunchButton" && GameController.instance.GetAmountOfDeliveredBoxes() <= GameController.instance.phaseAmount)
         {
