@@ -283,7 +283,7 @@ public class GameController : MonoBehaviour
 
     public void DebugSpawnChunk()
     {
-        Instantiate(node, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+        Instantiate(chunk, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
     }
 
 }
