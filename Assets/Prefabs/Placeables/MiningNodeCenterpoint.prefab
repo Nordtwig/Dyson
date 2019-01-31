@@ -38,11 +38,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646751849581537708}
     m_Modifications:
-    - target: {fileID: 2786884455184307268, guid: 80347d2160a1ec6499b920ea4f3f9da3,
-        type: 3}
-      propertyPath: m_Name
-      value: MiningNode
-      objectReference: {fileID: 0}
     - target: {fileID: 1965063097781461069, guid: 80347d2160a1ec6499b920ea4f3f9da3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -97,6 +92,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2786884455184307268, guid: 80347d2160a1ec6499b920ea4f3f9da3,
+        type: 3}
+      propertyPath: m_Name
+      value: MiningNode
       objectReference: {fileID: 0}
     - target: {fileID: 7970621338223143990, guid: 80347d2160a1ec6499b920ea4f3f9da3,
         type: 3}
