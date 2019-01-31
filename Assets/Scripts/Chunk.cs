@@ -27,12 +27,12 @@ public class Chunk : MonoBehaviour
     {
         gameObject.transform.SetParent(null);
         gameObject.SetActive(true);
-        transform.position = player.transform.position + player.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 3);
+        transform.position = player.transform.position + player.model.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 4);
     }
 
     public void ThrowChunk(float throwStrength)
     {
         DropChunk();
-        rb.velocity += player.rb.velocity * 2 + player.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 10 * throwStrength);
+        rb.velocity += player.rb.velocity * 2 + player.model.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 10 * throwStrength);
     }
 }
