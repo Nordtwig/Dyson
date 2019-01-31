@@ -8,6 +8,13 @@ using UnityEngine;
 
 public class SLS : MonoBehaviour
 {
+    private AudioSource getBox;
+
+    private void Start()
+    {
+        AudioSource[] audios = GetComponents<AudioSource>();
+        getBox = audios[0];
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +22,7 @@ public class SLS : MonoBehaviour
         {
             Destroy(other.gameObject);
             GameController.instance.BoxDelivered();
+            getBox.Play();
         }
         else if (other.tag == "Box")
         {

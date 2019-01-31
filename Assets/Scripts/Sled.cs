@@ -4,13 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Made by Robin
+/// Made by Robin, slightly modified by Heimer (adding sfx)
 /// </summary>
 
 public class Sled : MonoBehaviour
 {
     private Rigidbody rb;
     [SerializeField] private float launchSpeed = 30;
+
+    private AudioSource sledPreLaunch;
+    private AudioSource sledLaunch;
+
 
     // For sled resetting
     private Sled sled;
@@ -24,6 +28,10 @@ public class Sled : MonoBehaviour
         sled = FindObjectOfType<Sled>();
         sledStartPosition = sled.transform.position;
         sledStartRotation = sled.transform.rotation;
+        AudioSource[] audios = GetComponents<AudioSource>();
+        sledPreLaunch = audios[0];
+        sledLaunch = audios[1];
+
 	}
 
 	public void StartLaunchCo()
@@ -37,6 +45,7 @@ public class Sled : MonoBehaviour
         {
             GameController.instance.hijackedTimerText = true;
             coroutineRunning = true;
+            sledPreLaunch.Play();
             GameController.instance.timeText.color = Color.red;
             GameController.instance.timeText.text = "Launch in: 3";
             yield return new WaitForSeconds(1f);
@@ -44,6 +53,7 @@ public class Sled : MonoBehaviour
             yield return new WaitForSeconds(1f);
             GameController.instance.timeText.text = "Launch in: 1";
             yield return new WaitForSeconds(1f);
+            sledLaunch.Play();
             GameController.instance.timeText.text = "Launch!";
             rb.velocity = transform.TransformDirection(Vector3.forward * launchSpeed);
             yield return new WaitForSeconds(1f);

@@ -129,7 +129,7 @@ public class Meteroid : MonoBehaviour
             }
             StartCoroutine(CoFadeOut(meteoriteLoop, 0.2f));
             Destroy(zone);
-            Invoke("DestroyMeteroid", 2f);
+            Invoke("DestroyMeteroid", 0.5f);
         }
     }
 
