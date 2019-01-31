@@ -16,7 +16,7 @@ public class Sled : MonoBehaviour
     private Sled sled;
     private Vector3 sledStartPosition;
     private Quaternion sledStartRotation;
-    private bool coroutineRunning = false;
+    public bool coroutineRunning = false;
 
     private void Start()
     {

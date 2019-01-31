@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour {
     private GameObject RotX;
     private GameObject model;
 
-    public bool holdingItem;
+    [HideInInspector] public bool holdingItem;
+    [HideInInspector] public bool hitButton = false;
+    [HideInInspector] public bool pickedUpItem = false;
     public float playerSpeed;
     public float playerAirControllSpeed = 4;
     public float jumpHeight = 7;
@@ -67,6 +69,28 @@ public class PlayerController : MonoBehaviour {
 
     public void PlayerInteraction()
     {
+        if (!coRunning)
+        {
+            StartCoroutine(CoInteractionZoneHandler());
+        }
+    }
+
+	private IEnumerator CoInteractionZoneHandler()
+    {
+        coRunning = true;
+        interactionZone.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        interactionZone.gameObject.SetActive(false);
+        if (!hitButton && !pickedUpItem)
+            HandleHoldingItem();
+        pickedUpItem = false;
+        hitButton = false;
+        coRunning = false;
+        yield return null;
+    }
+
+    private void HandleHoldingItem()
+    {
         if (holdingItem)
         {
             holdingItem = false;
@@ -86,19 +110,6 @@ public class PlayerController : MonoBehaviour {
                 rig.DropRig();
             }
         }
-
-        else if (!coRunning)
-        {
-            StartCoroutine(CoInteractionZoneHandler());
-        }
-    }
-
-	private IEnumerator CoInteractionZoneHandler()
-    {
-        interactionZone.gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        interactionZone.gameObject.SetActive(false);
-        yield return null;
     }
 
     public void ThrowItem(float throwStrength)

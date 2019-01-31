@@ -133,7 +133,7 @@ public class GameController : MonoBehaviour
     public void PhaseTimer()
     {
         
-        if (!gameOverText.activeInHierarchy)
+        if (!gameOverText.activeInHierarchy && !hijackedTimerText)
         {
             totalTimeInPhase -= Time.deltaTime;
         }
