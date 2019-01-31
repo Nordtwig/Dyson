@@ -14,6 +14,7 @@ public class InputController : MonoBehaviour
 
     PlayerController player;
     Text helpText;
+    GameObject storeWindow;
     private bool jumpButtonDown = false;
     [HideInInspector] public float eTime = 0;
 
@@ -41,6 +42,8 @@ public class InputController : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         helpText = GameObject.Find("HelpText").GetComponent<Text>();
         helpText.enabled = false;
+        storeWindow = FindObjectOfType<StoreWindow>().gameObject;
+        storeWindow.SetActive(false);
     }
 
     // ===================== Short about ======================================
@@ -54,14 +57,24 @@ public class InputController : MonoBehaviour
             GameController.instance.SetDebugMode(!GameController.instance.GetDebugMode()); //inverts the value of DebugMode
             Debug.Log(GameController.instance.GetDebugMode());
         }
+
         if (Input.GetKeyDown(KeyCode.H))
         {
             helpText.enabled = !helpText.enabled;
         }
 
-        CheckAndRunPlayerKeys();
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameController.instance.state = GameController.GameControllerState.STOREWINDOW;
+            storeWindow.SetActive(!storeWindow.activeInHierarchy);
+        }
 
-        CheckAndRunDebugKeys();
+        if (GameController.instance.state == GameController.GameControllerState.GAME)
+        {
+            CheckAndRunPlayerKeys();
+            CheckAndRunDebugKeys();
+        }
+
     }
 
     private void CheckAndRunPlayerKeys()
@@ -96,13 +109,12 @@ public class InputController : MonoBehaviour
             }
             eTime = 0;
         }
-
-
+        
         if (Input.GetKey(KeyCode.E))
         {
             eTime += Time.deltaTime;
         }
-
+        
     }
 
     //Checks if any debug key has been pressed and executes that command is DebugMode is true

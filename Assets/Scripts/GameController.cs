@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour
         GAME,
         PAUSE,
         GAMEOVER,
+        STOREWINDOW,
     }
 
     private void Awake()
@@ -134,6 +135,13 @@ public class GameController : MonoBehaviour
         else if (state == GameControllerState.GAMEOVER)
         {
             //DO GAME OVER THINGS
+        }
+
+        else if (state == GameControllerState.STOREWINDOW)
+        {
+            //DO STORE WINDOW THINGS
+            Cursor.visible = true;
+            InputController.instance.CheckKeys();
         }
     }
 
