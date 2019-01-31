@@ -127,10 +127,21 @@ public class Meteroid : MonoBehaviour
                 GameObject groundImpactVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
                 Destroy(groundImpactVFX, 5);
             }
-            meteoriteLoop.Stop();
+            StartCoroutine(CoFadeOut(meteoriteLoop, 0.2f));
             Destroy(zone);
-            Invoke("DestroyMeteroid", 0.2f);
+            Invoke("DestroyMeteroid", 2f);
         }
+    }
+
+    public static IEnumerator CoFadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+            yield return null;
+        }
+        audioSource.Stop();
     }
 
     private void DestroyMeteroid()

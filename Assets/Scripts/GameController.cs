@@ -88,6 +88,7 @@ public class GameController : MonoBehaviour
         meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
         gameOverText = GameObject.Find("GameOverText");
         player = FindObjectOfType<PlayerController>();
+        AudioManager.instance.Play("Ambience");
 
 
         //Update all other instances for their dependencies.

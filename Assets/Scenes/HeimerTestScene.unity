@@ -254,10 +254,19 @@ PrefabInstance:
     - target: {fileID: 8048092126479102109, guid: b618223789228454c9991e1409522209,
         type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0.185
+      value: 0.99
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7461242328576567708, guid: b618223789228454c9991e1409522209, type: 3}
+    - target: {fileID: 8048092126479102109, guid: b618223789228454c9991e1409522209,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048092126479102109, guid: b618223789228454c9991e1409522209,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b618223789228454c9991e1409522209, type: 3}
 --- !u!1001 &202608360
 PrefabInstance:
@@ -1031,6 +1040,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeteroidSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5975889087304617554, guid: eb20888ec865ced43b56cd3d31067e10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5975889087304617552, guid: eb20888ec865ced43b56cd3d31067e10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1395,13 +1409,138 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
         type: 3}
+      propertyPath: sounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
       propertyPath: sounds.Array.data[5].spatialBlend
-      value: 0.99
+      value: 0.011
       objectReference: {fileID: 0}
     - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
         type: 3}
       propertyPath: sounds.Array.data[5].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[4].name
+      value: Meteoroid Loop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[4].volumeVariance
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[4].pitch
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[4].pitchVariance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[4].spatialBlend
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[4].sound3d
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[4].playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[4].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: Ambience
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a68b2b7b5f858fb46bf6f562192859c8, type: 3}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 29aeb66cca225db409a71070aab9c04b, type: 3}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[6].name
+      value: Meteoroid Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ceee7be0829bfc40ac5abc77c92c1bd, type: 3}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[6].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[6].volumeVariance
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[6].pitch
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[6].pitchVariance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[6].spatialBlend
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[6].sound3d
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[6].playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[5].sound3d
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[5].pitchVariance
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac179cb405b0fea46a735a3385446d95, type: 3}
