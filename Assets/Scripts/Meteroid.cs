@@ -37,10 +37,10 @@ public class Meteroid : MonoBehaviour
 
     private void Start()
     {
-		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         meteoroids = GameObject.Find("Meteoroids").transform;
         miningNode = GameObject.Find("GetableMiningNode");
         dangerZone = GameObject.Find("GetableDangerZone");
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         AudioSource[] audios = GetComponents<AudioSource>();
         meteoriteLoop = audios[0];
 
