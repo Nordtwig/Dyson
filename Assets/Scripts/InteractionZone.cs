@@ -21,6 +21,7 @@ public class InteractionZone : MonoBehaviour
     {
         if (other.tag == "LaunchButton" && GameController.instance.GetAmountOfDeliveredBoxes() >= GameController.instance.phaseAmount)
         {
+            player.GetComponent<PlayerController>().hitButton = true;
             if (!FindObjectOfType<Sled>().coroutineRunning)
             {
                 FindObjectOfType<Sled>().StartLaunchCo();
@@ -30,23 +31,27 @@ public class InteractionZone : MonoBehaviour
         }
         else if (other.tag == "LaunchButton" && GameController.instance.GetAmountOfDeliveredBoxes() <= GameController.instance.phaseAmount)
         {
+            player.GetComponent<PlayerController>().hitButton = true;
             Debug.Log("You don't have enough of a load to send it yet");
         }
         else if (other.tag == "Box" && !player.GetComponent<PlayerController>().holdingItem)
         {
             player.GetComponent<PlayerController>().holdingItem = true;
+            player.GetComponent<PlayerController>().pickedUpItem = true;
             other.gameObject.GetComponent<Box>().PickUpBox();
             audioManager.Play("Pickup");
         }
         else if (other.tag == "Chunk" && !player.GetComponent<PlayerController>().holdingItem)
         {
             player.GetComponent<PlayerController>().holdingItem = true;
+            player.GetComponent<PlayerController>().pickedUpItem = true;
             other.gameObject.GetComponent<Chunk>().PickUpChunk();
             audioManager.Play("Pickup");
         }
         else if (other.tag == "SanctuaryHolder" && !player.GetComponent<PlayerController>().holdingItem)
         {
             player.GetComponent<PlayerController>().holdingItem = true;
+            player.GetComponent<PlayerController>().pickedUpItem = true;
             other.gameObject.GetComponent<Box>().PickUpBox();
         }
         else if (other.tag == "Rig" && !other.gameObject.GetComponent<MiningRig>().functioning && !player.GetComponent<PlayerController>().holdingItem)

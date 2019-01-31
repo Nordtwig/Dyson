@@ -51,10 +51,16 @@ public class MiningRig : MonoBehaviour
         }
     }
 
+    public void StartCoPickUpRig()
+    {
+        StartCoroutine("CoPickUpRig");
+    }
+
     //Rig is parented to player on pickup, despawns and changes a bool to indicate the player is carrying it
     private IEnumerator CoPickUpRig()
     {
         player.holdingItem = true;
+        player.pickedUpItem = true;
 
         if (animator.GetBool("OnNodeDeploy") || animator.GetBool("Empty") || animator.GetBool("OnMining"))
         {
@@ -78,12 +84,7 @@ public class MiningRig : MonoBehaviour
         transform.position = player.transform.position;
         gameObject.SetActive(false);
         yield return null;
-    }
-
-    public void StartCoPickUpRig()
-    {
-        StartCoroutine("CoPickUpRig");
-    }
+    }  
 
     //Rig is un-parented, spawns in front of player and changes the bool to false
     public void DropRig()
