@@ -51,10 +51,16 @@ public class MiningRig : MonoBehaviour
         }
     }
 
+    public void StartCoPickUpRig()
+    {
+        StartCoroutine("CoPickUpRig");
+    }
+
     //Rig is parented to player on pickup, despawns and changes a bool to indicate the player is carrying it
     private IEnumerator CoPickUpRig()
     {
         player.holdingItem = true;
+        player.pickedUpItem = true;
 
         if (animator.GetBool("OnNodeDeploy") || animator.GetBool("Empty") || animator.GetBool("OnMining"))
         {
@@ -78,12 +84,7 @@ public class MiningRig : MonoBehaviour
         transform.position = player.transform.position;
         gameObject.SetActive(false);
         yield return null;
-    }
-
-    public void StartCoPickUpRig()
-    {
-        StartCoroutine("CoPickUpRig");
-    }
+    }  
 
     //Rig is un-parented, spawns in front of player and changes the bool to false
     public void DropRig()
@@ -92,14 +93,14 @@ public class MiningRig : MonoBehaviour
         gameObject.transform.SetParent(null);
         gameObject.SetActive(true);
         pickedUp = false;
-        transform.position = player.transform.position + player.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 3);
+        transform.position = player.transform.position + player.model.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 4);
 		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 	}
 
     public void ThrowRig(float throwStrength)
     {
         DropRig();
-        rb.velocity += player.rb.velocity*2 + player.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 5 * throwStrength);
+        rb.velocity += player.rb.velocity*2 + player.model.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 5 * throwStrength);
     }
 
     //If the object collides with the "Node" tag AND picked up is false(released), changes color to green and starts spawning boxes

@@ -13,9 +13,11 @@ public class PlayerController : MonoBehaviour {
     private InteractionZone interactionZone;
 
     private GameObject RotX;
-    private GameObject model;
+    [HideInInspector] public GameObject model;
 
-    public bool holdingItem;
+    [HideInInspector] public bool holdingItem;
+    [HideInInspector] public bool hitButton = false;
+    [HideInInspector] public bool pickedUpItem = false;
     public float playerSpeed;
     public float playerAirControllSpeed = 4;
     public float jumpHeight = 7;
@@ -49,8 +51,7 @@ public class PlayerController : MonoBehaviour {
         {
             airMoveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
             model.transform.rotation = RotX.transform.rotation;
-            rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
-            rb.MovePosition(rb.position + transform.TransformDirection(airMoveDirection * playerAirControllSpeed)); //aircontroll
+            rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed) + model.transform.TransformDirection(airMoveDirection * playerAirControllSpeed));
         }
 
     }
@@ -66,6 +67,28 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void PlayerInteraction()
+    {
+        if (!coRunning)
+        {
+            StartCoroutine(CoInteractionZoneHandler());
+        }
+    }
+
+	private IEnumerator CoInteractionZoneHandler()
+    {
+        coRunning = true;
+        interactionZone.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        interactionZone.gameObject.SetActive(false);
+        if (!hitButton && !pickedUpItem)
+            HandleHoldingItem();
+        pickedUpItem = false;
+        hitButton = false;
+        coRunning = false;
+        yield return null;
+    }
+
+    private void HandleHoldingItem()
     {
         if (holdingItem)
         {
@@ -86,19 +109,6 @@ public class PlayerController : MonoBehaviour {
                 rig.DropRig();
             }
         }
-
-        else if (!coRunning)
-        {
-            StartCoroutine(CoInteractionZoneHandler());
-        }
-    }
-
-	private IEnumerator CoInteractionZoneHandler()
-    {
-        interactionZone.gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        interactionZone.gameObject.SetActive(false);
-        yield return null;
     }
 
     public void ThrowItem(float throwStrength)

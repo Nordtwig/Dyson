@@ -43,12 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfcfd266eed6b740a315b8e25b383db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeText: {fileID: 0}
   box: {fileID: 2968500262769446227, guid: 8ae88b175eb6c734d8fa27ad45389144, type: 3}
   miningRig: {fileID: 1346940179161717314, guid: afe146540c7d5a141a697b0584727db5,
     type: 3}
   node: {fileID: 2786884455184307268, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+  chunk: {fileID: 129545546215102865, guid: ce1e0e2dd817a564a91af50c3195cf2e, type: 3}
   phaseAmount: 5
   currentPhase: 0
+  hijackedTimerText: 0
   totalTimeInPhase: 180
   phaseSpecifics:
   - totalTimeInPhase: 0
@@ -56,7 +59,7 @@ MonoBehaviour:
     timeBetweenMeteroids: 0
   - totalTimeInPhase: 180
     phaseBoxAmount: 5
-    timeBetweenMeteroids: 3
+    timeBetweenMeteroids: 0.2
   - totalTimeInPhase: 180
     phaseBoxAmount: 7
     timeBetweenMeteroids: 2

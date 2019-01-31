@@ -19,7 +19,10 @@ public class Meteroid : MonoBehaviour
     [SerializeField] GameObject dangerZone;
     private GameObject zone;
 
-	private PlayerController player;
+    private AudioSource meteoriteLoop;
+
+
+    private PlayerController player;
     private GameObject[] boxes;
     private GameObject[] miningRigs;
 	private float meteoroidHitBox = 7f;
@@ -34,11 +37,12 @@ public class Meteroid : MonoBehaviour
 
     private void Start()
     {
-		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         meteoroids = GameObject.Find("Meteoroids").transform;
         miningNode = GameObject.Find("GetableMiningNode");
         dangerZone = GameObject.Find("GetableDangerZone");
-        AudioManager.instance.PlayOnPos("Meteoroid Loop", transform);
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        AudioSource[] audios = GetComponents<AudioSource>();
+        meteoriteLoop = audios[0];
 
         Ray ray = new Ray(transform.position, transform.parent.position - transform.position);
         RaycastHit movingToSanctuary;
@@ -123,9 +127,21 @@ public class Meteroid : MonoBehaviour
                 GameObject groundImpactVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
                 Destroy(groundImpactVFX, 5);
             }
+            StartCoroutine(CoFadeOut(meteoriteLoop, 0.2f));
             Destroy(zone);
-            Invoke("DestroyMeteroid", 3f);
+            Invoke("DestroyMeteroid", 0.5f);
         }
+    }
+
+    public static IEnumerator CoFadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+            yield return null;
+        }
+        audioSource.Stop();
     }
 
     private void DestroyMeteroid()
