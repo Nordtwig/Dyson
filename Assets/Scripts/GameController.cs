@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using System;
 
 /// <summary>
-/// Script creator Robin
+/// Script creator Robin, modified by Heimer
 /// </summary>
 
 public class GameController : MonoBehaviour
@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     private Text boxAmountText;
 	public Text timeText;
 	private Text currentPhaseText;
+    private Text creditsText;
 
 	//Objects
 	[SerializeField] private GameObject box;
@@ -37,6 +38,9 @@ public class GameController : MonoBehaviour
     private bool debugMode = false;
     public bool hijackedTimerText = false;
     public float totalTimeInPhase;
+    public int playerCredits = 0;
+    public int boxCreditsReward = 5;
+    public int phaseCreditReward = 50;
 
     //Phase Specifics
     public PhaseSpecifics[] phaseSpecifics;
@@ -76,6 +80,7 @@ public class GameController : MonoBehaviour
     {
         StartUp();
         IncrementPhase();
+        UpdateCredits(100);
     }
 
     private void StartUp()
@@ -87,6 +92,7 @@ public class GameController : MonoBehaviour
         currentPhaseText = GameObject.Find("CurrentPhaseText").GetComponent<Text>();
         meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
         gameOverText = GameObject.Find("GameOverText");
+        creditsText = GameObject.Find("CreditsText").GetComponent<Text>();
         player = FindObjectOfType<PlayerController>();
         AudioManager.instance.Play("Ambience");
 
@@ -165,6 +171,7 @@ public class GameController : MonoBehaviour
 	{
 		boxAmount++;
         FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
+        UpdateCredits(boxCreditsReward);
 	}
 
 	// ============================= PHASE CHANGING STUFF HERE =============================
@@ -178,6 +185,8 @@ public class GameController : MonoBehaviour
             currentPhase++;
             currentPhaseText.text = "Current Phase: " + currentPhase;
             phaseAmount = phaseSpecifics[currentPhase].phaseBoxAmount;
+            UpdateCredits(phaseCreditReward + Mathf.FloorToInt(totalTimeInPhase / 5));
+            Debug.Log("Bonus: " + Mathf.FloorToInt(totalTimeInPhase / 5));
             totalTimeInPhase = phaseSpecifics[currentPhase].totalTimeInPhase;
             StartCoroutine(meteroidSpawner.CoSpawnMeteroids(phaseSpecifics[currentPhase].timeBetweenMeteroids));
         }
@@ -194,6 +203,12 @@ public class GameController : MonoBehaviour
     public void InvokeIncrementPhase(int time)
     {
         Invoke("IncrementPhase", time); 
+    }
+
+    public void UpdateCredits(int amount)
+    {
+        playerCredits += amount;
+        creditsText.text = "Credits: " + playerCredits;
     }
     // =======================================================================================
 
