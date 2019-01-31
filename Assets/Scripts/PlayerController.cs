@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
             airMoveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
             model.transform.rotation = RotX.transform.rotation;
             rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
-            rb.MovePosition(rb.position + transform.TransformDirection(airMoveDirection * playerAirControllSpeed)); //aircontroll
+            rb.MovePosition(rb.position + model.transform.TransformDirection(airMoveDirection * playerAirControllSpeed)); //aircontroll
         }
 
     }
