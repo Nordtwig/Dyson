@@ -132,6 +132,12 @@ public class InputController : MonoBehaviour
                 GameController.instance.DebugSpawnBox();
                 Debug.Log("spawn box");
             }
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                GameController.instance.DebugSpawnChunk();
+                Debug.Log("spawn chunk");
+            }
         }
     }
 }

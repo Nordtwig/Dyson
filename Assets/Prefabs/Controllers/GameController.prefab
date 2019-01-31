@@ -48,6 +48,7 @@ MonoBehaviour:
   miningRig: {fileID: 1346940179161717314, guid: afe146540c7d5a141a697b0584727db5,
     type: 3}
   node: {fileID: 2786884455184307268, guid: 80347d2160a1ec6499b920ea4f3f9da3, type: 3}
+  chunk: {fileID: 129545546215102865, guid: ce1e0e2dd817a564a91af50c3195cf2e, type: 3}
   phaseAmount: 5
   currentPhase: 0
   hijackedTimerText: 0

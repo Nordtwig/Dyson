@@ -1418,7 +1418,7 @@ PrefabInstance:
     - target: {fileID: 6014152308992975262, guid: dcdd18050ca8c784faf7a4570ef68d68,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 220
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 6014152308992975262, guid: dcdd18050ca8c784faf7a4570ef68d68,
         type: 3}
@@ -1454,6 +1454,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943945754443523241, guid: dcdd18050ca8c784faf7a4570ef68d68,
+        type: 3}
+      propertyPath: m_Text
+      value: "Press F1 to activate/deactivate \ndebug options\n\nM to spawn a MiningRig.\nN
+        to spawn a random MiningNode.\nB to spawn a Box.\nC to spawn a Chunk.\nR to
+        Restart, (has some issues) "
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcdd18050ca8c784faf7a4570ef68d68, type: 3}

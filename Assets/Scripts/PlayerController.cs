@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
     private InteractionZone interactionZone;
 
     private GameObject RotX;
-    private GameObject model;
+    [HideInInspector] public GameObject model;
 
     [HideInInspector] public bool holdingItem;
     [HideInInspector] public bool hitButton = false;
@@ -51,8 +51,7 @@ public class PlayerController : MonoBehaviour {
         {
             airMoveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
             model.transform.rotation = RotX.transform.rotation;
-            rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
-            rb.MovePosition(rb.position + transform.TransformDirection(airMoveDirection * playerAirControllSpeed)); //aircontroll
+            rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed) + model.transform.TransformDirection(airMoveDirection * playerAirControllSpeed));
         }
 
     }
