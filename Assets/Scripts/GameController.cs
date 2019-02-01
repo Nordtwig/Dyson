@@ -27,16 +27,18 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject miningRig;
     [SerializeField] private GameObject node;
     [SerializeField] private GameObject chunk;
+    public Material[] metalMaterials;
     private PlayerController player;
     private GameObject gameOverText;
     private MeteroidSpawner meteroidSpawner;
 
     //General
-    private int boxAmount = 0;
-    public int phaseAmount = 5;
-    public int currentPhase = 0;
     private int sceneAtm = 0; //Current scene
     private bool debugMode = false;
+    private int boxAmount = 0;
+
+    public int phaseAmount = 5;
+    public int currentPhase = 0;
     public bool hijackedTimerText = false;
     public float totalTimeInPhase;
     public int playerCredits = 0;
@@ -57,6 +59,13 @@ public class GameController : MonoBehaviour
         PAUSE,
         GAMEOVER,
         STOREWINDOW,
+    }
+
+    public enum MetalVarieties
+    {
+        CINNABAR,
+        TUNGSTEN,
+        COBALT,
     }
 
     private void Awake()
@@ -308,7 +317,8 @@ public class GameController : MonoBehaviour
 
     public void DebugSpawnChunk()
     {
-        Instantiate(chunk, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+        GameObject g = Instantiate(chunk, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+        g.GetComponent<Chunk>().RandomChunkType();
     }
 
 }

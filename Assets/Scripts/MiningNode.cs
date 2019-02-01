@@ -17,15 +17,7 @@ public class MiningNode : MonoBehaviour
 	int metalRandom;
 
 	// States
-	public MetalVarieties state = MetalVarieties.NULL;
-
-	public enum MetalVarieties
-	{
-		NULL = 1,
-		CINNABAR,
-		TUNGSTEN,
-		COBALT,
-	}
+	public GameController.MetalVarieties state;
 
 	public void Start()
 	{
@@ -36,15 +28,15 @@ public class MiningNode : MonoBehaviour
 
         if (metalRandom < 2)
 		{
-			state = MetalVarieties.COBALT;
+			state = GameController.MetalVarieties.COBALT;
 		}
 		else if (metalRandom < 5)
 		{
-			state = MetalVarieties.TUNGSTEN;
+			state = GameController.MetalVarieties.TUNGSTEN;
 		}
 		else
 		{
-			state = MetalVarieties.CINNABAR;
+			state = GameController.MetalVarieties.CINNABAR;
 		}
 
 		NodeMaterial();
@@ -52,7 +44,7 @@ public class MiningNode : MonoBehaviour
 
 	public void NodeMaterial()
 	{
-		if (state == MetalVarieties.CINNABAR)
+		if (state == GameController.MetalVarieties.CINNABAR)
 		{
             resourceValue = Random.Range(1, 4);
 			foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>()) 
@@ -61,7 +53,7 @@ public class MiningNode : MonoBehaviour
             }
             meshRend.material = baseMaterial;
 		}
-		else if (state == MetalVarieties.TUNGSTEN)
+		else if (state == GameController.MetalVarieties.TUNGSTEN)
 		{
             resourceValue = Random.Range(2, 6);
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
@@ -70,7 +62,7 @@ public class MiningNode : MonoBehaviour
             }
             meshRend.material = baseMaterial;
         }
-        else if (state == MetalVarieties.COBALT)
+        else if (state == GameController.MetalVarieties.COBALT)
 		{
             resourceValue = Random.Range(3, 9);
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())

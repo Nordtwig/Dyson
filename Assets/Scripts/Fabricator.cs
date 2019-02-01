@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fabricator : MonoBehaviour
 {
-    private Chunk.ChunkType[] chunks;
+    private GameController.MetalVarieties[] chunks;
 
     private bool[] chunksReceived;
 
@@ -21,7 +21,7 @@ public class Fabricator : MonoBehaviour
     private void Start()
     {
         box = GameObject.Find("GetableBox");
-        chunks = new Chunk.ChunkType[3];
+        chunks = new GameController.MetalVarieties[3];
         chunksReceived = new bool[3];
         RequiredMaterials();
     }
@@ -87,20 +87,20 @@ public class Fabricator : MonoBehaviour
         {
             visualChunks[i].SetActive(true);
             checkMark[i].SetActive(false);
-            Chunk.ChunkType randomMaterial = (Chunk.ChunkType) Random.Range(0, 3);
+            GameController.MetalVarieties randomMaterial = (GameController.MetalVarieties) Random.Range(0, 3);
             chunks[i] = randomMaterial;
             chunksReceived[i] = false;
 
             //visuals
-            if (randomMaterial == Chunk.ChunkType.CINNABAR)
+            if (randomMaterial == GameController.MetalVarieties.CINNABAR)
             {
                 visualChunks[i].GetComponent<SpriteRenderer>().material = visualMaterials[0];
             }
-            else if (randomMaterial == Chunk.ChunkType.COBALT)
+            else if (randomMaterial == GameController.MetalVarieties.COBALT)
             {
                 visualChunks[i].GetComponent<SpriteRenderer>().material = visualMaterials[2];
             }
-            else
+            else if (randomMaterial == GameController.MetalVarieties.TUNGSTEN)
             {
                 visualChunks[i].GetComponent<SpriteRenderer>().material = visualMaterials[1];
             }

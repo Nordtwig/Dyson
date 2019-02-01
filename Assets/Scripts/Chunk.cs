@@ -5,43 +5,32 @@ using UnityEngine;
 public class Chunk : MonoBehaviour
 {
     private PlayerController player;
-    private Rigidbody rb;
-    private MeshRenderer myRenderer;
 
-    public ChunkType chunkType;
+    public Rigidbody rb;
+    public GameController.MetalVarieties chunkType;
+    public MeshRenderer myRenderer;
 
-
-    public enum ChunkType
-    {
-        CINNABAR,
-        TUNGSTEN,
-        COBALT,
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
-        rb = GetComponent<Rigidbody>();
-        DetermineChunkType();
     }
 
-    private void DetermineChunkType()
+    public void RandomChunkType()
     {
-        myRenderer = gameObject.GetComponentInChildren<MeshRenderer>();
-        Debug.Log(myRenderer.material.name);
-        if (myRenderer.material.name == "Tungsten")
+        int randomRoll = Random.Range(0, 3);
+        if (randomRoll == 0)
         {
-            chunkType = ChunkType.TUNGSTEN;
+            chunkType = GameController.MetalVarieties.CINNABAR;
         }
-        else if (myRenderer.material.name == "Cinnabar")
+        else if (randomRoll == 1)
         {
-            chunkType = ChunkType.CINNABAR;
+            chunkType = GameController.MetalVarieties.TUNGSTEN;
         }
-        else if (myRenderer.material.name == "Cobalt")
+        else 
         {
-            chunkType = ChunkType.COBALT;
+            chunkType = GameController.MetalVarieties.COBALT;
         }
+        myRenderer.material = GameController.instance.metalMaterials[randomRoll];
     }
 
     //Chunk is parented to player and disabled for transport, player holdingItem bool sets to true

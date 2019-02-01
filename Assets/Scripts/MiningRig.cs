@@ -11,7 +11,7 @@ public class MiningRig : MonoBehaviour
 {
     [SerializeField] private bool pickedUp;
     [SerializeField] private int timeBetweenBoxes = 2;
-    [SerializeField] private GameObject[] chunks;
+    [SerializeField] private GameObject chunk; 
 
     private AudioSource rigCollision;
     private AudioSource drillingLoop;
@@ -223,20 +223,25 @@ public class MiningRig : MonoBehaviour
     //Ejects a boc in a random direction from the MiningRig
     public void EjectChunk()
     {
-        GameObject go = null;
-        if (minedNode.state == MiningNode.MetalVarieties.CINNABAR)
+        Chunk newChunk = Instantiate(chunk, transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity).GetComponent<Chunk>();
+
+        if (minedNode.state == GameController.MetalVarieties.CINNABAR)
         {
-            go = Instantiate(chunks[0], transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity);
+            newChunk.chunkType = GameController.MetalVarieties.CINNABAR;
+            newChunk.myRenderer.material = GameController.instance.metalMaterials[0];
         }
-        else if (minedNode.state == MiningNode.MetalVarieties.TUNGSTEN)
+        else if (minedNode.state == GameController.MetalVarieties.TUNGSTEN)
         {
-            go = Instantiate(chunks[1], transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity);
+            newChunk.chunkType = GameController.MetalVarieties.TUNGSTEN;
+            newChunk.myRenderer.material = GameController.instance.metalMaterials[1];
         }
-        else if (minedNode.state == MiningNode.MetalVarieties.COBALT)
+        else if (minedNode.state == GameController.MetalVarieties.COBALT)
         {
-            go = Instantiate(chunks[2], transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity);
+            newChunk.chunkType = GameController.MetalVarieties.COBALT;
+            newChunk.myRenderer.material = GameController.instance.metalMaterials[2];
         }
-        go.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.up * 15 + Vector3.forward * Random.Range(-10, 10) + Vector3.right * Random.Range(-10, 10));
+
+        newChunk.rb.velocity = transform.TransformDirection(Vector3.up * 15 + Vector3.forward * Random.Range(-10, 10) + Vector3.right * Random.Range(-10, 10));
         deployBox.Play();
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6816956082966605934}
   - component: {fileID: 6045900783321906433}
   m_Layer: 0
-  m_Name: CobaltChunk
+  m_Name: Chunk
   m_TagString: Chunk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c11ed8d37b4f0845835792772b6aad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 6816956082966605934}
   chunkType: 2
+  myRenderer: {fileID: 5005687535107057672}
 --- !u!114 &9146837980428146332
 MonoBehaviour:
   m_ObjectHideFlags: 0

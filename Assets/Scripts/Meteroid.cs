@@ -74,6 +74,12 @@ public class Meteroid : MonoBehaviour
                 hitColliders[i].GetComponent<Rigidbody>().velocity = hitColliders[i].transform.TransformDirection((Vector3.up / Mathf.Clamp(boxDistance.sqrMagnitude, minDistanceReduction, maxDistanceReduction)) * upForce) + (boxDistance.normalized / Mathf.Clamp(boxDistance.sqrMagnitude, minDistanceReduction, maxDistanceReduction)) * sideForce;
             }
 
+            if (hitColliders[i].tag == "Chunk")
+            {
+                Vector3 boxDistance = hitColliders[i].transform.position - transform.position;
+                hitColliders[i].GetComponent<Rigidbody>().velocity = hitColliders[i].transform.TransformDirection((Vector3.up / Mathf.Clamp(boxDistance.sqrMagnitude, minDistanceReduction, maxDistanceReduction)) * upForce) + (boxDistance.normalized / Mathf.Clamp(boxDistance.sqrMagnitude, minDistanceReduction, maxDistanceReduction)) * sideForce;
+            }
+
             if (hitColliders[i].tag == "Player")
             {
                 Vector3 playerDistance = player.transform.position - transform.position;
