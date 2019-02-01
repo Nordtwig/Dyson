@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour
     {
         StartUp();
         IncrementPhase();
-        UpdateCredits(100);
+        UpdateCredits(0);
     }
 
     private void StartUp()
@@ -190,12 +190,14 @@ public class GameController : MonoBehaviour
         {
             boxAmount = 0;
             if (currentPhase != 0)
+            {
                 FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
+                UpdateCredits(phaseCreditReward + Mathf.FloorToInt(totalTimeInPhase / 5));
+                Debug.Log("Bonus: " + Mathf.FloorToInt(totalTimeInPhase / 5));
+            }
             currentPhase++;
             currentPhaseText.text = "Current Phase: " + currentPhase;
             phaseAmount = phaseSpecifics[currentPhase].phaseBoxAmount;
-            UpdateCredits(phaseCreditReward + Mathf.FloorToInt(totalTimeInPhase / 5));
-            Debug.Log("Bonus: " + Mathf.FloorToInt(totalTimeInPhase / 5));
             totalTimeInPhase = phaseSpecifics[currentPhase].totalTimeInPhase;
             StartCoroutine(meteroidSpawner.CoSpawnMeteroids(phaseSpecifics[currentPhase].timeBetweenMeteroids));
         }
