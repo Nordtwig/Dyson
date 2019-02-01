@@ -15,7 +15,7 @@ public class ProgressBarScript : MonoBehaviour
 
     void Start()
     {
-        progressBar = FindObjectOfType<Slider>();
+        progressBar = GetComponent<Slider>();
         percentage = GameObject.Find("Percentage").GetComponent<Text>();
         progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount;
         percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount) * 100;
