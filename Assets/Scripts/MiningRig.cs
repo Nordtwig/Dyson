@@ -11,6 +11,7 @@ public class MiningRig : MonoBehaviour
 {
     [SerializeField] private bool pickedUp;
     [SerializeField] private int timeBetweenBoxes = 2;
+    [SerializeField] private GameObject[] chunks;
 
     private AudioSource rigCollision;
     private AudioSource drillingLoop;
@@ -183,7 +184,7 @@ public class MiningRig : MonoBehaviour
                 if (functioning && minedNode)
                 {
                     rigStatusRend.material.color = Color.green;
-                    EjectBox();
+                    EjectChunk();
                     if (!minedNode.OnBoxSpawn()) //Do when empty 
                     {
                         minedNode = null;
@@ -220,9 +221,21 @@ public class MiningRig : MonoBehaviour
     }
 
     //Ejects a boc in a random direction from the MiningRig
-    public void EjectBox()
+    public void EjectChunk()
     {
-        GameObject go = Instantiate(box, transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity);
+        GameObject go = null;
+        if (minedNode.state == MiningNode.MetalVarieties.CINNABAR)
+        {
+            go = Instantiate(chunks[0], transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity);
+        }
+        else if (minedNode.state == MiningNode.MetalVarieties.TUNGSTEN)
+        {
+            go = Instantiate(chunks[1], transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity);
+        }
+        else if (minedNode.state == MiningNode.MetalVarieties.COBALT)
+        {
+            go = Instantiate(chunks[2], transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity);
+        }
         go.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.up * 15 + Vector3.forward * Random.Range(-10, 10) + Vector3.right * Random.Range(-10, 10));
         deployBox.Play();
     }
