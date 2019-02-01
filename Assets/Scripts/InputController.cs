@@ -13,6 +13,7 @@ public class InputController : MonoBehaviour
     public static InputController instance;
 
     PlayerController player;
+	ThrowPowerBarScript throwBar;
     Text helpText;
     GameObject storeWindow;
     private bool jumpButtonDown = false;
@@ -41,7 +42,8 @@ public class InputController : MonoBehaviour
     {
         player = FindObjectOfType<PlayerController>();
         helpText = GameObject.Find("HelpText").GetComponent<Text>();
-        helpText.enabled = false;
+		throwBar = FindObjectOfType<ThrowPowerBarScript>();
+		helpText.enabled = false;
         storeWindow = FindObjectOfType<StoreWindow>().gameObject;
         storeWindow.SetActive(false);
     }
@@ -101,18 +103,25 @@ public class InputController : MonoBehaviour
         {
             if (eTime < 0.5f)
             {
+				throwBar.ThrowPowerBarUpdate(0, player.holdingItem);
                 player.PlayerInteraction();
-            }
+			}
             else
             {
+				throwBar.ThrowPowerBarUpdate(0, player.holdingItem);
                 player.ThrowItem(Mathf.Clamp(eTime, 0, 2f));
-            }
-            eTime = 0;
+			}
+			eTime = 0;
         }
         
         if (Input.GetKey(KeyCode.E))
         {
             eTime += Time.deltaTime;
+
+			if (eTime > 0.5f)
+			{
+				throwBar.ThrowPowerBarUpdate(Mathf.Clamp(eTime, 0, 2f), player.holdingItem);
+			}
         }
         
     }
