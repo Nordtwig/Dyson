@@ -9,7 +9,6 @@ public class Fabricator : MonoBehaviour
     private bool[] chunksReceived;
 
     [SerializeField] GameObject[] visualChunks;
-    [SerializeField] Material[] visualMaterials;
     [SerializeField] GameObject[] checkMark;
 
     private bool restarted;
@@ -94,15 +93,15 @@ public class Fabricator : MonoBehaviour
             //visuals
             if (randomMaterial == GameController.MetalVarieties.CINNABAR)
             {
-                visualChunks[i].GetComponent<SpriteRenderer>().material = visualMaterials[0];
+                visualChunks[i].GetComponent<SpriteRenderer>().material = GameController.instance.metalMaterials[0];
             }
             else if (randomMaterial == GameController.MetalVarieties.COBALT)
             {
-                visualChunks[i].GetComponent<SpriteRenderer>().material = visualMaterials[2];
+                visualChunks[i].GetComponent<SpriteRenderer>().material = GameController.instance.metalMaterials[2];
             }
             else if (randomMaterial == GameController.MetalVarieties.TUNGSTEN)
             {
-                visualChunks[i].GetComponent<SpriteRenderer>().material = visualMaterials[1];
+                visualChunks[i].GetComponent<SpriteRenderer>().material = GameController.instance.metalMaterials[1];
             }
         }
     }
