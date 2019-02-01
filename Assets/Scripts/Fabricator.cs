@@ -94,15 +94,15 @@ public class Fabricator : MonoBehaviour
             //visuals
             if (randomMaterial == Chunk.ChunkType.CINNABAR)
             {
-                visualChunks[i].GetComponent<MeshRenderer>().material = visualMaterials[0];
+                visualChunks[i].GetComponent<SpriteRenderer>().material = visualMaterials[0];
             }
             else if (randomMaterial == Chunk.ChunkType.COBALT)
             {
-                visualChunks[i].GetComponent<MeshRenderer>().material = visualMaterials[2];
+                visualChunks[i].GetComponent<SpriteRenderer>().material = visualMaterials[2];
             }
             else
             {
-                visualChunks[i].GetComponent<MeshRenderer>().material = visualMaterials[1];
+                visualChunks[i].GetComponent<SpriteRenderer>().material = visualMaterials[1];
             }
         }
     }
