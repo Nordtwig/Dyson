@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour {
         if (grounded)
         {
             rb.velocity += transform.TransformDirection(Vector3.up * jumpHeight);
-            playerSpeed *= 1.5f;
+            playerSpeed = basePlayerSpeed * 1.5f;
             AudioManager.instance.PlayOnPos("Jump", transform);
         }
     }
