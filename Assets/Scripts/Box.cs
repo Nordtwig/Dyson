@@ -30,12 +30,13 @@ public class Box : MonoBehaviour
         gameObject.transform.SetParent(null);
         gameObject.SetActive(true);
         transform.position = player.transform.position + player.model.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 4);
+        rb.velocity = Vector3.zero;
     }
 
     public void ThrowBox(float throwStrength)
     {
         DropBox();
-        rb.velocity += player.rb.velocity * 2 + player.model.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 10 * throwStrength);
+        rb.velocity = player.transform.TransformDirection(Vector3.forward * player.playerSpeed) + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 5 * throwStrength);
     }
     
     private void OnCollisionEnter(Collision collision)

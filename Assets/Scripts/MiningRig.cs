@@ -95,13 +95,14 @@ public class MiningRig : MonoBehaviour
         gameObject.SetActive(true);
         pickedUp = false;
         transform.position = player.transform.position + player.model.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 4);
+        rb.velocity = Vector3.zero;
 		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 	}
 
     public void ThrowRig(float throwStrength)
     {
         DropRig();
-        rb.velocity += player.rb.velocity*2 + player.model.transform.TransformDirection(Vector3.up * 5 + Vector3.forward * 5 * throwStrength);
+        rb.velocity = player.transform.TransformDirection(Vector3.forward * player.playerSpeed) + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 3 * throwStrength);
     }
 
     //If the object collides with the "Node" tag AND picked up is false(released), changes color to green and starts spawning boxes
