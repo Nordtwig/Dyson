@@ -10,6 +10,7 @@ public class Fabricator : MonoBehaviour
 
     [SerializeField] GameObject[] visualChunks;
     [SerializeField] Material[] visualMaterials;
+    [SerializeField] GameObject[] checkMark;
 
     private bool restarted;
 
@@ -44,6 +45,8 @@ public class Fabricator : MonoBehaviour
             {
                 delivered = true;
                 chunksReceived[i] = true;
+                visualChunks[i].SetActive(false);
+                checkMark[i].SetActive(true);
                 Destroy(other.gameObject);
                 break;
             }
@@ -82,6 +85,8 @@ public class Fabricator : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
+            visualChunks[i].SetActive(true);
+            checkMark[i].SetActive(false);
             Chunk.ChunkType randomMaterial = (Chunk.ChunkType) Random.Range(0, 3);
             chunks[i] = randomMaterial;
             chunksReceived[i] = false;
@@ -104,12 +109,7 @@ public class Fabricator : MonoBehaviour
 
     public void EjectBox()
     {
-        GameObject go = Instantiate(box, transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity);
-        go.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.up * 15 + Vector3.forward * Random.Range(-10, 10) + Vector3.right * Random.Range(-10, 10));
-    }
-
-    private void checkChunksReceived()
-    {
-
+        GameObject go = Instantiate(box, transform.position + transform.TransformDirection(Vector3.right * 3), Quaternion.identity);
+        go.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.up * 3 + Vector3.right * Random.Range(5, 15));
     }
 }
