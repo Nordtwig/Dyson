@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationFreeze: 1
-  fallingSpeed: 1
+  fallingSpeed: 3
 --- !u!54 &6816956082966605934
 Rigidbody:
   m_ObjectHideFlags: 0
