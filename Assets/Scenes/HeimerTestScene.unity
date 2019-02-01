@@ -449,6 +449,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 252111484, guid: afe146540c7d5a141a697b0584727db5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064155988524053221, guid: afe146540c7d5a141a697b0584727db5,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064155988524053221, guid: afe146540c7d5a141a697b0584727db5,
+        type: 3}
+      propertyPath: m_Height
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afe146540c7d5a141a697b0584727db5, type: 3}
 --- !u!1001 &397193261
@@ -589,6 +603,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 155ce71baf8ad6049bda1c5cbd69ddc3, type: 3}
+--- !u!1 &468560876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1346940179161717314, guid: afe146540c7d5a141a697b0584727db5,
+    type: 3}
+  m_PrefabInstance: {fileID: 357072366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &468560887
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468560876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
 --- !u!1001 &812457408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1353,138 +1387,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
         type: 3}
-      propertyPath: sounds.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[5].spatialBlend
-      value: 0.011
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[5].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[4].name
-      value: Meteoroid Loop
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[4].volumeVariance
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[4].pitch
-      value: 1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[4].pitchVariance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[4].spatialBlend
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[4].sound3d
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[4].playOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[4].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[5].name
-      value: Ambience
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a68b2b7b5f858fb46bf6f562192859c8, type: 3}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[5].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 29aeb66cca225db409a71070aab9c04b, type: 3}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[6].name
-      value: Meteoroid Explosion
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1ceee7be0829bfc40ac5abc77c92c1bd, type: 3}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[6].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[6].volumeVariance
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[6].pitch
-      value: 1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[6].pitchVariance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[6].spatialBlend
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[6].sound3d
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[6].playOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[5].sound3d
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[5].pitchVariance
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[5].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[5].volume
-      value: 0.1
+      propertyPath: sounds.Array.data[2].volume
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac179cb405b0fea46a735a3385446d95, type: 3}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1346940179161717308}
   - component: {fileID: 1346940179161717309}
   - component: {fileID: 252111484}
+  - component: {fileID: 8064155988524053221}
   - component: {fileID: 4520137292359708892}
   - component: {fileID: 1510860990}
   - component: {fileID: 1510860991}
@@ -94,10 +95,24 @@ BoxCollider:
   m_GameObject: {fileID: 1346940179161717314}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.0319276, y: 1.4781227, z: 2.014531}
   m_Center: {x: -0.008660793, y: 0.73628426, z: -0.03505361}
+--- !u!136 &8064155988524053221
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346940179161717314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!95 &4520137292359708892
 Animator:
   serializedVersion: 3
@@ -461,7 +476,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.95
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -508,16 +523,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346940179161717310}
     m_Modifications:
-    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
-        type: 3}
-      propertyPath: m_Name
-      value: MiningRigModel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 7113046083515003266, guid: 3ddcc190e2278544f9458a2b9c6be41b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -572,6 +577,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
+        type: 3}
+      propertyPath: m_Name
+      value: MiningRigModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ddcc190e2278544f9458a2b9c6be41b, type: 3}
