@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
     public float jumpHeight = 7;
     private float basePlayerSpeed;
     private bool coRunning = false;
-    private bool grounded = false;
+    public bool grounded = false;
     Vector3 moveDirection = Vector3.zero;
     Vector3 airMoveDirection = Vector3.zero;
     private float timeOfJump = 0;
