@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickedUp: 0
-  timeBetweenBoxes: 15
+  timeBetweenBoxes: 10
   chunk: {fileID: 129545546215102865, guid: ce1e0e2dd817a564a91af50c3195cf2e, type: 3}
   functioning: 1
 --- !u!54 &1346940179161717308
@@ -524,6 +524,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346940179161717310}
     m_Modifications:
+    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
+        type: 3}
+      propertyPath: m_Name
+      value: MiningRigModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7113046083515003266, guid: 3ddcc190e2278544f9458a2b9c6be41b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -578,16 +588,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
-        type: 3}
-      propertyPath: m_Name
-      value: MiningRigModel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ddcc190e2278544f9458a2b9c6be41b, type: 3}

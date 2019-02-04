@@ -10,6 +10,8 @@ public class MiningNodeSpawner : MonoBehaviour
 {
     [Tooltip("Amount of Nodes generated during startup")]
     [SerializeField] int initialSpawnCount = 10;
+    [SerializeField, Tooltip("How many of the initial that will guaranteed spawn close to the SLS")]
+    int closeSpawnCount = 3;
     private GameObject miningNode;
 
 
@@ -22,7 +24,13 @@ public class MiningNodeSpawner : MonoBehaviour
     //This function spawns x amount of nodes with random positions around the asteroid.
     void SpawnNode(int spawnCount)
     {
-        for (int i = 0; i < spawnCount; i++)
+        for (int i = 0; i < closeSpawnCount; i++)
+        {
+            GameObject myNode = Instantiate(miningNode, transform.position, Quaternion.Euler(-40, Random.Range(0, 360f), 0));
+            myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
+        }
+
+        for (int i = closeSpawnCount; i < spawnCount; i++)
         {
             GameObject myNode = Instantiate(miningNode, transform.position, Random.rotation);
             myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);

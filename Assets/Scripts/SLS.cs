@@ -18,7 +18,7 @@ public class SLS : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Box" && GameController.instance.GetAmountOfDeliveredBoxes() < GameController.instance.phaseAmount)
+        if (other.tag == "Box" && GameController.instance.GetAmountOfDeliveredBoxes() < GameController.instance.phaseBoxAmount)
         {
             Destroy(other.gameObject);
             GameController.instance.BoxDelivered();

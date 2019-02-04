@@ -64,19 +64,19 @@ MonoBehaviour:
   - totalTimeInPhase: 0
     phaseBoxAmount: 0
     timeBetweenMeteroids: 0
-  - totalTimeInPhase: 180
+  - totalTimeInPhase: 300
+    phaseBoxAmount: 3
+    timeBetweenMeteroids: 3
+  - totalTimeInPhase: 500
     phaseBoxAmount: 5
-    timeBetweenMeteroids: 0.2
-  - totalTimeInPhase: 180
-    phaseBoxAmount: 7
     timeBetweenMeteroids: 2
   - totalTimeInPhase: 180
-    phaseBoxAmount: 10
-    timeBetweenMeteroids: 1
-  - totalTimeInPhase: 180
-    phaseBoxAmount: 12
+    phaseBoxAmount: 3
     timeBetweenMeteroids: 0.5
-  - totalTimeInPhase: 180
-    phaseBoxAmount: 15
-    timeBetweenMeteroids: 0.1
+  - totalTimeInPhase: 500
+    phaseBoxAmount: 6
+    timeBetweenMeteroids: 1
+  - totalTimeInPhase: 300
+    phaseBoxAmount: 5
+    timeBetweenMeteroids: 2
   state: 3

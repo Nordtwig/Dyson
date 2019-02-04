@@ -72,10 +72,10 @@ public class Fabricator : MonoBehaviour
             RequiredMaterials();
         }
 
-        if (!delivered)
-        {
-            RequiredMaterials();
-        }
+        //if (!delivered)
+        //{
+        //    RequiredMaterials();
+        //}
     }
 
     private void RequiredMaterials()

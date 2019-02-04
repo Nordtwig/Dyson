@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject miningRig;
     [SerializeField] private GameObject node;
     [SerializeField] private GameObject chunk;
-    public Material[] metalMaterials;
+    [Tooltip("Do NOT touch")] public Material[] metalMaterials;
     private PlayerController player;
     private GameObject gameOverText;
     private MeteroidSpawner meteroidSpawner;
@@ -37,9 +37,9 @@ public class GameController : MonoBehaviour
     private bool debugMode = false;
     private int boxAmount = 0;
 
-    public int phaseAmount = 5;
+    [HideInInspector] public int phaseBoxAmount = 5;
     public int currentPhase = 0;
-    public bool hijackedTimerText = false;
+    [HideInInspector] public bool hijackedTimerText = false;
     public float totalTimeInPhase;
     public int playerCredits = 0;
     public int boxCreditsReward = 5;
@@ -206,13 +206,12 @@ public class GameController : MonoBehaviour
             }
             currentPhase++;
             currentPhaseText.text = "Current Phase: " + currentPhase;
-            phaseAmount = phaseSpecifics[currentPhase].phaseBoxAmount;
+            phaseBoxAmount = phaseSpecifics[currentPhase].phaseBoxAmount;
             totalTimeInPhase = phaseSpecifics[currentPhase].totalTimeInPhase;
             StartCoroutine(meteroidSpawner.CoSpawnMeteroids(phaseSpecifics[currentPhase].timeBetweenMeteroids));
         }
-        else if (currentPhase == phaseSpecifics.Length - 1 && boxAmount == phaseAmount)
+        else if (currentPhase == phaseSpecifics.Length - 1 && boxAmount == phaseBoxAmount)
         {
-            Debug.Log("Test");
             gameOverText.GetComponent<Text>().fontSize = 10;
             gameOverText.GetComponent<Text>().color = Color.white;
             gameOverText.GetComponent<Text>().text = "Congrats, you created a Dyson Sphere!";

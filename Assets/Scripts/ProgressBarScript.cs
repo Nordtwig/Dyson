@@ -17,15 +17,15 @@ public class ProgressBarScript : MonoBehaviour
     {
         progressBar = GetComponent<Slider>();
         percentage = GameObject.Find("Percentage").GetComponent<Text>();
-        progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount;
-        percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount) * 100;
+        progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseBoxAmount;
+        percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseBoxAmount) * 100;
         percentage.text = percentageNumber.ToString() + "% of Boxes delivered";
     }
 
     public void ProgressBarUpdate()
     {
-        progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseAmount;
-        percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() * 100) / GameController.instance.phaseAmount;
+        progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseBoxAmount;
+        percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() * 100) / GameController.instance.phaseBoxAmount;
         if (percentageNumber < 100)
         {
             string temp = percentageNumber.ToString();

@@ -226,17 +226,17 @@ public class MiningRig : MonoBehaviour
     {
         Chunk newChunk = Instantiate(chunk, transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity).GetComponent<Chunk>();
 
-        if (minedNode.state == GameController.MetalVarieties.CINNABAR)
+        if (minedNode.materialType == GameController.MetalVarieties.CINNABAR)
         {
             newChunk.chunkType = GameController.MetalVarieties.CINNABAR;
             newChunk.myRenderer.material = GameController.instance.metalMaterials[0];
         }
-        else if (minedNode.state == GameController.MetalVarieties.TUNGSTEN)
+        else if (minedNode.materialType == GameController.MetalVarieties.TUNGSTEN)
         {
             newChunk.chunkType = GameController.MetalVarieties.TUNGSTEN;
             newChunk.myRenderer.material = GameController.instance.metalMaterials[1];
         }
-        else if (minedNode.state == GameController.MetalVarieties.COBALT)
+        else if (minedNode.materialType == GameController.MetalVarieties.COBALT)
         {
             newChunk.chunkType = GameController.MetalVarieties.COBALT;
             newChunk.myRenderer.material = GameController.instance.metalMaterials[2];

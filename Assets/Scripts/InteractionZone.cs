@@ -19,7 +19,7 @@ public class InteractionZone : MonoBehaviour
     
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "LaunchButton" && GameController.instance.GetAmountOfDeliveredBoxes() >= GameController.instance.phaseAmount)
+        if (other.tag == "LaunchButton" && GameController.instance.GetAmountOfDeliveredBoxes() >= GameController.instance.phaseBoxAmount)
         {
             player.GetComponent<PlayerController>().hitButton = true;
             if (!FindObjectOfType<Sled>().coroutineRunning)
@@ -29,7 +29,7 @@ public class InteractionZone : MonoBehaviour
                 FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
             }
         }
-        else if (other.tag == "LaunchButton" && GameController.instance.GetAmountOfDeliveredBoxes() <= GameController.instance.phaseAmount)
+        else if (other.tag == "LaunchButton" && GameController.instance.GetAmountOfDeliveredBoxes() <= GameController.instance.phaseBoxAmount)
         {
             player.GetComponent<PlayerController>().hitButton = true;
             Debug.Log("You don't have enough of a load to send it yet");
