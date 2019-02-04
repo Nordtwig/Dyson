@@ -46,10 +46,11 @@ public class GameController : MonoBehaviour
     public int phaseCreditReward = 50;
 
     //Phase Specifics
-    public PhaseSpecifics[] phaseSpecifics;
+    private PhaseSpecifics[] phaseSpecifics;
+    public PhaseSpecifics[] PhaseSpecifics { get { return phaseSpecifics; } set { phaseSpecifics = value; } }
 
-	//STATE
-	public GameControllerState state = GameControllerState.NULL;
+    //STATE
+    public GameControllerState state = GameControllerState.NULL;
 
     public enum GameControllerState
     {
@@ -89,9 +90,15 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        StartUp();
-        IncrementPhase();
-        UpdateCredits(0);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (scene.name == "Main") {
+            StartUp();
+            IncrementPhase();
+            UpdateCredits(0);
+        }
     }
 
     private void StartUp()
@@ -122,7 +129,7 @@ public class GameController : MonoBehaviour
             PhaseTimer();
             InputController.instance.CheckKeys();
 
-            for (int i = 0; i < phaseSpecifics.Length; i++)
+            for (int i = 0; i < PhaseSpecifics.Length; i++)
             {
                 if (i == currentPhase)
                 {
