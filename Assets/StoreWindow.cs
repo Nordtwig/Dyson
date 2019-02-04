@@ -6,28 +6,43 @@ using UnityEngine.UI;
 public class StoreWindow : MonoBehaviour
 {
     public GameObject upgradesTab;
-    public GameObject objectsTab;
+    public GameObject equipmentTab;
     public GameObject upgradesImage;
-    public GameObject objectsImage;
+    public GameObject equipmentImage;
     private Text buttonText;
+    public Text topText;
     public GameObject upgradesList;
-    public GameObject objectsList;
+    public GameObject equipmentList;
     private float originalCameraSpeedH;
     private float originalCameraSpeedV;
+
+    private CameraFollow cameraFollow;
+
+    public GameObject miningRig;
+    public GameObject portableShield;
+    public PlayerController player;
+
+    public int currentAirControlLevel;
+    public int currentMovementSpeedLevel;
+    public int currentMiningRigHealthLevel;
+    public int currentExtractionRateLevel;
+    public int currentShieldRadiusLevel;
 
 
     public void OnEnable()
     {
-        originalCameraSpeedH = FindObjectOfType<CameraFollow>().speedH;
-        originalCameraSpeedV = FindObjectOfType<CameraFollow>().speedV;
-        FindObjectOfType<CameraFollow>().speedH = 0;
-        FindObjectOfType<CameraFollow>().speedV = 0;
+        cameraFollow = FindObjectOfType<CameraFollow>();
+
+        originalCameraSpeedH = cameraFollow.speedH;
+        originalCameraSpeedV = cameraFollow.speedV;
+        cameraFollow.speedH = 0;
+        cameraFollow.speedV = 0;
     }
 
     public void OnDisable()
     {
-        FindObjectOfType<CameraFollow>().speedH = originalCameraSpeedH;
-        FindObjectOfType<CameraFollow>().speedV = originalCameraSpeedV;
+        cameraFollow.speedH = originalCameraSpeedH;
+        cameraFollow.speedV = originalCameraSpeedV;
 
         GameController.instance.state = GameController.GameControllerState.GAME;
         Cursor.visible = false;
@@ -37,52 +52,102 @@ public class StoreWindow : MonoBehaviour
     {
         if (buttonPressed == "Upgrades")
         {
-            buttonText = upgradesTab.GetComponentInChildren<Text>();
-
-            if (objectsTab.activeInHierarchy)
+            if (equipmentTab.activeInHierarchy)
             {
-                objectsTab.SetActive(false);
-                buttonText.text = "Back";
+                equipmentTab.SetActive(false);
+                topText.text = "Buy Upgrades";
                 upgradesImage.SetActive(false);
-                objectsImage.SetActive(false);
+                equipmentImage.SetActive(false);
 
                 upgradesList.SetActive(true);
             }
             else
             {
-                objectsTab.SetActive(true);
-                buttonText.text = buttonPressed;
+                equipmentTab.SetActive(true);
                 upgradesImage.SetActive(true);
-                objectsImage.SetActive(true);
+                equipmentImage.SetActive(true);
 
                 upgradesList.SetActive(false);
             }
         }
 
-        else if(buttonPressed == "Objects")
+        else if(buttonPressed == "Equipment")
         {
-            buttonText = objectsTab.GetComponentInChildren<Text>();
+            buttonText = equipmentTab.GetComponentInChildren<Text>();
 
             if (upgradesTab.activeInHierarchy)
             {
                 upgradesTab.SetActive(false);
                 buttonText.text = "Back";
+                topText.text = "Buy Equipment";
                 upgradesImage.SetActive(false);
-                objectsImage.SetActive(false);
+                equipmentImage.SetActive(false);
+
+                equipmentList.SetActive(true);
             }
             else
             {
                 upgradesTab.SetActive(true);
                 buttonText.text = buttonPressed;
+                topText.text = "Store";
                 upgradesImage.SetActive(true);
-                objectsImage.SetActive(true);
+                equipmentImage.SetActive(true);
+
+                equipmentList.SetActive(false);
             }
 
         }
     }
 
-    public void DisplayAvailableOptions()
+    public void BuyMiningRig()
     {
-        
+        Instantiate(miningRig, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+        Debug.Log("Buying miningRig");
+    }
+
+    public void BuyPortableShield()
+    {
+        Instantiate(portableShield, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+        Debug.Log("Buying portableShield");
+    }
+
+    public void SetTopText(string text)
+    {
+        topText.text = text;
+    }
+
+    public void SetUpgradeLevel(string upgradeType, int upgradeIndex)
+    {
+        if (upgradeType == "Air Control")
+        {
+            currentAirControlLevel = upgradeIndex;
+            Debug.Log("Air Control upgrade has been applied, it now at level " + upgradeIndex);
+        }
+
+        else if (upgradeType == "Movement Speed")
+        {
+            currentMovementSpeedLevel = upgradeIndex;
+            Debug.Log("Movement Speed upgrade has been applied, it now at level " + upgradeIndex);
+        }
+
+        else if (upgradeType == "Mining Rig Health")
+        {
+            currentMiningRigHealthLevel = upgradeIndex;
+            Debug.Log("Rig Health upgrade has been applied, it now at level " + upgradeIndex);
+        }
+
+        else if (upgradeType == "Extraction Rate")
+        {
+            currentExtractionRateLevel = upgradeIndex;
+            Debug.Log("Rig Health upgrade has been applied, it now at level " + upgradeIndex);
+        }
+
+        else if (upgradeType == "Shield Radius")
+        {
+            currentShieldRadiusLevel = upgradeIndex;
+            Debug.Log("Shield Radius upgrade has been applied, it now at level " + upgradeIndex);
+        }
+
+        else Debug.Log("The upgradeType-string you are looking for is " + upgradeType);
     }
 }
