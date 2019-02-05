@@ -20,7 +20,7 @@ public class StoreWindow : MonoBehaviour
 
     public GameObject miningRig;
     public GameObject portableShield;
-    public PlayerController player;
+    private PlayerController player;
 
     public int miningRigCost;
     public int PortableShieldCost;
@@ -106,6 +106,7 @@ public class StoreWindow : MonoBehaviour
     {
         if (CheckAffordability(miningRigCost))
         {
+            player = FindObjectOfType<PlayerController>();
             Instantiate(miningRig, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
             Debug.Log("Buying miningRig");
         }
@@ -116,6 +117,7 @@ public class StoreWindow : MonoBehaviour
     {
         if (CheckAffordability(PortableShieldCost))
         {
+            player = FindObjectOfType<PlayerController>();
             Instantiate(portableShield, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
             Debug.Log("Buying portableShield");
         }
