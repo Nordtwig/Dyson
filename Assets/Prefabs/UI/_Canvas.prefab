@@ -1187,6 +1187,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoreWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 4858451125363134694, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451125363134694, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451125363134694, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451125363134694, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451125363134694, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451125363134694, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451126173519363, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451126173519363, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451126173519363, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451126173519363, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451126173519363, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451126173519363, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da87fdf07278da141b181ca3cf05bb7b, type: 3}
 --- !u!224 &3404896907878399228 stripped

@@ -15,7 +15,7 @@ public class InputController : MonoBehaviour
     PlayerController player;
 	ThrowPowerBarScript throwBar;
     Text helpText;
-    GameObject storeWindow;
+    private GameObject storeWindow;
     private bool jumpButtonDown = false;
     [HideInInspector] public float eTime = 0;
 
@@ -44,7 +44,8 @@ public class InputController : MonoBehaviour
         helpText = GameObject.Find("HelpText").GetComponent<Text>();
 		throwBar = FindObjectOfType<ThrowPowerBarScript>();
 		helpText.enabled = false;
-        storeWindow = FindObjectOfType<StoreWindow>().gameObject;
+        //storeWindow = FindObjectOfType<StoreWindow>().gameObject.transform.GetChild(0).gameObject;
+        storeWindow = FindObjectOfType<StoreWindow>().transform.GetChild(0).gameObject;
         storeWindow.SetActive(false);
     }
 

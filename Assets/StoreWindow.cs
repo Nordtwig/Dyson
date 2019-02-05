@@ -31,25 +31,28 @@ public class StoreWindow : MonoBehaviour
     [HideInInspector] public int currentExtractionRateLevel;
     [HideInInspector] public int currentShieldRadiusLevel;
 
+    public float MiningRigExtractionRate;
 
-    public void OnEnable()
-    {
-        cameraFollow = FindObjectOfType<CameraFollow>();
 
-        originalCameraSpeedH = cameraFollow.speedH;
-        originalCameraSpeedV = cameraFollow.speedV;
-        cameraFollow.speedH = 0;
-        cameraFollow.speedV = 0;
-    }
 
-    public void OnDisable()
-    {
-        cameraFollow.speedH = originalCameraSpeedH;
-        cameraFollow.speedV = originalCameraSpeedV;
+    //public void OnEnable()
+    //{
+    //    cameraFollow = FindObjectOfType<CameraFollow>();
 
-        GameController.instance.state = GameController.GameControllerState.GAME;
-        Cursor.visible = false;
-    }
+    //    originalCameraSpeedH = cameraFollow.speedH;
+    //    originalCameraSpeedV = cameraFollow.speedV;
+    //    cameraFollow.speedH = 0;
+    //    cameraFollow.speedV = 0;
+    //}
+
+    //public void OnDisable()
+    //{
+    //    cameraFollow.speedH = originalCameraSpeedH;
+    //    cameraFollow.speedV = originalCameraSpeedV;
+
+    //    GameController.instance.state = GameController.GameControllerState.GAME;
+    //    Cursor.visible = false;
+    //}
 
     public void ToggleCanvases(string buttonPressed)
     {
@@ -145,13 +148,17 @@ public class StoreWindow : MonoBehaviour
         if (upgradeType == "Air Control")
         {
             currentAirControlLevel = upgradeIndex;
+            FindObjectOfType<PlayerController>().playerAirControllSpeed *= 1.3f;
             Debug.Log("Air Control upgrade has been applied, it now at level " + upgradeIndex);
+            Debug.Log("Air control is now " + FindObjectOfType<PlayerController>().playerAirControllSpeed);
         }
 
         else if (upgradeType == "Movement Speed")
         {
             currentMovementSpeedLevel = upgradeIndex;
+            FindObjectOfType<PlayerController>().basePlayerSpeed *= 1.2f;
             Debug.Log("Movement Speed upgrade has been applied, it now at level " + upgradeIndex);
+            Debug.Log("basePlayerSpeed is now " + FindObjectOfType<PlayerController>().basePlayerSpeed);
         }
 
         else if (upgradeType == "Mining Rig Health")
@@ -163,7 +170,9 @@ public class StoreWindow : MonoBehaviour
         else if (upgradeType == "Extraction Rate")
         {
             currentExtractionRateLevel = upgradeIndex;
-            Debug.Log("Rig Health upgrade has been applied, it now at level " + upgradeIndex);
+            MiningRigExtractionRate *= 0.7f;
+            Debug.Log("Extraction Rate upgrade has been applied, it now at level " + upgradeIndex);
+            Debug.Log("miningRigExtractionRate is now " + MiningRigExtractionRate);
         }
 
         else if (upgradeType == "Shield Radius")
