@@ -164,7 +164,8 @@ public class StoreWindow : MonoBehaviour
         else if (upgradeType == "Mining Rig Health")
         {
             currentMiningRigHealthLevel = upgradeIndex;
-            Debug.Log("Rig Health upgrade has been applied, it now at level " + upgradeIndex);
+            //Debug.Log("Rig Health upgrade has been applied, it now at level " + upgradeIndex);
+            Debug.Log("Rig Health is not yet implemented, you get nothing. But this int has been changed: " + upgradeIndex);
         }
 
         else if (upgradeType == "Extraction Rate")
@@ -178,7 +179,8 @@ public class StoreWindow : MonoBehaviour
         else if (upgradeType == "Shield Radius")
         {
             currentShieldRadiusLevel = upgradeIndex;
-            Debug.Log("Shield Radius upgrade has been applied, it now at level " + upgradeIndex);
+            //Debug.Log("Shield Radius upgrade has been applied, it now at level " + upgradeIndex);
+            Debug.Log("Shield Radius is not yet implemented, you get nothing. But this int has been changed: " + upgradeIndex);
         }
 
         else Debug.Log("The upgradeType-string you are looking for is " + upgradeType);
