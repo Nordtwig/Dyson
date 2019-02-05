@@ -25,7 +25,9 @@ public class MissionPresets : MonoBehaviour
         currentMission.text = "Current Mission: Easy";
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsEasy.Length];
         GameController.instance.playerCredits = playerCreditsEasy;
+
         for (int i = 0; i < phaseSpecificsEasy.Length; i++) {
+            GameController.instance.phaseSpecifics[i] = new PhaseSpecifics();
             GameController.instance.phaseSpecifics[i].totalTimeInPhase = phaseSpecificsEasy[i].totalTimeInPhase;
             GameController.instance.phaseSpecifics[i].phaseBoxAmount = phaseSpecificsEasy[i].phaseBoxAmount;
             GameController.instance.phaseSpecifics[i].timeBetweenMeteroids = phaseSpecificsEasy[i].timeBetweenMeteroids;
@@ -35,6 +37,7 @@ public class MissionPresets : MonoBehaviour
         currentMission.text = "Current Mission: Medium";
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsMedium.Length];
         GameController.instance.playerCredits = playerCreditsMedium;
+
         for (int i = 0; i < phaseSpecificsMedium.Length; i++) {
             GameController.instance.phaseSpecifics[i] = new PhaseSpecifics();
             GameController.instance.phaseSpecifics[i].totalTimeInPhase = phaseSpecificsMedium[i].totalTimeInPhase;
@@ -46,7 +49,9 @@ public class MissionPresets : MonoBehaviour
         currentMission.text = "Current Mission: Hard";
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsHard.Length];
         GameController.instance.playerCredits = playerCreditsHard;
+
         for (int i = 0; i < phaseSpecificsHard.Length; i++) {
+            GameController.instance.phaseSpecifics[i] = new PhaseSpecifics();
             GameController.instance.phaseSpecifics[i].totalTimeInPhase = phaseSpecificsHard[i].totalTimeInPhase;
             GameController.instance.phaseSpecifics[i].phaseBoxAmount = phaseSpecificsHard[i].phaseBoxAmount;
             GameController.instance.phaseSpecifics[i].timeBetweenMeteroids = phaseSpecificsHard[i].timeBetweenMeteroids;
