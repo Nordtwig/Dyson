@@ -38,18 +38,18 @@ public class GameController : MonoBehaviour
     private int boxAmount = 0;
 
     [HideInInspector] public int phaseBoxAmount = 5;
-    public int currentPhase = 0;
     [HideInInspector] public bool hijackedTimerText = false;
+    public int currentPhase = 0;
     public float totalTimeInPhase;
     public int playerCredits = 0;
     public int boxCreditsReward = 5;
     public int phaseCreditReward = 50;
 
     //Phase Specifics
-    public PhaseSpecifics[] phaseSpecifics;
+    [HideInInspector] public PhaseSpecifics[] phaseSpecifics;
 
-    //STATE
-    public GameControllerState state = GameControllerState.NULL;
+	//STATE
+	public GameControllerState state = GameControllerState.NULL;
 
     public enum GameControllerState
     {
@@ -128,13 +128,7 @@ public class GameController : MonoBehaviour
             PhaseTimer();
             InputController.instance.CheckKeys();
 
-            for (int i = 0; i < phaseSpecifics.Length; i++)
-            {
-                if (i == currentPhase)
-                {
-                    
-                }
-            }
+            //phaseSpecifics[currentPhase];
         } 
 
         else if (state == GameControllerState.MAINMENU)

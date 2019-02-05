@@ -8,12 +8,10 @@ using UnityEngine;
 
 public class MiningNode : MonoBehaviour
 {
-	[SerializeField] private Material[] nodeMaterials;
+	private MeshRenderer meshRend;
 	private Material baseMaterial;
 
-	private MeshRenderer meshRend;
-
-	public int resourceValue;
+    public int resourceValue;
 	int metalRandom;
 
 	// States
@@ -49,7 +47,7 @@ public class MiningNode : MonoBehaviour
             resourceValue = Random.Range(1, 4);
 			foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>()) 
             {
-                m.material = nodeMaterials[0];
+                m.material = GameController.instance.metalMaterials[0];
             }
             meshRend.material = baseMaterial;
 		}
@@ -58,7 +56,7 @@ public class MiningNode : MonoBehaviour
             resourceValue = Random.Range(2, 6);
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
             {
-                m.material = nodeMaterials[1];
+                m.material = GameController.instance.metalMaterials[1];
             }
             meshRend.material = baseMaterial;
         }
@@ -67,7 +65,7 @@ public class MiningNode : MonoBehaviour
             resourceValue = Random.Range(3, 9);
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
             {
-                m.material = nodeMaterials[2];
+                m.material = GameController.instance.metalMaterials[2];
             }
             meshRend.material = baseMaterial;
         }

@@ -57,6 +57,7 @@ public class InteractionZone : MonoBehaviour
         else if (other.tag == "Rig" && !other.gameObject.GetComponent<MiningRig>().functioning && !player.GetComponent<PlayerController>().holdingItem)
         {
             other.gameObject.GetComponentInChildren<MiningRig>().Repair();
+            player.GetComponent<PlayerController>().hitButton = true;
             audioManager.Play("Repair");
         }
         else if (other.tag == "Rig" && !player.GetComponent<PlayerController>().holdingItem)

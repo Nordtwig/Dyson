@@ -21,7 +21,6 @@ public class Meteroid : MonoBehaviour
 
     private AudioSource meteoriteLoop;
 
-
     private PlayerController player;
     private GameObject[] boxes;
     private GameObject[] miningRigs;
@@ -33,7 +32,6 @@ public class Meteroid : MonoBehaviour
 
     private Transform meteoroids;
     private bool headingTowardsSanctuary;
-    private Collider sanctuaryCollider;
 
     private void Start()
     {
@@ -45,8 +43,9 @@ public class Meteroid : MonoBehaviour
         meteoriteLoop = audios[0];
 
         Ray ray = new Ray(transform.position, transform.parent.position - transform.position);
+        int layer = 1<<9;
         RaycastHit movingToSanctuary;
-        if (Physics.Raycast(ray, out movingToSanctuary, (transform.position - meteoroids.position).sqrMagnitude))
+        if (Physics.Raycast(ray, out movingToSanctuary, (transform.position - meteoroids.position).sqrMagnitude, layer))
         {
             if (movingToSanctuary.collider.tag == "Sanctuary")
             {

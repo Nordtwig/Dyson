@@ -25,6 +25,7 @@ public class MiningRig : MonoBehaviour
     private MiningNode minedNode; //currently minedNode set to null when no minedNode
     private Color baseColor;
     private Rigidbody rb;
+    public bool shielded = false;
     private bool coBoxSpawnRunning = false;
 
     public bool functioning = true;
@@ -83,6 +84,8 @@ public class MiningRig : MonoBehaviour
         coBoxSpawnRunning = false;
         transform.SetParent(player.transform);
         transform.position = player.transform.position;
+        shielded = false;
+        minedNode = null;
         gameObject.SetActive(false);
         yield return null;
     }  
@@ -105,27 +108,6 @@ public class MiningRig : MonoBehaviour
         rb.velocity = player.transform.TransformDirection(Vector3.forward * player.playerSpeed) + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 3 * throwStrength);
     }
 
-    //If the object collides with the "Node" tag AND picked up is false(released), changes color to green and starts spawning boxes
-    private void OnTriggerEnter(Collider other)
-	{
-		if (other.tag == "Node")
-        {
-            if (!pickedUp)
-            {
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                animator.SetBool("OnPickUp", false);
-                animator.SetBool("OnNodeDeploy", true);
-                minedNode = other.GetComponent<MiningNode>();
-				transform.position = minedNode.transform.position;
-                
-                if (functioning)
-                {
-                    StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
-                }
-            }
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Asteroid")
@@ -136,13 +118,41 @@ public class MiningRig : MonoBehaviour
 
     public void BreakRig()
     {
-        if (functioning)
+        if (!shielded)
         {
-            disableRig.Play();
+            if (functioning)
+            {
+                disableRig.Play();
+            }
+            functioning = false;
+            rigStatusRend.material.color = Color.black;
+            coBoxSpawnRunning = false;
         }
-        functioning = false;
-        rigStatusRend.material.color = Color.red;
-        coBoxSpawnRunning = false;
+    }
+
+    //If the object collides with the "Node" tag AND picked up is false(released), changes color to green and starts spawning boxes
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Node" && minedNode == null)
+        {
+            if (!pickedUp)
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                animator.SetBool("OnNodeDeploy", true);
+                minedNode = other.GetComponent<MiningNode>();
+                transform.position = minedNode.transform.position;
+
+                if (functioning)
+                {
+                    StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
+                }
+            }
+        }
+        
+        if (other.tag == "Sanctuary")
+        {
+            shielded = true;
+        }
     }
 
     //If exiting node collider, change color to red
@@ -155,6 +165,11 @@ public class MiningRig : MonoBehaviour
             minedNode = null;
             rigStatusRend.material.color = Color.red;
         }
+
+        if (other.tag == "Sanctuary")
+        {
+            shielded = false;
+        }
     }
 
     //Coroutine that uses for loop to create boxes in the rigs proximity within a set interval
@@ -163,6 +178,7 @@ public class MiningRig : MonoBehaviour
         if (!coBoxSpawnRunning)
         {
             coBoxSpawnRunning = true;
+            rigStatusRend.material.color = Color.yellow;
             yield return new WaitForSeconds(2.8f);
             animator.SetBool("OnMining", true);
             drillingLoop.Play();
@@ -176,8 +192,9 @@ public class MiningRig : MonoBehaviour
                     }
                     else
                     {
-                        rigStatusRend.material.color = Color.red;
+                        rigStatusRend.material.color = Color.black;
                         drillingLoop.Stop();
+                        break;
                     }
                     yield return new WaitForSeconds(1);
                 }
@@ -192,7 +209,7 @@ public class MiningRig : MonoBehaviour
                         rigStatusRend.material.color = Color.red;
                     }
                 }
-                else
+                else if (functioning)
                 {
                     rigStatusRend.material.color = Color.red;
                 }
@@ -203,7 +220,6 @@ public class MiningRig : MonoBehaviour
                 }
             }
             drillingLoop.Stop();
-            rigStatusRend.material.color = Color.red;
             animator.SetBool("OnMining", false);
             animator.SetBool("OnNodeDeploy", false);
             animator.SetBool("Empty", true);
@@ -215,6 +231,7 @@ public class MiningRig : MonoBehaviour
     public void Repair()
     {
         functioning = true;
+        rigStatusRend.material.color = Color.red;
         if (minedNode)
         {
             StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
