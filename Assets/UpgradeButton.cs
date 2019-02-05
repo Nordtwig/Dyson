@@ -39,8 +39,8 @@ public class UpgradeButton : MonoBehaviour
                 gameObject.SetActive(false);
             }
 
-            UpdateCost();
             gameController.UpdateCredits(-creditsCost);
+            UpdateCost();
         }
         else
         {
