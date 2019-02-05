@@ -19,6 +19,7 @@ public class UpgradeButton : MonoBehaviour
     public void DebugUpgradeBought(string upgradeBought)
     {
         Debug.Log("You have bought " + upgradeText.text);
+        FindObjectOfType<StoreWindow>().SetUpgradeLevel(upgradeType, upgradeIndex);
         upgradeIndex++;
         upgradeText.text = upgradeType + " " + upgradeIndex;
 
@@ -26,5 +27,6 @@ public class UpgradeButton : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
     }
 }
