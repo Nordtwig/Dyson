@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 /// <summary>
 /// Christoffer Brandt
 /// Noah Nordqvist
 /// </summary>
+
 public class MenuScript : MonoBehaviour
 {
     public GameObject[] views;
@@ -32,6 +34,10 @@ public class MenuScript : MonoBehaviour
 
     public void PlayGame(string targetScene)
     {
+        if (GameController.instance.phaseSpecifics == null) {
+            MissionPresets missionPresets = FindObjectOfType<MissionPresets>();
+            
+        }
         SceneManager.LoadScene(targetScene);
     }
     /*================================== Play Menu ======================================*/
