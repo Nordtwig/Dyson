@@ -21,6 +21,17 @@ public class Box : MonoBehaviour
     public void PickUpBox()
     {
         transform.SetParent(player.transform);
+        if (tag == "SanctuaryHolder")
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 10);
+            for(int i = 0; i < hitColliders.Length; i++)
+            {
+                if (hitColliders[i].tag == "Rig")
+                {
+                    hitColliders[i].transform.GetComponent<MiningRig>().shielded = false;
+                }
+            }
+        }
         gameObject.SetActive(false);
     }
 
