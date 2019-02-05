@@ -1983,11 +1983,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 946804426}
     m_Modifications:
-    - target: {fileID: 4858451126383337489, guid: da87fdf07278da141b181ca3cf05bb7b,
-        type: 3}
-      propertyPath: m_Name
-      value: StoreWindowSvedlund
-      objectReference: {fileID: 0}
     - target: {fileID: 4858451126383337502, guid: da87fdf07278da141b181ca3cf05bb7b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2092,6 +2087,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858451126383337489, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: m_Name
+      value: StoreWindowSvedlund
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da87fdf07278da141b181ca3cf05bb7b, type: 3}

@@ -9,24 +9,48 @@ public class UpgradeButton : MonoBehaviour
     public int upgradeIndex = 1;
     public int upgradeMaxIndex = 3;
     public Text upgradeText;
+    private GameController gameController;
+    private int playerCredits;
+    public int creditsCost;
+    public float CreditsCostMultiplier;
+    public Text costText;
 
     public void Start()
     {
+        gameController = FindObjectOfType<GameController>();
+
+        costText.text = creditsCost.ToString();
         name = upgradeType;
         upgradeText.text = upgradeType + " " + upgradeIndex;
     }
 
     public void DebugUpgradeBought(string upgradeBought)
     {
-        Debug.Log("You have bought " + upgradeText.text);
-        FindObjectOfType<StoreWindow>().SetUpgradeLevel(upgradeType, upgradeIndex);
-        upgradeIndex++;
-        upgradeText.text = upgradeType + " " + upgradeIndex;
-
-        if (upgradeIndex > upgradeMaxIndex)
+        playerCredits = gameController.playerCredits;
+        if (playerCredits >= creditsCost)
         {
-            gameObject.SetActive(false);
-        }
+            Debug.Log("You have bought " + upgradeText.text);
+            FindObjectOfType<StoreWindow>().SetUpgradeLevel(upgradeType, upgradeIndex);
+            upgradeIndex++;
+            upgradeText.text = upgradeType + " " + upgradeIndex;
 
+            if (upgradeIndex > upgradeMaxIndex)
+            {
+                gameObject.SetActive(false);
+            }
+
+            UpdateCost();
+            gameController.UpdateCredits(-creditsCost);
+        }
+        else
+        {
+            Debug.Log("You cannot afford this, you poor bugger!");
+        }
+    }
+
+    public void UpdateCost()
+    {
+        creditsCost = (int) (creditsCost * CreditsCostMultiplier);
+        costText.text = creditsCost.ToString();
     }
 }

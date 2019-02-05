@@ -22,11 +22,14 @@ public class StoreWindow : MonoBehaviour
     public GameObject portableShield;
     public PlayerController player;
 
-    public int currentAirControlLevel;
-    public int currentMovementSpeedLevel;
-    public int currentMiningRigHealthLevel;
-    public int currentExtractionRateLevel;
-    public int currentShieldRadiusLevel;
+    public int miningRigCost;
+    public int PortableShieldCost;
+
+    [HideInInspector] public int currentAirControlLevel;
+    [HideInInspector] public int currentMovementSpeedLevel;
+    [HideInInspector] public int currentMiningRigHealthLevel;
+    [HideInInspector] public int currentExtractionRateLevel;
+    [HideInInspector] public int currentShieldRadiusLevel;
 
 
     public void OnEnable()
@@ -101,14 +104,33 @@ public class StoreWindow : MonoBehaviour
 
     public void BuyMiningRig()
     {
-        Instantiate(miningRig, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
-        Debug.Log("Buying miningRig");
+        if (CheckAffordability(miningRigCost))
+        {
+            Instantiate(miningRig, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+            Debug.Log("Buying miningRig");
+        }
+        else Debug.Log("Denying transaction");
     }
 
     public void BuyPortableShield()
     {
-        Instantiate(portableShield, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
-        Debug.Log("Buying portableShield");
+        if (CheckAffordability(PortableShieldCost))
+        {
+            Instantiate(portableShield, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+            Debug.Log("Buying portableShield");
+        }
+        else Debug.Log("Denying transaction");
+    }
+
+    public bool CheckAffordability(int equipmentCost)
+    {
+        int playerCredits = FindObjectOfType<GameController>().playerCredits;
+        if (playerCredits >= equipmentCost)
+        {
+            FindObjectOfType<GameController>().UpdateCredits(-equipmentCost);
+            return true;
+        }
+        else return false;
     }
 
     public void SetTopText(string text)
