@@ -48,8 +48,8 @@ public class GameController : MonoBehaviour
     //Phase Specifics
     public PhaseSpecifics[] phaseSpecifics;
 
-	//STATE
-	public GameControllerState state = GameControllerState.NULL;
+    //STATE
+    public GameControllerState state = GameControllerState.NULL;
 
     public enum GameControllerState
     {
@@ -89,9 +89,15 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        StartUp();
-        IncrementPhase();
-        UpdateCredits(0);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (scene.name == "RobinTestScene") {
+            StartUp();
+            IncrementPhase();
+            UpdateCredits(0);
+        }
     }
 
     private void StartUp()

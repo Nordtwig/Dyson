@@ -30,9 +30,9 @@ public class MenuScript : MonoBehaviour
         Application.Quit();
     }
 
-    public void PlayGame()
+    public void PlayGame(string targetScene)
     {
-        SceneManager.LoadScene("BrandtTestScene");
+        SceneManager.LoadScene(targetScene);
     }
     /*================================== Play Menu ======================================*/
 
