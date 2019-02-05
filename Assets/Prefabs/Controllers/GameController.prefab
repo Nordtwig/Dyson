@@ -51,9 +51,9 @@ MonoBehaviour:
   chunk: {fileID: 129545546215102865, guid: ce1e0e2dd817a564a91af50c3195cf2e, type: 3}
   metalMaterials:
   - {fileID: 2100000, guid: d13ee0d2f7dcc8d4b9e78d9e676ac346, type: 2}
-  - {fileID: 2100000, guid: fd9cb96d451228f4095d86911174092d, type: 2}
+  - {fileID: 2100000, guid: f2665f3188021b14b88a39342871e7fd, type: 2}
   - {fileID: 2100000, guid: c540ed0a7b5a54e4382aaae3579768ec, type: 2}
-  phaseAmount: 5
+  phaseBoxAmount: 5
   currentPhase: 0
   hijackedTimerText: 0
   totalTimeInPhase: 180
