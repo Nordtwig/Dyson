@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
     public float playerSpeed;
     public float playerAirControllSpeed = 4;
     public float jumpHeight = 7;
-    private float basePlayerSpeed;
+    public float basePlayerSpeed;
     private bool coRunning = false;
     public bool grounded = false;
     Vector3 moveDirection = Vector3.zero;

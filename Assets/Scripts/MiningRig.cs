@@ -10,8 +10,10 @@ using UnityEngine.Animations;
 public class MiningRig : MonoBehaviour
 {
     [SerializeField] private bool pickedUp;
-    [SerializeField] private int timeBetweenBoxes = 2;
-    [SerializeField] private GameObject chunk; 
+    [SerializeField] public float timeBetweenBoxes = 2;
+    [SerializeField] private GameObject chunk;
+
+    private StoreWindow storeWindow;
 
     private AudioSource rigCollision;
     private AudioSource drillingLoop;
@@ -43,6 +45,7 @@ public class MiningRig : MonoBehaviour
         drillingLoop = audios[1];
         deployBox = audios[2];
         disableRig = audios[3];
+        storeWindow = FindObjectOfType<StoreWindow>();
     }
 
     private void OnEnable()
@@ -182,6 +185,8 @@ public class MiningRig : MonoBehaviour
             yield return new WaitForSeconds(2.8f);
             animator.SetBool("OnMining", true);
             drillingLoop.Play();
+            timeBetweenBoxes = storeWindow.MiningRigExtractionRate;
+            Debug.Log("timeBetweenBoxes is " + timeBetweenBoxes);
             for (int i = 0; i < resourseAmount; i++)
             {
                 for (int w = 0; w < timeBetweenBoxes; w++)
