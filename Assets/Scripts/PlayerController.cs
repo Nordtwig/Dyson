@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
         else
         {
             airMoveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
-            //model.transform.rotation = RotX.transform.rotation;
+            model.transform.rotation = RotX.transform.rotation;
             rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed) + model.transform.TransformDirection(airMoveDirection * playerAirControllSpeed));
         }
 

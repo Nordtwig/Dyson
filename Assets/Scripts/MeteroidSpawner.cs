@@ -9,10 +9,12 @@ public class MeteroidSpawner : MonoBehaviour
     private Transform meteoroids;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         meteoroids = GameObject.Find("Meteoroids").transform;
         meteoroid = FindObjectOfType<Meteroid>().transform.parent.gameObject;
+        Debug.Log(meteoroids);
+        Debug.Log(meteoroid);
         meteoroid.SetActive(false);
     }
     
