@@ -54,10 +54,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: f2665f3188021b14b88a39342871e7fd, type: 2}
   - {fileID: 2100000, guid: c540ed0a7b5a54e4382aaae3579768ec, type: 2}
   phaseBoxAmount: 5
-  currentPhase: 0
   hijackedTimerText: 0
+  currentPhase: 0
   totalTimeInPhase: 180
-  playerCredits: 0
+  playerCredits: 50
   boxCreditsReward: 5
   phaseCreditReward: 50
   phaseSpecifics:
@@ -68,6 +68,25 @@ MonoBehaviour:
     phaseBoxAmount: 3
     timeBetweenMeteroids: 3
   - totalTimeInPhase: 500
+    phaseBoxAmount: 5
+    timeBetweenMeteroids: 2
+  - totalTimeInPhase: 180
+    phaseBoxAmount: 3
+    timeBetweenMeteroids: 0.5
+  - totalTimeInPhase: 500
+    phaseBoxAmount: 6
+    timeBetweenMeteroids: 1
+  - totalTimeInPhase: 300
+    phaseBoxAmount: 5
+    timeBetweenMeteroids: 2
+  testingSpecifics:
+  - totalTimeInPhase: 0
+    phaseBoxAmount: 0
+    timeBetweenMeteroids: 0
+  - totalTimeInPhase: 300
+    phaseBoxAmount: 3
+    timeBetweenMeteroids: 3
+  - totalTimeInPhase: 400
     phaseBoxAmount: 5
     timeBetweenMeteroids: 2
   - totalTimeInPhase: 180

@@ -47,6 +47,7 @@ public class GameController : MonoBehaviour
 
     //Phase Specifics
     [HideInInspector] public PhaseSpecifics[] phaseSpecifics;
+    public PhaseSpecifics[] testingSpecifics;
 
 	//STATE
 	public GameControllerState state = GameControllerState.NULL;
@@ -90,18 +91,27 @@ public class GameController : MonoBehaviour
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (scene.name == "RobinTestScene") {
+        if (SceneManager.GetActiveScene().buildIndex != 0) {
+            phaseSpecifics = testingSpecifics;
             StartUp();
             IncrementPhase();
-            UpdateCredits(0);
+            UpdateCredits(playerCredits);
         }
     }
 
-    private void StartUp()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
+        if (scene.name == "RobinTestScene") {
+            StartUp();
+            IncrementPhase();
+            UpdateCredits(playerCredits);
+        }
+    }
+
+    public void StartUp() // TODO Make private again after testing is done?
+    {
+        state = GameControllerState.GAME;
+
         Cursor.visible = false; // TODO SHOULD NOT BE HERE ONCE WE HAVE MAIN MENU
 
         //Update all dependencies in GameController. 
@@ -206,6 +216,8 @@ public class GameController : MonoBehaviour
             }
             currentPhase++;
             currentPhaseText.text = "Current Phase: " + currentPhase;
+            Debug.Log(currentPhase);
+            Debug.Log(phaseSpecifics.Length);
             phaseBoxAmount = phaseSpecifics[currentPhase].phaseBoxAmount;
             totalTimeInPhase = phaseSpecifics[currentPhase].totalTimeInPhase;
             StartCoroutine(meteroidSpawner.CoSpawnMeteroids(phaseSpecifics[currentPhase].timeBetweenMeteroids));
