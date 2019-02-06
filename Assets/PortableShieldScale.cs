@@ -24,8 +24,6 @@ public class PortableShieldScale : MonoBehaviour
         colliderRadius = GetComponent<CapsuleCollider>().radius;
         startSizeVFX = transform.parent.GetComponentInChildren<ParticleSystem>().startSize;
 
-        Debug.Log("Shield scale variables assigned");
-
         if (storeWindow.currentShieldRadiusLevel > 0)
         {
             if (storeWindow.currentShieldRadiusLevel == 1)
@@ -48,8 +46,6 @@ public class PortableShieldScale : MonoBehaviour
             transform.parent.GetComponentInChildren<ParticleSystem>().startSize = startSizeVFX;
             transform.parent.GetComponentInChildren<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             transform.parent.GetComponentInChildren<ParticleSystem>().Play();
-
-            Debug.Log("Setting shield scale");
         }
     }
 }

@@ -145,7 +145,7 @@ public class StoreWindow : MonoBehaviour
             Debug.Log("basePlayerSpeed is now " + FindObjectOfType<PlayerController>().basePlayerSpeed);
         }
 
-        else if (upgradeType == "Mining Rig Health")
+        else if (upgradeType == "Repair Rate")
         {
             currentMiningRigHealthLevel = upgradeIndex;
             //Debug.Log("Rig Health upgrade has been applied, it now at level " + upgradeIndex);
