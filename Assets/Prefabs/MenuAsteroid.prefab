@@ -1824,7 +1824,7 @@ MonoBehaviour:
   - totalTimeInPhase: 180
     phaseBoxAmount: 3
     timeBetweenMeteroids: 0.5
-  - totalTimeInPhase: 500
+  - totalTimeInPhase: 400
     phaseBoxAmount: 6
     timeBetweenMeteroids: 1
   - totalTimeInPhase: 300
@@ -1841,16 +1841,16 @@ MonoBehaviour:
   - totalTimeInPhase: 300
     phaseBoxAmount: 5
     timeBetweenMeteroids: 1
-  - totalTimeInPhase: 500
+  - totalTimeInPhase: 400
     phaseBoxAmount: 8
     timeBetweenMeteroids: 1
   - totalTimeInPhase: 180
     phaseBoxAmount: 3
     timeBetweenMeteroids: 0.5
-  - totalTimeInPhase: 500
+  - totalTimeInPhase: 400
     phaseBoxAmount: 10
     timeBetweenMeteroids: 2
-  - totalTimeInPhase: 90
+  - totalTimeInPhase: 0
     phaseBoxAmount: 2
     timeBetweenMeteroids: 0.1
   currentMission: {fileID: 5379920219333035804}
@@ -5144,16 +5144,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5379920218462634982}
     m_Modifications:
-    - target: {fileID: 4441701796236312120, guid: 69ff76695c01995469c25f31c0ab4fe5,
-        type: 3}
-      propertyPath: m_Name
-      value: EditorView
-      objectReference: {fileID: 0}
-    - target: {fileID: 4441701796236312120, guid: 69ff76695c01995469c25f31c0ab4fe5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4441701796236312121, guid: 69ff76695c01995469c25f31c0ab4fe5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5258,6 +5248,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441701796236312120, guid: 69ff76695c01995469c25f31c0ab4fe5,
+        type: 3}
+      propertyPath: m_Name
+      value: EditorView
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441701796236312120, guid: 69ff76695c01995469c25f31c0ab4fe5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4053884007844644500, guid: 69ff76695c01995469c25f31c0ab4fe5,
         type: 3}
