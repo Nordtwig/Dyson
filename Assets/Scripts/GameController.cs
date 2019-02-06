@@ -219,7 +219,7 @@ public class GameController : MonoBehaviour
             Debug.Log(currentPhase);
             Debug.Log(phaseSpecifics.Length);
             phaseBoxAmount = phaseSpecifics[currentPhase].phaseBoxAmount;
-            totalTimeInPhase = phaseSpecifics[currentPhase].totalTimeInPhase;
+            totalTimeInPhase = totalTimeInPhase/2 + phaseSpecifics[currentPhase].totalTimeInPhase;
             StartCoroutine(meteroidSpawner.CoSpawnMeteroids(phaseSpecifics[currentPhase].timeBetweenMeteroids));
         }
         else if (currentPhase == phaseSpecifics.Length - 1 && boxAmount == phaseBoxAmount)

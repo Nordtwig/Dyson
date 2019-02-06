@@ -182,6 +182,7 @@ public class MiningRig : MonoBehaviour
             rigStatusRend.material.color = Color.yellow;
             animator.SetBool("OnNodeDeploy", true);
             animator.SetBool("Empty", false);
+            animator.SetBool("OnPickUp", false);
             yield return new WaitForSeconds(2.8f);
             drillingLoop.Play();
             timeBetweenBoxes = storeWindow.MiningRigExtractionRate;
@@ -226,6 +227,9 @@ public class MiningRig : MonoBehaviour
             }
             drillingLoop.Stop();
             animator.SetBool("OnNodeDeploy", false);
+            animator.SetBool("Empty", false);
+            animator.SetBool("OnPickUp", true);
+
             coBoxSpawnRunning = false;
         }
         yield return null;

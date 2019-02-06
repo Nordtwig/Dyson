@@ -16,9 +16,16 @@ public class MissionEditor : MonoBehaviour
     public int funds;
     public int forecast;
     public PhaseSpecifics[] phaseSpecifics;
-
     public InputField[] inputs;
+    public GameObject addPhaseButton;
     public Text currentMission;
+
+    Button phasePrefab;
+    List<Button> phaseButtons;
+
+    void Start() {
+        phaseButtons = new List<Button>();    
+    }
 
     public void GeneratePhaseSpecifics() {
         currentMission.text = "Current Mission: Custom";
@@ -33,26 +40,36 @@ public class MissionEditor : MonoBehaviour
     }
 
     public void OnTextInputChange(int inputIndex) {
-        if (inputIndex == 0) {
-            phases = int.Parse(inputs[inputIndex].text);
-            Debug.Log(phases);
+        switch (inputIndex) {
+            case 0:
+                phases = int.Parse(inputs[inputIndex].text);
+                Debug.Log(phases);
+                break;
+            case 1:
+                quota = int.Parse(inputs[inputIndex].text);
+                Debug.Log(quota);
+                break;
+            case 2:
+                deadline = int.Parse(inputs[inputIndex].text);
+                Debug.Log(deadline);
+                break;
+            case 3:
+                funds = int.Parse(inputs[inputIndex].text);
+                Debug.Log(funds);
+                break;
+            case 4:
+                forecast = int.Parse(inputs[inputIndex].text);
+                Debug.Log(forecast);
+                break;
+            default:
+                break;
         }
-        if (inputIndex == 1) {
-            quota = int.Parse(inputs[inputIndex].text);
-            Debug.Log(quota);
-        }
-        if (inputIndex == 2) {
-            deadline = int.Parse(inputs[inputIndex].text);
-            Debug.Log(deadline);
-        }
-        if (inputIndex == 3) {
-            funds = int.Parse(inputs[inputIndex].text);
-            Debug.Log(funds);
-        }
-        if (inputIndex == 4) {
-            forecast = int.Parse(inputs[inputIndex].text);
-            Debug.Log(forecast);
-        }
+    }
 
+    public void AddPhaseButton() {
+        Button newButton = Instantiate(phasePrefab, transform.GetChild(2));
+        phaseButtons.Add(newButton);
+        newButton.GetComponentInChildren<Text>().text = phaseButtons.IndexOf(newButton).ToString();
+        addPhaseButton.transform.SetSiblingIndex(phaseButtons.IndexOf(newButton) + 1);
     }
 }
