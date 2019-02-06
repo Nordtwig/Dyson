@@ -16,9 +16,16 @@ public class MissionEditor : MonoBehaviour
     public int funds;
     public int forecast;
     public PhaseSpecifics[] phaseSpecifics;
-
     public InputField[] inputs;
+    public GameObject addPhaseButton;
     public Text currentMission;
+
+    Button phasePrefab;
+    List<Button> phaseButtons;
+
+    void Start() {
+        phaseButtons = new List<Button>();    
+    }
 
     public void GeneratePhaseSpecifics() {
         currentMission.text = "Current Mission: Custom";
@@ -54,5 +61,12 @@ public class MissionEditor : MonoBehaviour
             Debug.Log(forecast);
         }
 
+    }
+
+    public void AddPhaseButton() {
+        Button newButton = Instantiate(phasePrefab, transform.GetChild(2));
+        phaseButtons.Add(newButton);
+        newButton.GetComponentInChildren<Text>().text = phaseButtons.IndexOf(newButton).ToString();
+        addPhaseButton.transform.SetSiblingIndex(phaseButtons.IndexOf(newButton) + 1);
     }
 }
