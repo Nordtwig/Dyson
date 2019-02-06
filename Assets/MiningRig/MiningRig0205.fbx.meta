@@ -1,0 +1,443 @@
+fileFormatVersion: 2
+guid: d0ea2672ad63fe54bbd8b2e24aab26cd
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Body
+    100002: Door
+    100004: Door 1
+    100006: Door 2
+    100008: Door 3
+    100010: Drill
+    100012: DrillLegs
+    100014: LowLeg1
+    100016: LowLeg1 1
+    100018: LowLeg1 2
+    100020: LowLeg1 3
+    100022: LowLeg2
+    100024: LowLeg2 1
+    100026: LowLeg2 2
+    100028: LowLeg2 3
+    100030: LowLeg3
+    100032: LowLeg3 1
+    100034: LowLeg3 2
+    100036: LowLeg3 3
+    100038: LowLeg4
+    100040: LowLeg4 1
+    100042: LowLeg4 2
+    100044: LowLeg4 3
+    100046: MidLeg1
+    100048: MidLeg1 1
+    100050: MidLeg1 2
+    100052: MidLeg1 3
+    100054: MidLeg2
+    100056: MidLeg2 1
+    100058: MidLeg2 2
+    100060: MidLeg2 3
+    100062: MidLeg3
+    100064: MidLeg3 1
+    100066: MidLeg3 2
+    100068: MidLeg3 3
+    100070: MidLeg4
+    100072: MidLeg4 1
+    100074: MidLeg4 2
+    100076: MidLeg4 3
+    100078: //RootNode
+    100080: MiningRigScale
+    100082: Module1
+    100084: Module2
+    100086: Module3
+    100088: Module4
+    100090: Rotator
+    100092: Top
+    100094: Top1
+    100096: Top2
+    100098: Top3
+    100100: Top4
+    400000: Body
+    400002: Door
+    400004: Door 1
+    400006: Door 2
+    400008: Door 3
+    400010: Drill
+    400012: DrillLegs
+    400014: LowLeg1
+    400016: LowLeg1 1
+    400018: LowLeg1 2
+    400020: LowLeg1 3
+    400022: LowLeg2
+    400024: LowLeg2 1
+    400026: LowLeg2 2
+    400028: LowLeg2 3
+    400030: LowLeg3
+    400032: LowLeg3 1
+    400034: LowLeg3 2
+    400036: LowLeg3 3
+    400038: LowLeg4
+    400040: LowLeg4 1
+    400042: LowLeg4 2
+    400044: LowLeg4 3
+    400046: MidLeg1
+    400048: MidLeg1 1
+    400050: MidLeg1 2
+    400052: MidLeg1 3
+    400054: MidLeg2
+    400056: MidLeg2 1
+    400058: MidLeg2 2
+    400060: MidLeg2 3
+    400062: MidLeg3
+    400064: MidLeg3 1
+    400066: MidLeg3 2
+    400068: MidLeg3 3
+    400070: MidLeg4
+    400072: MidLeg4 1
+    400074: MidLeg4 2
+    400076: MidLeg4 3
+    400078: //RootNode
+    400080: MiningRigScale
+    400082: Module1
+    400084: Module2
+    400086: Module3
+    400088: Module4
+    400090: Rotator
+    400092: Top
+    400094: Top1
+    400096: Top2
+    400098: Top3
+    400100: Top4
+    2100000: MidLegMtrl
+    2100002: LowLegMtrl
+    2100004: DoorMtrl
+    2100006: BodyMtrl
+    2100008: lambert1
+    2300000: Body
+    2300002: Door
+    2300004: Door 1
+    2300006: Door 2
+    2300008: Door 3
+    2300010: Drill
+    2300012: DrillLegs
+    2300014: LowLeg1
+    2300016: LowLeg1 1
+    2300018: LowLeg1 2
+    2300020: LowLeg1 3
+    2300022: LowLeg2
+    2300024: LowLeg2 1
+    2300026: LowLeg2 2
+    2300028: LowLeg2 3
+    2300030: LowLeg3
+    2300032: LowLeg3 1
+    2300034: LowLeg3 2
+    2300036: LowLeg3 3
+    2300038: LowLeg4
+    2300040: LowLeg4 1
+    2300042: LowLeg4 2
+    2300044: LowLeg4 3
+    2300046: MidLeg1
+    2300048: MidLeg1 1
+    2300050: MidLeg1 2
+    2300052: MidLeg1 3
+    2300054: MidLeg2
+    2300056: MidLeg2 1
+    2300058: MidLeg2 2
+    2300060: MidLeg2 3
+    2300062: MidLeg3
+    2300064: MidLeg3 1
+    2300066: MidLeg3 2
+    2300068: MidLeg3 3
+    2300070: MidLeg4
+    2300072: MidLeg4 1
+    2300074: MidLeg4 2
+    2300076: MidLeg4 3
+    2300078: Rotator
+    2300080: Top1
+    2300082: Top2
+    2300084: Top3
+    2300086: Top4
+    3300000: Body
+    3300002: Door
+    3300004: Door 1
+    3300006: Door 2
+    3300008: Door 3
+    3300010: Drill
+    3300012: DrillLegs
+    3300014: LowLeg1
+    3300016: LowLeg1 1
+    3300018: LowLeg1 2
+    3300020: LowLeg1 3
+    3300022: LowLeg2
+    3300024: LowLeg2 1
+    3300026: LowLeg2 2
+    3300028: LowLeg2 3
+    3300030: LowLeg3
+    3300032: LowLeg3 1
+    3300034: LowLeg3 2
+    3300036: LowLeg3 3
+    3300038: LowLeg4
+    3300040: LowLeg4 1
+    3300042: LowLeg4 2
+    3300044: LowLeg4 3
+    3300046: MidLeg1
+    3300048: MidLeg1 1
+    3300050: MidLeg1 2
+    3300052: MidLeg1 3
+    3300054: MidLeg2
+    3300056: MidLeg2 1
+    3300058: MidLeg2 2
+    3300060: MidLeg2 3
+    3300062: MidLeg3
+    3300064: MidLeg3 1
+    3300066: MidLeg3 2
+    3300068: MidLeg3 3
+    3300070: MidLeg4
+    3300072: MidLeg4 1
+    3300074: MidLeg4 2
+    3300076: MidLeg4 3
+    3300078: Rotator
+    3300080: Top1
+    3300082: Top2
+    3300084: Top3
+    3300086: Top4
+    4300000: MidLeg1
+    4300002: MidLeg2
+    4300004: MidLeg4
+    4300006: LowLeg1
+    4300008: LowLeg2
+    4300010: LowLeg3
+    4300012: LowLeg4
+    4300014: MidLeg3
+    4300016: Door
+    4300018: MidLeg1
+    4300020: MidLeg2
+    4300022: MidLeg4
+    4300024: LowLeg1
+    4300026: LowLeg2
+    4300028: LowLeg3
+    4300030: LowLeg4
+    4300032: MidLeg3
+    4300034: Door
+    4300036: MidLeg1
+    4300038: MidLeg2
+    4300040: MidLeg4
+    4300042: LowLeg1
+    4300044: LowLeg2
+    4300046: LowLeg3
+    4300048: LowLeg4
+    4300050: MidLeg3
+    4300052: Door
+    4300054: MidLeg1
+    4300056: MidLeg2
+    4300058: MidLeg4
+    4300060: LowLeg1
+    4300062: LowLeg2
+    4300064: LowLeg3
+    4300066: LowLeg4
+    4300068: MidLeg3
+    4300070: Door
+    4300072: Rotator
+    4300074: Body
+    4300076: DrillLegs
+    4300078: Top1
+    4300080: Top2
+    4300082: Top3
+    4300084: Top4
+    4300086: Drill
+    7400000: miningrig_anim
+    7400002: miningrig_anim_folded
+    7400004: miningrig_anim_running
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BodyMtrl
+    second: {fileID: 2100000, guid: d413a6c2c767596448f472701a2aacf1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorMtrl
+    second: {fileID: 2100000, guid: d249329a95d25ae4281d1a994786d956, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LowLegMtrl
+    second: {fileID: 2100000, guid: cb501a9fa70b05f46bcb69d85db69c45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MidLegMtrl
+    second: {fileID: 2100000, guid: b97030a69fbefa34c9f2fe4763718d85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 4911cfa452bca324291fefb65fc8f4aa, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: miningrig_anim
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 1000
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: miningrig_anim_folded
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: miningrig_anim_running
+      takeName: Take 001
+      firstFrame: 1000
+      lastFrame: 1100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
