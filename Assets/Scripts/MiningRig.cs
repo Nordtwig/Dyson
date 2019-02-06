@@ -39,7 +39,7 @@ public class MiningRig : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         rigStatusRend = transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>();
         rigStatusRend.material.color = Color.red;
-        animator = gameObject.GetComponent<Animator>();
+        animator = transform.GetChild(0).GetChild(1).GetComponent<Animator>();
         AudioSource[] audios = GetComponents<AudioSource>();
         rigCollision = audios[0];
         drillingLoop = audios[1];
@@ -67,19 +67,17 @@ public class MiningRig : MonoBehaviour
         player.holdingItem = true;
         player.pickedUpItem = true;
 
-        if (animator.GetBool("OnNodeDeploy") || animator.GetBool("Empty") || animator.GetBool("OnMining"))
+        if (animator.GetBool("OnNodeDeploy") || animator.GetBool("Empty"))
         {
             animator.SetBool("Empty", false);
-            animator.SetBool("OnMining", false);
             animator.SetBool("OnNodeDeploy", false);
             animator.SetBool("OnPickUp", true);
             pickedUp = true;
-            //yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(2f);
         }
         else
         {
             animator.SetBool("Empty", false);
-            animator.SetBool("OnMining", false);
             animator.SetBool("OnNodeDeploy", false);
             animator.SetBool("OnPickUp", true);
             pickedUp = true;
@@ -163,8 +161,8 @@ public class MiningRig : MonoBehaviour
     {
         if (other.tag == "Node")
         {
-            animator.ResetTrigger("OnNodeDeploy");
-            animator.SetTrigger("OnPickUp");
+            animator.SetBool("OnNodeDeploy", false);
+            animator.SetBool("OnPickUp", true);
             minedNode = null;
             rigStatusRend.material.color = Color.red;
         }
@@ -182,8 +180,9 @@ public class MiningRig : MonoBehaviour
         {
             coBoxSpawnRunning = true;
             rigStatusRend.material.color = Color.yellow;
+            animator.SetBool("OnNodeDeploy", true);
+            animator.SetBool("Empty", false);
             yield return new WaitForSeconds(2.8f);
-            animator.SetBool("OnMining", true);
             drillingLoop.Play();
             timeBetweenBoxes = storeWindow.MiningRigExtractionRate;
             Debug.Log("timeBetweenBoxes is " + timeBetweenBoxes);
@@ -212,6 +211,7 @@ public class MiningRig : MonoBehaviour
                     {
                         minedNode = null;
                         rigStatusRend.material.color = Color.red;
+                        animator.SetBool("Empty", true);
                     }
                 }
                 else if (functioning)
@@ -225,9 +225,7 @@ public class MiningRig : MonoBehaviour
                 }
             }
             drillingLoop.Stop();
-            animator.SetBool("OnMining", false);
             animator.SetBool("OnNodeDeploy", false);
-            animator.SetBool("Empty", true);
             coBoxSpawnRunning = false;
         }
         yield return null;

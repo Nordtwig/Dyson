@@ -95,7 +95,7 @@ public class GameController : MonoBehaviour
             phaseSpecifics = testingSpecifics;
             StartUp();
             IncrementPhase();
-            UpdateCredits(playerCredits);
+            UpdateCredits(0);
         }
     }
 
@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
         if (scene.name == "RobinTestScene") {
             StartUp();
             IncrementPhase();
-            UpdateCredits(playerCredits);
+            UpdateCredits(0);
         }
     }
 
