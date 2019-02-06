@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Created by: Svedlund
+/// </summary>
+
 public class StoreWindow : MonoBehaviour
 {
     public GameObject upgradesTab;
@@ -33,27 +37,7 @@ public class StoreWindow : MonoBehaviour
 
     public float MiningRigExtractionRate;
 
-
-
-    //public void OnEnable()
-    //{
-    //    cameraFollow = FindObjectOfType<CameraFollow>();
-
-    //    originalCameraSpeedH = cameraFollow.speedH;
-    //    originalCameraSpeedV = cameraFollow.speedV;
-    //    cameraFollow.speedH = 0;
-    //    cameraFollow.speedV = 0;
-    //}
-
-    //public void OnDisable()
-    //{
-    //    cameraFollow.speedH = originalCameraSpeedH;
-    //    cameraFollow.speedV = originalCameraSpeedV;
-
-    //    GameController.instance.state = GameController.GameControllerState.GAME;
-    //    Cursor.visible = false;
-    //}
-
+    
     public void ToggleCanvases(string buttonPressed)
     {
         if (buttonPressed == "Upgrades")
@@ -149,7 +133,7 @@ public class StoreWindow : MonoBehaviour
         {
             currentAirControlLevel = upgradeIndex;
             FindObjectOfType<PlayerController>().playerAirControllSpeed *= 1.3f;
-            Debug.Log("Air Control upgrade has been applied, it now at level " + upgradeIndex);
+            Debug.Log("Air Control upgrade has been applied, it's now at level " + upgradeIndex);
             Debug.Log("Air control is now " + FindObjectOfType<PlayerController>().playerAirControllSpeed);
         }
 
@@ -157,7 +141,7 @@ public class StoreWindow : MonoBehaviour
         {
             currentMovementSpeedLevel = upgradeIndex;
             FindObjectOfType<PlayerController>().basePlayerSpeed *= 1.2f;
-            Debug.Log("Movement Speed upgrade has been applied, it now at level " + upgradeIndex);
+            Debug.Log("Movement Speed upgrade has been applied, it's now at level " + upgradeIndex);
             Debug.Log("basePlayerSpeed is now " + FindObjectOfType<PlayerController>().basePlayerSpeed);
         }
 
@@ -172,7 +156,7 @@ public class StoreWindow : MonoBehaviour
         {
             currentExtractionRateLevel = upgradeIndex;
             MiningRigExtractionRate *= 0.7f;
-            Debug.Log("Extraction Rate upgrade has been applied, it now at level " + upgradeIndex);
+            Debug.Log("Extraction Rate upgrade has been applied, it's now at level " + upgradeIndex);
             Debug.Log("miningRigExtractionRate is now " + MiningRigExtractionRate);
         }
 
@@ -180,7 +164,14 @@ public class StoreWindow : MonoBehaviour
         {
             currentShieldRadiusLevel = upgradeIndex;
             //Debug.Log("Shield Radius upgrade has been applied, it now at level " + upgradeIndex);
-            Debug.Log("Shield Radius is not yet implemented, you get nothing. But this int has been changed: " + upgradeIndex);
+            PortableShieldScale[] allPortableShields = FindObjectsOfType<PortableShieldScale>();
+            foreach (PortableShieldScale shieldScaler in allPortableShields)
+            {
+                shieldScaler.SetShieldRadius();
+            }
+            // ATTENTION: For now currentShieldRadiusLevel can be 0-3. To add more levels you must update SetShieldRadius() in PortableShieldScale-script.
+            Debug.Log("Shield Radius upgrade has been applied to all portable shields, it's now at level " + upgradeIndex);
+            Debug.Log("currentShieldRadiusLevel is now " + currentShieldRadiusLevel);
         }
 
         else Debug.Log("The upgradeType-string you are looking for is " + upgradeType);

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Created by: Svedlund
+/// </summary>
+
 public class StoreWindowVisuals : MonoBehaviour
 {
     private float originalCameraSpeedH;
