@@ -56,6 +56,7 @@ MonoBehaviour:
   pickedUp: 0
   timeBetweenBoxes: 10
   chunk: {fileID: 129545546215102865, guid: ce1e0e2dd817a564a91af50c3195cf2e, type: 3}
+  shielded: 0
   functioning: 1
 --- !u!54 &1346940179161717308
 Rigidbody:
@@ -66,7 +67,7 @@ Rigidbody:
   m_GameObject: {fileID: 1346940179161717314}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
