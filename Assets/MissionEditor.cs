@@ -18,9 +18,9 @@ public class MissionEditor : MonoBehaviour
     public PhaseSpecifics[] phaseSpecifics;
     public InputField[] inputs;
     public GameObject addPhaseButton;
+    public Button phasePrefab;
     public Text currentMission;
 
-    Button phasePrefab;
     List<Button> phaseButtons;
 
     void Start() {
@@ -67,6 +67,8 @@ public class MissionEditor : MonoBehaviour
     }
 
     public void AddPhaseButton() {
+        Debug.Log(transform.GetChild(2));
+        Debug.Log(phasePrefab);
         Button newButton = Instantiate(phasePrefab, transform.GetChild(2));
         phaseButtons.Add(newButton);
         newButton.GetComponentInChildren<Text>().text = phaseButtons.IndexOf(newButton).ToString();
