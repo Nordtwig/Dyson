@@ -776,16 +776,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3404896907878399229, guid: b7b3d87d6c351b941abf72584b023b07,
-        type: 3}
-      propertyPath: creditsText
-      value: 
-      objectReference: {fileID: 2141525940}
-    - target: {fileID: 2399114209918044666, guid: b7b3d87d6c351b941abf72584b023b07,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 32
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7b3d87d6c351b941abf72584b023b07, type: 3}
 --- !u!1001 &812457408
@@ -1872,12 +1862,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae88b175eb6c734d8fa27ad45389144, type: 3}
---- !u!1 &2141525940 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2399114209918044665, guid: b7b3d87d6c351b941abf72584b023b07,
-    type: 3}
-  m_PrefabInstance: {fileID: 535424280}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &469036345748360397
 PrefabInstance:
   m_ObjectHideFlags: 0

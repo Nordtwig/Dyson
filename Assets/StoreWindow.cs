@@ -134,6 +134,7 @@ public class StoreWindow : MonoBehaviour
     public void InsufficientCredits()
     {
         iTween.PunchPosition(creditsText, Random.insideUnitCircle * 15f, 0.3f);
+        iTween.PunchScale(creditsText, Random.insideUnitCircle * 1.5f, 0.3f);
     }
 
     public void SetTopText(string text)

@@ -1317,6 +1317,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4858451126383337503, guid: da87fdf07278da141b181ca3cf05bb7b,
+        type: 3}
+      propertyPath: creditsText
+      value: 
+      objectReference: {fileID: 2399114209918044665}
     - target: {fileID: 4858451125237858949, guid: da87fdf07278da141b181ca3cf05bb7b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1490,7 +1495,7 @@ PrefabInstance:
     - target: {fileID: 5577547154425632024, guid: da87fdf07278da141b181ca3cf05bb7b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 28
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 5577547154425632024, guid: da87fdf07278da141b181ca3cf05bb7b,
         type: 3}
@@ -1517,6 +1522,12 @@ PrefabInstance:
 --- !u!224 &3404896907878399228 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4858451126383337502, guid: da87fdf07278da141b181ca3cf05bb7b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7794658090540211426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2399114209918044665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5577547154425632027, guid: da87fdf07278da141b181ca3cf05bb7b,
     type: 3}
   m_PrefabInstance: {fileID: 7794658090540211426}
   m_PrefabAsset: {fileID: 0}
