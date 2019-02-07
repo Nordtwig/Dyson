@@ -27,6 +27,9 @@ public class StoreWindow : MonoBehaviour
     public GameObject portableShield;
     private PlayerController player;
 
+    private Color redColor = new Color(207.0f / 255.0f, 88.0f / 255.0f, 69.0f / 255.0f);
+    private Color blueColor = new Color(140.0f / 255.0f, 193.0f / 255.0f, 227.0f / 255.0f);
+
     public int miningRigCost;
     public int PortableShieldCost;
 
@@ -70,6 +73,7 @@ public class StoreWindow : MonoBehaviour
             {
                 upgradesTab.SetActive(false);
                 buttonText.text = "Back";
+                buttonText.GetComponentInParent<Image>().color = redColor;
                 topText.text = "Buy Equipment";
                 upgradesImage.SetActive(false);
                 equipmentImage.SetActive(false);
@@ -80,6 +84,7 @@ public class StoreWindow : MonoBehaviour
             {
                 upgradesTab.SetActive(true);
                 buttonText.text = buttonPressed;
+                buttonText.GetComponentInParent<Image>().color = blueColor;
                 topText.text = "Store";
                 upgradesImage.SetActive(true);
                 equipmentImage.SetActive(true);
