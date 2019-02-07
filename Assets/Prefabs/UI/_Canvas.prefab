@@ -119,11 +119,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreditsText
       objectReference: {fileID: 0}
-    - target: {fileID: 4920326477392047259, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4920326477392047256, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1168,13 +1163,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 392295640, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6290416227273202111, guid: 649d601e5a2a4684ebfd4b5bc80b0a95,
-        type: 3}
-    - target: {fileID: 392295640, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Restart
+      value: StartCoRestart
       objectReference: {fileID: 0}
     - target: {fileID: 392295640, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

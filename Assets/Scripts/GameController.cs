@@ -33,7 +33,6 @@ public class GameController : MonoBehaviour
     private MeteroidSpawner meteroidSpawner;
 
     //General
-    private int sceneAtm = 0; //Current scene
     private bool debugMode = false;
     private int boxAmount = 0;
 
@@ -117,6 +116,7 @@ public class GameController : MonoBehaviour
         //Update all dependencies in GameController. 
         currentPhase = 0;
         totalTimeInPhase = 0;
+        boxAmount = 0;
         timeText = GameObject.Find("TimeLeftInPhase").GetComponent<Text>();
         currentPhaseText = GameObject.Find("CurrentPhaseText").GetComponent<Text>();
         meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
@@ -169,7 +169,7 @@ public class GameController : MonoBehaviour
     public void PhaseTimer()
     {
         
-        if (!gameOverText.activeInHierarchy && !hijackedTimerText)
+        if (!hijackedTimerText)
         {
             totalTimeInPhase -= Time.deltaTime;
         }
@@ -253,18 +253,19 @@ public class GameController : MonoBehaviour
     } 
 
 
-    public IEnumerator CoRestart()
+    private IEnumerator CoRestart()
     {
         Debug.Log("Reached restart enumerator");
         DestroyAll();
-        sceneAtm = SceneManager.GetActiveScene().buildIndex;
+        currentPhase = 0;
+        totalTimeInPhase = 0;
+        boxAmount = 0;
+        int sceneAtm = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneAtm);
         state = GameControllerState.NULL;
         yield return new WaitForSeconds(1);
         Debug.Log("reached GameController reset");
         state = GameControllerState.GAME;
-        boxAmount = 0;
-        currentPhase = 0;
         StartUp();
         IncrementPhase();
         yield return null;
