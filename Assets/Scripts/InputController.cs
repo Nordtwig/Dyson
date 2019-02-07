@@ -110,7 +110,7 @@ public class InputController : MonoBehaviour
             else
             {
 				throwBar.ThrowPowerBarUpdate(0, player.holdingItem);
-                player.ThrowItem(Mathf.Clamp(eTime, 0, 2f));
+                player.ThrowItem(Mathf.Clamp(eTime, 0, 1.5f));
 			}
 			eTime = 0;
         }
@@ -121,7 +121,7 @@ public class InputController : MonoBehaviour
 
 			if (eTime > 0.5f)
 			{
-				throwBar.ThrowPowerBarUpdate(Mathf.Clamp(eTime, 0, 2f), player.holdingItem);
+				throwBar.ThrowPowerBarUpdate(Mathf.Clamp(eTime, 0, 1.5f), player.holdingItem);
 			}
         }
         

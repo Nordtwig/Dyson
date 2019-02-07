@@ -52,6 +52,6 @@ public class Chunk : MonoBehaviour
     public void ThrowChunk(float throwStrength)
     {
         DropChunk();
-        rb.velocity = player.transform.TransformDirection(Vector3.forward * player.playerSpeed) + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 5 * throwStrength);
+        rb.velocity = player.transform.TransformDirection(Vector3.forward * player.playerSpeed) + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 7 * throwStrength);
     }
 }

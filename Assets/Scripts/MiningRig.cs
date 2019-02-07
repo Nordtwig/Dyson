@@ -115,7 +115,7 @@ public class MiningRig : MonoBehaviour
     public void ThrowRig(float throwStrength)
     {
         DropRig();
-        rb.velocity = player.transform.TransformDirection(Vector3.forward * player.playerSpeed) + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 3 * throwStrength);
+        rb.velocity = player.transform.TransformDirection(Vector3.forward * player.playerSpeed) + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 4 * throwStrength);
     }
 
     private void OnCollisionEnter(Collision collision)
