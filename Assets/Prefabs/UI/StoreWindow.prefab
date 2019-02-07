@@ -3575,6 +3575,8 @@ MonoBehaviour:
   upgradesList: {fileID: 4858451124778255687}
   equipmentList: {fileID: 7243997787132751810}
   creditsText: {fileID: 5577547154425632027}
+  creditsTextPrefabPopUp: {fileID: 4920326477392047259, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
+    type: 3}
   miningRig: {fileID: 1346940179161717314, guid: afe146540c7d5a141a697b0584727db5,
     type: 3}
   portableShield: {fileID: 8614087759089591321, guid: 2a0696d7f95ef744baa812bd1aa66841,
@@ -6111,47 +6113,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4920326477392047256, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.61967456
-      objectReference: {fileID: 0}
-    - target: {fileID: 4920326477392047256, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.61967456
-      objectReference: {fileID: 0}
-    - target: {fileID: 4920326477392047256, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.61967456
-      objectReference: {fileID: 0}
-    - target: {fileID: 4920326477392047257, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5449058230408031845, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.92941177
-      objectReference: {fileID: 0}
-    - target: {fileID: 5449058230408031845, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.38431373
-      objectReference: {fileID: 0}
-    - target: {fileID: 5449058230408031845, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.2784314
-      objectReference: {fileID: 0}
-    - target: {fileID: 5449058230408031845, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 615201b082426064b8a149451e64263f,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 671ccc8c7e7c01e408cd845cd0a681bc, type: 3}
 --- !u!1 &5577547154425632027 stripped

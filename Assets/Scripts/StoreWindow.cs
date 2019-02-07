@@ -18,6 +18,7 @@ public class StoreWindow : MonoBehaviour
     public GameObject upgradesList;
     public GameObject equipmentList;
     public GameObject creditsText;
+    public GameObject creditsTextPrefabPopUp;
     private float originalCameraSpeedH;
     private float originalCameraSpeedV;
 
@@ -195,5 +196,20 @@ public class StoreWindow : MonoBehaviour
         }
 
         else Debug.Log("The upgradeType-string you are looking for is " + upgradeType);
+    }
+
+    public IEnumerator GainCreditsPopUp(int amountGained)
+    {
+        GameObject myPopUp = Instantiate(creditsTextPrefabPopUp, transform);
+        Text myText = myPopUp.GetComponent<Text>();
+        myText.text = amountGained.ToString();
+        iTween.PunchPosition(myPopUp, Random.insideUnitCircle * 30f, 0.5f);
+        iTween.PunchScale(myPopUp, Random.insideUnitCircle * 2.5f, 0.5f);
+        myPopUp.GetComponentInChildren<Image>().CrossFadeAlpha(0f, 2f, true);
+        myText.CrossFadeAlpha(0f, 2f, true);
+        iTween.MoveTo(myPopUp, Vector3.up * 10f, 10f);
+        yield return new WaitForSeconds(2f);
+        Destroy(myPopUp);
+        yield return null;
     }
 }
