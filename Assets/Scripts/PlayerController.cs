@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour {
     Vector3 airMoveDirection = Vector3.zero;
     private float timeOfJump = 0;
 
+    Animator astronautController;
+
     void Start() {
         interactionZone = FindObjectOfType<InteractionZone>();
         interactionZone.gameObject.SetActive(false);
@@ -35,6 +37,8 @@ public class PlayerController : MonoBehaviour {
         RotX = GameObject.Find("RotX");
         model = this.gameObject.transform.GetChild(1).gameObject;
         basePlayerSpeed = playerSpeed;
+        astronautController = transform.GetComponentInChildren<Animator>();
+
     }
 
     public void PlayerMove(float moveX, float moveY)
@@ -46,6 +50,12 @@ public class PlayerController : MonoBehaviour {
             model.transform.rotation = RotX.transform.rotation;
             rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
             timeOfJump = Time.time;
+            if (moveX == 0 && moveY == 0) {
+                astronautController.SetBool("isRunning", false); 
+            }
+            else {
+                astronautController.SetBool("isRunning", true);
+            }
         }
         else
         {
