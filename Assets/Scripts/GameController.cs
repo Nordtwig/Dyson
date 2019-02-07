@@ -239,7 +239,8 @@ public class GameController : MonoBehaviour
     public void UpdateCredits(int amount)
     {
         playerCredits += amount;
-        creditsText.text = "Credits: " + playerCredits;
+        //creditsText.text = "Credits: " + playerCredits;
+        creditsText.text = playerCredits.ToString();
     }
     // =======================================================================================
 

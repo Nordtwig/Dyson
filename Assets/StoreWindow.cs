@@ -17,6 +17,7 @@ public class StoreWindow : MonoBehaviour
     public Text topText;
     public GameObject upgradesList;
     public GameObject equipmentList;
+    public GameObject creditsText;
     private float originalCameraSpeedH;
     private float originalCameraSpeedV;
 
@@ -97,7 +98,11 @@ public class StoreWindow : MonoBehaviour
             Instantiate(miningRig, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
             Debug.Log("Buying miningRig");
         }
-        else Debug.Log("Denying transaction");
+        else
+        {
+            InsufficientCredits();
+            Debug.Log("Denying transaction");
+        }
     }
 
     public void BuyPortableShield()
@@ -108,7 +113,11 @@ public class StoreWindow : MonoBehaviour
             Instantiate(portableShield, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
             Debug.Log("Buying portableShield");
         }
-        else Debug.Log("Denying transaction");
+        else
+        {
+            InsufficientCredits();
+            Debug.Log("Denying transaction");
+        }
     }
 
     public bool CheckAffordability(int equipmentCost)
@@ -120,6 +129,11 @@ public class StoreWindow : MonoBehaviour
             return true;
         }
         else return false;
+    }
+
+    public void InsufficientCredits()
+    {
+        iTween.PunchPosition(creditsText, Random.insideUnitCircle * 15f, 0.3f);
     }
 
     public void SetTopText(string text)

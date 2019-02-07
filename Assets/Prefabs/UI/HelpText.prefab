@@ -1,17 +1,16 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8269067531426495744
+--- !u!1 &7207355653665714734
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8404262487624839495, guid: 437aabba07fd9d44ebf4ba52c456541d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2870903601043853510}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6014152308992975262}
-  - component: {fileID: 1218196254898219584}
-  - component: {fileID: 6943945754443523241}
+  - component: {fileID: 5022223272068951728}
+  - component: {fileID: 442458692851000686}
+  - component: {fileID: 8546093780467559303}
   m_Layer: 5
   m_Name: HelpText
   m_TagString: Untagged
@@ -19,14 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6014152308992975262
+--- !u!224 &5022223272068951728
 RectTransform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2870903601043853510}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8269067531426495744}
+  m_GameObject: {fileID: 7207355653665714734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,25 +35,23 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 120, y: 80}
-  m_SizeDelta: {x: 220, y: 200}
+  m_SizeDelta: {x: 230, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1218196254898219584
+--- !u!222 &442458692851000686
 CanvasRenderer:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8404262487624839514, guid: 437aabba07fd9d44ebf4ba52c456541d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2870903601043853510}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8269067531426495744}
+  m_GameObject: {fileID: 7207355653665714734}
   m_CullTransparentMesh: 0
---- !u!114 &6943945754443523241
+--- !u!114 &8546093780467559303
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8404262487624839513, guid: 437aabba07fd9d44ebf4ba52c456541d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2870903601043853510}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8269067531426495744}
+  m_GameObject: {fileID: 7207355653665714734}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -82,125 +78,6 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Press F1 to activate/deactivate \ndebug options. b, n, or m needs to be
-    pressed once after activating to let it initiate.\n\nM to spawn a MiningRig.\nN
-    to spawn a MiningNode.\nB to spawn a Box.\nR to Restart, (has some issues) "
---- !u!1001 &2870903601043853510
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8404262487624839495, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_Name
-      value: HelpText
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 220
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404262487624839512, guid: 437aabba07fd9d44ebf4ba52c456541d,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 437aabba07fd9d44ebf4ba52c456541d, type: 3}
+  m_Text: "Press F1 to activate/deactivate \ndebug options\n\nM to spawn a MiningRig.\nN
+    to spawn a random MiningNode.\nB to spawn a Box.\nC to spawn a Chunk.\nR to Restart,
+    (has some issues) "
