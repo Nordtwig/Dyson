@@ -29,6 +29,7 @@ public class MiningRig : MonoBehaviour
     private Rigidbody rb;
     public bool shielded = false;
     private bool coBoxSpawnRunning = false;
+    private bool CoPickUpRigRunning = false;
 
     public bool functioning = true;
 
@@ -64,30 +65,38 @@ public class MiningRig : MonoBehaviour
     //Rig is parented to player on pickup, despawns and changes a bool to indicate the player is carrying it
     private IEnumerator CoPickUpRig()
     {
-        player.holdingItem = true;
-        player.pickedUpItem = true;
+        if (!CoPickUpRigRunning)
+        {
+            CoPickUpRigRunning = true;
+            player.holdingItem = true;
+            player.pickedUpItem = true;
 
-        if (animator.GetBool("OnNodeDeploy") || animator.GetBool("Empty"))
-        {
-            animator.SetBool("Empty", false);
-            animator.SetBool("OnNodeDeploy", false);
-            animator.SetBool("OnPickUp", true);
-            pickedUp = true;
-            yield return new WaitForSeconds(2f);
+            if (animator.GetBool("OnNodeDeploy") || animator.GetBool("Empty"))
+            {
+                animator.SetBool("Empty", false);
+                animator.SetBool("OnNodeDeploy", false);
+                animator.SetBool("OnPickUp", true);
+                pickedUp = true;
+                yield return new WaitForSeconds(2f);
+            }
+            else
+            {
+                animator.SetBool("Empty", false);
+                animator.SetBool("OnNodeDeploy", false);
+                animator.SetBool("OnPickUp", true);
+                pickedUp = true;
+            }
+
+            transform.SetParent(player.transform);
+            transform.position = player.transform.position;
+            shielded = false;
+            minedNode = null;
+            player.holdingItem = true;
+            coBoxSpawnRunning = false;
+            CoPickUpRigRunning = false;
+            gameObject.SetActive(false);
         }
-        else
-        {
-            animator.SetBool("Empty", false);
-            animator.SetBool("OnNodeDeploy", false);
-            animator.SetBool("OnPickUp", true);
-            pickedUp = true;
-        }
-        coBoxSpawnRunning = false;
-        transform.SetParent(player.transform);
-        transform.position = player.transform.position;
-        shielded = false;
-        minedNode = null;
-        gameObject.SetActive(false);
+
         yield return null;
     }  
 

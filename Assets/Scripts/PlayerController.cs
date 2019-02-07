@@ -91,18 +91,17 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         interactionZone.gameObject.SetActive(false);
         if (!hitButton && !pickedUpItem)
-            HandleHoldingItem();
+            DropItem();
         pickedUpItem = false;
         hitButton = false;
         coRunning = false;
         yield return null;
     }
 
-    private void HandleHoldingItem()
+    private void DropItem()
     {
         if (holdingItem)
         {
-            holdingItem = false;
             if (GetComponentInChildren<Box>(true))
             {
                 Box box = GetComponentInChildren<Box>(true);
@@ -118,6 +117,12 @@ public class PlayerController : MonoBehaviour {
                 MiningRig rig = GetComponentInChildren<MiningRig>(true);
                 rig.DropRig();
             }
+            else
+            {
+                return;
+            }
+
+            holdingItem = false;
         }
     }
 
@@ -140,6 +145,11 @@ public class PlayerController : MonoBehaviour {
                 MiningRig rig = GetComponentInChildren<MiningRig>(true);
                 rig.ThrowRig(throwStrength);
             }
+            else
+            {
+                return;
+            }
+
             holdingItem = false;
         }
     }

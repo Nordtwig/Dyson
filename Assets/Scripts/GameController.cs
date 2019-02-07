@@ -244,6 +244,12 @@ public class GameController : MonoBehaviour
     }
     // =======================================================================================
 
+    public void StartCoRestart()
+    {
+        StartCoroutine(CoRestart());
+    } 
+
+
     public IEnumerator CoRestart()
     {
         Debug.Log("Reached restart enumerator");
