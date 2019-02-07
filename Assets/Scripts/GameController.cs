@@ -248,6 +248,7 @@ public class GameController : MonoBehaviour
 
     public void StartCoRestart()
     {
+        StopAllCoroutines();
         StartCoroutine(CoRestart());
     } 
 
@@ -256,7 +257,7 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Reached restart enumerator");
         DestroyAll();
-        StopAllCoroutines();
+        sceneAtm = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneAtm);
         state = GameControllerState.NULL;
         yield return new WaitForSeconds(1);
