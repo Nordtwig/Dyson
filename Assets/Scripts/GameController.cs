@@ -115,6 +115,8 @@ public class GameController : MonoBehaviour
         Cursor.visible = false; // TODO SHOULD NOT BE HERE ONCE WE HAVE MAIN MENU
 
         //Update all dependencies in GameController. 
+        currentPhase = 0;
+        totalTimeInPhase = 0;
         timeText = GameObject.Find("TimeLeftInPhase").GetComponent<Text>();
         currentPhaseText = GameObject.Find("CurrentPhaseText").GetComponent<Text>();
         meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
