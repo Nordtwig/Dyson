@@ -111,21 +111,31 @@ public class Meteroid : MonoBehaviour
 
         if (other.tag == "Asteroid")
         {
-			/*playerDistance = player.GetComponent<Transform>().position - transform.position;
+            /*playerDistance = player.GetComponent<Transform>().position - transform.position;
 			if (playerDistance.sqrMagnitude < meteoroidHitBox)
 			{
 				player.rb.velocity = player.transform.TransformDirection(Vector3.up * upForce) + (playerDistance.normalized / Mathf.Clamp(playerDistance.sqrMagnitude, minDistanceHurled, maxDistanceHurled)) * sideForce;
 			}*/
 
-			spawnValue = Random.Range(0f, 1f);
-            if (spawnValue <= randomNodeSpawnChance)
-            {
-                miningNodeSpawnRotation = gameObject.GetComponentInParent<Transform>().rotation;
-                GameObject myNode = Instantiate(miningNode, Vector3.zero, miningNodeSpawnRotation);
-                myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
+            
+                spawnValue = Random.Range(0f, 1f);
+                if (spawnValue <= randomNodeSpawnChance)
+                {
+                    Ray ray = new Ray(transform.position, transform.parent.position - transform.position);
+                    int layerMask = 1 << 9;
 
-                GameObject nodeSpawnedVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
-                Destroy(nodeSpawnedVFX, 30);
+                    RaycastHit meteoroidImpactpoint;
+                    if (Physics.Raycast(ray, out meteoroidImpactpoint, (transform.position - meteoroids.position).sqrMagnitude, layerMask))
+                    {
+                    miningNodeSpawnRotation = gameObject.GetComponentInParent<Transform>().rotation;
+                    GameObject myNode = Instantiate(miningNode, meteoroidImpactpoint.point, miningNodeSpawnRotation);
+                    myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
+
+                    GameObject nodeSpawnedVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
+                    Destroy(nodeSpawnedVFX, 30);
+                }
+
+            
             }
             else
             {
