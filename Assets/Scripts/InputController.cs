@@ -16,6 +16,7 @@ public class InputController : MonoBehaviour
 	ThrowPowerBarScript throwBar;
     Text helpText;
     private GameObject storeWindow;
+    private GameObject pauseMenuWindow;
     private bool jumpButtonDown = false;
     [HideInInspector] public float eTime = 0;
 
@@ -44,9 +45,10 @@ public class InputController : MonoBehaviour
         helpText = GameObject.Find("HelpText").GetComponent<Text>();
 		throwBar = FindObjectOfType<ThrowPowerBarScript>();
 		helpText.enabled = false;
-        //storeWindow = FindObjectOfType<StoreWindow>().gameObject.transform.GetChild(0).gameObject;
-        storeWindow = FindObjectOfType<StoreWindow>().transform.GetChild(0).gameObject;
+        storeWindow = FindObjectOfType<StoreWindowVisuals>().gameObject;
         storeWindow.SetActive(false);
+        pauseMenuWindow = FindObjectOfType<PauseMenuWindowVisuals>().gameObject;
+        pauseMenuWindow.SetActive(false);
     }
 
     // ===================== Short about ======================================
@@ -66,10 +68,26 @@ public class InputController : MonoBehaviour
             helpText.enabled = !helpText.enabled;
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) &! (GameController.instance.state == GameController.GameControllerState.PAUSE))
         {
-            GameController.instance.state = GameController.GameControllerState.STOREWINDOW;
+            //GameController.instance.state = GameController.GameControllerState.STOREWINDOW;
             storeWindow.SetActive(!storeWindow.activeInHierarchy);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameController.instance.state == GameController.GameControllerState.STOREWINDOW)
+            {
+                storeWindow.SetActive(false);
+            }
+            else if (GameController.instance.state == GameController.GameControllerState.PAUSE)
+            {
+                pauseMenuWindow.SetActive(false);
+            }
+            else
+            {
+                pauseMenuWindow.SetActive(true);
+            }
         }
 
         if (GameController.instance.state == GameController.GameControllerState.GAME)
@@ -125,6 +143,21 @@ public class InputController : MonoBehaviour
 			}
         }
         
+    }
+
+    public void CheckMenuKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameController.instance.state == GameController.GameControllerState.STOREWINDOW)
+            {
+                storeWindow.SetActive(false);
+            }
+            else if (GameController.instance.state == GameController.GameControllerState.PAUSE)
+            {
+                pauseMenuWindow.SetActive(false);
+            }
+        }
     }
 
     //Checks if any debug key has been pressed and executes that command is DebugMode is true

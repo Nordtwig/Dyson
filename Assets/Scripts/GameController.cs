@@ -150,7 +150,7 @@ public class GameController : MonoBehaviour
 
         else if (state == GameControllerState.PAUSE)
         {
-            //DO PAUSE THINGS
+            InputController.instance.CheckMenuKeys();
         }
 
         else if (state == GameControllerState.GAMEOVER)
@@ -161,8 +161,7 @@ public class GameController : MonoBehaviour
         else if (state == GameControllerState.STOREWINDOW)
         {
             //DO STORE WINDOW THINGS
-            Cursor.visible = true;
-            InputController.instance.CheckKeys();
+            InputController.instance.CheckMenuKeys();
         }
     }
 
