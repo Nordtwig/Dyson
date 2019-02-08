@@ -50,11 +50,25 @@ public class PlayerController : MonoBehaviour {
             model.transform.rotation = RotX.transform.rotation;
             rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
             timeOfJump = Time.time;
-            if (moveX == 0 && moveY == 0) {
+            if (moveX == 0 && moveY == 0)
+            {
                 astronautController.SetBool("isRunning", false); 
+                astronautController.SetBool("isBacking", false); 
             }
-            else {
+            else if (moveY > 0)
+            {
                 astronautController.SetBool("isRunning", true);
+                astronautController.SetBool("isBacking", false);
+            }
+            else if (moveY < 0)
+            {
+                astronautController.SetBool("isBacking", true);
+                astronautController.SetBool("isRunning", false);
+            }
+            else
+            {
+                astronautController.SetBool("isRunning", true);
+                astronautController.SetBool("isBacking", false);
             }
         }
         else
@@ -73,6 +87,7 @@ public class PlayerController : MonoBehaviour {
             rb.velocity += transform.TransformDirection(Vector3.up * jumpHeight);
             playerSpeed = basePlayerSpeed * 1.5f;
             AudioManager.instance.PlayOnPos("Jump", transform);
+            astronautController.SetBool("isJumping", true);
         }
     }
 
@@ -159,6 +174,7 @@ public class PlayerController : MonoBehaviour {
         if (other.tag != "Player" && other.tag != "Sanctuary" && other.tag != "DangerZone")
         {
             grounded = true;
+            astronautController.SetBool("isJumping", false);
         }
     }
 
@@ -174,6 +190,7 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerExit(Collider other)
     {
         grounded = false;
+        astronautController.SetBool("isJumping", true);
     }
 
     public void ContinuedJump()

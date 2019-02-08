@@ -243,7 +243,7 @@ public class GameController : MonoBehaviour
         playerCredits += amount;
         //creditsText.text = "Credits: " + playerCredits;
         creditsText.text = playerCredits.ToString();
-        StartCoroutine(FindObjectOfType<StoreWindow>().GainCreditsPopUp(Mathf.Abs(amount)));
+        if (amount > 0) StartCoroutine(FindObjectOfType<StoreWindow>().GainCreditsPopUp(Mathf.Abs(amount)));
     }
     // =======================================================================================
 
