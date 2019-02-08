@@ -14,6 +14,8 @@ public class Meteroid : MonoBehaviour
     [SerializeField] GameObject MetroidImpactVFX;
     [SerializeField] GameObject miningNode;
     [SerializeField] float randomNodeSpawnChance = 0.1f;
+    [SerializeField] LayerMask asteroidLayer;
+    Rigidbody rb;
 
     //If meteroid collides with asteroid, spawns a miningnode according to percentage
     [SerializeField] GameObject dangerZone;
@@ -36,16 +38,16 @@ public class Meteroid : MonoBehaviour
     private void Start()
     {
         meteoroids = GameObject.Find("Meteoroids").transform;
-        miningNode = GameObject.Find("GetableMiningNode");
         dangerZone = GameObject.Find("GetableDangerZone");
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         AudioSource[] audios = GetComponents<AudioSource>();
+        rb = GetComponent<Rigidbody>();
         meteoriteLoop = audios[0];
 
         Ray ray = new Ray(transform.position, transform.parent.position - transform.position);
         int layer = 1<<9;
         RaycastHit movingToSanctuary;
-        if (Physics.Raycast(ray, out movingToSanctuary, (transform.position - meteoroids.position).sqrMagnitude, layer))
+        if (Physics.Raycast(ray, out movingToSanctuary, (transform.position - meteoroids.position).sqrMagnitude))
         {
             if (movingToSanctuary.collider.tag == "Sanctuary")
             {
@@ -54,7 +56,7 @@ public class Meteroid : MonoBehaviour
         }
 
         RaycastHit hit;
-        if (headingTowardsSanctuary == false && Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit))
+        if (headingTowardsSanctuary == false && Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, layer))
         {
             StartCoroutine(CoSpawnDangerZone(hit));
         }
@@ -62,8 +64,7 @@ public class Meteroid : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //boxes = GameObject.FindGameObjectsWithTag("Box");
-        //miningRigs = GameObject.FindGameObjectsWithTag("Rig");
+        
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, meteoroidHitBox);
         for (int i = 0; i < hitColliders.Length; i++)
         {
@@ -91,51 +92,24 @@ public class Meteroid : MonoBehaviour
             }
         }
 
-        /*for (int i = 0; i < miningRigs.Length; i++)
-        {
-            float rigdistance = (miningRigs[i].transform.position - transform.position).sqrMagnitude;
-            if (rigdistance < meteoroidHitBox)
-            {
-                miningRigs[i].GetComponent<MiningRig>().BreakRig();
-            }
-        }
-
-        for (int i = 0; i < boxes.Length; i++)
-        {
-            Vector3 boxDistance = boxes[i].GetComponent<Transform>().position - transform.position;
-            if (boxDistance.sqrMagnitude < meteoroidHitBox)
-            {
-                boxes[i].GetComponent<Rigidbody>().velocity = boxes[i].transform.TransformDirection(Vector3.up * upForce) + (boxDistance.normalized / Mathf.Clamp(boxDistance.sqrMagnitude, minDistanceHurled, maxDistanceHurled)) * sideForce;
-            }
-        }*/
-
         if (other.tag == "Asteroid")
         {
-            /*playerDistance = player.GetComponent<Transform>().position - transform.position;
-			if (playerDistance.sqrMagnitude < meteoroidHitBox)
-			{
-				player.rb.velocity = player.transform.TransformDirection(Vector3.up * upForce) + (playerDistance.normalized / Mathf.Clamp(playerDistance.sqrMagnitude, minDistanceHurled, maxDistanceHurled)) * sideForce;
-			}*/
+            spawnValue = Random.Range(0f, 1f);
+            if (spawnValue <= randomNodeSpawnChance)
+            {
+                Ray ray = new Ray(transform.position - rb.velocity, transform.parent.position - transform.position);
 
-            
-                spawnValue = Random.Range(0f, 1f);
-                if (spawnValue <= randomNodeSpawnChance)
+                RaycastHit meteoroidImpactpoint;
+
+                if (Physics.Raycast(ray, out meteoroidImpactpoint, (transform.position - meteoroids.position).sqrMagnitude, asteroidLayer))
                 {
-                    Ray ray = new Ray(transform.position, transform.parent.position - transform.position);
-                    int layerMask = 1 << 9;
-
-                    RaycastHit meteoroidImpactpoint;
-                    if (Physics.Raycast(ray, out meteoroidImpactpoint, (transform.position - meteoroids.position).sqrMagnitude, layerMask))
-                    {
                     miningNodeSpawnRotation = gameObject.GetComponentInParent<Transform>().rotation;
                     GameObject myNode = Instantiate(miningNode, meteoroidImpactpoint.point, miningNodeSpawnRotation);
                     myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
-
-                    GameObject nodeSpawnedVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
-                    Destroy(nodeSpawnedVFX, 30);
                 }
 
-            
+                GameObject nodeSpawnedVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
+                Destroy(nodeSpawnedVFX, 30);
             }
             else
             {
