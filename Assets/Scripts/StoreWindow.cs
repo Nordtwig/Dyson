@@ -202,12 +202,14 @@ public class StoreWindow : MonoBehaviour
     {
         GameObject myPopUp = Instantiate(creditsTextPrefabPopUp, transform);
         Text myText = myPopUp.GetComponent<Text>();
-        myText.text = amountGained.ToString();
+        myText.text = "+" + amountGained;
         iTween.PunchPosition(myPopUp, Random.insideUnitCircle * 30f, 0.5f);
-        iTween.PunchScale(myPopUp, Random.insideUnitCircle * 2.5f, 0.5f);
+        iTween.PunchScale(myPopUp, Random.insideUnitCircle * 2f, 0.5f);
         myPopUp.GetComponentInChildren<Image>().CrossFadeAlpha(0f, 2f, true);
         myText.CrossFadeAlpha(0f, 2f, true);
-        iTween.MoveTo(myPopUp, Vector3.up * 10f, 10f);
+        Vector3 destinationPosition = myPopUp.transform.position;
+        destinationPosition.y += 100;
+        iTween.MoveTo(myPopUp, destinationPosition, 10f);
         yield return new WaitForSeconds(2f);
         Destroy(myPopUp);
         yield return null;
