@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour {
                 return;
             }
 
-            holdingItem = false;
+            SetHoldingItem(false);
         }
     }
 
@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour {
                 return;
             }
 
-            holdingItem = false;
+            SetHoldingItem(false);
         }
     }
 
@@ -196,5 +196,11 @@ public class PlayerController : MonoBehaviour {
     public void ContinuedJump()
     {
         rb.velocity += transform.TransformDirection(Vector3.up * Time.deltaTime * 4);
+    }
+
+    public void SetHoldingItem(bool set)
+    {
+        holdingItem = set;
+        astronautController.SetBool("isHoldingItem", set);
     }
 }
