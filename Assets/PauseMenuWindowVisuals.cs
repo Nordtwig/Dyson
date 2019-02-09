@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Created by: Svedlund
-/// </summary>
-
-public class StoreWindowVisuals : MonoBehaviour
+public class PauseMenuWindowVisuals : MonoBehaviour
 {
     private float originalCameraSpeedH;
     private float originalCameraSpeedV;
@@ -15,8 +11,8 @@ public class StoreWindowVisuals : MonoBehaviour
 
     public void OnEnable()
     {
-        GameController.instance.state = GameController.GameControllerState.STOREWINDOW;
         Cursor.visible = true;
+        GameController.instance.state = GameController.GameControllerState.PAUSE;
 
         //originalCameraSpeedH = cameraFollow.speedH;
         //originalCameraSpeedV = cameraFollow.speedV;

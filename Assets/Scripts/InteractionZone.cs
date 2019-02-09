@@ -36,21 +36,21 @@ public class InteractionZone : MonoBehaviour
         }
         else if (other.tag == "Box" && !player.GetComponent<PlayerController>().holdingItem)
         {
-            player.GetComponent<PlayerController>().holdingItem = true;
+            player.GetComponent<PlayerController>().SetHoldingItem(true);
             player.GetComponent<PlayerController>().pickedUpItem = true;
             other.gameObject.GetComponent<Box>().PickUpBox();
             audioManager.Play("Pickup");
         }
         else if (other.tag == "Chunk" && !player.GetComponent<PlayerController>().holdingItem)
         {
-            player.GetComponent<PlayerController>().holdingItem = true;
+            player.GetComponent<PlayerController>().SetHoldingItem(true);
             player.GetComponent<PlayerController>().pickedUpItem = true;
             other.gameObject.GetComponent<Chunk>().PickUpChunk();
             audioManager.Play("Pickup");
         }
         else if (other.tag == "SanctuaryHolder" && !player.GetComponent<PlayerController>().holdingItem)
         {
-            player.GetComponent<PlayerController>().holdingItem = true;
+            player.GetComponent<PlayerController>().SetHoldingItem(true);
             player.GetComponent<PlayerController>().pickedUpItem = true;
             other.gameObject.GetComponent<Box>().PickUpBox();
         }

@@ -37,7 +37,7 @@ public class CameraFollow : MonoBehaviour
         Vector3 v3 = transform.position - asteroid.position;
         transform.rotation = Quaternion.FromToRotation(transform.up, v3) * transform.rotation;
 
-        yaw += speedH * Input.GetAxis("Mouse X");
+        if (GameController.instance.state == GameController.GameControllerState.GAME) yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
 
         //rotY.localEulerAngles = new Vector3(pitch, 0.0f, 0.0f);
