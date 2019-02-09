@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Sanctuary : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private object metroid;
+
+    private void OnTriggerEnter(Collider collision)
     {
-        if (other.tag == "DangerZone")
+        if (collision.tag == "DangerZone")
         {
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
         }
 
-        if (other.tag == "Meteroid" || other.tag == "Node")
+        if (collision.tag == "Meteroid" || collision.tag == "Node")
         {
-            Destroy(other.transform.parent.gameObject);
+            collision.GetComponent<Meteroid>().ImpactExplosion();
+            Destroy(collision.transform.parent.gameObject);
         }
     }
 }
