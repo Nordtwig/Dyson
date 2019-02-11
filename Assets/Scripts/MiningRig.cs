@@ -92,6 +92,7 @@ public class MiningRig : MonoBehaviour
             shielded = false;
             minedNode = null;
             player.SetHoldingItem(true);
+            player.SetEnableHoldingRig(true);
             coBoxSpawnRunning = false;
             CoPickUpRigRunning = false;
             gameObject.SetActive(false);

@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    private PlayerController player;
-    private Rigidbody rb;
+    protected PlayerController player;
+    protected Rigidbody rb;
 
     private void Start()
     {
@@ -18,9 +18,10 @@ public class Box : MonoBehaviour
     }
 
     //box is parented to player and disabled for transport, player hasBox bool sets to true
-    public void PickUpBox()
+    public virtual void PickUpBox()
     {
         transform.SetParent(player.transform);
+        player.SetEnableHoldingBox(true);
         if (tag == "SanctuaryHolder")
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, 10);

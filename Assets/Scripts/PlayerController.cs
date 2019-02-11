@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour {
     Vector3 moveDirection = Vector3.zero;
     Vector3 airMoveDirection = Vector3.zero;
     private float timeOfJump = 0;
+    GameObject heldBox;
+    GameObject heldRig;
+    GameObject heldSanctuary;
 
     Animator astronautController;
 
@@ -39,6 +42,14 @@ public class PlayerController : MonoBehaviour {
         basePlayerSpeed = playerSpeed;
         astronautController = transform.GetComponentInChildren<Animator>();
 
+
+        heldRig = GameObject.Find("HoldingRig");
+        heldBox = GameObject.Find("HoldingBox");
+        heldSanctuary = GameObject.Find("HoldingSanctuary");
+
+        heldRig.gameObject.SetActive(false);
+        heldBox.gameObject.SetActive(false);
+        heldSanctuary.gameObject.SetActive(false);
     }
 
     public void PlayerMove(float moveX, float moveY)
@@ -117,10 +128,17 @@ public class PlayerController : MonoBehaviour {
     {
         if (holdingItem)
         {
-            if (GetComponentInChildren<Box>(true))
+            if (GetComponentInChildren<SanctuaryItem>(true))
+            {
+                SanctuaryItem sanctuary = GetComponentInChildren<SanctuaryItem>(true);
+                sanctuary.DropBox();
+                SetEnableHoldingSanctuary(false);
+            }
+            else if (GetComponentInChildren<Box>(true))
             {
                 Box box = GetComponentInChildren<Box>(true);
                 box.DropBox();
+                SetEnableHoldingBox(false);
             }
             else if (GetComponentInChildren<Chunk>(true))
             {
@@ -131,6 +149,7 @@ public class PlayerController : MonoBehaviour {
             {
                 MiningRig rig = GetComponentInChildren<MiningRig>(true);
                 rig.DropRig();
+                SetEnableHoldingRig(false);
             }
             else
             {
@@ -202,5 +221,20 @@ public class PlayerController : MonoBehaviour {
     {
         holdingItem = set;
         astronautController.SetBool("isHoldingItem", set);
+    }
+
+    public void SetEnableHoldingRig(bool set)
+    {
+        heldRig.SetActive(set);
+    }
+
+    public void SetEnableHoldingSanctuary(bool set)
+    {
+        heldSanctuary.SetActive(set);
+    }
+
+    public void SetEnableHoldingBox(bool set)
+    {
+        heldBox.SetActive(set);
     }
 }

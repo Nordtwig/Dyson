@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 8614087759089591325}
   - component: {fileID: 8614087759089591322}
   - component: {fileID: 8614087759089591323}
-  - component: {fileID: 8614087759089591320}
+  - component: {fileID: 8640439768763860694}
   m_Layer: 0
   m_Name: Personal Sanctuary
   m_TagString: SanctuaryHolder
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationFreeze: 1
   fallingSpeed: 3
---- !u!114 &8614087759089591320
+--- !u!114 &8640439768763860694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8614087759089591321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 356bd400ca8b1634f9543ec37d1dd010, type: 3}
+  m_Script: {fileID: 11500000, guid: 1354dec4f748711428929edf09c43111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8614087759175624300
@@ -585,6 +585,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8614087759089591324}
     m_Modifications:
+    - target: {fileID: 5286177514103684478, guid: 35316a5962ac1d446983d6c3c7447ba9,
+        type: 3}
+      propertyPath: m_Name
+      value: ForceFieldVFX
+      objectReference: {fileID: 0}
     - target: {fileID: 5286177514103684353, guid: 35316a5962ac1d446983d6c3c7447ba9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -639,21 +644,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5286177514103684478, guid: 35316a5962ac1d446983d6c3c7447ba9,
-        type: 3}
-      propertyPath: m_Name
-      value: ForceFieldVFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 5286177514103684352, guid: 35316a5962ac1d446983d6c3c7447ba9,
-        type: 3}
-      propertyPath: InitialModule.size3D
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5286177514103684352, guid: 35316a5962ac1d446983d6c3c7447ba9,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35316a5962ac1d446983d6c3c7447ba9, type: 3}

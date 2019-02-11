@@ -14,25 +14,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isBacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isJumping
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isHoldingItem
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1084,28 +1084,28 @@ AnimatorStateMachine:
     m_Position: {x: 132, y: 48, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102190800549580740}
-    m_Position: {x: 372, y: 240, z: 0}
+    m_Position: {x: 384, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102882065721120900}
-    m_Position: {x: 24, y: -84, z: 0}
+    m_Position: {x: 144, y: -108, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102367694911676032}
-    m_Position: {x: -24, y: 252, z: 0}
+    m_Position: {x: -108, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102419279589593778}
-    m_Position: {x: -120, y: 132, z: 0}
+    m_Position: {x: -144, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102565860989475398}
     m_Position: {x: 432, y: -12, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102423991923022404}
-    m_Position: {x: 648, y: -60, z: 0}
+    m_Position: {x: 444, y: -132, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102744603636515332}
-    m_Position: {x: 132, y: 132, z: 0}
+    m_Position: {x: 84, y: 156, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102514284614051466}
-    m_Position: {x: 408, y: 108, z: 0}
+    m_Position: {x: 480, y: 132, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
