@@ -122,6 +122,13 @@ public class Meteroid : MonoBehaviour
         }
     }
 
+    public void ImpactExplosion()
+    {
+        GameObject groundImpactVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
+        Destroy(groundImpactVFX, 5);
+        StartCoroutine(CoFadeOut(meteoriteLoop, 0.2f));
+    }
+
     public static IEnumerator CoFadeOut(AudioSource audioSource, float FadeTime)
     {
         float startVolume = audioSource.volume;

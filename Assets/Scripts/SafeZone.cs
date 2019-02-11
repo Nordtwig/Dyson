@@ -8,7 +8,6 @@ using UnityEngine;
 
 public class SafeZone : MonoBehaviour
 {
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "DangerZone")
@@ -18,8 +17,8 @@ public class SafeZone : MonoBehaviour
 
         if (other.tag == "Meteroid")
         {
+            other.GetComponent<Meteroid>().ImpactExplosion();
             Destroy(other.transform.parent.gameObject);
         }
     }
-
 }
