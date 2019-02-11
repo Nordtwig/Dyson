@@ -67,6 +67,7 @@ public class GameController : MonoBehaviour
         CINNABAR,
         TUNGSTEN,
         COBALT,
+        MIXED,
     }
 
     private void Awake()
