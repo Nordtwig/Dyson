@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7f390dfc602a44192a1d9c79fc45cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpawnCount: 20
+  initialSpawnCount: 30
   closeSpawnCount: 3
 --- !u!1001 &1184671222
 PrefabInstance:
