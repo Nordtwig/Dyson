@@ -53,6 +53,7 @@ public class InteractionZone : MonoBehaviour
             player.GetComponent<PlayerController>().SetHoldingItem(true);
             player.GetComponent<PlayerController>().pickedUpItem = true;
             other.gameObject.GetComponent<Box>().PickUpBox();
+            audioManager.Play("Pickup");
         }
         else if (other.tag == "Rig" && !other.gameObject.GetComponent<MiningRig>().functioning && !player.GetComponent<PlayerController>().holdingItem)
         {
