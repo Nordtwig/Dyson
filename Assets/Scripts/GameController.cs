@@ -124,6 +124,7 @@ public class GameController : MonoBehaviour
         creditsText = GameObject.Find("CreditsText").GetComponent<Text>();
         player = FindObjectOfType<PlayerController>();
         AudioManager.instance.Play("Ambience");
+        AudioManager.instance.Play("Music Long");
 
 
         //Update all other instances for their dependencies.
