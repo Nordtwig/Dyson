@@ -275,8 +275,29 @@ public class MiningRig : MonoBehaviour
             newChunk.chunkType = GameController.MetalVarieties.COBALT;
             newChunk.myRenderer.material = GameController.instance.metalMaterials[2];
         }
+        else
+        {
+            newChunk.chunkType = RandomChunkType(newChunk);
+        }
 
         newChunk.rb.velocity = transform.TransformDirection(Vector3.up * 15 + Vector3.forward * Random.Range(-10, 10) + Vector3.right * Random.Range(-10, 10));
         deployBox.Play();
+    }
+
+    private GameController.MetalVarieties RandomChunkType(Chunk newChunk)
+    {
+        int random = Random.Range(0, 3);
+
+        newChunk.myRenderer.material = GameController.instance.metalMaterials[random];
+
+        if (random < 1)
+        {
+            return GameController.MetalVarieties.CINNABAR;
+        }
+        if (random < 2)
+        {
+            return GameController.MetalVarieties.TUNGSTEN;
+        }
+        return GameController.MetalVarieties.COBALT;
     }
 }

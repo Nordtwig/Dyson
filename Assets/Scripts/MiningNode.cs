@@ -32,12 +32,16 @@ public class MiningNode : MonoBehaviour
 		{
 			materialType = GameController.MetalVarieties.TUNGSTEN;
 		}
-		else
+		else if (metalRandom < 9)
 		{
 			materialType = GameController.MetalVarieties.CINNABAR;
 		}
+        else
+        {
+			materialType = GameController.MetalVarieties.MIXED;
+        }
 
-		NodeMaterial();
+        NodeMaterial();
 	}
 
 	public void NodeMaterial()
@@ -66,6 +70,17 @@ public class MiningNode : MonoBehaviour
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
             {
                 m.material = GameController.instance.metalMaterials[2];
+            }
+            meshRend.material = baseMaterial;
+        }
+        else if (materialType == GameController.MetalVarieties.MIXED)
+		{
+            resourceValue = Random.Range(5, 10);
+            int i = 0;
+            foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
+            {
+                m.material = GameController.instance.metalMaterials[i%3];
+                i++;
             }
             meshRend.material = baseMaterial;
         }

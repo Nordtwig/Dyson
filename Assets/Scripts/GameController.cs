@@ -21,9 +21,10 @@ public class GameController : MonoBehaviour
 	public Text timeText;
 	private Text currentPhaseText;
     private Text creditsText;
+    private Text creditsTextUI;
 
-	//Objects
-	[SerializeField] private GameObject box;
+    //Objects
+    [SerializeField] private GameObject box;
     [SerializeField] private GameObject miningRig;
     [SerializeField] private GameObject node;
     [SerializeField] private GameObject chunk;
@@ -66,6 +67,7 @@ public class GameController : MonoBehaviour
         CINNABAR,
         TUNGSTEN,
         COBALT,
+        MIXED,
     }
 
     private void Awake()
@@ -122,6 +124,8 @@ public class GameController : MonoBehaviour
         meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
         gameOverText = GameObject.Find("GameOverText");
         creditsText = GameObject.Find("CreditsText").GetComponent<Text>();
+        creditsTextUI = GameObject.Find("CreditsTextUI").GetComponent<Text>();
+
         player = FindObjectOfType<PlayerController>();
         AudioManager.instance.Play("Ambience");
         AudioManager.instance.Play("Music Long");
@@ -243,8 +247,10 @@ public class GameController : MonoBehaviour
         playerCredits += amount;
         //creditsText.text = "Credits: " + playerCredits;
         creditsText.text = playerCredits.ToString();
+        creditsTextUI.text = playerCredits.ToString();
         if (amount > 0) StartCoroutine(FindObjectOfType<StoreWindow>().GainCreditsPopUp(Mathf.Abs(amount)));
     }
+
     // =======================================================================================
 
     public void StartCoRestart()
