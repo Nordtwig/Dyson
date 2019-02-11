@@ -70,7 +70,6 @@ public class InputController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P) &! (GameController.instance.state == GameController.GameControllerState.PAUSE))
         {
-            //GameController.instance.state = GameController.GameControllerState.STOREWINDOW;
             storeWindow.SetActive(!storeWindow.activeInHierarchy);
         }
 

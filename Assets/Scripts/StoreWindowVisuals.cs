@@ -13,10 +13,18 @@ public class StoreWindowVisuals : MonoBehaviour
 
     public CameraFollow cameraFollow;
 
+
+    //private void Start()
+    //{
+    //    GameController.instance.state = GameController.GameControllerState.GAME;
+    //    Cursor.visible = false;
+    //}
+
     public void OnEnable()
     {
         GameController.instance.state = GameController.GameControllerState.STOREWINDOW;
         Cursor.visible = true;
+
 
         //originalCameraSpeedH = cameraFollow.speedH;
         //originalCameraSpeedV = cameraFollow.speedV;
