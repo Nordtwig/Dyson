@@ -157,6 +157,14 @@ public class InputController : MonoBehaviour
                 pauseMenuWindow.SetActive(false);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (GameController.instance.state == GameController.GameControllerState.STOREWINDOW)
+            {
+                storeWindow.SetActive(false);
+            }
+        }
     }
 
     //Checks if any debug key has been pressed and executes that command is DebugMode is true
