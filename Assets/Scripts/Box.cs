@@ -41,7 +41,7 @@ public class Box : MonoBehaviour
     {
         gameObject.transform.SetParent(null);
         gameObject.SetActive(true);
-        transform.position = player.transform.position + player.model.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 4);
+        transform.position = player.transform.position + player.model.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 2);
         rb.velocity = Vector3.zero;
     }
 
