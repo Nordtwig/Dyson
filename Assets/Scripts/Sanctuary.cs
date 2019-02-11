@@ -13,9 +13,13 @@ public class Sanctuary : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        if (collision.tag == "Meteroid" || collision.tag == "Node")
+        if (collision.tag == "Meteroid")
         {
             collision.GetComponent<Meteroid>().ImpactExplosion();
+            Destroy(collision.transform.parent.gameObject);
+        }
+        else if (collision.tag == "Node")
+        {
             Destroy(collision.transform.parent.gameObject);
         }
     }
