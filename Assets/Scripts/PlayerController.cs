@@ -164,10 +164,17 @@ public class PlayerController : MonoBehaviour {
     {
         if (holdingItem)
         {
-            if (GetComponentInChildren<Box>(true))
+            if (GetComponentInChildren<SanctuaryItem>(true))
+            {
+                SanctuaryItem sanctuary = GetComponentInChildren<SanctuaryItem>(true);
+                sanctuary.ThrowBox(throwStrength);
+                SetEnableHoldingSanctuary(false);
+            }
+            else if (GetComponentInChildren<Box>(true))
             {
                 Box box = GetComponentInChildren<Box>(true);
                 box.ThrowBox(throwStrength);
+                SetEnableHoldingBox(false);
             }
             else if (GetComponentInChildren<Chunk>(true))
             {
@@ -178,6 +185,7 @@ public class PlayerController : MonoBehaviour {
             {
                 MiningRig rig = GetComponentInChildren<MiningRig>(true);
                 rig.ThrowRig(throwStrength);
+                SetEnableHoldingRig(false);
             }
             else
             {
