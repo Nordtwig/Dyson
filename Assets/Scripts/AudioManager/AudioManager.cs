@@ -71,6 +71,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;
+            s.source.outputAudioMixerGroup = mixerGroup;
         }
 
         s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1510860991}
   - component: {fileID: 1510860997}
   - component: {fileID: 1510860992}
+  - component: {fileID: 468560887}
   m_Layer: 0
   m_Name: MiningRig
   m_TagString: Rig
@@ -52,10 +53,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0f533114d27254ea8b9eecc89496c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   pickedUp: 0
   timeBetweenBoxes: 10
   chunk: {fileID: 129545546215102865, guid: ce1e0e2dd817a564a91af50c3195cf2e, type: 3}
   shielded: 0
+  coBoxSpawnRunning: 0
+  coPickUpRigRunning: 0
   functioning: 1
 --- !u!54 &1346940179161717308
 Rigidbody:
@@ -110,8 +114,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.2
-  m_Height: 2.5
+  m_Radius: 1
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!82 &1510860990
@@ -123,7 +127,8 @@ AudioSource:
   m_GameObject: {fileID: 1346940179161717314}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 6270c609916889b47b8a157ddf56cd8d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -219,7 +224,8 @@ AudioSource:
   m_GameObject: {fileID: 1346940179161717314}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: bdf1773172aaf0b429d9618376241f78, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -315,7 +321,8 @@ AudioSource:
   m_GameObject: {fileID: 1346940179161717314}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 4b402ca0491c5b4498fafb3b1bb9f2ed, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -411,7 +418,8 @@ AudioSource:
   m_GameObject: {fileID: 1346940179161717314}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: a8e42597193b7984594b915a4ec7fad9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -498,6 +506,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &468560887
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346940179161717314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
 --- !u!1001 &1346940178545430222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,16 +527,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346940179161717310}
     m_Modifications:
-    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
-        type: 3}
-      propertyPath: m_Name
-      value: MiningRigModel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 7113046083515003266, guid: 3ddcc190e2278544f9458a2b9c6be41b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -569,6 +581,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
+        type: 3}
+      propertyPath: m_Name
+      value: MiningRigModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ddcc190e2278544f9458a2b9c6be41b, type: 3}

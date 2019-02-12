@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efada9b87a792fe4085e2ddff82018f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 24300002, guid: e01f830518fc69b4fa6b08bb0a2a5105, type: 2}
+  mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+    type: 2}
   sounds:
   - name: Pickup
     clip: {fileID: 8300000, guid: 0e9d93ab24fed65418456694edc3728e, type: 3}
@@ -55,7 +56,8 @@ MonoBehaviour:
     sound3d: 0
     playOnAwake: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+      type: 2}
     source: {fileID: 0}
   - name: Box Collision
     clip: {fileID: 8300000, guid: 1e7293aab19b6c649ba5ca012a51f157, type: 3}
@@ -67,11 +69,12 @@ MonoBehaviour:
     sound3d: 1
     playOnAwake: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+      type: 2}
     source: {fileID: 0}
   - name: Repair
     clip: {fileID: 8300000, guid: 832c2df87dcbaab49ae25a895d5337ec, type: 3}
-    volume: 1
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.3
@@ -79,7 +82,8 @@ MonoBehaviour:
     sound3d: 0
     playOnAwake: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+      type: 2}
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: 5dd1f70a4450c7e498eb368702f19c63, type: 3}
@@ -88,10 +92,11 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0.1
     spatialBlend: 0
-    sound3d: 0
+    sound3d: 1
     playOnAwake: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+      type: 2}
     source: {fileID: 0}
   - name: Music Long
     clip: {fileID: 8300000, guid: 71ef6c5f81d80f14f96eb3446a54a264, type: 3}
@@ -103,7 +108,8 @@ MonoBehaviour:
     sound3d: 0
     playOnAwake: 1
     loop: 1
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+      type: 2}
     source: {fileID: 0}
   - name: Ambience
     clip: {fileID: 8300000, guid: 29aeb66cca225db409a71070aab9c04b, type: 3}
@@ -115,5 +121,6 @@ MonoBehaviour:
     sound3d: 0
     playOnAwake: 1
     loop: 1
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+      type: 2}
     source: {fileID: 0}
