@@ -28,8 +28,8 @@ public class MiningRig : MonoBehaviour
     private Color baseColor;
     private Rigidbody rb;
     public bool shielded = false;
-    private bool coBoxSpawnRunning = false;
-    private bool CoPickUpRigRunning = false;
+    public bool coBoxSpawnRunning = false;
+    public bool coPickUpRigRunning = false;
 
     public bool functioning = true;
 
