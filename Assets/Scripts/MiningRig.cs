@@ -28,8 +28,8 @@ public class MiningRig : MonoBehaviour
     private Color baseColor;
     private Rigidbody rb;
     public bool shielded = false;
-    private bool coBoxSpawnRunning = false;
-    private bool CoPickUpRigRunning = false;
+    public bool coBoxSpawnRunning = false;
+    public bool coPickUpRigRunning = false;
 
     public bool functioning = true;
 
@@ -65,9 +65,9 @@ public class MiningRig : MonoBehaviour
     //Rig is parented to player on pickup, despawns and changes a bool to indicate the player is carrying it
     private IEnumerator CoPickUpRig()
     {
-        if (!CoPickUpRigRunning)
+        if (!coPickUpRigRunning)
         {
-            CoPickUpRigRunning = true;
+            coPickUpRigRunning = true;
             player.holdingItem = true;
             player.pickedUpItem = true;
 
@@ -94,7 +94,7 @@ public class MiningRig : MonoBehaviour
             player.SetHoldingItem(true);
             player.SetEnableHoldingRig(true);
             coBoxSpawnRunning = false;
-            CoPickUpRigRunning = false;
+            coPickUpRigRunning = false;
             gameObject.SetActive(false);
         }
 
