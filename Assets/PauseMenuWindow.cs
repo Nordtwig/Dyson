@@ -12,6 +12,11 @@ public class PauseMenuWindow : MonoBehaviour
     public Slider soundVolumeSlider;
 
 
+    public void Start()
+    {
+        fullscreenToggle.isOn = Screen.fullScreen;
+    }
+
     public void RestartGame()
     {
         GetComponentInChildren<PauseMenuWindowVisuals>().gameObject.SetActive(false);
@@ -57,13 +62,14 @@ public class PauseMenuWindow : MonoBehaviour
         }
     }
 
-    //public void ToggleFullscreen()
-    //{
-    //    if (fullscreenToggle.isOn)
-    //    {
-
-    //    }
-    //}
+    public void ToggleFullscreen()
+    {
+        if (fullscreenToggle.isOn)
+        {
+            Screen.fullScreen = true;
+        }
+        else Screen.fullScreen = false;
+    }
 
     public void ChangeMusicVolume()
     {
