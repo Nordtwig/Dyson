@@ -179,21 +179,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8048092126479102109, guid: b618223789228454c9991e1409522209,
-        type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048092126479102109, guid: b618223789228454c9991e1409522209,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048092126479102109, guid: b618223789228454c9991e1409522209,
-        type: 3}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b618223789228454c9991e1409522209, type: 3}
 --- !u!1001 &202608360
@@ -479,20 +464,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 252111484, guid: afe146540c7d5a141a697b0584727db5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8064155988524053221, guid: afe146540c7d5a141a697b0584727db5,
-        type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8064155988524053221, guid: afe146540c7d5a141a697b0584727db5,
-        type: 3}
-      propertyPath: m_Height
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afe146540c7d5a141a697b0584727db5, type: 3}
 --- !u!1001 &397193261
@@ -631,28 +602,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 253679042, guid: 155ce71baf8ad6049bda1c5cbd69ddc3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 155ce71baf8ad6049bda1c5cbd69ddc3, type: 3}
---- !u!1 &468560876 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1346940179161717314, guid: afe146540c7d5a141a697b0584727db5,
-    type: 3}
-  m_PrefabInstance: {fileID: 357072366}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &468560887
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468560876}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &599461368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,11 +1400,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: sounds.Array.data[2].volume
-      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac179cb405b0fea46a735a3385446d95, type: 3}
