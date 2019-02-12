@@ -19,6 +19,7 @@ public class MiningRig : MonoBehaviour
     private AudioSource drillingLoop;
     private AudioSource deployBox;
     private AudioSource disableRig;
+    private AudioManager audioManager;
 
     private GameObject box;
     private PlayerController player;
@@ -35,6 +36,7 @@ public class MiningRig : MonoBehaviour
 
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         box = GameObject.Find("GetableBox");
         rb = GetComponent<Rigidbody>();
         player = FindObjectOfType<PlayerController>();
@@ -57,6 +59,27 @@ public class MiningRig : MonoBehaviour
         }
     }
 
+    public void TryPickup()
+    {
+        if (!functioning)
+        {
+            Repair();
+        }
+        else if (minedNode)
+        {
+            StartCoPickUpRig();
+        }
+        else if(!coPickUpRigRunning)
+        {
+            shielded = false;
+            player.pickedUpItem = true;
+            player.SetEnableHoldingRig(true);
+            transform.SetParent(player.transform);
+            audioManager.Play("Pickup");
+            gameObject.SetActive(false);
+        }
+    }
+
     public void StartCoPickUpRig()
     {
         StartCoroutine("CoPickUpRig");
@@ -68,14 +91,15 @@ public class MiningRig : MonoBehaviour
         if (!coPickUpRigRunning)
         {
             coPickUpRigRunning = true;
-            player.holdingItem = true;
             player.pickedUpItem = true;
+            minedNode = null;
 
             if (animator.GetBool("OnNodeDeploy") || animator.GetBool("Empty"))
             {
                 animator.SetBool("Empty", false);
                 animator.SetBool("OnNodeDeploy", false);
                 animator.SetBool("OnPickUp", true);
+                rigStatusRend.material.color = Color.yellow;
                 pickedUp = true;
                 yield return new WaitForSeconds(2f);
             }
@@ -84,22 +108,19 @@ public class MiningRig : MonoBehaviour
                 animator.SetBool("Empty", false);
                 animator.SetBool("OnNodeDeploy", false);
                 animator.SetBool("OnPickUp", true);
+                rigStatusRend.material.color = Color.red;
                 pickedUp = true;
             }
 
-            transform.SetParent(player.transform);
-            transform.position = player.transform.position;
-            shielded = false;
-            minedNode = null;
-            player.SetHoldingItem(true);
-            player.SetEnableHoldingRig(true);
             coBoxSpawnRunning = false;
             coPickUpRigRunning = false;
-            gameObject.SetActive(false);
+            rigStatusRend.material.color = Color.red;
         }
 
         yield return null;
     }  
+
+
 
     //Rig is un-parented, spawns in front of player and changes the bool to false
     public void DropRig()
@@ -116,7 +137,7 @@ public class MiningRig : MonoBehaviour
     public void ThrowRig(float throwStrength)
     {
         DropRig();
-        rb.velocity = player.transform.TransformDirection(Vector3.forward * player.playerSpeed) + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 4 * throwStrength);
+        rb.velocity =  player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 4 * throwStrength + Vector3.forward*player.playerSpeed);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -205,11 +226,15 @@ public class MiningRig : MonoBehaviour
                     {
                         rigStatusRend.material.color = Color.green;
                     }
-                    else
+                    else if (!functioning)
                     {
                         rigStatusRend.material.color = Color.black;
                         drillingLoop.Stop();
                         break;
+                    }
+                    else
+                    {
+                        drillingLoop.Stop();
                     }
                     yield return new WaitForSeconds(1);
                 }
@@ -248,6 +273,7 @@ public class MiningRig : MonoBehaviour
     public void Repair()
     {
         functioning = true;
+        audioManager.Play("Repair");
         rigStatusRend.material.color = Color.red;
         if (minedNode)
         {

@@ -57,6 +57,16 @@ public class PlayerController : MonoBehaviour {
         if (grounded)
         {
             moveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
+
+            if (moveDirection.magnitude != 0)
+            {
+                playerSpeed = basePlayerSpeed;
+            }
+            else
+            {
+                playerSpeed = 0;
+            }
+
             transform.rotation = RotX.transform.rotation;
             model.transform.rotation = RotX.transform.rotation;
             rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
@@ -151,10 +161,7 @@ public class PlayerController : MonoBehaviour {
                 rig.DropRig();
                 SetEnableHoldingRig(false);
             }
-            else
-            {
-                return;
-            }
+            
 
             SetHoldingItem(false);
         }
@@ -234,15 +241,18 @@ public class PlayerController : MonoBehaviour {
     public void SetEnableHoldingRig(bool set)
     {
         heldRig.SetActive(set);
+        SetHoldingItem(set);
     }
 
     public void SetEnableHoldingSanctuary(bool set)
     {
         heldSanctuary.SetActive(set);
+        SetHoldingItem(set);
     }
 
     public void SetEnableHoldingBox(bool set)
     {
         heldBox.SetActive(set);
+        SetHoldingItem(set);
     }
 }

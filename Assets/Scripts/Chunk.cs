@@ -36,6 +36,7 @@ public class Chunk : MonoBehaviour
     //Chunk is parented to player and disabled for transport, player holdingItem bool sets to true
     public void PickUpChunk()
     {
+        player.GetComponent<PlayerController>().SetHoldingItem(true);
         transform.SetParent(player.transform);
         gameObject.SetActive(false);
     }

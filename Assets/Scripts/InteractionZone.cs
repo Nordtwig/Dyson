@@ -36,35 +36,25 @@ public class InteractionZone : MonoBehaviour
         }
         else if (other.tag == "Box" && !player.GetComponent<PlayerController>().holdingItem)
         {
-            player.GetComponent<PlayerController>().SetHoldingItem(true);
             player.GetComponent<PlayerController>().pickedUpItem = true;
             other.gameObject.GetComponent<Box>().PickUpBox();
             audioManager.Play("Pickup");
         }
         else if (other.tag == "Chunk" && !player.GetComponent<PlayerController>().holdingItem)
         {
-            player.GetComponent<PlayerController>().SetHoldingItem(true);
             player.GetComponent<PlayerController>().pickedUpItem = true;
             other.gameObject.GetComponent<Chunk>().PickUpChunk();
             audioManager.Play("Pickup");
         }
         else if (other.tag == "SanctuaryHolder" && !player.GetComponent<PlayerController>().holdingItem)
         {
-            player.GetComponent<PlayerController>().SetHoldingItem(true);
             player.GetComponent<PlayerController>().pickedUpItem = true;
             other.gameObject.GetComponent<Box>().PickUpBox();
             audioManager.Play("Pickup");
         }
-        else if (other.tag == "Rig" && !other.gameObject.GetComponent<MiningRig>().functioning && !player.GetComponent<PlayerController>().holdingItem)
-        {
-            other.gameObject.GetComponentInChildren<MiningRig>().Repair();
-            player.GetComponent<PlayerController>().hitButton = true;
-            audioManager.Play("Repair");
-        }
         else if (other.tag == "Rig" && !player.GetComponent<PlayerController>().holdingItem)
         {
-            other.gameObject.GetComponentInChildren<MiningRig>().StartCoPickUpRig();
-            audioManager.Play("Pickup");
+            other.gameObject.GetComponentInChildren<MiningRig>().TryPickup();
         }
     }
 }
