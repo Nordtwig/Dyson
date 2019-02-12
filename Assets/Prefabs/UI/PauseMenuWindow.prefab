@@ -251,7 +251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8122652366674682450
 RectTransform:
   m_ObjectHideFlags: 0
@@ -554,16 +554,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 8393977992481155348}
   m_HandleRect: {fileID: 2586280603037666542}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -40
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2385465292593510374}
-        m_MethodName: set_value
-        m_Mode: 4
+      - m_Target: {fileID: 6356502916295894040}
+        m_MethodName: ChangeMusicVolume
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1236,13 +1236,24 @@ MonoBehaviour:
   m_FillRect: {fileID: 1619571578752750100}
   m_HandleRect: {fileID: 2200773531928963389}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -40
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6356502916295894040}
+        m_MethodName: ChangeSoundVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &2069523026377305330
@@ -2788,7 +2799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4887287481545275804
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3168,7 +3179,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreenToggle: {fileID: 617159423721098527}
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: e01f830518fc69b4fa6b08bb0a2a5105, type: 2}
+  musicVolumeSlider: {fileID: 2385465292593510374}
+  soundVolumeSlider: {fileID: 7472143655777733970}
 --- !u!1 &4887287483373458886
 GameObject:
   m_ObjectHideFlags: 0
