@@ -14,6 +14,8 @@ public class PauseMenuWindow : MonoBehaviour
     public Text soundMuted;
     public GameObject contentPanel;
     public GameObject settingsPanel;
+    public GameObject backButton;
+    public GameObject quitButton;
 
     private Color mutedColor = new Color(54.0f / 255.0f, 54.0f / 255.0f, 54.0f / 255.0f);
     private Color nonMutedColor = new Color(215.0f / 255.0f, 215.0f / 255.0f, 215.0f / 255.0f);
@@ -109,6 +111,8 @@ public class PauseMenuWindow : MonoBehaviour
 
     public void ResetPauseMenuWindow()
     {
+        backButton.SetActive(false);
+        quitButton.SetActive(true);
         contentPanel.SetActive(true);
         settingsPanel.SetActive(false);
     }

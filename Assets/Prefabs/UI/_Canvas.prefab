@@ -418,56 +418,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8393977992481155348, guid: 530c574117de1e545b50f289b0e15a66,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8393977992481155348, guid: 530c574117de1e545b50f289b0e15a66,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2586280603037666542, guid: 530c574117de1e545b50f289b0e15a66,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2586280603037666542, guid: 530c574117de1e545b50f289b0e15a66,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2586280603037666542, guid: 530c574117de1e545b50f289b0e15a66,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1619571578752750100, guid: 530c574117de1e545b50f289b0e15a66,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1619571578752750100, guid: 530c574117de1e545b50f289b0e15a66,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2200773531928963389, guid: 530c574117de1e545b50f289b0e15a66,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2200773531928963389, guid: 530c574117de1e545b50f289b0e15a66,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2200773531928963389, guid: 530c574117de1e545b50f289b0e15a66,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 530c574117de1e545b50f289b0e15a66, type: 3}
 --- !u!224 &4858451126383337502 stripped
