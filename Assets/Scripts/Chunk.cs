@@ -1,19 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Chunk : MonoBehaviour
+/// <summary>
+///  Created by Ulrik, Heavily modified by Robin now works of pickupable object SuperClass
+/// </summary>
+public class Chunk : PickupableObject
 {
-    private PlayerController player;
-
-    public Rigidbody rb;
     public GameController.MetalVarieties chunkType;
     public MeshRenderer myRenderer;
-
-    void Start()
-    {
-        player = FindObjectOfType<PlayerController>();
-    }
 
     public void RandomChunkType()
     {
@@ -41,18 +35,8 @@ public class Chunk : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    //Chunk is unparented, reactivated and placed in front of player, player holdingItem bool is set to false
-    public void DropChunk()
+    protected override void OnCollisionEnter(Collision collision)
     {
-        gameObject.transform.SetParent(null);
-        gameObject.SetActive(true);
-        transform.position = player.transform.position + player.model.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 2);
-        rb.velocity = Vector3.zero;
-    }
-
-    public void ThrowChunk(float throwStrength)
-    {
-        DropChunk();
-        rb.velocity = player.transform.TransformDirection(Vector3.forward * player.playerSpeed) + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 7 * throwStrength);
+        //play sound
     }
 }

@@ -141,24 +141,24 @@ public class PlayerController : MonoBehaviour {
             if (GetComponentInChildren<SanctuaryItem>(true))
             {
                 SanctuaryItem sanctuary = GetComponentInChildren<SanctuaryItem>(true);
-                sanctuary.DropBox();
+                sanctuary.DropItem();
                 SetEnableHoldingSanctuary(false);
             }
             else if (GetComponentInChildren<Box>(true))
             {
                 Box box = GetComponentInChildren<Box>(true);
-                box.DropBox();
+                box.DropItem();
                 SetEnableHoldingBox(false);
             }
             else if (GetComponentInChildren<Chunk>(true))
             {
                 Chunk chunk = GetComponentInChildren<Chunk>(true);
-                chunk.DropChunk();
+                chunk.DropItem();
             }
             else if (GetComponentInChildren<MiningRig>(true))
             {
                 MiningRig rig = GetComponentInChildren<MiningRig>(true);
-                rig.DropRig();
+                rig.DropItem();
                 SetEnableHoldingRig(false);
             }
             
@@ -174,24 +174,24 @@ public class PlayerController : MonoBehaviour {
             if (GetComponentInChildren<SanctuaryItem>(true))
             {
                 SanctuaryItem sanctuary = GetComponentInChildren<SanctuaryItem>(true);
-                sanctuary.ThrowBox(throwStrength);
+                sanctuary.ThrowItem(throwStrength);
                 SetEnableHoldingSanctuary(false);
             }
             else if (GetComponentInChildren<Box>(true))
             {
                 Box box = GetComponentInChildren<Box>(true);
-                box.ThrowBox(throwStrength);
+                box.ThrowItem(throwStrength);
                 SetEnableHoldingBox(false);
             }
             else if (GetComponentInChildren<Chunk>(true))
             {
                 Chunk chunk = GetComponentInChildren<Chunk>(true);
-                chunk.ThrowChunk(throwStrength);
+                chunk.ThrowItem(throwStrength);
             }
             else if (GetComponentInChildren<MiningRig>(true))
             {
                 MiningRig rig = GetComponentInChildren<MiningRig>(true);
-                rig.ThrowRig(throwStrength);
+                rig.ThrowItem(throwStrength);
                 SetEnableHoldingRig(false);
             }
             else

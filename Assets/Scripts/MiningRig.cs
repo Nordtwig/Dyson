@@ -7,7 +7,7 @@ using UnityEngine.Animations;
 /// modified by Heimer, Christoffer Brandt, Robin
 /// </summary>
 
-public class MiningRig : MonoBehaviour
+public class MiningRig : PickupableObject
 {
     [SerializeField] private bool pickedUp;
     [SerializeField] public float timeBetweenBoxes = 2;
@@ -19,27 +19,22 @@ public class MiningRig : MonoBehaviour
     private AudioSource drillingLoop;
     private AudioSource deployBox;
     private AudioSource disableRig;
-    private AudioManager audioManager;
 
     private GameObject box;
-    private PlayerController player;
     private MeshRenderer rigStatusRend;
     private Animator animator;
     private MiningNode minedNode; //currently minedNode set to null when no minedNode
     private Color baseColor;
-    private Rigidbody rb;
     public bool shielded = false;
     public bool coBoxSpawnRunning = false;
     public bool coPickUpRigRunning = false;
 
     public bool functioning = true;
 
-    void Start()
+    protected override void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        base.Start();
         box = GameObject.Find("GetableBox");
-        rb = GetComponent<Rigidbody>();
-        player = FindObjectOfType<PlayerController>();
         rigStatusRend = transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>();
         rigStatusRend.material.color = Color.red;
         animator = transform.GetChild(0).GetChild(1).GetComponent<Animator>();
@@ -59,7 +54,7 @@ public class MiningRig : MonoBehaviour
         }
     }
 
-    public void TryPickup()
+    public override void PickUpItem()
     {
         if (!functioning)
         {
@@ -74,9 +69,7 @@ public class MiningRig : MonoBehaviour
             shielded = false;
             player.pickedUpItem = true;
             player.SetEnableHoldingRig(true);
-            transform.SetParent(player.transform);
-            audioManager.Play("Pickup");
-            gameObject.SetActive(false);
+            base.PickUpItem();
         }
     }
 
@@ -120,32 +113,24 @@ public class MiningRig : MonoBehaviour
         yield return null;
     }  
 
-
-
-    //Rig is un-parented, spawns in front of player and changes the bool to false
-    public void DropRig()
+    //Rig is un-parented and spawns in front of player
+    public override void DropItem()
     {
+        base.DropItem();
         animator.SetBool("OnPickUp", false);
-        gameObject.transform.SetParent(null);
-        gameObject.SetActive(true);
         pickedUp = false;
-        transform.position = player.transform.position + player.model.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 2);
-        rb.velocity = Vector3.zero;
-		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-	}
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+    }
 
-    public void ThrowRig(float throwStrength)
+    public override void ThrowItem(float throwStrength)
     {
-        DropRig();
+        DropItem();
         rb.velocity =  player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 4 * throwStrength + Vector3.forward*player.playerSpeed);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected override void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Asteroid")
-        {
-            rigCollision.Play();
-        }
+        rigCollision.Play();
     }
 
     public void BreakRig()
