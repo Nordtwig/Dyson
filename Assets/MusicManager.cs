@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Script Creator Heimer
+/// </summary>
 public class MusicManager : MonoBehaviour
 {
     private AudioSource musicIntro;

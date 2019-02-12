@@ -128,7 +128,7 @@ public class GameController : MonoBehaviour
 
         player = FindObjectOfType<PlayerController>();
         AudioManager.instance.Play("Ambience");
-        AudioManager.instance.Play("Music Long");
+        //AudioManager.instance.Play("Music Long");
 
 
         //Update all other instances for their dependencies.
