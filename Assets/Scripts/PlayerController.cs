@@ -15,6 +15,13 @@ public class PlayerController : MonoBehaviour {
     private GameObject RotX;
     [HideInInspector] public GameObject model;
 
+    private static string RUNNING_BOOL_STRING = "isRunning";
+    private static string BACKING_BOOL_STRING = "isBacking";
+    private static string STRAFE_LEFT_BOOL_STRING = "isStrafingLeft";
+    private static string STRAFE_RIGHT_BOOL_STRING = "isStrafingRight";
+    private static string JUMPING_BOOL_STRING = "isJumping";
+    private static string HOLDING_ITEM_BOOL_STRING = "isHoldingItem";
+
     [HideInInspector] public bool holdingItem;
     [HideInInspector] public bool hitButton = false;
     [HideInInspector] public bool pickedUpItem = false;
@@ -58,6 +65,8 @@ public class PlayerController : MonoBehaviour {
         {
             moveDirection = new Vector3(moveX, 0, moveY).normalized * Time.deltaTime;
 
+            UpdateAnimatorBools(moveX, moveY);
+
             if (moveDirection.magnitude != 0)
             {
                 playerSpeed = basePlayerSpeed;
@@ -71,26 +80,7 @@ public class PlayerController : MonoBehaviour {
             model.transform.rotation = RotX.transform.rotation;
             rb.MovePosition(rb.position + transform.TransformDirection(moveDirection * playerSpeed));
             timeOfJump = Time.time;
-            if (moveX == 0 && moveY == 0)
-            {
-                astronautController.SetBool("isRunning", false); 
-                astronautController.SetBool("isBacking", false); 
-            }
-            else if (moveY > 0)
-            {
-                astronautController.SetBool("isRunning", true);
-                astronautController.SetBool("isBacking", false);
-            }
-            else if (moveY < 0)
-            {
-                astronautController.SetBool("isBacking", true);
-                astronautController.SetBool("isRunning", false);
-            }
-            else
-            {
-                astronautController.SetBool("isRunning", true);
-                astronautController.SetBool("isBacking", false);
-            }
+
         }
         else
         {
@@ -101,6 +91,41 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    private void UpdateAnimatorBools(float x, float y)
+    {
+        if (x > 0)
+        {
+            astronautController.SetBool(STRAFE_RIGHT_BOOL_STRING, true);
+            astronautController.SetBool(STRAFE_LEFT_BOOL_STRING, false);
+        }
+        else if (x < 0)
+        {
+            astronautController.SetBool(STRAFE_LEFT_BOOL_STRING, true);
+            astronautController.SetBool(STRAFE_RIGHT_BOOL_STRING, false);
+        }
+        else
+        {
+            astronautController.SetBool(STRAFE_LEFT_BOOL_STRING, false);
+            astronautController.SetBool(STRAFE_RIGHT_BOOL_STRING, false);
+        }
+
+        if (y > 0)
+        {
+            astronautController.SetBool(RUNNING_BOOL_STRING, true);
+            astronautController.SetBool(BACKING_BOOL_STRING, false);
+        }
+        else if (y < 0)
+        {
+            astronautController.SetBool(BACKING_BOOL_STRING, true);
+            astronautController.SetBool(RUNNING_BOOL_STRING, false);
+        }
+        else
+        {
+            astronautController.SetBool(BACKING_BOOL_STRING, false);
+            astronautController.SetBool(RUNNING_BOOL_STRING, false);
+        }
+    }
+
     public void PlayerJump()
     {
         if (grounded)
@@ -108,7 +133,7 @@ public class PlayerController : MonoBehaviour {
             rb.velocity += transform.TransformDirection(Vector3.up * jumpHeight);
             playerSpeed = basePlayerSpeed * 1.5f;
             AudioManager.instance.PlayOnPos("Jump", transform);
-            astronautController.SetBool("isJumping", true);
+            astronautController.SetBool(JUMPING_BOOL_STRING, true);
         }
     }
 
@@ -136,34 +161,12 @@ public class PlayerController : MonoBehaviour {
 
     private void DropItem()
     {
-        if (holdingItem)
+        if (holdingItem && GetComponentInChildren<PickupableObject>(true))
         {
-            if (GetComponentInChildren<SanctuaryItem>(true))
-            {
-                SanctuaryItem sanctuary = GetComponentInChildren<SanctuaryItem>(true);
-                sanctuary.DropItem();
-                SetEnableHoldingSanctuary(false);
-            }
-            else if (GetComponentInChildren<Box>(true))
-            {
-                Box box = GetComponentInChildren<Box>(true);
-                box.DropItem();
-                SetEnableHoldingBox(false);
-            }
-            else if (GetComponentInChildren<Chunk>(true))
-            {
-                Chunk chunk = GetComponentInChildren<Chunk>(true);
-                chunk.DropItem();
-            }
-            else if (GetComponentInChildren<MiningRig>(true))
-            {
-                MiningRig rig = GetComponentInChildren<MiningRig>(true);
-                rig.DropItem();
-                SetEnableHoldingRig(false);
-            }
-            
+            PickupableObject item = GetComponentInChildren<PickupableObject>(true);
+            DisableHoldingItem();
 
-            SetHoldingItem(false);
+            item.DropItem();
         }
     }
 
@@ -208,7 +211,7 @@ public class PlayerController : MonoBehaviour {
         if (other.tag != "Player" && other.tag != "Sanctuary" && other.tag != "DangerZone")
         {
             grounded = true;
-            astronautController.SetBool("isJumping", false);
+            astronautController.SetBool(JUMPING_BOOL_STRING, false);
         }
     }
 
@@ -224,7 +227,7 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerExit(Collider other)
     {
         grounded = false;
-        astronautController.SetBool("isJumping", true);
+        astronautController.SetBool(JUMPING_BOOL_STRING, true);
     }
 
     public void ContinuedJump()
@@ -235,7 +238,7 @@ public class PlayerController : MonoBehaviour {
     public void SetHoldingItem(bool set)
     {
         holdingItem = set;
-        astronautController.SetBool("isHoldingItem", set);
+        astronautController.SetBool(HOLDING_ITEM_BOOL_STRING, set);
     }
 
     public void SetEnableHoldingRig(bool set)
@@ -254,5 +257,13 @@ public class PlayerController : MonoBehaviour {
     {
         heldBox.SetActive(set);
         SetHoldingItem(set);
+    }
+
+    private void DisableHoldingItem()
+    {
+        heldBox.SetActive(false);
+        heldSanctuary.SetActive(false);
+        heldRig.SetActive(false);
+        SetHoldingItem(false);
     }
 }
