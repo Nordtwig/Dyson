@@ -3504,10 +3504,20 @@ MonoBehaviour:
   equipmentTab: {fileID: 4858451126173519362}
   upgradesImage: {fileID: 4858451124984271862}
   equipmentImage: {fileID: 4858451124979069754}
+  buttonText: {fileID: 4858451126125019972}
   topText: {fileID: 4858451125237858946}
   upgradesList: {fileID: 4858451124778255687}
   equipmentList: {fileID: 7243997787132751810}
   creditsText: {fileID: 5577547154425632027}
+  upgradesButton: {fileID: 4858451125998910829}
+  equipmentButton: {fileID: 4858451125871889444}
+  suitUpgrades: {fileID: 874077968701390046}
+  suitButton: {fileID: 7060145079352720669}
+  miningRigUpgrades: {fileID: 8698239773804413151}
+  miningRigButton: {fileID: 6609033982366820709}
+  portableShieldUpgrades: {fileID: 6567911075282412554}
+  portableShieldButton: {fileID: 7892371306269606953}
+  backToStoreFrontButton: {fileID: 7196013062284470704}
   creditsTextPrefabPopUp: {fileID: 4920326477392047259, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
     type: 3}
   miningRig: {fileID: 1346940179161717314, guid: afe146540c7d5a141a697b0584727db5,
@@ -5936,11 +5946,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4858451125839042924}
     m_Modifications:
-    - target: {fileID: 4920326477392047259, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
-        type: 3}
-      propertyPath: m_Name
-      value: CreditsText
-      objectReference: {fileID: 0}
     - target: {fileID: 4920326477392047256, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6045,6 +6050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920326477392047259, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
+        type: 3}
+      propertyPath: m_Name
+      value: CreditsText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 671ccc8c7e7c01e408cd845cd0a681bc, type: 3}

@@ -13,11 +13,20 @@ public class StoreWindow : MonoBehaviour
     public GameObject equipmentTab;
     public GameObject upgradesImage;
     public GameObject equipmentImage;
-    private Text buttonText;
+    public Text buttonText;
     public Text topText;
     public GameObject upgradesList;
     public GameObject equipmentList;
     public GameObject creditsText;
+    public GameObject upgradesButton;
+    public GameObject equipmentButton;
+    public GameObject suitUpgrades;
+    public GameObject suitButton;
+    public GameObject miningRigUpgrades;
+    public GameObject miningRigButton;
+    public GameObject portableShieldUpgrades;
+    public GameObject portableShieldButton;
+    public GameObject backToStoreFrontButton;
     public GameObject creditsTextPrefabPopUp;
     private float originalCameraSpeedH;
     private float originalCameraSpeedV;
@@ -68,13 +77,11 @@ public class StoreWindow : MonoBehaviour
 
         else if(buttonPressed == "Equipment")
         {
-            buttonText = equipmentTab.GetComponentInChildren<Text>();
-
             if (upgradesTab.activeInHierarchy)
             {
                 upgradesTab.SetActive(false);
                 buttonText.text = "Back";
-                buttonText.GetComponentInParent<Image>().color = redColor;
+                equipmentButton.GetComponent<Image>().color = redColor;
                 topText.text = "Buy Equipment";
                 upgradesImage.SetActive(false);
                 equipmentImage.SetActive(false);
@@ -85,7 +92,7 @@ public class StoreWindow : MonoBehaviour
             {
                 upgradesTab.SetActive(true);
                 buttonText.text = buttonPressed;
-                buttonText.GetComponentInParent<Image>().color = blueColor;
+                equipmentButton.GetComponent<Image>().color = blueColor;
                 topText.text = "Store";
                 upgradesImage.SetActive(true);
                 equipmentImage.SetActive(true);
@@ -213,5 +220,26 @@ public class StoreWindow : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Destroy(myPopUp);
         yield return null;
+    }
+
+    public void ResetStoreWindow()
+    {
+        suitUpgrades.SetActive(false);
+        suitButton.SetActive(true);
+        miningRigUpgrades.SetActive(false);
+        miningRigButton.SetActive(true);
+        portableShieldUpgrades.SetActive(false);
+        portableShieldButton.SetActive(true);
+        backToStoreFrontButton.SetActive(true);
+        upgradesList.SetActive(false);
+        equipmentList.SetActive(false);
+        upgradesTab.SetActive(true);
+        equipmentTab.SetActive(true);
+        upgradesButton.SetActive(true);
+        SetTopText("Store");
+        upgradesImage.SetActive(true);
+        equipmentImage.SetActive(true);
+        buttonText.text = "Equipment";
+        equipmentButton.GetComponent<Image>().color = blueColor;
     }
 }

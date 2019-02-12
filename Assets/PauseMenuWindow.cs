@@ -10,6 +10,14 @@ public class PauseMenuWindow : MonoBehaviour
     public AudioMixer audioMixer;
     public Slider musicVolumeSlider;
     public Slider soundVolumeSlider;
+    public Text musicMuted;
+    public Text soundMuted;
+    public GameObject contentPanel;
+    public GameObject settingsPanel;
+
+    private Color mutedColor = new Color(54.0f / 255.0f, 54.0f / 255.0f, 54.0f / 255.0f);
+    private Color nonMutedColor = new Color(215.0f / 255.0f, 215.0f / 255.0f, 215.0f / 255.0f);
+
 
 
     public void Start()
@@ -76,8 +84,13 @@ public class PauseMenuWindow : MonoBehaviour
         if (musicVolumeSlider.value <= -40)
         {
             audioMixer.SetFloat("musicVolume", -80);
+            musicMuted.color = mutedColor;
         }
-        else audioMixer.SetFloat("musicVolume", musicVolumeSlider.value);
+        else
+        {
+            audioMixer.SetFloat("musicVolume", musicVolumeSlider.value);
+            musicMuted.color = nonMutedColor;
+        }
     }
 
     public void ChangeSoundVolume()
@@ -85,7 +98,18 @@ public class PauseMenuWindow : MonoBehaviour
         if (soundVolumeSlider.value <= -40)
         {
             audioMixer.SetFloat("soundVolume", -80);
+            soundMuted.color = mutedColor;
         }
-        else audioMixer.SetFloat("soundVolume", soundVolumeSlider.value);
+        else
+        {
+            audioMixer.SetFloat("soundVolume", soundVolumeSlider.value);
+            soundMuted.color = nonMutedColor;
+        }
+    }
+
+    public void ResetPauseMenuWindow()
+    {
+        contentPanel.SetActive(true);
+        settingsPanel.SetActive(false);
     }
 }

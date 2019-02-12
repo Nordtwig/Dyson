@@ -34,5 +34,6 @@ public class PauseMenuWindowVisuals : MonoBehaviour
 
         GameController.instance.state = GameController.GameControllerState.GAME;
         Cursor.visible = false;
+        FindObjectOfType<PauseMenuWindow>().ResetPauseMenuWindow();
     }
 }

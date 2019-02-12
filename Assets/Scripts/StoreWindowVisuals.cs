@@ -39,5 +39,6 @@ public class StoreWindowVisuals : MonoBehaviour
 
         GameController.instance.state = GameController.GameControllerState.GAME;
         Cursor.visible = false;
+        FindObjectOfType<StoreWindow>().ResetStoreWindow();
     }
 }
