@@ -37,7 +37,8 @@ public class MiningNodeSpawner : MonoBehaviour
 
             if (Physics.Raycast(ray, out nodeSpawnPoint, 130, asteroidLayer)) {
                 GameObject myNode = Instantiate(miningNode, nodeSpawnPoint.point, Quaternion.LookRotation(Vector3.forward, Vector3.up));
-                myNode.transform.SetParent(nodeParent.transform); 
+                myNode.transform.SetParent(nodeParent.transform);
+                GameController.instance.nodes.Add(myNode);
             }
         }
 
@@ -49,7 +50,8 @@ public class MiningNodeSpawner : MonoBehaviour
             RaycastHit nodeSpawnPoint;
 
             if (Physics.Raycast(ray, out nodeSpawnPoint, 130, asteroidLayer)) {
-                Instantiate(miningNode, nodeSpawnPoint.point, Quaternion.LookRotation(Vector3.forward, Vector3.up), nodeParent.transform);
+                GameObject myNode = Instantiate(miningNode, nodeSpawnPoint.point, Quaternion.LookRotation(Vector3.forward, Vector3.up), nodeParent.transform);
+                GameController.instance.nodes.Add(myNode);
             }
         }
 

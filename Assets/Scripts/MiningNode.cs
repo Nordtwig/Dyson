@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///  Created by Heimer, modified by Robin, Ulrik
+///  Created by: Heimer
+///  Modified by: Robin, Ulrik, Noah
 /// </summary>
 
 public class MiningNode : MonoBehaviour
@@ -22,7 +24,7 @@ public class MiningNode : MonoBehaviour
         meshRend = GetComponent<MeshRenderer>();
         baseMaterial = meshRend.material;
 
-		metalRandom = Random.Range(0, 10);
+        metalRandom = CalculateNodeType();
 
         if (metalRandom < 2)
 		{
@@ -42,13 +44,55 @@ public class MiningNode : MonoBehaviour
         }
 
         NodeMaterial();
-	}
 
-	public void NodeMaterial()
+        GameController.instance.UpdateNodeTypes();
+    }
+
+    private int CalculateNodeType() 
+    {
+        int cobaltCount = 0;
+        int tungstenCount = 0;
+        int cinnabarCount = 0;
+
+        foreach (GameObject node in GameController.instance.nodes) 
+        {
+            switch (node.GetComponent<MiningNode>().materialType) 
+            {
+                case GameController.MetalVarieties.COBALT:
+                    cobaltCount++;
+                    break;
+                case GameController.MetalVarieties.TUNGSTEN:
+                    tungstenCount++;
+                    break;
+                case GameController.MetalVarieties.CINNABAR:
+                    cinnabarCount++;
+                    break;
+            }
+        }
+
+        if (cobaltCount < 2) 
+        {
+            return 1;
+        }
+        if (tungstenCount < 2) 
+        {
+            return 3;
+        }
+        if (cinnabarCount < 2) 
+        {
+            return 7;
+        }
+        else 
+        {
+            return UnityEngine.Random.Range(0, 10);
+        }
+    }
+
+    public void NodeMaterial()
 	{
 		if (materialType == GameController.MetalVarieties.CINNABAR)
 		{
-            resourceValue = Random.Range(1, 4);
+            resourceValue = UnityEngine.Random.Range(1, 4);
 			foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>()) 
             {
                 m.material = GameController.instance.metalMaterials[0];
@@ -57,7 +101,7 @@ public class MiningNode : MonoBehaviour
 		}
 		else if (materialType == GameController.MetalVarieties.TUNGSTEN)
 		{
-            resourceValue = Random.Range(2, 6);
+            resourceValue = UnityEngine.Random.Range(2, 6);
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
             {
                 m.material = GameController.instance.metalMaterials[1];
@@ -66,7 +110,7 @@ public class MiningNode : MonoBehaviour
         }
         else if (materialType == GameController.MetalVarieties.COBALT)
 		{
-            resourceValue = Random.Range(3, 9);
+            resourceValue = UnityEngine.Random.Range(3, 9);
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
             {
                 m.material = GameController.instance.metalMaterials[2];
@@ -75,7 +119,7 @@ public class MiningNode : MonoBehaviour
         }
         else if (materialType == GameController.MetalVarieties.MIXED)
 		{
-            resourceValue = Random.Range(5, 10);
+            resourceValue = UnityEngine.Random.Range(5, 10);
             int i = 0;
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
             {
@@ -91,6 +135,8 @@ public class MiningNode : MonoBehaviour
 		resourceValue--;
         if (resourceValue == 0)
         {
+            GameController.instance.nodes.Remove(gameObject);
+            GameController.instance.UpdateNodeTypes();
             Destroy(gameObject);
             return false;
         }
