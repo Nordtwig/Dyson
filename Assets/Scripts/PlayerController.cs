@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour {
     Vector3 moveDirection = Vector3.zero;
     Vector3 airMoveDirection = Vector3.zero;
     private float timeOfJump = 0;
+    public float holdCoefficient = 1.5f;
     GameObject heldBox;
     GameObject heldRig;
     GameObject heldSanctuary;
@@ -265,5 +266,21 @@ public class PlayerController : MonoBehaviour {
         heldSanctuary.SetActive(false);
         heldRig.SetActive(false);
         SetHoldingItem(false);
+    }
+
+    public void WeightUpdate()
+    {
+        if (pickedUpItem == true)
+        {
+            basePlayerSpeed = basePlayerSpeed / holdCoefficient;
+            playerAirControllSpeed = playerAirControllSpeed / holdCoefficient;
+            jumpHeight = jumpHeight / holdCoefficient;
+        }
+        else
+        {
+            basePlayerSpeed = basePlayerSpeed * holdCoefficient;
+            playerAirControllSpeed = playerAirControllSpeed * holdCoefficient;
+            jumpHeight = jumpHeight * holdCoefficient;
+        }
     }
 }
