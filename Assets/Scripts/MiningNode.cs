@@ -21,6 +21,8 @@ public class MiningNode : MonoBehaviour
 
 	public void Start()
 	{
+        transform.rotation = UnityEngine.Random.rotation;
+
         meshRend = GetComponent<MeshRenderer>();
         baseMaterial = meshRend.material;
 
