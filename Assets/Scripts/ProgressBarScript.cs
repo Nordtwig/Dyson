@@ -8,18 +8,32 @@ using UnityEngine.UI;
 
 public class ProgressBarScript : MonoBehaviour
 {
+    public static ProgressBarScript instance;
+
     private Slider progressBar;
     private Text percentage;
+    private Text boxAmount;
+    private int boxesDelivered;
+    private int boxesNeeded;
 
     private float percentageNumber;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
         progressBar = GetComponent<Slider>();
         percentage = GameObject.Find("Percentage").GetComponent<Text>();
+        boxAmount = GameObject.Find("BoxAmount").GetComponent<Text>();
+        boxesDelivered = GameController.instance.GetAmountOfDeliveredBoxes();
+        boxesNeeded = GameController.instance.phaseBoxAmount;
         progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseBoxAmount;
         percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseBoxAmount) * 100;
-        percentage.text = percentageNumber.ToString() + "% of Boxes delivered";
+        percentage.text = percentageNumber.ToString() + "%";
+        boxAmount.text = GameController.instance.GetAmountOfDeliveredBoxes().ToString() + "/" + GameController.instance.phaseBoxAmount;
     }
 
     public void ProgressBarUpdate()
@@ -29,11 +43,13 @@ public class ProgressBarScript : MonoBehaviour
         if (percentageNumber < 100)
         {
             string temp = percentageNumber.ToString();
-            percentage.text = temp + "% of Boxes delivered";
+            percentage.text = temp + "%";
+            boxAmount.text = GameController.instance.GetAmountOfDeliveredBoxes().ToString() + "/" + GameController.instance.phaseBoxAmount;
         }
         else
         {
             percentage.text = "Ready to launch!";
+            boxAmount.text = GameController.instance.GetAmountOfDeliveredBoxes().ToString() + "/" + GameController.instance.phaseBoxAmount;
         }
 
     }
