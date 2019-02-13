@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 667205496}
   - component: {fileID: 667205495}
   - component: {fileID: 667205494}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: MiniMapAsteroid
   m_TagString: Asteroid
   m_Icon: {fileID: 0}

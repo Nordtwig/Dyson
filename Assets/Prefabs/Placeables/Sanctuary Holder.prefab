@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7476222087375245359}
   - component: {fileID: 4035462249526412664}
   - component: {fileID: 2280643340301516283}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3897932234333880143}
   - component: {fileID: 605958529000267755}
   - component: {fileID: 2497154105626838769}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 5675841198425513636}
   - component: {fileID: 4925940032963146255}
   - component: {fileID: 1337702265044733655}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 6526906530684572344}
   - component: {fileID: 1659747194168756761}
   - component: {fileID: 9140445941797095958}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2321507171615478146}
   - component: {fileID: 3401371690188261478}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sanctuary Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 2382512031285961918}
   - component: {fileID: 7407245848066217146}
   - component: {fileID: 2547821873710530495}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,6 +460,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sanctuary
       objectReference: {fileID: 0}
+    - target: {fileID: 2736726829976734027, guid: 77def54caf9bc0c4f86f12979482dc47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2736726829976734071, guid: 77def54caf9bc0c4f86f12979482dc47,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -532,18 +537,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2736726829976734069, guid: 77def54caf9bc0c4f86f12979482dc47,
         type: 3}
+      propertyPath: m_Radius
+      value: 0.483
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736726829976734069, guid: 77def54caf9bc0c4f86f12979482dc47,
+        type: 3}
       propertyPath: m_Height
-      value: 0.82596034
-      objectReference: {fileID: 0}
-    - target: {fileID: 2736726829976734069, guid: 77def54caf9bc0c4f86f12979482dc47,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.011992827
-      objectReference: {fileID: 0}
-    - target: {fileID: 2736726829976734069, guid: 77def54caf9bc0c4f86f12979482dc47,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -0.0983226
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77def54caf9bc0c4f86f12979482dc47, type: 3}
@@ -570,6 +570,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LargeForceFieldVFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588981995345789000, guid: 79bf689ed8bbcb347b4d6b0f0d2de41c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1218504582485654792, guid: 79bf689ed8bbcb347b4d6b0f0d2de41c,
         type: 3}
