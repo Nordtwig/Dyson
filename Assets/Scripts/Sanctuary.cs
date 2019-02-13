@@ -20,7 +20,7 @@ public class Sanctuary : MonoBehaviour
         }
         else if (collision.tag == "Node")
         {
-            Destroy(collision.transform.parent.gameObject);
+            Destroy(collision.transform.gameObject);
         }
     }
 }
