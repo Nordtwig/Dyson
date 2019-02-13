@@ -16,6 +16,7 @@ public class PauseMenuWindow : MonoBehaviour
     public GameObject settingsPanel;
     public GameObject backButton;
     public GameObject quitButton;
+    public GameObject[] promptPanels;
 
     private Color mutedColor = new Color(54.0f / 255.0f, 54.0f / 255.0f, 54.0f / 255.0f);
     private Color nonMutedColor = new Color(215.0f / 255.0f, 215.0f / 255.0f, 215.0f / 255.0f);
@@ -109,11 +110,29 @@ public class PauseMenuWindow : MonoBehaviour
         }
     }
 
+    public bool PromptPanelDeactivated()
+    {
+        foreach (GameObject promptPanel in promptPanels)
+        {
+            if (promptPanel.activeInHierarchy)
+            {
+                promptPanel.SetActive(false);
+                ReenableAllButtons();
+                Debug.Log("A prompt has been deactivated, back to pause menu");
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void ResetPauseMenuWindow()
     {
-        backButton.SetActive(false);
-        quitButton.SetActive(true);
-        contentPanel.SetActive(true);
-        settingsPanel.SetActive(false);
+        
+        {
+            backButton.SetActive(false);
+            quitButton.SetActive(true);
+            contentPanel.SetActive(true);
+            settingsPanel.SetActive(false);
+        }
     }
 }
