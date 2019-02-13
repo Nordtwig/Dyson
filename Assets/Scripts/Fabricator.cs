@@ -13,6 +13,10 @@ public class Fabricator : MonoBehaviour
 
     private bool restarted;
 
+    private AudioSource getChunk;
+    private AudioSource deployBox;
+    private AudioSource wrongChunk;
+
     private MiningRig miningRig;
     private Chunk chunk;
     private GameObject box;
@@ -23,6 +27,11 @@ public class Fabricator : MonoBehaviour
         chunks = new GameController.MetalVarieties[3];
         chunksReceived = new bool[3];
         RequiredMaterials();
+        AudioSource[] audios = GetComponents<AudioSource>();
+        getChunk = audios[0];
+        deployBox = audios[1];
+        wrongChunk = audios[2];
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,11 +56,13 @@ public class Fabricator : MonoBehaviour
                 visualChunks[i].SetActive(false);
                 checkMark[i].SetActive(true);
                 Destroy(other.gameObject);
+                getChunk.Play();
                 break;
             }
         }
 
         GenerateBoxOrRestart(delivered);
+        //wrongChunk.Play();
 
     }
 
@@ -110,5 +121,6 @@ public class Fabricator : MonoBehaviour
     {
         GameObject go = Instantiate(box, transform.position + transform.TransformDirection(Vector3.right * 3), Quaternion.identity);
         go.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.up * 3 + Vector3.right * Random.Range(5, 15));
+        deployBox.PlayDelayed(0.1f);
     }
 }

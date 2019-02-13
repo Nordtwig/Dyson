@@ -86,28 +86,28 @@ MonoBehaviour:
       type: 2}
     source: {fileID: 0}
   - name: Jump
-    clip: {fileID: 8300000, guid: 5dd1f70a4450c7e498eb368702f19c63, type: 3}
+    clip: {fileID: 8300000, guid: c16356b2e7040e04384a6da21dee22aa, type: 3}
     volume: 1
     volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
+    pitch: 0.8
+    pitchVariance: 0.2
     spatialBlend: 0
-    sound3d: 1
+    sound3d: 0
     playOnAwake: 0
     loop: 0
     mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
       type: 2}
     source: {fileID: 0}
-  - name: Music Long
-    clip: {fileID: 8300000, guid: 71ef6c5f81d80f14f96eb3446a54a264, type: 3}
+  - name: Chunk Collision
+    clip: {fileID: 8300000, guid: adcd250410606064cba82898497a595a, type: 3}
     volume: 1
-    volumeVariance: 0
+    volumeVariance: 0.1
     pitch: 1
-    pitchVariance: 0
-    spatialBlend: 0
-    sound3d: 0
-    playOnAwake: 1
-    loop: 1
+    pitchVariance: 0.25
+    spatialBlend: 0.9
+    sound3d: 1
+    playOnAwake: 0
+    loop: 0
     mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
       type: 2}
     source: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
     volumeVariance: 0.01
     pitch: 1
     pitchVariance: 0.11
-    spatialBlend: 0.011
+    spatialBlend: 0.01
     sound3d: 0
     playOnAwake: 1
     loop: 1

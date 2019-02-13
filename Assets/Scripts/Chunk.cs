@@ -37,6 +37,9 @@ public class Chunk : PickupableObject
 
     protected override void OnCollisionEnter(Collision collision)
     {
-        //play sound
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            AudioManager.instance.PlayOnPos("Chunk Collision", transform);
+        }
     }
 }
