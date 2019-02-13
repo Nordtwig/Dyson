@@ -180,7 +180,7 @@ public class GameController : MonoBehaviour
 
         if (!hijackedTimerText)
         {
-            string timer = String.Format("Time Remaining: {0:0}:{1:00}", (int)totalTimeInPhase / 60, (int)totalTimeInPhase % 60);
+            string timer = String.Format("{0:0}:{1:00}", (int)totalTimeInPhase / 60, (int)totalTimeInPhase % 60);
             timeText.text = timer;
             if (totalTimeInPhase <= 30)
             {
