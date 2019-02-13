@@ -15,10 +15,14 @@ public class MiningRig : PickupableObject
 
     private StoreWindow storeWindow;
 
+    // audio
     private AudioSource rigCollision;
     private AudioSource drillingLoop;
     private AudioSource deployBox;
     private AudioSource disableRig;
+    private AudioSource assembleRig;
+    private AudioSource brokenRigLoop;
+
 
     private GameObject box;
     private MeshRenderer rigStatusRend;
@@ -43,6 +47,8 @@ public class MiningRig : PickupableObject
         drillingLoop = audios[1];
         deployBox = audios[2];
         disableRig = audios[3];
+        assembleRig = audios[4];
+        brokenRigLoop = audios[5];
         storeWindow = FindObjectOfType<StoreWindow>();
     }
 
@@ -130,7 +136,10 @@ public class MiningRig : PickupableObject
 
     protected override void OnCollisionEnter(Collision collision)
     {
-        rigCollision.Play();
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            rigCollision.Play();
+        }
     }
 
     public void BreakRig()
@@ -140,6 +149,7 @@ public class MiningRig : PickupableObject
             if (functioning)
             {
                 disableRig.Play();
+                brokenRigLoop.PlayDelayed(1.0f);
             }
             functioning = false;
             rigStatusRend.material.color = Color.black;
@@ -158,6 +168,7 @@ public class MiningRig : PickupableObject
                 animator.SetBool("OnNodeDeploy", true);
                 minedNode = other.GetComponent<MiningNode>();
                 transform.position = minedNode.transform.position;
+                assembleRig.Play();
 
                 if (functioning)
                 {
@@ -259,6 +270,7 @@ public class MiningRig : PickupableObject
     {
         functioning = true;
         audioManager.Play("Repair");
+        brokenRigLoop.Stop();
         rigStatusRend.material.color = Color.red;
         if (minedNode)
         {
