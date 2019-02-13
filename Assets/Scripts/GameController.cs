@@ -49,6 +49,13 @@ public class GameController : MonoBehaviour
     [HideInInspector] public PhaseSpecifics[] phaseSpecifics;
     public PhaseSpecifics[] testingSpecifics;
 
+    [Header("NodeKeeper")]
+    public int cobaltCount;
+    public int tungstenCount;
+    public int cinnabarCount;
+    public int mixedCount;
+    public List<GameObject> nodes;
+
 	//STATE
 	public GameControllerState state = GameControllerState.NULL;
 
@@ -98,6 +105,7 @@ public class GameController : MonoBehaviour
             IncrementPhase();
             UpdateCredits(0);
         }
+        nodes = new List<GameObject>();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
@@ -180,7 +188,7 @@ public class GameController : MonoBehaviour
 
         if (!hijackedTimerText)
         {
-            string timer = String.Format("Time Remaining: {0:0}:{1:00}", (int)totalTimeInPhase / 60, (int)totalTimeInPhase % 60);
+            string timer = String.Format("{0:0}:{1:00}", (int)totalTimeInPhase / 60, (int)totalTimeInPhase % 60);
             timeText.text = timer;
             if (totalTimeInPhase <= 30)
             {
@@ -251,6 +259,30 @@ public class GameController : MonoBehaviour
         creditsText.text = playerCredits.ToString();
         creditsTextUI.text = playerCredits.ToString();
         if (amount > 0) StartCoroutine(FindObjectOfType<StoreWindow>().GainCreditsPopUp(Mathf.Abs(amount)));
+    }
+
+    public void UpdateNodeTypes() {
+        cobaltCount = 0;
+        tungstenCount = 0;
+        cinnabarCount = 0;
+        mixedCount = 0;
+
+        foreach (GameObject node in GameController.instance.nodes) {
+            switch (node.GetComponent<MiningNode>().materialType) {
+                case MetalVarieties.COBALT:
+                    cobaltCount++;
+                    break;
+                case MetalVarieties.TUNGSTEN:
+                    tungstenCount++;
+                    break;
+                case MetalVarieties.CINNABAR:
+                    cinnabarCount++;
+                    break;
+                case MetalVarieties.MIXED:
+                    mixedCount++;
+                    break;
+            }
+        }
     }
 
     // =======================================================================================
@@ -343,7 +375,8 @@ public class GameController : MonoBehaviour
 
     public void DebugSpawnNode()
     {
-        Instantiate(node, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+        GameObject myNode = Instantiate(node, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+        nodes.Add(myNode);
     }
 
     public void DebugSpawnChunk()

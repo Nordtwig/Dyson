@@ -154,7 +154,10 @@ public class InputController : MonoBehaviour
             }
             else if (GameController.instance.state == GameController.GameControllerState.PAUSE)
             {
-                pauseMenuWindow.SetActive(false);
+                if (!FindObjectOfType<PauseMenuWindow>().PromptPanelDeactivated())
+                {
+                    pauseMenuWindow.SetActive(false);
+                }
             }
         }
 

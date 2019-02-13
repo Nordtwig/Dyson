@@ -101,11 +101,9 @@ public class Meteroid : MonoBehaviour
 
                 RaycastHit meteoroidImpactpoint;
 
-                if (Physics.Raycast(ray, out meteoroidImpactpoint, (transform.position - meteoroids.position).sqrMagnitude, asteroidLayer))
-                {
-                    miningNodeSpawnRotation = gameObject.GetComponentInParent<Transform>().rotation;
-                    GameObject myNode = Instantiate(miningNode, meteoroidImpactpoint.point, miningNodeSpawnRotation);
-                    myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
+                if (Physics.Raycast(ray, out meteoroidImpactpoint, 130, asteroidLayer)) {
+                    GameObject myNode = Instantiate(miningNode, meteoroidImpactpoint.point, Quaternion.LookRotation(Vector3.forward, Vector3.up), GameObject.Find("Nodes").transform);
+                    GameController.instance.nodes.Add(myNode);
                 }
 
                 GameObject nodeSpawnedVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);

@@ -171,12 +171,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MetroidImpactVFX: {fileID: 4725057483793481314, guid: feb18ae808cfd08449fff5c53b590954,
     type: 3}
-  miningNode: {fileID: 2786884455184307268, guid: 80347d2160a1ec6499b920ea4f3f9da3,
+  miningNode: {fileID: 7775921593420297019, guid: a1b933bfd92647c45998bf6ae36e7d3e,
     type: 3}
   randomNodeSpawnChance: 0.05
   asteroidLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   dangerZone: {fileID: 6230382871793767043, guid: 65916c4d47401a6408640b1da83f45d0,
     type: 3}
   upForce: 75
