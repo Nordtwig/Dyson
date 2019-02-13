@@ -1,0 +1,349 @@
+fileFormatVersion: 2
+guid: 88b9c575c5f4c094d9550285c145c5d1
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Body
+    100002: Door
+    100004: Door 1
+    100006: Door 2
+    100008: Door 3
+    100010: Drill
+    100012: DrillLegs
+    100014: LightRamp
+    100016: LowLeg1
+    100018: LowLeg1 1
+    100020: LowLeg1 2
+    100022: LowLeg1 3
+    100024: LowLeg2
+    100026: LowLeg2 1
+    100028: LowLeg2 2
+    100030: LowLeg2 3
+    100032: LowLeg3
+    100034: LowLeg3 1
+    100036: LowLeg3 2
+    100038: LowLeg3 3
+    100040: LowLeg4
+    100042: LowLeg4 1
+    100044: LowLeg4 2
+    100046: LowLeg4 3
+    100048: MidLeg1
+    100050: MidLeg1 1
+    100052: MidLeg1 2
+    100054: MidLeg1 3
+    100056: MidLeg2
+    100058: MidLeg2 1
+    100060: MidLeg2 2
+    100062: MidLeg2 3
+    100064: MidLeg3
+    100066: MidLeg3 1
+    100068: MidLeg3 2
+    100070: MidLeg3 3
+    100072: MidLeg4
+    100074: MidLeg4 1
+    100076: MidLeg4 2
+    100078: MidLeg4 3
+    100080: //RootNode
+    100082: MiningRigScale
+    100084: Module1
+    100086: Module2
+    100088: Module3
+    100090: Module4
+    100092: RigBody
+    100094: Rotator
+    100096: RotatorBlades1
+    100098: RotatorBlades2
+    100100: RotatorSkiva
+    100102: Top
+    100104: Top1
+    100106: Top2
+    100108: Top3
+    100110: Top4
+    400000: Body
+    400002: Door
+    400004: Door 1
+    400006: Door 2
+    400008: Door 3
+    400010: Drill
+    400012: DrillLegs
+    400014: LightRamp
+    400016: LowLeg1
+    400018: LowLeg1 1
+    400020: LowLeg1 2
+    400022: LowLeg1 3
+    400024: LowLeg2
+    400026: LowLeg2 1
+    400028: LowLeg2 2
+    400030: LowLeg2 3
+    400032: LowLeg3
+    400034: LowLeg3 1
+    400036: LowLeg3 2
+    400038: LowLeg3 3
+    400040: LowLeg4
+    400042: LowLeg4 1
+    400044: LowLeg4 2
+    400046: LowLeg4 3
+    400048: MidLeg1
+    400050: MidLeg1 1
+    400052: MidLeg1 2
+    400054: MidLeg1 3
+    400056: MidLeg2
+    400058: MidLeg2 1
+    400060: MidLeg2 2
+    400062: MidLeg2 3
+    400064: MidLeg3
+    400066: MidLeg3 1
+    400068: MidLeg3 2
+    400070: MidLeg3 3
+    400072: MidLeg4
+    400074: MidLeg4 1
+    400076: MidLeg4 2
+    400078: MidLeg4 3
+    400080: //RootNode
+    400082: MiningRigScale
+    400084: Module1
+    400086: Module2
+    400088: Module3
+    400090: Module4
+    400092: RigBody
+    400094: Rotator
+    400096: RotatorBlades1
+    400098: RotatorBlades2
+    400100: RotatorSkiva
+    400102: Top
+    400104: Top1
+    400106: Top2
+    400108: Top3
+    400110: Top4
+    2100000: BodyMtrl
+    2100002: DoorMtrl
+    2100004: LightRampMtrl
+    2300000: Door
+    2300002: Door 1
+    2300004: Door 2
+    2300006: Door 3
+    2300008: Drill
+    2300010: DrillLegs
+    2300012: LightRamp
+    2300014: LowLeg1
+    2300016: LowLeg1 1
+    2300018: LowLeg1 2
+    2300020: LowLeg1 3
+    2300022: LowLeg2
+    2300024: LowLeg2 1
+    2300026: LowLeg2 2
+    2300028: LowLeg2 3
+    2300030: LowLeg3
+    2300032: LowLeg3 1
+    2300034: LowLeg3 2
+    2300036: LowLeg3 3
+    2300038: LowLeg4
+    2300040: LowLeg4 1
+    2300042: LowLeg4 2
+    2300044: LowLeg4 3
+    2300046: MidLeg1
+    2300048: MidLeg1 1
+    2300050: MidLeg1 2
+    2300052: MidLeg1 3
+    2300054: MidLeg2
+    2300056: MidLeg2 1
+    2300058: MidLeg2 2
+    2300060: MidLeg2 3
+    2300062: MidLeg3
+    2300064: MidLeg3 1
+    2300066: MidLeg3 2
+    2300068: MidLeg3 3
+    2300070: MidLeg4
+    2300072: MidLeg4 1
+    2300074: MidLeg4 2
+    2300076: MidLeg4 3
+    2300078: RigBody
+    2300080: RotatorBlades1
+    2300082: RotatorBlades2
+    2300084: RotatorSkiva
+    2300086: Top1
+    2300088: Top2
+    2300090: Top3
+    2300092: Top4
+    3300000: Door
+    3300002: Door 1
+    3300004: Door 2
+    3300006: Door 3
+    3300008: Drill
+    3300010: DrillLegs
+    3300012: LightRamp
+    3300014: LowLeg1
+    3300016: LowLeg1 1
+    3300018: LowLeg1 2
+    3300020: LowLeg1 3
+    3300022: LowLeg2
+    3300024: LowLeg2 1
+    3300026: LowLeg2 2
+    3300028: LowLeg2 3
+    3300030: LowLeg3
+    3300032: LowLeg3 1
+    3300034: LowLeg3 2
+    3300036: LowLeg3 3
+    3300038: LowLeg4
+    3300040: LowLeg4 1
+    3300042: LowLeg4 2
+    3300044: LowLeg4 3
+    3300046: MidLeg1
+    3300048: MidLeg1 1
+    3300050: MidLeg1 2
+    3300052: MidLeg1 3
+    3300054: MidLeg2
+    3300056: MidLeg2 1
+    3300058: MidLeg2 2
+    3300060: MidLeg2 3
+    3300062: MidLeg3
+    3300064: MidLeg3 1
+    3300066: MidLeg3 2
+    3300068: MidLeg3 3
+    3300070: MidLeg4
+    3300072: MidLeg4 1
+    3300074: MidLeg4 2
+    3300076: MidLeg4 3
+    3300078: RigBody
+    3300080: RotatorBlades1
+    3300082: RotatorBlades2
+    3300084: RotatorSkiva
+    3300086: Top1
+    3300088: Top2
+    3300090: Top3
+    3300092: Top4
+    4300000: MidLeg1
+    4300002: MidLeg2
+    4300004: MidLeg4
+    4300006: LowLeg1
+    4300008: LowLeg2
+    4300010: LowLeg3
+    4300012: LowLeg4
+    4300014: MidLeg3
+    4300016: Door
+    4300018: MidLeg1
+    4300020: MidLeg2
+    4300022: MidLeg4
+    4300024: LowLeg1
+    4300026: LowLeg2
+    4300028: LowLeg3
+    4300030: LowLeg4
+    4300032: MidLeg3
+    4300034: Door
+    4300036: MidLeg1
+    4300038: MidLeg2
+    4300040: MidLeg4
+    4300042: LowLeg1
+    4300044: LowLeg2
+    4300046: LowLeg3
+    4300048: LowLeg4
+    4300050: MidLeg3
+    4300052: Door
+    4300054: MidLeg1
+    4300056: MidLeg2
+    4300058: MidLeg4
+    4300060: LowLeg1
+    4300062: LowLeg2
+    4300064: LowLeg3
+    4300066: LowLeg4
+    4300068: MidLeg3
+    4300070: Door
+    4300072: RotatorSkiva
+    4300074: RotatorBlades1
+    4300076: RotatorBlades2
+    4300078: RigBody
+    4300080: LightRamp
+    4300082: DrillLegs
+    4300084: Top1
+    4300086: Top2
+    4300088: Top3
+    4300090: Top4
+    4300092: Drill
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
