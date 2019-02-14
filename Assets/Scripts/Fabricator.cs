@@ -62,7 +62,6 @@ public class Fabricator : MonoBehaviour
         }
 
         GenerateBoxOrRestart(delivered);
-        //wrongChunk.Play();
 
     }
 
@@ -83,10 +82,11 @@ public class Fabricator : MonoBehaviour
             RequiredMaterials();
         }
 
-        //if (!delivered)
-        //{
-        //    RequiredMaterials();
-        //}
+        if (!delivered)
+        {
+            wrongChunk.Play();
+            //RequiredMaterials();
+        }
     }
 
     private void RequiredMaterials()
