@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour {
         astronautController = transform.GetComponentInChildren<Animator>();
 
         DisableHoldingItem();
+        WeightUpdate(false); //To correct after initial disable all
     }
 
     public void PlayerMove(float moveX, float moveY)
@@ -169,38 +170,12 @@ public class PlayerController : MonoBehaviour {
 
     public void ThrowItem(float throwStrength)
     {
-        if (holdingItem)
+        if (holdingItem && GetComponentInChildren<PickupableObject>(true))
         {
-            if (GetComponentInChildren<SanctuaryItem>(true))
-            {
-                SanctuaryItem sanctuary = GetComponentInChildren<SanctuaryItem>(true);
-                sanctuary.ThrowItem(throwStrength);
-                SetEnableHoldingSanctuary(false);
-            }
-            else if (GetComponentInChildren<Box>(true))
-            {
-                Box box = GetComponentInChildren<Box>(true);
-                box.ThrowItem(throwStrength);
-                SetEnableHoldingBox(false);
-            }
-            else if (GetComponentInChildren<Chunk>(true))
-            {
-                Chunk chunk = GetComponentInChildren<Chunk>(true);
-                chunk.ThrowItem(throwStrength);
-                DisableHoldingItem();
-            }
-            else if (GetComponentInChildren<MiningRig>(true))
-            {
-                MiningRig rig = GetComponentInChildren<MiningRig>(true);
-                rig.ThrowItem(throwStrength);
-                SetEnableHoldingRig(false);
-            }
-            else
-            {
-                return;
-            }
+            PickupableObject item = GetComponentInChildren<PickupableObject>(true);
+            DisableHoldingItem();
 
-            SetHoldingItem(false);
+            item.ThrowItem(throwStrength);
         }
     }
 
@@ -236,6 +211,7 @@ public class PlayerController : MonoBehaviour {
     public void SetHoldingItem(bool set)
     {
         holdingItem = set;
+        WeightUpdate(!holdingItem);
         astronautController.SetBool(HOLDING_ITEM_BOOL_STRING, set);
     }
 
@@ -283,22 +259,23 @@ public class PlayerController : MonoBehaviour {
         heldTungstenChunk.SetActive(false);
         heldCobaltChunk.SetActive(false);
         heldCinnabarChunk.SetActive(false);
+
         SetHoldingItem(false);
     }
 
-    public void WeightUpdate()
+    public void WeightUpdate(bool increase)
     {
-        if (holdingItem)
-        {
-            basePlayerSpeed = basePlayerSpeed / holdCoefficient;
-            playerAirControllSpeed = playerAirControllSpeed / holdCoefficient;
-            jumpHeight = jumpHeight / holdCoefficient;
-        }
-        else
+        if (increase)
         {
             basePlayerSpeed = basePlayerSpeed * holdCoefficient;
             playerAirControllSpeed = playerAirControllSpeed * holdCoefficient;
             jumpHeight = jumpHeight * holdCoefficient;
+        }
+        else
+        {
+            basePlayerSpeed = basePlayerSpeed / holdCoefficient;
+            playerAirControllSpeed = playerAirControllSpeed / holdCoefficient;
+            jumpHeight = jumpHeight / holdCoefficient;
         }
     }
 }
