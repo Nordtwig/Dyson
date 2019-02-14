@@ -71,6 +71,11 @@ MonoBehaviour:
   pickedUp: 0
   timeBetweenBoxes: 10
   chunk: {fileID: 129545546215102865, guid: ce1e0e2dd817a564a91af50c3195cf2e, type: 3}
+  rigStatusRend: {fileID: 2053035957}
+  rigRed: {fileID: 2100000, guid: 0fd85e9c50ad7d74494021b6c782221c, type: 2}
+  rigYellow: {fileID: 2100000, guid: 0425471f8e91b8940be0509edb71021e, type: 2}
+  rigGreen: {fileID: 2100000, guid: 4e3ac9afc6daa6742b673ac1b438d765, type: 2}
+  rigBroken: {fileID: 2100000, guid: ac902e8a96e6fba43a9c7ff0adf21672, type: 2}
   shielded: 0
   coBoxSpawnRunning: 0
   coPickUpRigRunning: 0
@@ -763,11 +768,21 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300012, guid: 21a8ae73d09306947be460bda47d4c27, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0fd85e9c50ad7d74494021b6c782221c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21a8ae73d09306947be460bda47d4c27, type: 3}
 --- !u!4 &2054935817 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400080, guid: 21a8ae73d09306947be460bda47d4c27,
+    type: 3}
+  m_PrefabInstance: {fileID: 2055065561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2053035957 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300012, guid: 21a8ae73d09306947be460bda47d4c27,
     type: 3}
   m_PrefabInstance: {fileID: 2055065561}
   m_PrefabAsset: {fileID: 0}
