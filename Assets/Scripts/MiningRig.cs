@@ -128,7 +128,7 @@ public class MiningRig : PickupableObject
     public override void ThrowItem(float throwStrength)
     {
         DropItem();
-        rb.velocity =  player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 4 * throwStrength + Vector3.forward*player.playerSpeed);
+        rb.velocity =  player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 10 * throwStrength + Vector3.forward*player.playerSpeed);
     }
 
     protected override void OnCollisionEnter(Collision collision)
