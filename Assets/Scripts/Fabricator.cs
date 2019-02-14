@@ -11,6 +11,8 @@ public class Fabricator : MonoBehaviour
     [SerializeField] GameObject[] visualChunks;
     [SerializeField] GameObject[] checkMark;
 
+    [SerializeField] Light[] SpotLights;
+
     private bool restarted;
 
     private AudioSource getChunk;
@@ -105,14 +107,17 @@ public class Fabricator : MonoBehaviour
             if (randomMaterial == GameController.MetalVarieties.CINNABAR)
             {
                 visualChunks[i].GetComponent<SpriteRenderer>().material = GameController.instance.metalMaterials[0];
+                SpotLights[i].color = Color.red;
             }
             else if (randomMaterial == GameController.MetalVarieties.COBALT)
             {
                 visualChunks[i].GetComponent<SpriteRenderer>().material = GameController.instance.metalMaterials[2];
+                SpotLights[i].color = Color.blue;
             }
             else if (randomMaterial == GameController.MetalVarieties.TUNGSTEN)
             {
                 visualChunks[i].GetComponent<SpriteRenderer>().material = GameController.instance.metalMaterials[1];
+                SpotLights[i].color = Color.yellow;
             }
         }
     }
