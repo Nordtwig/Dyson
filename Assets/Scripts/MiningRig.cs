@@ -39,9 +39,9 @@ public class MiningRig : PickupableObject
     {
         base.Start();
         box = GameObject.Find("GetableBox");
-        rigStatusRend = transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>();
-        rigStatusRend.material.color = Color.red;
-        animator = transform.GetChild(0).GetChild(1).GetComponent<Animator>();
+        //rigStatusRend = transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>();
+        //rigStatusRend.material.color = Color.red;
+        animator = transform.GetComponentInChildren<Animator>();
         AudioSource[] audios = GetComponents<AudioSource>();
         rigCollision = audios[0];
         drillingLoop = audios[1];
@@ -54,10 +54,10 @@ public class MiningRig : PickupableObject
 
     private void OnEnable()
     {
-        if (rigStatusRend != null)
-        {
-            rigStatusRend.material.color = Color.red;
-        }
+        //if (rigStatusRend != null)
+        //{
+        //    rigStatusRend.material.color = Color.red;
+        //}
     }
 
     public override void PickUpItem()
@@ -98,7 +98,7 @@ public class MiningRig : PickupableObject
                 animator.SetBool("Empty", false);
                 animator.SetBool("OnNodeDeploy", false);
                 animator.SetBool("OnPickUp", true);
-                rigStatusRend.material.color = Color.yellow;
+                //rigStatusRend.material.color = Color.yellow;
                 pickedUp = true;
                 yield return new WaitForSeconds(2f);
             }
@@ -107,13 +107,13 @@ public class MiningRig : PickupableObject
                 animator.SetBool("Empty", false);
                 animator.SetBool("OnNodeDeploy", false);
                 animator.SetBool("OnPickUp", true);
-                rigStatusRend.material.color = Color.red;
+                //rigStatusRend.material.color = Color.red;
                 pickedUp = true;
             }
 
             coBoxSpawnRunning = false;
             coPickUpRigRunning = false;
-            rigStatusRend.material.color = Color.red;
+            //rigStatusRend.material.color = Color.red;
         }
 
         yield return null;
@@ -152,7 +152,7 @@ public class MiningRig : PickupableObject
                 brokenRigLoop.PlayDelayed(1.0f);
             }
             functioning = false;
-            rigStatusRend.material.color = Color.black;
+            //rigStatusRend.material.color = Color.black;
             coBoxSpawnRunning = false;
         }
     }
@@ -197,7 +197,7 @@ public class MiningRig : PickupableObject
         if (!coBoxSpawnRunning)
         {
             coBoxSpawnRunning = true;
-            rigStatusRend.material.color = Color.yellow;
+            //rigStatusRend.material.color = Color.yellow;
             animator.SetBool("OnNodeDeploy", true);
             animator.SetBool("Empty", false);
             animator.SetBool("OnPickUp", false);
@@ -211,11 +211,11 @@ public class MiningRig : PickupableObject
                 {
                     if (functioning && minedNode)
                     {
-                        rigStatusRend.material.color = Color.green;
+                        //rigStatusRend.material.color = Color.green;
                     }
                     else if (!functioning)
                     {
-                        rigStatusRend.material.color = Color.black;
+                        //rigStatusRend.material.color = Color.black;
                         drillingLoop.Stop();
                         break;
                     }
@@ -228,18 +228,18 @@ public class MiningRig : PickupableObject
 
                 if (functioning && minedNode)
                 {
-                    rigStatusRend.material.color = Color.green;
+                    //rigStatusRend.material.color = Color.green;
                     EjectChunk();
                     if (!minedNode.OnBoxSpawn()) //Do when empty 
                     {
                         minedNode = null;
-                        rigStatusRend.material.color = Color.red;
+                        //rigStatusRend.material.color = Color.red;
                         animator.SetBool("Empty", true);
                     }
                 }
                 else if (functioning)
                 {
-                    rigStatusRend.material.color = Color.red;
+                    //rigStatusRend.material.color = Color.red;
                 }
 
                 if (pickedUp)
@@ -262,7 +262,7 @@ public class MiningRig : PickupableObject
         functioning = true;
         audioManager.Play("Repair");
         brokenRigLoop.Stop();
-        rigStatusRend.material.color = Color.red;
+        //rigStatusRend.material.color = Color.red;
         if (minedNode)
         {
             StartCoroutine(CoBoxSpawn(minedNode.resourceValue));

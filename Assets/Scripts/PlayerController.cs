@@ -22,9 +22,9 @@ public class PlayerController : MonoBehaviour {
     private static string JUMPING_BOOL_STRING = "isJumping";
     private static string HOLDING_ITEM_BOOL_STRING = "isHoldingItem";
 
-    [HideInInspector] public bool holdingItem;
+    [HideInInspector] public bool holdingItem; //if the player is holding item
     [HideInInspector] public bool hitButton = false;
-    [HideInInspector] public bool pickedUpItem = false;
+    [HideInInspector] public bool pickedUpItem = false; // if the player picked up an item that frame
     public float playerSpeed;
     public float playerAirControllSpeed = 4;
     public float jumpHeight = 7;
@@ -187,6 +187,7 @@ public class PlayerController : MonoBehaviour {
             {
                 Chunk chunk = GetComponentInChildren<Chunk>(true);
                 chunk.ThrowItem(throwStrength);
+                DisableHoldingItem();
             }
             else if (GetComponentInChildren<MiningRig>(true))
             {
@@ -287,7 +288,7 @@ public class PlayerController : MonoBehaviour {
 
     public void WeightUpdate()
     {
-        if (pickedUpItem == true)
+        if (holdingItem)
         {
             basePlayerSpeed = basePlayerSpeed / holdCoefficient;
             playerAirControllSpeed = playerAirControllSpeed / holdCoefficient;
