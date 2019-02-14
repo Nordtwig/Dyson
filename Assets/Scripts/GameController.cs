@@ -87,6 +87,8 @@ public class GameController : MonoBehaviour
         else
         {
             instance = this;
+            nodes = new List<GameObject>();
+
             DontDestroyOnLoad(instance);
 
             instance.enabled = true;
@@ -102,7 +104,6 @@ public class GameController : MonoBehaviour
             IncrementPhase();
             UpdateCredits(0);
         }
-        nodes = new List<GameObject>();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
