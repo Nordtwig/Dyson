@@ -39,7 +39,7 @@ public abstract class PickupableObject : MonoBehaviour
     public virtual void ThrowItem(float throwStrength)
     {
         DropItem();
-        rb.velocity = player.model.transform.TransformDirection(Vector3.forward * player.playerSpeed) + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 10 * throwStrength);
+        rb.velocity = player.model.transform.TransformDirection(Vector3.forward * player.playerSpeed) + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 15 * throwStrength);
     }
 
     protected abstract void OnCollisionEnter(Collision collision);
