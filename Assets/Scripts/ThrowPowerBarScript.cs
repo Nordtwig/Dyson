@@ -38,7 +38,7 @@ public class ThrowPowerBarScript : MonoBehaviour
 		if (holdingItem)
 		{
             SetEnableThrowBackground(true);
-            throwPowerBar.value = (eTime - 0.5f) / 1f; // powerBarMax
+            throwPowerBar.value = (eTime - 0.5f) / 0.5f; // powerBarMax
 		}
 	}
 

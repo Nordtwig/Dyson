@@ -123,7 +123,7 @@ public class StoreWindow : MonoBehaviour
         if (CheckAffordability(PortableShieldCost))
         {
             player = FindObjectOfType<PlayerController>();
-            Instantiate(portableShield, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
+            Instantiate(portableShield, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4 + player.transform.TransformDirection(Vector3.up) * 4, transform.rotation, null);
             Debug.Log("Buying portableShield");
         }
         else
