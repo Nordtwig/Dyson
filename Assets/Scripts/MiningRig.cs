@@ -183,17 +183,8 @@ public class MiningRig : PickupableObject
         }
     }
 
-    //If exiting node collider, change color to red
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Node")
-        {
-            animator.SetBool("OnNodeDeploy", false);
-            animator.SetBool("OnPickUp", true);
-            minedNode = null;
-            rigStatusRend.material.color = Color.red;
-        }
-
         if (other.tag == "Sanctuary")
         {
             shielded = false;
@@ -281,7 +272,7 @@ public class MiningRig : PickupableObject
     //Ejects a boc in a random direction from the MiningRig
     public void EjectChunk()
     {
-        Chunk newChunk = Instantiate(chunk, transform.position + transform.TransformDirection(Vector3.up * 3), Quaternion.identity).GetComponent<Chunk>();
+        Chunk newChunk = Instantiate(chunk, transform.position + transform.TransformDirection(Vector3.up * 5), Quaternion.identity).GetComponent<Chunk>();
 
         if (minedNode.materialType == GameController.MetalVarieties.CINNABAR)
         {
