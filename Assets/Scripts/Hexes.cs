@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Hexes : MonoBehaviour
 {
+    private GameController gameController;
     public GameObject Phase2Hexes;
     public GameObject Phase3Hexes;
     public GameObject Phase4Hexes;
 
     void Start()
     {
+        gameController = FindObjectOfType<GameController>();
         Phase2Hexes.SetActive(false);
         Phase3Hexes.SetActive(false);
         Phase4Hexes.SetActive(false);
@@ -17,18 +19,18 @@ public class Hexes : MonoBehaviour
 
     void Update()
     {
-        if (GetComponent<GameController>().currentPhase == 2)
+        if (gameController.currentPhase == 2)
         {
             Phase2Hexes.SetActive(true);
         }
 
-        if (GetComponent<GameController>().currentPhase == 3)
+        if (gameController.currentPhase == 3)
         {
             Phase2Hexes.SetActive(true);
             Phase3Hexes.SetActive(true);
         }
 
-        if (GetComponent<GameController>().currentPhase == 4)
+        if (gameController.currentPhase == 4)
         {
             Phase2Hexes.SetActive(true);
             Phase3Hexes.SetActive(true);
