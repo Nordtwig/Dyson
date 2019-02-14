@@ -9,13 +9,6 @@ public class PauseMenuWindowVisuals : MonoBehaviour
 
     public CameraFollow cameraFollow;
 
-
-    //private void Start()
-    //{
-    //    GameController.instance.state = GameController.GameControllerState.GAME;
-    //    Cursor.visible = false;
-    //}
-
     public void OnEnable()
     {
         Cursor.visible = true;

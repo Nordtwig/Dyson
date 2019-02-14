@@ -43,7 +43,7 @@ public class InteractionZone : MonoBehaviour
         else if (other.tag == "Chunk" && !player.GetComponent<PlayerController>().holdingItem)
         {
             player.GetComponent<PlayerController>().pickedUpItem = true;
-            other.gameObject.GetComponent<Chunk>().PickUpChunk();
+            other.gameObject.GetComponent<Chunk>().PickUpItem();
             audioManager.Play("Pickup");
         }
         else if (other.tag == "SanctuaryHolder" && !player.GetComponent<PlayerController>().holdingItem)

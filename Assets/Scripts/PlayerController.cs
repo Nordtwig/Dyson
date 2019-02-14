@@ -35,9 +35,12 @@ public class PlayerController : MonoBehaviour {
     Vector3 airMoveDirection = Vector3.zero;
     private float timeOfJump = 0;
     public float holdCoefficient = 1.5f;
-    GameObject heldBox;
-    GameObject heldRig;
-    GameObject heldSanctuary;
+    [SerializeField] GameObject heldBox;
+    [SerializeField] GameObject heldRig;
+    [SerializeField] GameObject heldTungstenChunk;
+    [SerializeField] GameObject heldCobaltChunk;
+    [SerializeField] GameObject heldCinnabarChunk;
+    [SerializeField] GameObject heldSanctuary;
 
     Animator astronautController;
 
@@ -50,14 +53,7 @@ public class PlayerController : MonoBehaviour {
         basePlayerSpeed = playerSpeed;
         astronautController = transform.GetComponentInChildren<Animator>();
 
-
-        heldRig = GameObject.Find("HoldingRig");
-        heldBox = GameObject.Find("HoldingBox");
-        heldSanctuary = GameObject.Find("HoldingSanctuary");
-
-        heldRig.gameObject.SetActive(false);
-        heldBox.gameObject.SetActive(false);
-        heldSanctuary.gameObject.SetActive(false);
+        DisableHoldingItem();
     }
 
     public void PlayerMove(float moveX, float moveY)
@@ -260,11 +256,32 @@ public class PlayerController : MonoBehaviour {
         SetHoldingItem(set);
     }
 
+    public void SetEnableHoldingChunkTungsten(bool set)
+    {
+        heldTungstenChunk.SetActive(set);
+        SetHoldingItem(set);
+    }
+
+    public void SetEnableHoldingChunkCobalt(bool set)
+    {
+        heldCobaltChunk.SetActive(set);
+        SetHoldingItem(set);
+    }
+
+    public void SetEnableHoldingChunkCinnabar(bool set)
+    {
+        heldCinnabarChunk.SetActive(set);
+        SetHoldingItem(set);
+    }
+
     private void DisableHoldingItem()
     {
         heldBox.SetActive(false);
         heldSanctuary.SetActive(false);
         heldRig.SetActive(false);
+        heldTungstenChunk.SetActive(false);
+        heldCobaltChunk.SetActive(false);
+        heldCinnabarChunk.SetActive(false);
         SetHoldingItem(false);
     }
 

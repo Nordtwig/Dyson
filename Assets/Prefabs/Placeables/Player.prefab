@@ -259,6 +259,13 @@ MonoBehaviour:
   jumpHeight: 10
   basePlayerSpeed: 0
   grounded: 0
+  holdCoefficient: 1.5
+  heldBox: {fileID: 761568809262408819}
+  heldRig: {fileID: 7525338011538564378}
+  heldTungstenChunk: {fileID: 5368346064563891514}
+  heldCobaltChunk: {fileID: 7435341729798380661}
+  heldCinnabarChunk: {fileID: 2639087424066250216}
+  heldSanctuary: {fileID: 1878537930995668507}
 --- !u!114 &6513087753959887819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,10 +1180,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 761568809262408821}
     m_Modifications:
-    - target: {fileID: 100000, guid: dde8827513e94b349926836827c19e4f, type: 3}
-      propertyPath: m_Name
-      value: CrateGold0125
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dde8827513e94b349926836827c19e4f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -1220,6 +1223,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: dde8827513e94b349926836827c19e4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dde8827513e94b349926836827c19e4f, type: 3}
+      propertyPath: m_Name
+      value: CrateGold0125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde8827513e94b349926836827c19e4f, type: 3}
@@ -1317,16 +1324,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7525338011538564454}
     m_Modifications:
-    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
-        type: 3}
-      propertyPath: m_Name
-      value: MiningRigModel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 7113046083515003266, guid: 3ddcc190e2278544f9458a2b9c6be41b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1381,6 +1378,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
+        type: 3}
+      propertyPath: m_Name
+      value: MiningRigModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944890366690791633, guid: 3ddcc190e2278544f9458a2b9c6be41b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ddcc190e2278544f9458a2b9c6be41b, type: 3}

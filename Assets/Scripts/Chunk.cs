@@ -28,11 +28,21 @@ public class Chunk : PickupableObject
     }
 
     //Chunk is parented to player and disabled for transport, player holdingItem bool sets to true
-    public void PickUpChunk()
+    public override void PickUpItem()
     {
-        player.GetComponent<PlayerController>().SetHoldingItem(true);
-        transform.SetParent(player.transform);
-        gameObject.SetActive(false);
+        base.PickUpItem();
+        if (chunkType == GameController.MetalVarieties.CINNABAR)
+        {
+            player.SetEnableHoldingChunkCinnabar(true);
+        }
+        else if (chunkType == GameController.MetalVarieties.TUNGSTEN)
+        {
+            player.SetEnableHoldingChunkTungsten(true);
+        }
+        else if (chunkType == GameController.MetalVarieties.COBALT)
+        {
+            player.SetEnableHoldingChunkCobalt(true);
+        }
     }
 
     protected override void OnCollisionEnter(Collision collision)

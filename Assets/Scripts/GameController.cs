@@ -86,13 +86,10 @@ public class GameController : MonoBehaviour
 
         else
         {
-            if (!instance)
-            {
-                instance = this;
-                DontDestroyOnLoad(instance);
+            instance = this;
+            DontDestroyOnLoad(instance);
 
-                instance.enabled = true;
-            }
+            instance.enabled = true;
         }
     }
 
