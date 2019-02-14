@@ -125,7 +125,8 @@ public class InputController : MonoBehaviour
             {
 				throwBar.ThrowPowerBarUpdate(0, player.holdingItem);
                 player.ThrowItem(Mathf.Clamp(eTime, 0, 1.5f));
-			}
+                ThrowPowerBarScript.instance.SetEnableThrowBackground(false);
+            }
 			eTime = 0;
         }
         
