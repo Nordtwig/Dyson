@@ -2040,7 +2040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchoredPosition: {x: 30, y: -20}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &4858451125237858947
@@ -4171,7 +4171,7 @@ MonoBehaviour:
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -4772,7 +4772,7 @@ MonoBehaviour:
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -5946,11 +5946,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4858451125839042924}
     m_Modifications:
-    - target: {fileID: 4920326477392047259, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
-        type: 3}
-      propertyPath: m_Name
-      value: CreditsText
-      objectReference: {fileID: 0}
     - target: {fileID: 4920326477392047256, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6055,6 +6050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920326477392047259, guid: 671ccc8c7e7c01e408cd845cd0a681bc,
+        type: 3}
+      propertyPath: m_Name
+      value: CreditsText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 671ccc8c7e7c01e408cd845cd0a681bc, type: 3}
