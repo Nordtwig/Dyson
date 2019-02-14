@@ -120,7 +120,8 @@ public class InputController : MonoBehaviour
             {
 				throwBar.ThrowPowerBarUpdate(0, player.holdingItem);
                 player.PlayerInteraction();
-			}
+                ThrowPowerBarScript.instance.SetEnableThrowBackground(false);
+            }
             else
             {
 				throwBar.ThrowPowerBarUpdate(0, player.holdingItem);
