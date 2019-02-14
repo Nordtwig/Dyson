@@ -9,11 +9,27 @@ using UnityEngine.UI;
 public class ThrowPowerBarScript : MonoBehaviour
 {
 	private Slider throwPowerBar;
+    [SerializeField] GameObject throwBarBackground;
+
+    public static ThrowPowerBarScript instance;
+
+    private void Awake()
+    {
+        if (instance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            instance.enabled = true;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-		throwPowerBar = GetComponent<Slider>();
+        throwPowerBar = GetComponent<Slider>();
 		throwPowerBar.value = 0;
 	}
 
@@ -21,7 +37,13 @@ public class ThrowPowerBarScript : MonoBehaviour
 	{
 		if (holdingItem)
 		{
-			throwPowerBar.value = (eTime - 0.5f) / 1f; // powerBarMax
+            SetEnableThrowBackground(true);
+            throwPowerBar.value = (eTime - 0.5f) / 1f; // powerBarMax
 		}
 	}
+
+    public void SetEnableThrowBackground(bool set)
+    {
+        throwBarBackground.SetActive(set);
+    }
 }

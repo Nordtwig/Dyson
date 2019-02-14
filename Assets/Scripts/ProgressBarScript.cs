@@ -20,7 +20,15 @@ public class ProgressBarScript : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            instance.enabled = true;
+        }
     }
 
     void Start()
