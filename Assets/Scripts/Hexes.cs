@@ -8,6 +8,7 @@ public class Hexes : MonoBehaviour
     public GameObject Phase2Hexes;
     public GameObject Phase3Hexes;
     public GameObject Phase4Hexes;
+    public GameObject Phase5Hexes;
 
     void Start()
     {
@@ -15,6 +16,7 @@ public class Hexes : MonoBehaviour
         Phase2Hexes.SetActive(false);
         Phase3Hexes.SetActive(false);
         Phase4Hexes.SetActive(false);
+        Phase5Hexes.SetActive(true);
     }
 
     void Update()
@@ -35,6 +37,14 @@ public class Hexes : MonoBehaviour
             Phase2Hexes.SetActive(true);
             Phase3Hexes.SetActive(true);
             Phase4Hexes.SetActive(true);
+        }
+
+        if (gameController.currentPhase == 5)
+        {
+            Phase2Hexes.SetActive(true);
+            Phase3Hexes.SetActive(true);
+            Phase4Hexes.SetActive(true);
+            Phase5Hexes.SetActive(true);
         }
     }
 }
