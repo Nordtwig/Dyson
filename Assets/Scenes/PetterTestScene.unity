@@ -2519,11 +2519,6 @@ PrefabInstance:
       propertyPath: m_FontData.m_MaxSize
       value: 80
       objectReference: {fileID: 0}
-    - target: {fileID: 7207147421368121807, guid: b7b3d87d6c351b941abf72584b023b07,
-        type: 3}
-      propertyPath: throwBarBackground
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7207147422405088616, guid: b7b3d87d6c351b941abf72584b023b07,
         type: 3}
       propertyPath: m_CullTransparentMesh
