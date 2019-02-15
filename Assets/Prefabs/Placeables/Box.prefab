@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationFreeze: 1
-  fallingSpeed: 2
+  fallingSpeed: 3
 --- !u!54 &2968500262769446224
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356bd400ca8b1634f9543ec37d1dd010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1001 &710621846038594475
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -173,7 +173,7 @@ MonoBehaviour:
     type: 3}
   miningNode: {fileID: 7775921593420297019, guid: a1b933bfd92647c45998bf6ae36e7d3e,
     type: 3}
-  randomNodeSpawnChance: 0.05
+  randomNodeSpawnChance: 0.03
   asteroidLayer:
     serializedVersion: 2
     m_Bits: 512
