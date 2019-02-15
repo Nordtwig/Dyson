@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 62104d0efbd876e429690e61da267854
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - miningNode: {instanceID: 0}
+  - MetroidImpactVFX: {instanceID: 0}
+  - dangerZone: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
