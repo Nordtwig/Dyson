@@ -83,19 +83,19 @@ MonoBehaviour:
   - totalTimeInPhase: 0
     phaseBoxAmount: 0
     timeBetweenMeteroids: 0
-  - totalTimeInPhase: 300
+  - totalTimeInPhase: 200
     phaseBoxAmount: 2
     timeBetweenMeteroids: 2
-  - totalTimeInPhase: 300
+  - totalTimeInPhase: 240
     phaseBoxAmount: 4
     timeBetweenMeteroids: 1
-  - totalTimeInPhase: 180
+  - totalTimeInPhase: 150
     phaseBoxAmount: 2
     timeBetweenMeteroids: 0.5
-  - totalTimeInPhase: 240
+  - totalTimeInPhase: 180
     phaseBoxAmount: 3
     timeBetweenMeteroids: 1
-  - totalTimeInPhase: 360
+  - totalTimeInPhase: 300
     phaseBoxAmount: 5
     timeBetweenMeteroids: 0.8
   cobaltCount: 0
