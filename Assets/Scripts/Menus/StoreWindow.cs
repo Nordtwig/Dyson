@@ -110,6 +110,7 @@ public class StoreWindow : MonoBehaviour
             player = FindObjectOfType<PlayerController>();
             Instantiate(miningRig, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4, transform.rotation, null);
             Debug.Log("Buying miningRig");
+            AudioManager.instance.Play("Store Buy");
         }
         else
         {
@@ -125,6 +126,7 @@ public class StoreWindow : MonoBehaviour
             player = FindObjectOfType<PlayerController>();
             Instantiate(portableShield, player.transform.position + player.transform.TransformDirection(Vector3.forward) * 4 + player.transform.TransformDirection(Vector3.up) * 4, transform.rotation, null);
             Debug.Log("Buying portableShield");
+            AudioManager.instance.Play("Store Buy");
         }
         else
         {
@@ -139,6 +141,7 @@ public class StoreWindow : MonoBehaviour
         if (playerCredits >= equipmentCost)
         {
             FindObjectOfType<GameController>().UpdateCredits(-equipmentCost);
+            AudioManager.instance.Play("Store Buy");
             return true;
         }
         else return false;
@@ -148,6 +151,7 @@ public class StoreWindow : MonoBehaviour
     {
         iTween.PunchPosition(creditsText, Random.insideUnitCircle * 15f, 0.3f);
         iTween.PunchScale(creditsText, Random.insideUnitCircle * 1.5f, 0.3f);
+        AudioManager.instance.Play("Store Error");
     }
 
     public void SetTopText(string text)
@@ -203,6 +207,7 @@ public class StoreWindow : MonoBehaviour
         }
 
         else Debug.Log("The upgradeType-string you are looking for is " + upgradeType);
+        AudioManager.instance.Play("Store Buy");
     }
 
     public IEnumerator GainCreditsPopUp(int amountGained)

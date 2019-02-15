@@ -10,6 +10,7 @@ public class StoreWindowVisuals : MonoBehaviour
 {
     private float originalCameraSpeedH;
     private float originalCameraSpeedV;
+    private bool firstDisable = true;
 
     public CameraFollow cameraFollow;
 
@@ -24,6 +25,7 @@ public class StoreWindowVisuals : MonoBehaviour
     {
         GameController.instance.state = GameController.GameControllerState.STOREWINDOW;
         Cursor.visible = true;
+        AudioManager.instance.Play("Menu Open");
 
 
         //originalCameraSpeedH = cameraFollow.speedH;
@@ -40,5 +42,7 @@ public class StoreWindowVisuals : MonoBehaviour
         GameController.instance.state = GameController.GameControllerState.GAME;
         Cursor.visible = false;
         FindObjectOfType<StoreWindow>().ResetStoreWindow();
+        if (!firstDisable) AudioManager.instance.Play("Menu Close");
+        else firstDisable = false;
     }
 }
