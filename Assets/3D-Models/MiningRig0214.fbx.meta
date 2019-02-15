@@ -267,8 +267,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: BodyMtrl
+    second: {fileID: 2100000, guid: 8b5aa598d5d804c4e84019d9c2356000, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorMtrl
+    second: {fileID: 2100000, guid: d1cd61403091f5743b62c0a70f653726, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: LightRampMtrl
-    second: {fileID: 2100000, guid: 673e830078a8e8c43bda7aeb79cef3d1, type: 2}
+    second: {fileID: 2100004, guid: 88b9c575c5f4c094d9550285c145c5d1, type: 3}
   materials:
     importMaterials: 1
     materialName: 0

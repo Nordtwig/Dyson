@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7f390dfc602a44192a1d9c79fc45cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpawnCount: 50
+  initialSpawnCount: 20
   closeSpawnCount: 5
   asteroidLayer:
     serializedVersion: 2

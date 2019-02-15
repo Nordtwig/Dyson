@@ -124,3 +124,68 @@ MonoBehaviour:
     mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
       type: 2}
     source: {fileID: 0}
+  - name: Store Error
+    clip: {fileID: 8300000, guid: ab282b3ce6cbcbb48adee8cfd70a42f0, type: 3}
+    volume: 1
+    volumeVariance: 0.01
+    pitch: 1
+    pitchVariance: 0.01
+    spatialBlend: 0
+    sound3d: 0
+    playOnAwake: 0
+    loop: 0
+    mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+      type: 2}
+    source: {fileID: 0}
+  - name: Store Buy
+    clip: {fileID: 8300000, guid: 09df3e7a21cbfea44bdab8fda9390531, type: 3}
+    volume: 1
+    volumeVariance: 0.01
+    pitch: 1
+    pitchVariance: 0.01
+    spatialBlend: 0
+    sound3d: 0
+    playOnAwake: 0
+    loop: 0
+    mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+      type: 2}
+    source: {fileID: 0}
+  - name: Button Press
+    clip: {fileID: 8300000, guid: ef3e8ab392f7042438215944add07809, type: 3}
+    volume: 1
+    volumeVariance: 0.01
+    pitch: 1
+    pitchVariance: 0.2
+    spatialBlend: 0
+    sound3d: 0
+    playOnAwake: 0
+    loop: 0
+    mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+      type: 2}
+    source: {fileID: 0}
+  - name: Menu Open
+    clip: {fileID: 8300000, guid: 232e68edd90c939429c06b2a24a154f4, type: 3}
+    volume: 1
+    volumeVariance: 0.01
+    pitch: 1
+    pitchVariance: 0.01
+    spatialBlend: 0
+    sound3d: 0
+    playOnAwake: 0
+    loop: 0
+    mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+      type: 2}
+    source: {fileID: 0}
+  - name: Menu Close
+    clip: {fileID: 8300000, guid: 7dc2e4049e9f69548a63bdbebd4cbde0, type: 3}
+    volume: 1
+    volumeVariance: 0.01
+    pitch: 1
+    pitchVariance: 0.01
+    spatialBlend: 0
+    sound3d: 0
+    playOnAwake: 0
+    loop: 0
+    mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+      type: 2}
+    source: {fileID: 0}
