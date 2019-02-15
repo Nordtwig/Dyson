@@ -94,7 +94,7 @@ public class MiningNode : MonoBehaviour
 	{
 		if (materialType == GameController.MetalVarieties.CINNABAR)
 		{
-            resourceValue = UnityEngine.Random.Range(1, 4);
+            resourceValue = UnityEngine.Random.Range(2, 5);
 			foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>()) 
             {
                 m.material = GameController.instance.metalMaterials[0];
@@ -103,7 +103,7 @@ public class MiningNode : MonoBehaviour
 		}
 		else if (materialType == GameController.MetalVarieties.TUNGSTEN)
 		{
-            resourceValue = UnityEngine.Random.Range(2, 6);
+            resourceValue = UnityEngine.Random.Range(3, 7);
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
             {
                 m.material = GameController.instance.metalMaterials[1];
@@ -121,7 +121,7 @@ public class MiningNode : MonoBehaviour
         }
         else if (materialType == GameController.MetalVarieties.MIXED)
 		{
-            resourceValue = UnityEngine.Random.Range(5, 10);
+            resourceValue = UnityEngine.Random.Range(5, 11);
             int i = 0;
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
             {
