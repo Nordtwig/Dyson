@@ -313,6 +313,7 @@ public class GameController : MonoBehaviour
     public void MainMenu()
     {
         instance.state = GameControllerState.MAINMENU;
+        Cursor.visible = true;
         SceneManager.LoadScene(0);
     }
     

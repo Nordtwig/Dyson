@@ -1418,12 +1418,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ea88f3277f1ae545942ff9fff91d817, type: 3}
---- !u!1 &1573078683 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7207147422405088619, guid: b7b3d87d6c351b941abf72584b023b07,
-    type: 3}
-  m_PrefabInstance: {fileID: 1808271499}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1694070615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,36 +1965,6 @@ PrefabInstance:
     - target: {fileID: 3030203168931772476, guid: b7b3d87d6c351b941abf72584b023b07,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7207147421368121805, guid: b7b3d87d6c351b941abf72584b023b07,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 58.400024
-      objectReference: {fileID: 0}
-    - target: {fileID: 7207147421368121805, guid: b7b3d87d6c351b941abf72584b023b07,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 21.199951
-      objectReference: {fileID: 0}
-    - target: {fileID: 7207147421368121807, guid: b7b3d87d6c351b941abf72584b023b07,
-        type: 3}
-      propertyPath: throwBarBackground
-      value: 
-      objectReference: {fileID: 1573078683}
-    - target: {fileID: 4837203570741578700, guid: b7b3d87d6c351b941abf72584b023b07,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305196932079781246, guid: b7b3d87d6c351b941abf72584b023b07,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9175546792820428922, guid: b7b3d87d6c351b941abf72584b023b07,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

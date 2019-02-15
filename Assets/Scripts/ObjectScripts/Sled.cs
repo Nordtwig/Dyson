@@ -55,10 +55,12 @@ public class Sled : MonoBehaviour
             yield return new WaitForSeconds(1f);
             sledLaunch.Play();
             GameController.instance.timeText.text = "Launch!";
+            rb.useGravity = false;
             rb.velocity = transform.TransformDirection(Vector3.forward * launchSpeed);
             yield return new WaitForSeconds(1f);
             GameController.instance.hijackedTimerText = false;
             yield return new WaitForSeconds(9f);
+            rb.useGravity = true;
             transform.position = sledStartPosition;
             transform.rotation = sledStartRotation;
             rb.velocity = Vector3.zero;
