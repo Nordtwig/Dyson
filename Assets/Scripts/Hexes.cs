@@ -16,7 +16,7 @@ public class Hexes : MonoBehaviour
         Phase2Hexes.SetActive(false);
         Phase3Hexes.SetActive(false);
         Phase4Hexes.SetActive(false);
-        Phase5Hexes.SetActive(true);
+        Phase5Hexes.SetActive(false);
     }
 
     void Update()
