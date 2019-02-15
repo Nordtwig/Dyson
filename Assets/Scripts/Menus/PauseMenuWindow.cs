@@ -26,7 +26,11 @@ public class PauseMenuWindow : MonoBehaviour
     public void Start()
     {
         fullscreenToggle.isOn = Screen.fullScreen;
+        musicVolumeSlider.value = FindObjectOfType<AudioManager>().GetMusicVolume();
+        soundVolumeSlider.value = FindObjectOfType<AudioManager>().GetSoundVolume();
     }
+
+    
 
     public void RestartGame()
     {
@@ -37,6 +41,7 @@ public class PauseMenuWindow : MonoBehaviour
     public void GoToMainMenu()
     {
         GameController.instance.MainMenu();
+        Cursor.visible = true;
     }
 
     public void QuitGame()

@@ -22,7 +22,7 @@ public class MissionPresets : MonoBehaviour
     public Text currentMission;
 
     public void Easy() {
-        currentMission.text = "Current Mission: Easy";
+        currentMission.text = "Difficulty: Easy";
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsEasy.Length];
         GameController.instance.playerCredits = playerCreditsEasy;
 
@@ -34,7 +34,7 @@ public class MissionPresets : MonoBehaviour
         }
     }
     public void Medium() {
-        currentMission.text = "Current Mission: Medium";
+        currentMission.text = "Difficulty: Medium";
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsMedium.Length];
         GameController.instance.playerCredits = playerCreditsMedium;
 
@@ -46,7 +46,7 @@ public class MissionPresets : MonoBehaviour
         }
     }
     public void Hard() {
-        currentMission.text = "Current Mission: Hard";
+        currentMission.text = "Difficulty: Hard";
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsHard.Length];
         GameController.instance.playerCredits = playerCreditsHard;
 

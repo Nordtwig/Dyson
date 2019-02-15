@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RobinTestScene.unity
     guid: 464b3f6d802ab1f48aa2a53c213f119f
-  - enabled: 1
-    path: Assets/Scenes/Main.unity
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/94169140c2b63c54397ad773634cdb28
     guid: 94169140c2b63c54397ad773634cdb28
   m_configObjects: {}

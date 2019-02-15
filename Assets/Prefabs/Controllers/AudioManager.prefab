@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
     type: 2}
+  audioMixer: {fileID: 24100000, guid: e01f830518fc69b4fa6b08bb0a2a5105, type: 2}
   sounds:
   - name: Pickup
     clip: {fileID: 8300000, guid: 0e9d93ab24fed65418456694edc3728e, type: 3}
