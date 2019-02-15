@@ -2078,6 +2078,21 @@ PrefabInstance:
       propertyPath: throwBarBackground
       value: 
       objectReference: {fileID: 1573078683}
+    - target: {fileID: 4837203570741578700, guid: b7b3d87d6c351b941abf72584b023b07,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3305196932079781246, guid: b7b3d87d6c351b941abf72584b023b07,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9175546792820428922, guid: b7b3d87d6c351b941abf72584b023b07,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7b3d87d6c351b941abf72584b023b07, type: 3}
 --- !u!1 &1828345222
