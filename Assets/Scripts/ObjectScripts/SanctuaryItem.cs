@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SanctuaryItem : PickupableObject
 {
+
+    Animator shieldController;
+
     public override void PickUpItem()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 10);
@@ -14,9 +17,13 @@ public class SanctuaryItem : PickupableObject
                 hitColliders[i].transform.GetComponent<MiningRig>().shielded = false;
             }
         }
-
         base.PickUpItem(); 
         player.SetEnableHoldingSanctuary(true);
+    }
+
+    private void OnEnable() {
+        shieldController = transform.GetComponentInChildren<Animator>();
+        shieldController.SetBool("IsDeployed", true);
     }
 
     protected override void OnCollisionEnter(Collision collision)
