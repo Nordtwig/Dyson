@@ -160,7 +160,7 @@ public class StoreWindow : MonoBehaviour
         if (upgradeType == "Air Control")
         {
             currentAirControlLevel = upgradeIndex;
-            FindObjectOfType<PlayerController>().playerAirControllSpeed *= 1.3f;
+            FindObjectOfType<PlayerController>().playerAirControllSpeed *= 1.2f;
             Debug.Log("Air Control upgrade has been applied, it's now at level " + upgradeIndex);
             Debug.Log("Air control is now " + FindObjectOfType<PlayerController>().playerAirControllSpeed);
         }
@@ -168,7 +168,7 @@ public class StoreWindow : MonoBehaviour
         else if (upgradeType == "Movement Speed")
         {
             currentMovementSpeedLevel = upgradeIndex;
-            FindObjectOfType<PlayerController>().basePlayerSpeed *= 1.2f;
+            FindObjectOfType<PlayerController>().basePlayerSpeed *= 1.1f;
             Debug.Log("Movement Speed upgrade has been applied, it's now at level " + upgradeIndex);
             Debug.Log("basePlayerSpeed is now " + FindObjectOfType<PlayerController>().basePlayerSpeed);
         }
