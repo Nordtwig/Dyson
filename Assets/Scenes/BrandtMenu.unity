@@ -610,5 +610,106 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 444c4085e941952458bec6ef84fff9f5,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: d2ec1a9e644652e42b9e508f99303cde,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e160bcc2f45e6b448e7c6905c8e404c,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: fd8bd73a396e7494585a7eb6c00844f3,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: bb9b538c1612de14a8c0d15446acf6ea,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: bb3a0f1d9e6e83940b86c65192676051,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[9]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7331ce5611faf77459b5b6cda6fd3a81,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[10]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7af81f12d58051a41866fdeff6a63771,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[11]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3e213ec94f47431418a22dfc554b5c14,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[12]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b5d8a90d0bf3f347ba0450e717723eb,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[13]
+      value: 
+      objectReference: {fileID: 21300000, guid: 54628a45e706cba469eaa8bb91235f03,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[14]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1f4fb38b19a08034a844792b7d731039,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[15]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41ff66a5b2f5825438d547fd3a552d3c,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: aa2910049c57bb3428771a7f7da70358,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f47fd9932d351441ba89e8a3fdd19d7,
+        type: 3}
+    - target: {fileID: 7859489822273768147, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: howToPlayImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: eb9f4ad419ecf6d44a02a401e334efa2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f4ab38949eb144cb92624d4c637daf, type: 3}
