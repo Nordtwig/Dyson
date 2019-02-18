@@ -117,7 +117,7 @@ public class Fabricator : MonoBehaviour
             else if (randomMaterial == GameController.MetalVarieties.TUNGSTEN)
             {
                 visualChunks[i].GetComponent<SpriteRenderer>().material = GameController.instance.metalMaterials[1];
-                SpotLights[i].color = Color.yellow;
+                SpotLights[i].color = new Color(1, 170/255f, 0);
             }
         }
     }

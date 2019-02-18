@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -102,7 +102,6 @@ public class GameController : MonoBehaviour
             phaseSpecifics = testingSpecifics;
             StartUp();
             IncrementPhase();
-            UpdateCredits(0);
         }
     }
 
@@ -111,7 +110,6 @@ public class GameController : MonoBehaviour
         if (scene.name == "RobinTestScene") {
             StartUp();
             IncrementPhase();
-            UpdateCredits(0);
         }
     }
 
@@ -134,6 +132,7 @@ public class GameController : MonoBehaviour
 
         player = FindObjectOfType<PlayerController>();
         AudioManager.instance.Play("Ambience");
+        UpdateCredits(0);
         //AudioManager.instance.Play("Music Long");
 
 
@@ -285,37 +284,37 @@ public class GameController : MonoBehaviour
 
     // =======================================================================================
 
-    public void StartCoRestart()
+    public void Restart()
     {
         StopAllCoroutines();
-        StartCoroutine(CoRestart());
-    } 
-
-
-    private IEnumerator CoRestart()
-    {
-        Debug.Log("Reached restart enumerator");
+        nodes.Clear();
         DestroyAll();
         currentPhase = 0;
         totalTimeInPhase = 0;
         boxAmount = 0;
         int sceneAtm = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneAtm);
-        state = GameControllerState.NULL;
-        yield return new WaitForSeconds(1);
-        Debug.Log("reached GameController reset");
-        state = GameControllerState.GAME;
-        StartUp();
-        IncrementPhase();
+    } 
+
+    public void StartCoMainMenu()
+    {
+        StopAllCoroutines();
+        StartCoroutine(CoMainMenu());
+    }
+
+    public IEnumerator CoMainMenu()
+    {
+        nodes.Clear();
+        SceneManager.LoadScene(0);
+        state = GameControllerState.MAINMENU;
+        yield return new WaitForEndOfFrame();
+        state = GameControllerState.MAINMENU;
+        yield return new WaitForSeconds(0.5f);
+        Cursor.visible = true;
+        state = GameControllerState.MAINMENU;
         yield return null;
     }
 
-    public void MainMenu()
-    {
-        instance.state = GameControllerState.MAINMENU;
-        SceneManager.LoadScene(0);
-    }
-    
     public void Quit()
     {
         Application.Quit();

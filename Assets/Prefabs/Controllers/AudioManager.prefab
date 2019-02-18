@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixerGroup: {fileID: 243570700261889338, guid: e01f830518fc69b4fa6b08bb0a2a5105,
     type: 2}
+  audioMixer: {fileID: 24100000, guid: e01f830518fc69b4fa6b08bb0a2a5105, type: 2}
   sounds:
   - name: Pickup
     clip: {fileID: 8300000, guid: 0e9d93ab24fed65418456694edc3728e, type: 3}
@@ -164,8 +165,8 @@ MonoBehaviour:
       type: 2}
     source: {fileID: 0}
   - name: Menu Open
-    clip: {fileID: 8300000, guid: 232e68edd90c939429c06b2a24a154f4, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 95db6d29191d7e846ad372aec0ecc07c, type: 3}
+    volume: 0.5
     volumeVariance: 0.01
     pitch: 1
     pitchVariance: 0.01
@@ -177,8 +178,8 @@ MonoBehaviour:
       type: 2}
     source: {fileID: 0}
   - name: Menu Close
-    clip: {fileID: 8300000, guid: 7dc2e4049e9f69548a63bdbebd4cbde0, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 0bc8af80396909040b8d6fc965ce3332, type: 3}
+    volume: 0.5
     volumeVariance: 0.01
     pitch: 1
     pitchVariance: 0.01

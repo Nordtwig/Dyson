@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 
 /// <summary>
-/// Made by Brackeys, Stolen and Modified by Heimer
+/// Made by Brackeys, Stolen and Modified by Heimer, modified by Svedlund
 /// </summary>
 
 public class AudioManager : MonoBehaviour
@@ -12,8 +12,9 @@ public class AudioManager : MonoBehaviour
 	public static AudioManager instance;
 
 	public AudioMixerGroup mixerGroup;
+    public AudioMixer audioMixer;
 
-	public Sound[] sounds;
+    public Sound[] sounds;
 
 	void Awake()
 	{
@@ -79,6 +80,34 @@ public class AudioManager : MonoBehaviour
         s.source.spatialBlend = s.spatialBlend;
 
         s.source.Play();
+    }
+
+    public float GetMusicVolume()
+    {
+        float value;
+        bool result = audioMixer.GetFloat("musicVolume", out value);
+        if (result)
+        {
+            return value;
+        }
+        else
+        {
+            return 0f;
+        }
+    }
+
+    public float GetSoundVolume()
+    {
+        float value;
+        bool result = audioMixer.GetFloat("soundVolume", out value);
+        if (result)
+        {
+            return value;
+        }
+        else
+        {
+            return 0f;
+        }
     }
 
 }

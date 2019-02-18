@@ -26,17 +26,21 @@ public class PauseMenuWindow : MonoBehaviour
     public void Start()
     {
         fullscreenToggle.isOn = Screen.fullScreen;
+        musicVolumeSlider.value = FindObjectOfType<AudioManager>().GetMusicVolume();
+        soundVolumeSlider.value = FindObjectOfType<AudioManager>().GetSoundVolume();
     }
+
+    
 
     public void RestartGame()
     {
         GetComponentInChildren<PauseMenuWindowVisuals>().gameObject.SetActive(false);
-        GameController.instance.StartCoRestart();
+        GameController.instance.Restart();
     }
 
     public void GoToMainMenu()
     {
-        GameController.instance.MainMenu();
+        GameController.instance.StartCoMainMenu();
     }
 
     public void QuitGame()
