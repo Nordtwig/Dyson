@@ -176,7 +176,7 @@ public class InputController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                GameController.instance.StartCoRestart();
+                GameController.instance.Restart();
             }
 
             if (Input.GetKeyDown(KeyCode.N))
