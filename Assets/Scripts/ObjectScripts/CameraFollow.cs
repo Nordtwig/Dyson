@@ -26,7 +26,7 @@ public class CameraFollow : MonoBehaviour
         anchorPos = GameObject.Find("CameraAnchor").transform;
         rotX = GameObject.Find("RotX").transform;
         asteroid = GameObject.FindGameObjectWithTag("Asteroid").transform;
-
+        gameObject.transform.position = anchorPos.position;
         offset = anchorPos.position - gameObject.transform.position;
     }
 
