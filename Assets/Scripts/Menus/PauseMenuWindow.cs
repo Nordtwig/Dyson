@@ -35,13 +35,12 @@ public class PauseMenuWindow : MonoBehaviour
     public void RestartGame()
     {
         GetComponentInChildren<PauseMenuWindowVisuals>().gameObject.SetActive(false);
-        GameController.instance.StartCoRestart();
+        GameController.instance.Restart();
     }
 
     public void GoToMainMenu()
     {
-        GameController.instance.MainMenu();
-        Cursor.visible = true;
+        GameController.instance.StartCoMainMenu();
     }
 
     public void QuitGame()

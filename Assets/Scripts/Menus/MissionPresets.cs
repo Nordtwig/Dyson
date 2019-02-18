@@ -22,7 +22,6 @@ public class MissionPresets : MonoBehaviour
     public Text currentMission;
 
     public void Easy() {
-        currentMission.text = "Difficulty: Easy";
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsEasy.Length];
         GameController.instance.playerCredits = playerCreditsEasy;
 
@@ -32,9 +31,9 @@ public class MissionPresets : MonoBehaviour
             GameController.instance.phaseSpecifics[i].phaseBoxAmount = phaseSpecificsEasy[i].phaseBoxAmount;
             GameController.instance.phaseSpecifics[i].timeBetweenMeteroids = phaseSpecificsEasy[i].timeBetweenMeteroids;
         }
+        currentMission.text = "Difficulty: Easy";
     }
     public void Medium() {
-        currentMission.text = "Difficulty: Medium";
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsMedium.Length];
         GameController.instance.playerCredits = playerCreditsMedium;
 
@@ -44,9 +43,9 @@ public class MissionPresets : MonoBehaviour
             GameController.instance.phaseSpecifics[i].phaseBoxAmount = phaseSpecificsMedium[i].phaseBoxAmount;
             GameController.instance.phaseSpecifics[i].timeBetweenMeteroids = phaseSpecificsMedium[i].timeBetweenMeteroids;
         }
+        currentMission.text = "Difficulty: Medium";
     }
     public void Hard() {
-        currentMission.text = "Difficulty: Hard";
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsHard.Length];
         GameController.instance.playerCredits = playerCreditsHard;
 
@@ -56,5 +55,6 @@ public class MissionPresets : MonoBehaviour
             GameController.instance.phaseSpecifics[i].phaseBoxAmount = phaseSpecificsHard[i].phaseBoxAmount;
             GameController.instance.phaseSpecifics[i].timeBetweenMeteroids = phaseSpecificsHard[i].timeBetweenMeteroids;
         }
+        currentMission.text = "Difficulty: Hard";
     }
 }

@@ -34,12 +34,6 @@ public class MenuScript : MonoBehaviour
         soundVolumeSlider.value = FindObjectOfType<AudioManager>().GetSoundVolume();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     /*================================== Main Menu ======================================*/
 
     public void QuitGame()
@@ -49,9 +43,9 @@ public class MenuScript : MonoBehaviour
 
     public void PlayGame(string targetScene)
     {
-        if (GameController.instance.phaseSpecifics == null) {
-            MissionPresets missionPresets = FindObjectOfType<MissionPresets>();
-            
+        if (GameController.instance.phaseSpecifics.Length == 0)
+        {
+            FindObjectOfType<MissionPresets>().Medium();
         }
         SceneManager.LoadScene(targetScene);
     }
