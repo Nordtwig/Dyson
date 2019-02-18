@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ca637424ff1d2974c87b7838385e0059
+guid: af36293d463d7f94399a18519e730245
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -115,7 +115,7 @@ ModelImporter:
     400106: side_hatch_01
     400108: upper_hatch_01
     400110: upper_hatch_02
-    2100000: No Name
+    2100000: UVShield
     2300000: bottom_01
     2300002: bottom_02
     2300004: Cylinder001
@@ -184,48 +184,47 @@ ModelImporter:
     3300062: side_hatch_01
     3300064: upper_hatch_01
     3300066: upper_hatch_02
-    4300000: Box001
-    4300002: Cylinder004
-    4300004: Cylinder002
-    4300006: Cylinder001
-    4300008: Cylinder005
-    4300010: Plane001
-    4300012: upper_hatch_01
-    4300014: upper_hatch_02
-    4300016: side_hatch_01
-    4300018: bottom_01
-    4300020: bottom_02
-    4300022: leg_02_01
-    4300024: leg_04_01
-    4300026: foot_01
-    4300028: leg_03_01
-    4300030: Leg_01_01
-    4300032: foot_002
-    4300034: leg_04_002
-    4300036: leg_03_002
-    4300038: leg_02_002
-    4300040: Leg_01_002
-    4300042: foot_003
-    4300044: leg_04_003
-    4300046: leg_03_003
-    4300048: leg_02_003
-    4300050: Leg_01_003
-    4300052: foot_004
-    4300054: leg_04_004
-    4300056: leg_03_004
-    4300058: leg_02_004
-    4300060: Leg_01_004
-    4300062: side_hatch_002
-    4300064: side_hatch_003
-    4300066: side_hatch_004
-    7400000: DeployShield
-    7400002: Folded
+    4300000: PortableShield
+    4300002: Leg_01_01
+    4300004: leg_02_01
+    4300006: leg_03_01
+    4300008: foot_01
+    4300010: leg_04_01
+    4300012: leg_04_002
+    4300014: foot_002
+    4300016: leg_03_002
+    4300018: leg_02_002
+    4300020: Leg_01_002
+    4300022: side_hatch_004
+    4300024: leg_03_003
+    4300026: foot_003
+    4300028: leg_04_003
+    4300030: leg_02_003
+    4300032: Leg_01_003
+    4300034: bottom_02
+    4300036: bottom_01
+    4300038: side_hatch_01
+    4300040: upper_hatch_02
+    4300042: upper_hatch_01
+    4300044: leg_02_004
+    4300046: leg_04_004
+    4300048: foot_004
+    4300050: leg_03_004
+    4300052: Leg_01_004
+    4300054: side_hatch_002
+    4300056: side_hatch_003
+    4300058: Cylinder002
+    4300060: Plane001
+    4300062: Cylinder005
+    4300064: Cylinder001
+    4300066: Cylinder004
+    7400000: Take 001
     9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
+      name: UVShield
     second: {fileID: 2100000, guid: 10bb3da5fd93d6d4a9a2f6e81c106723, type: 2}
   materials:
     importMaterials: 1
@@ -253,63 +252,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: DeployShield
-      takeName: Take 001
-      firstFrame: 0
-      lastFrame: 150
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Folded
-      takeName: Take 001
-      firstFrame: 0
-      lastFrame: 1
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
