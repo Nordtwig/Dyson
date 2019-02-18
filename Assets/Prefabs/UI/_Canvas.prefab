@@ -376,7 +376,7 @@ PrefabInstance:
     - target: {fileID: 4887287482229110620, guid: 530c574117de1e545b50f289b0e15a66,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4887287482229110620, guid: 530c574117de1e545b50f289b0e15a66,
         type: 3}
@@ -1152,78 +1152,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameOverText
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721671525, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721671525, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721671525, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721671525, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721671525, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Button Press
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721671525, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 890806245, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 890806245, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 890806245, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 890806245, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 890806245, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Button Press
-      objectReference: {fileID: 0}
-    - target: {fileID: 890806245, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 392295640, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 392295640, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 392295640, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 392295640, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 392295640, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Button Press
-      objectReference: {fileID: 0}
-    - target: {fileID: 392295640, guid: acc55569f4b0352449fb5e87436ea3d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8305566920040815490, guid: acc55569f4b0352449fb5e87436ea3d6,
         type: 3}
