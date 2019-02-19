@@ -22,8 +22,12 @@ public class MeteroidSpawner : MonoBehaviour
     {
         while (true)
         {
-            newMeteoroid = Instantiate(meteoroid, transform.position, Random.rotation, meteoroids);
-            newMeteoroid.SetActive(true);
+            if (GameController.instance.state == GameController.GameControllerState.GAME)
+            {
+                newMeteoroid = Instantiate(meteoroid, transform.position, Random.rotation, meteoroids);
+                newMeteoroid.SetActive(true);
+            }
+
             yield return new WaitForSeconds(Random.Range(timeBetweenSpawns/2, timeBetweenSpawns*2));
         }
     }
