@@ -28,6 +28,9 @@ public class SanctuaryItem : PickupableObject
 
     protected override void OnCollisionEnter(Collision collision)
     {
-        AudioManager.instance.PlayOnPos("Box Collision", transform);
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            AudioManager.instance.PlayOnPos("Box Collision", transform);
+        }
     }
 }
