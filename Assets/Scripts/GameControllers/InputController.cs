@@ -147,6 +147,12 @@ public class InputController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            ButtonTrigger[] allButtons = FindObjectsOfType<ButtonTrigger>();
+            foreach (ButtonTrigger button in allButtons)
+            {
+                button.ResetScale();
+                Debug.Log("resetting a button");
+            }
             if (GameController.instance.state == GameController.GameControllerState.STOREWINDOW)
             {
                 storeWindow.SetActive(false);
