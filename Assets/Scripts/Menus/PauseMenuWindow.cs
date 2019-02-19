@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Created by: Svedlund
+/// </summary>
+
 public class PauseMenuWindow : MonoBehaviour
 {
     public Toggle fullscreenToggle;

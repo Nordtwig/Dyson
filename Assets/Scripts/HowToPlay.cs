@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Created by: Svedlund
+/// </summary>
+
 public class HowToPlay : MonoBehaviour
 {
     public Button previousButton;

@@ -8,6 +8,7 @@ using UnityEngine.Audio;
 /// <summary>
 /// Christoffer Brandt
 /// Noah Nordqvist
+/// Svedlund
 /// </summary>
 
 public class MenuScript : MonoBehaviour

@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 5407975161360495565}
   - component: {fileID: 5407975161360495564}
   - component: {fileID: 5407975161360495567}
+  - component: {fileID: 3238610086682241085}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -387,6 +388,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &3238610086682241085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407975161360495561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670c0db62e5e1134eb90f0a6d74489c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
+  keepScale: 0
 --- !u!1 &5407975161593384589
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +494,7 @@ GameObject:
   - component: {fileID: 5407975162164828272}
   - component: {fileID: 5407975162164828275}
   - component: {fileID: 5407975162164828274}
+  - component: {fileID: 5154176328681313673}
   m_Layer: 5
   m_Name: Play Again
   m_TagString: Untagged
@@ -607,6 +624,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &5154176328681313673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407975162164828284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670c0db62e5e1134eb90f0a6d74489c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
+  keepScale: 0
 --- !u!1 &5407975162295413020
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +809,7 @@ GameObject:
   - component: {fileID: 5407975162660336461}
   - component: {fileID: 5407975162660336460}
   - component: {fileID: 5407975162660336463}
+  - component: {fileID: 621893033692694342}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -906,6 +939,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &621893033692694342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407975162660336457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670c0db62e5e1134eb90f0a6d74489c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
+  keepScale: 0
 --- !u!1 &8749573480653587603
 GameObject:
   m_ObjectHideFlags: 0

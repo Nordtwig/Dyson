@@ -5,6 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
+/// <summary>
+/// Created by: Svedlund
+/// </summary>
+
 public class ButtonTrigger : EventTrigger
 {
     private Vector3 largeScale = new Vector3(1.2f, 1.2f, 1.2f);

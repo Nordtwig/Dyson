@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using System;
 
 /// <summary>
-/// Script creator Robin, modified by Heimer
+/// Script creator Robin, modified by Heimer, Svedlund
 /// </summary>
 
 public class GameController : MonoBehaviour
@@ -244,6 +244,8 @@ public class GameController : MonoBehaviour
         else if (currentPhase == phaseSpecifics.Length - 1 && boxAmount == phaseBoxAmount)
         {
             winText.SetActive(true);
+            state = GameControllerState.GAMEOVER;
+            Cursor.visible = true;
         }
     }
 

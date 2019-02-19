@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Script creator Robin
+/// Script creator Robin, modified by Svedlund
 /// </summary>
 
 public class InputController : MonoBehaviour
@@ -170,6 +170,12 @@ public class InputController : MonoBehaviour
         {
             if (GameController.instance.state == GameController.GameControllerState.STOREWINDOW)
             {
+                ButtonTrigger[] allButtons = FindObjectsOfType<ButtonTrigger>();
+                foreach (ButtonTrigger button in allButtons)
+                {
+                    button.ResetScale();
+                    Debug.Log("resetting a button");
+                }
                 storeWindow.SetActive(false);
             }
         }
