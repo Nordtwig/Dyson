@@ -32,7 +32,7 @@ public abstract class PickupableObject : MonoBehaviour
     {
         gameObject.transform.SetParent(null);
         gameObject.SetActive(true);
-        transform.position = player.transform.position + player.model.transform.TransformDirection(Vector3.up * 4 + Vector3.forward * 2);
+        transform.position = player.transform.position + player.model.transform.TransformDirection(Vector3.up * 2 + Vector3.forward * 3f);
         rb.velocity = Vector3.zero;
     }
 

@@ -9,10 +9,7 @@ using UnityEngine;
 /// </summary>
 
 public class MiningNode : MonoBehaviour
-{
-	private MeshRenderer meshRend;
-	private Material baseMaterial;
-
+{ 
     public int resourceValue;
 	int metalRandom;
 
@@ -22,9 +19,6 @@ public class MiningNode : MonoBehaviour
 	public void Start()
 	{
         transform.rotation = UnityEngine.Random.rotation;
-
-        meshRend = GetComponent<MeshRenderer>();
-        baseMaterial = meshRend.material;
 
         metalRandom = CalculateNodeType();
 
@@ -95,40 +89,23 @@ public class MiningNode : MonoBehaviour
 		if (materialType == GameController.MetalVarieties.CINNABAR)
 		{
             resourceValue = UnityEngine.Random.Range(2, 5);
-			foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>()) 
-            {
-                m.material = GameController.instance.metalMaterials[0];
-            }
-            meshRend.material = baseMaterial;
+			transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = GameController.instance.metalMaterials[0];
 		}
 		else if (materialType == GameController.MetalVarieties.TUNGSTEN)
 		{
             resourceValue = UnityEngine.Random.Range(3, 7);
-            foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
-            {
-                m.material = GameController.instance.metalMaterials[1];
-            }
-            meshRend.material = baseMaterial;
+            transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = GameController.instance.metalMaterials[1];
         }
         else if (materialType == GameController.MetalVarieties.COBALT)
 		{
             resourceValue = UnityEngine.Random.Range(3, 9);
             foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
-            {
-                m.material = GameController.instance.metalMaterials[2];
-            }
-            meshRend.material = baseMaterial;
+            transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = GameController.instance.metalMaterials[2];
         }
         else if (materialType == GameController.MetalVarieties.MIXED)
 		{
             resourceValue = UnityEngine.Random.Range(5, 11);
             int i = 0;
-            foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
-            {
-                m.material = GameController.instance.metalMaterials[i%3];
-                i++;
-            }
-            meshRend.material = baseMaterial;
         }
     }
 
