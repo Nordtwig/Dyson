@@ -23,9 +23,9 @@ public class StoreWindowVisuals : MonoBehaviour
 
     public void OnEnable()
     {
-        GameController.instance.state = GameController.GameControllerState.STOREWINDOW;
+        if (!firstDisable) GameController.instance.state = GameController.GameControllerState.STOREWINDOW;
         Cursor.visible = true;
-        AudioManager.instance.Play("Menu Open");
+        if (!firstDisable) AudioManager.instance.Play("Menu Open");
 
 
         //originalCameraSpeedH = cameraFollow.speedH;
@@ -39,7 +39,7 @@ public class StoreWindowVisuals : MonoBehaviour
         //cameraFollow.speedH = originalCameraSpeedH;
         //cameraFollow.speedV = originalCameraSpeedV;
 
-        GameController.instance.state = GameController.GameControllerState.GAME;
+        if (!firstDisable) GameController.instance.state = GameController.GameControllerState.GAME;
         Cursor.visible = false;
         FindObjectOfType<StoreWindow>().ResetStoreWindow();
         if (!firstDisable) AudioManager.instance.Play("Menu Close");

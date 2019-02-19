@@ -13,8 +13,8 @@ public class PauseMenuWindowVisuals : MonoBehaviour
     public void OnEnable()
     {
         Cursor.visible = true;
-        GameController.instance.state = GameController.GameControllerState.PAUSE;
-        AudioManager.instance.Play("Menu Open");
+        if (!firstDisable) GameController.instance.state = GameController.GameControllerState.PAUSE;
+        if (!firstDisable) AudioManager.instance.Play("Menu Open");
 
         //originalCameraSpeedH = cameraFollow.speedH;
         //originalCameraSpeedV = cameraFollow.speedV;
@@ -27,7 +27,7 @@ public class PauseMenuWindowVisuals : MonoBehaviour
         //cameraFollow.speedH = originalCameraSpeedH;
         //cameraFollow.speedV = originalCameraSpeedV;
 
-        GameController.instance.state = GameController.GameControllerState.GAME;
+        if (!firstDisable) GameController.instance.state = GameController.GameControllerState.GAME;
         Cursor.visible = false;
         FindObjectOfType<PauseMenuWindow>().ResetPauseMenuWindow();
         if (!firstDisable) AudioManager.instance.Play("Menu Close");
