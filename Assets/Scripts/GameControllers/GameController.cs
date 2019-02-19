@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
     [Tooltip("Do NOT touch")] public Material[] metalMaterials;
     private PlayerController player;
     private GameObject gameOverText;
+    private GameObject winText;
     private MeteroidSpawner meteroidSpawner;
     private Hexes dysonSphere;
 
@@ -114,11 +115,11 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void StartUp() // TODO Make private again after testing is done?
+    public void StartUp() 
     {
         state = GameControllerState.GAME;
 
-        Cursor.visible = false; // TODO SHOULD NOT BE HERE ONCE WE HAVE MAIN MENU
+        Cursor.visible = false; 
 
         //Update all dependencies in GameController. 
         currentPhase = 0;
@@ -126,12 +127,13 @@ public class GameController : MonoBehaviour
         boxAmount = 0;
         timeText = GameObject.Find("TimeLeftInPhase").GetComponent<Text>();
         currentPhaseText = GameObject.Find("CurrentPhaseText").GetComponent<Text>();
-        meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
         gameOverText = GameObject.Find("GameOverText");
         creditsText = GameObject.Find("CreditsText").GetComponent<Text>();
         creditsTextUI = GameObject.Find("CreditsTextUI").GetComponent<Text>();
-        dysonSphere = FindObjectOfType<Hexes>();
+        winText = GameObject.Find("WinScreen");
 
+        meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
+        dysonSphere = FindObjectOfType<Hexes>();
         player = FindObjectOfType<PlayerController>();
         AudioManager.instance.Play("Ambience");
         UpdateCredits(0);
@@ -142,6 +144,7 @@ public class GameController : MonoBehaviour
         InputController.instance.StartUp();
 
         gameOverText.SetActive(false);
+        winText.SetActive(false);
     }
 
     private void Update()
@@ -240,10 +243,7 @@ public class GameController : MonoBehaviour
         }
         else if (currentPhase == phaseSpecifics.Length - 1 && boxAmount == phaseBoxAmount)
         {
-            gameOverText.GetComponent<Text>().fontSize = 10;
-            gameOverText.GetComponent<Text>().color = Color.white;
-            gameOverText.GetComponent<Text>().text = "Congrats, you created a Dyson Sphere!";
-            gameOverText.SetActive(true);
+            winText.SetActive(true);
         }
     }
 

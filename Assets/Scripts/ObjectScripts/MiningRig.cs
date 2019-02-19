@@ -30,6 +30,11 @@ public class MiningRig : PickupableObject
     [SerializeField] private Material rigYellow;
     [SerializeField] private Material rigGreen;
     [SerializeField] private Material rigBroken;
+
+    [SerializeField] private Light lightSource;
+    private Color purple = new Color(0.4f,0,1);
+
+
     private Animator animator;
     private MiningNode minedNode; //currently minedNode set to null when no minedNode
     private Color baseColor;
@@ -44,7 +49,9 @@ public class MiningRig : PickupableObject
         base.Start();
         box = GameObject.Find("GetableBox");
         rigStatusRend.material = rigRed;
+        lightSource.color = Color.red;
         animator = transform.GetComponentInChildren<Animator>();
+        lightSource = GetComponentInChildren<Light>();
         AudioSource[] audios = GetComponents<AudioSource>();
         rigCollision = audios[0];
         drillingLoop = audios[1];
@@ -96,6 +103,7 @@ public class MiningRig : PickupableObject
                 animator.SetBool("OnNodeDeploy", false);
                 animator.SetBool("OnPickUp", true);
                 rigStatusRend.material = rigYellow;
+                lightSource.color = Color.yellow;
                 pickedUp = true;
                 yield return new WaitForSeconds(2f);
             }
@@ -105,12 +113,14 @@ public class MiningRig : PickupableObject
                 animator.SetBool("OnNodeDeploy", false);
                 animator.SetBool("OnPickUp", true);
                 rigStatusRend.material = rigRed;
+                lightSource.color = Color.red;
                 pickedUp = true;
             }
 
             coBoxSpawnRunning = false;
             coPickUpRigRunning = false;
             rigStatusRend.material = rigRed;
+            lightSource.color = Color.red;
         }
 
         yield return null;
@@ -150,6 +160,8 @@ public class MiningRig : PickupableObject
             }
             functioning = false;
             rigStatusRend.material = rigBroken;
+            lightSource.color = purple;
+
             coBoxSpawnRunning = false;
         }
     }
@@ -195,6 +207,7 @@ public class MiningRig : PickupableObject
         {
             coBoxSpawnRunning = true;
             rigStatusRend.material = rigYellow;
+            lightSource.color = Color.yellow;
             animator.SetBool("OnNodeDeploy", true);
             animator.SetBool("Empty", false);
             animator.SetBool("OnPickUp", false);
@@ -209,10 +222,12 @@ public class MiningRig : PickupableObject
                     if (functioning && minedNode)
                     {
                         rigStatusRend.material = rigGreen;
+                        lightSource.color = Color.green;
                     }
                     else if (!functioning)
                     {
                         rigStatusRend.material = rigBroken;
+                        lightSource.color = purple;
                         drillingLoop.Stop();
                         break;
                     }
@@ -226,17 +241,20 @@ public class MiningRig : PickupableObject
                 if (functioning && minedNode)
                 {
                     rigStatusRend.material = rigGreen;
+                    lightSource.color = Color.green;
                     EjectChunk();
                     if (!minedNode.OnBoxSpawn()) //Do when empty 
                     {
                         minedNode = null;
                         rigStatusRend.material = rigRed;
+                        lightSource.color = Color.red;
                         animator.SetBool("Empty", true);
                     }
                 }
                 else if (functioning)
                 {
                     rigStatusRend.material = rigRed;
+                    lightSource.color = Color.red;
                 }
 
                 if (pickedUp)
@@ -260,6 +278,7 @@ public class MiningRig : PickupableObject
         audioManager.Play("Repair");
         brokenRigLoop.Stop();
         rigStatusRend.material = rigRed;
+        lightSource.color = Color.red;
         if (minedNode)
         {
             StartCoroutine(CoBoxSpawn(minedNode.resourceValue));
