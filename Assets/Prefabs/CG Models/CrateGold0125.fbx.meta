@@ -14,7 +14,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: UVChannel_1
-    second: {fileID: 2100000, guid: 664cdb0fd24c30a4eb86f1a73f5b4d73, type: 2}
+    second: {fileID: 2100000, guid: 8b7f1aa1e856b964f85d5650594d1761, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
