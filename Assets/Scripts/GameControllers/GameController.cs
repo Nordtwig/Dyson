@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour
     private PlayerController player;
     private GameObject gameOverText;
     private MeteroidSpawner meteroidSpawner;
+    private Hexes dysonSphere;
 
     //General
     private bool debugMode = false;
@@ -129,6 +130,7 @@ public class GameController : MonoBehaviour
         gameOverText = GameObject.Find("GameOverText");
         creditsText = GameObject.Find("CreditsText").GetComponent<Text>();
         creditsTextUI = GameObject.Find("CreditsTextUI").GetComponent<Text>();
+        dysonSphere = FindObjectOfType<Hexes>();
 
         player = FindObjectOfType<PlayerController>();
         AudioManager.instance.Play("Ambience");
@@ -226,6 +228,7 @@ public class GameController : MonoBehaviour
                 Debug.Log("Bonus: " + Mathf.FloorToInt(totalTimeInPhase / 5));
             }
             currentPhase++;
+            dysonSphere.UpdateHexes();
             currentPhaseText.text = "Current Phase: " + currentPhase;
             Debug.Log(currentPhase);
             Debug.Log(phaseSpecifics.Length);
