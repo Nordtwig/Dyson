@@ -21,7 +21,7 @@ public class Hexes : MonoBehaviour
     {
         if (GameController.instance.currentPhase == 2)
         {
-            Phase4Hexes.SetActive(true);
+            Phase2Hexes.SetActive(true);
         }
 
         if (GameController.instance.currentPhase == 3)
@@ -31,12 +31,12 @@ public class Hexes : MonoBehaviour
 
         if (GameController.instance.currentPhase == 4)
         {
-            Phase5Hexes.SetActive(true);
+            Phase4Hexes.SetActive(true);
         }
 
         if (GameController.instance.currentPhase == 5)
         {
-            Phase2Hexes.SetActive(true);
+            Phase5Hexes.SetActive(true);
         }
     }
 }
