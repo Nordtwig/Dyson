@@ -14,7 +14,6 @@ public class InputController : MonoBehaviour
 
     PlayerController player;
 	ThrowPowerBarScript throwBar;
-    Text helpText;
     private GameObject storeWindow;
     private GameObject pauseMenuWindow;
     private bool jumpButtonDown = false;
@@ -40,9 +39,7 @@ public class InputController : MonoBehaviour
     public void StartUp()
     {
         player = FindObjectOfType<PlayerController>();
-        helpText = GameObject.Find("HelpText").GetComponent<Text>();
 		throwBar = FindObjectOfType<ThrowPowerBarScript>();
-		helpText.enabled = false;
         storeWindow = FindObjectOfType<StoreWindowVisuals>().gameObject;
         storeWindow.SetActive(false);
         pauseMenuWindow = FindObjectOfType<PauseMenuWindowVisuals>().gameObject;
@@ -51,19 +48,15 @@ public class InputController : MonoBehaviour
 
     // ===================== Short about ======================================
     // press F1 to enable disable DebugMode, disabled by default
-    // Uses (R)estart, (N)odeSpawn, (M)iningRigSpawn, (B)oxSpawn
+    // Uses (R)estart, (N)odeSpawn, (M)iningRigSpawn, (B)oxSpawn, (C)hunkSpawn
 
+    // Runs the keys that have any functionality
     public void CheckKeys()
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
             GameController.instance.SetDebugMode(!GameController.instance.GetDebugMode()); //inverts the value of DebugMode
             Debug.Log(GameController.instance.GetDebugMode());
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            helpText.enabled = !helpText.enabled;
         }
 
         if (Input.GetKeyDown(KeyCode.P) &! (GameController.instance.state == GameController.GameControllerState.PAUSE))
@@ -95,6 +88,7 @@ public class InputController : MonoBehaviour
 
     }
 
+    //Runs player specific keys
     private void CheckAndRunPlayerKeys()
     {
         player.PlayerMove(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -135,11 +129,11 @@ public class InputController : MonoBehaviour
         
         if (Input.GetKey(KeyCode.E))
         {
-            //if (eTime < 0.51f)
-            //{
-            //    chargeIncreasing = true;
-            //}
-            if (eTime > 0.99f)
+            if (eTime < 0.51f)
+            {
+                chargeIncreasing = true;
+            }
+            else if (eTime > 0.99f)
             {
                 chargeIncreasing = false;
             }
@@ -153,18 +147,16 @@ public class InputController : MonoBehaviour
                 eTime -= Time.deltaTime;
             }
 
-            if (eTime > 0.48f)
+            if (eTime > 0.5f)
             {
                 throwBar.ThrowPowerBarUpdate(Mathf.Clamp(eTime, 0, 1f), player.holdingItem);
             }
-            else
-            {
-                throwBar.SetEnableThrowBackground(false);
-            }
+            
         }
         
     }
 
+    //Runs menu specific keys
     public void CheckMenuKeys()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
