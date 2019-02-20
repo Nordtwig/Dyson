@@ -11,8 +11,8 @@ using System;
 
 public class ButtonTrigger : EventTrigger
 {
-    private Vector3 largeScale = new Vector3(1.2f, 1.2f, 1.2f);
-    private Vector3 smallScale = new Vector3(0.8f, 0.8f, 0.8f);
+    private Vector3 largeScale = new Vector3(1.1f, 1.1f, 1.1f);
+    //private Vector3 smallScale = new Vector3(0.8f, 0.8f, 0.8f);
     private Vector3 originalScale = new Vector3(1.0f, 1.0f, 1.0f);
     private GameObject thisButton;
     private Button[] allButtons;

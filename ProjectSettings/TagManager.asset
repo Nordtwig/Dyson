@@ -15,6 +15,7 @@ TagManager:
   - Sanctuary
   - SanctuaryHolder
   - Chunk
+  - AsteroidInside
   layers:
   - Default
   - TransparentFX

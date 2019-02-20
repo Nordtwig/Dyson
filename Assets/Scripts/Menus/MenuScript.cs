@@ -15,7 +15,11 @@ using UnityEngine.Audio;
 public class MenuScript : MonoBehaviour
 {
     public GameObject[] views;
+    public GameObject[] menus;
+    public GameObject currMenu;
     public GameObject currView;
+
+    private Animator animator;
 
     public Toggle fullscreenToggle;
     public AudioMixer audioMixer;
@@ -30,7 +34,10 @@ public class MenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetCurrentMenu(0);
+        animator = FindObjectOfType<Animator>();
         currView = views[0];
+        currMenu = menus[0];
         fullscreenToggle.isOn = Screen.fullScreen;
         musicVolumeSlider.value = FindObjectOfType<AudioManager>().GetMusicVolume();
         soundVolumeSlider.value = FindObjectOfType<AudioManager>().GetSoundVolume();
@@ -102,5 +109,15 @@ public class MenuScript : MonoBehaviour
             audioMixer.SetFloat("soundVolume", soundVolumeSlider.value);
             soundMuted.color = nonMutedColor;
         }
+    }
+
+    public void SetCurrentMenu(int menu)
+    {
+        currMenu = menus[menu];
+        for (int i = 0; i < menus.Length; i++)
+        {
+            menus[i].SetActive(false);
+        }
+        currMenu.SetActive(true);
     }
 }
