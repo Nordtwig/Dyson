@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 792a95f51d7b26e468858766fbf10677
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Antenn
+    100002: BuildingBody
+    100004: DoorFrameDoubledoor
+    100006: DoorFrameLoadOut
+    100008: DoorFrameNotUse
+    100010: DoorLoadInLeft
+    100012: DoorLoadInRight
+    100014: DoorLoadOut
+    100016: DoorNotUse
+    100018: ParabolHolder2
+    100020: RampLoadIn
+    100022: RampLoadOut
+    100024: RoofTop
+    100026: //RootNode
+    400000: Antenn
+    400002: BuildingBody
+    400004: DoorFrameDoubledoor
+    400006: DoorFrameLoadOut
+    400008: DoorFrameNotUse
+    400010: DoorLoadInLeft
+    400012: DoorLoadInRight
+    400014: DoorLoadOut
+    400016: DoorNotUse
+    400018: ParabolHolder2
+    400020: RampLoadIn
+    400022: RampLoadOut
+    400024: RoofTop
+    400026: //RootNode
+    2100000: DoorFrameMtrl
+    2300000: Antenn
+    2300002: BuildingBody
+    2300004: DoorFrameDoubledoor
+    2300006: DoorFrameLoadOut
+    2300008: DoorFrameNotUse
+    2300010: DoorLoadInLeft
+    2300012: DoorLoadInRight
+    2300014: DoorLoadOut
+    2300016: DoorNotUse
+    2300018: ParabolHolder2
+    2300020: RampLoadIn
+    2300022: RampLoadOut
+    2300024: RoofTop
+    3300000: Antenn
+    3300002: BuildingBody
+    3300004: DoorFrameDoubledoor
+    3300006: DoorFrameLoadOut
+    3300008: DoorFrameNotUse
+    3300010: DoorLoadInLeft
+    3300012: DoorLoadInRight
+    3300014: DoorLoadOut
+    3300016: DoorNotUse
+    3300018: ParabolHolder2
+    3300020: RampLoadIn
+    3300022: RampLoadOut
+    3300024: RoofTop
+    4300000: DoorFrameDoubledoor
+    4300002: DoorLoadInRight
+    4300004: DoorNotUse
+    4300006: DoorFrameNotUse
+    4300008: DoorLoadOut
+    4300010: Antenn
+    4300012: RoofTop
+    4300014: DoorLoadInLeft
+    4300016: DoorFrameLoadOut
+    4300018: ParabolHolder2
+    4300020: RampLoadIn
+    4300022: RampLoadOut
+    4300024: BuildingBody
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorFrameMtrl
+    second: {fileID: 2100000, guid: ff16354412a265641939fadf6f73ff08, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
