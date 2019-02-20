@@ -61,9 +61,9 @@ public class PauseMenuWindow : MonoBehaviour
             button.interactable = false;
         }
 
-        Button[] promtButtons = promptPanel.GetComponentsInChildren<Button>();
+        Button[] promptButtons = promptPanel.GetComponentsInChildren<Button>();
 
-        foreach (Button button in promtButtons)
+        foreach (Button button in promptButtons)
         {
             button.interactable = true;
         }
@@ -124,6 +124,8 @@ public class PauseMenuWindow : MonoBehaviour
         {
             if (promptPanel.activeInHierarchy)
             {
+                if (promptPanel == promptPanels[3])
+                    quitButton.SetActive(true);
                 promptPanel.SetActive(false);
                 ReenableAllButtons();
                 Debug.Log("A prompt has been deactivated, back to pause menu");
