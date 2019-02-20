@@ -9,6 +9,7 @@ using UnityEngine.Audio;
 /// Christoffer Brandt
 /// Noah Nordqvist
 /// Svedlund
+/// slight addition - Heimer
 /// </summary>
 
 public class MenuScript : MonoBehaviour
@@ -48,7 +49,9 @@ public class MenuScript : MonoBehaviour
         {
             FindObjectOfType<MissionPresets>().Medium();
         }
+        MusicManager.instance.CrossfadeMusic(MusicManager.instance.menuMusicLoop, MusicManager.instance.musicIntro, true);
         SceneManager.LoadScene(targetScene);
+        Debug.Log("Game START");
     }
     /*================================== Play Menu ======================================*/
 
