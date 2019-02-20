@@ -160,7 +160,6 @@ public class InputController : MonoBehaviour
             foreach (ButtonTrigger button in allButtons)
             {
                 button.ResetScale();
-                Debug.Log("resetting a button");
             }
             if (GameController.instance.state == GameController.GameControllerState.STOREWINDOW)
             {
@@ -183,7 +182,6 @@ public class InputController : MonoBehaviour
                 foreach (ButtonTrigger button in allButtons)
                 {
                     button.ResetScale();
-                    Debug.Log("resetting a button");
                 }
                 storeWindow.SetActive(false);
             }

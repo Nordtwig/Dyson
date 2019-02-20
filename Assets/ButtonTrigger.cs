@@ -59,7 +59,6 @@ public class ButtonTrigger : EventTrigger
         {
             iTween.ScaleTo(thisButton.gameObject, originalScale, 1f);
         }
-        Debug.Log("Knapptryck");
         yield return null;
     }
 
