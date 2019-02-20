@@ -59,11 +59,6 @@ public class InputController : MonoBehaviour
             Debug.Log(GameController.instance.GetDebugMode());
         }
 
-        if (Input.GetKeyDown(KeyCode.P) &! (GameController.instance.state == GameController.GameControllerState.PAUSE))
-        {
-            storeWindow.SetActive(!storeWindow.activeInHierarchy);
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameController.instance.state == GameController.GameControllerState.STOREWINDOW)
@@ -180,7 +175,7 @@ public class InputController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyUp(KeyCode.E))
         {
             if (GameController.instance.state == GameController.GameControllerState.STOREWINDOW)
             {
@@ -227,6 +222,11 @@ public class InputController : MonoBehaviour
             {
                 GameController.instance.DebugSpawnChunk();
                 Debug.Log("spawn chunk");
+            }
+            
+            if (Input.GetKeyDown(KeyCode.P) & !(GameController.instance.state == GameController.GameControllerState.PAUSE))
+            {
+                storeWindow.SetActive(!storeWindow.activeInHierarchy);
             }
         }
     }

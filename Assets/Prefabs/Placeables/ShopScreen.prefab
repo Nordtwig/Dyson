@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3985687858872335735}
   m_Layer: 0
   m_Name: GlassRim
-  m_TagString: Untagged
+  m_TagString: ShopScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 3985687859864930223}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: ShopScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 3985687860099501866}
   m_Layer: 0
   m_Name: ShopScreen
-  m_TagString: Untagged
+  m_TagString: ShopScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 3985687860443775179}
   m_Layer: 0
   m_Name: Screen (1)
-  m_TagString: Untagged
+  m_TagString: ShopScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 3985687860465937381}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: ShopScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -398,7 +398,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3985687860565813197
 GameObject:
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 3985687860565813199}
   m_Layer: 0
   m_Name: ShopText
-  m_TagString: Untagged
+  m_TagString: ShopScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
