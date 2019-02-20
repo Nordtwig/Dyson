@@ -227,6 +227,13 @@ MonoBehaviour:
   - {fileID: 5379920219133859612}
   - {fileID: 5379920218145745122}
   - {fileID: 5379920218622375327}
+  menus:
+  - {fileID: 5379920218388613599}
+  - {fileID: 5379920218462635002}
+  - {fileID: 5379920218449973325}
+  - {fileID: 5379920219078155235}
+  - {fileID: 5379920218238236104}
+  currMenu: {fileID: 0}
   currView: {fileID: 0}
   fullscreenToggle: {fileID: 4777895045720143558}
   audioMixer: {fileID: 24100000, guid: e01f830518fc69b4fa6b08bb0a2a5105, type: 2}
@@ -455,6 +462,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  menus: []
+  currMenu: {fileID: 0}
   currView: {fileID: 0}
   fullscreenToggle: {fileID: 0}
   audioMixer: {fileID: 0}
@@ -1071,6 +1080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &2879432386705723519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,6 +1299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &2945715667135909026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,6 +2148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5091724606786370403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,6 +2304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!114 &989487180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2306,6 +2319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5191019128542339161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2993,6 +3007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920217510632036
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,6 +3152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920217517182198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,6 +3297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920217542371285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3805,6 +3822,17 @@ MonoBehaviour:
           m_StringArgument: CreditsBackClick
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5379920218647907503}
+        m_MethodName: SetCurrentMenu
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1868079169
@@ -3821,6 +3849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!114 &1783916711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3835,6 +3864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920217808728095
 GameObject:
   m_ObjectHideFlags: 0
@@ -3979,6 +4009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920217873410757
 GameObject:
   m_ObjectHideFlags: 0
@@ -4306,6 +4337,17 @@ MonoBehaviour:
           m_StringArgument: CreditsClick
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5379920218647907503}
+        m_MethodName: SetCurrentMenu
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1240021234
@@ -4322,6 +4364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218215379777
 GameObject:
   m_ObjectHideFlags: 0
@@ -4415,6 +4458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218238236104
 GameObject:
   m_ObjectHideFlags: 0
@@ -4531,6 +4575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218388613599
 GameObject:
   m_ObjectHideFlags: 0
@@ -5001,6 +5046,17 @@ MonoBehaviour:
           m_StringArgument: ExitClick
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5379920218647907503}
+        m_MethodName: SetCurrentMenu
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &457317321
@@ -5017,6 +5073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218580702711
 GameObject:
   m_ObjectHideFlags: 0
@@ -5251,6 +5308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218643138526
 GameObject:
   m_ObjectHideFlags: 0
@@ -5379,6 +5437,17 @@ MonoBehaviour:
           m_StringArgument: PlayClick
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5379920218647907503}
+        m_MethodName: SetCurrentMenu
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &7315340006745481850
@@ -5395,6 +5464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218650041006
 GameObject:
   m_ObjectHideFlags: 0
@@ -5534,6 +5604,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5379920218647907503}
+        m_MethodName: SetCurrentMenu
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1160352211
@@ -5550,6 +5631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218673823464
 GameObject:
   m_ObjectHideFlags: 0
@@ -5678,6 +5760,17 @@ MonoBehaviour:
           m_StringArgument: ExitBackClick
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5379920218647907503}
+        m_MethodName: SetCurrentMenu
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &608539251
@@ -5694,6 +5787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218680337212
 GameObject:
   m_ObjectHideFlags: 0
@@ -6026,6 +6120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218796735566
 GameObject:
   m_ObjectHideFlags: 0
@@ -6181,6 +6276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218798683238
 GameObject:
   m_ObjectHideFlags: 0
@@ -6309,6 +6405,17 @@ MonoBehaviour:
           m_StringArgument: PlayBackClick
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5379920218647907503}
+        m_MethodName: SetCurrentMenu
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &575669160
@@ -6325,6 +6432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218807530671
 GameObject:
   m_ObjectHideFlags: 0
@@ -6469,6 +6577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920218808748942
 GameObject:
   m_ObjectHideFlags: 0
@@ -6821,6 +6930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920219117041741
 GameObject:
   m_ObjectHideFlags: 0
@@ -7055,6 +7165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920219133859612
 GameObject:
   m_ObjectHideFlags: 0
@@ -7222,6 +7333,17 @@ MonoBehaviour:
           m_StringArgument: OptionsClick
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5379920218647907503}
+        m_MethodName: SetCurrentMenu
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1820552780
@@ -7238,6 +7360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920219222168119
 GameObject:
   m_ObjectHideFlags: 0
@@ -7382,6 +7505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+  keepScale: 0
 --- !u!1 &5379920219222580181
 GameObject:
   m_ObjectHideFlags: 0
