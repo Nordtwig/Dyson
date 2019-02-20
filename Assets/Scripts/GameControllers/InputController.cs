@@ -18,6 +18,7 @@ public class InputController : MonoBehaviour
     private GameObject storeWindow;
     private GameObject pauseMenuWindow;
     private bool jumpButtonDown = false;
+    private bool chargeIncreasing = true;
     [HideInInspector] public float eTime = 0;
 
     private void Awake()
@@ -116,6 +117,7 @@ public class InputController : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.E))
         {
+            chargeIncreasing = true;
             if (eTime < 0.5f)
             {
 				throwBar.ThrowPowerBarUpdate(0, player.holdingItem);
@@ -133,12 +135,32 @@ public class InputController : MonoBehaviour
         
         if (Input.GetKey(KeyCode.E))
         {
-            eTime += Time.deltaTime;
+            //if (eTime < 0.51f)
+            //{
+            //    chargeIncreasing = true;
+            //}
+            if (eTime > 0.99f)
+            {
+                chargeIncreasing = false;
+            }
 
-			if (eTime > 0.5f)
-			{
-				throwBar.ThrowPowerBarUpdate(Mathf.Clamp(eTime, 0, 1f), player.holdingItem);
-			}
+            if (chargeIncreasing)
+            {
+                eTime += Time.deltaTime;
+            }
+            else
+            {
+                eTime -= Time.deltaTime;
+            }
+
+            if (eTime > 0.48f)
+            {
+                throwBar.ThrowPowerBarUpdate(Mathf.Clamp(eTime, 0, 1f), player.holdingItem);
+            }
+            else
+            {
+                throwBar.SetEnableThrowBackground(false);
+            }
         }
         
     }
