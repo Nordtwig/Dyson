@@ -49,7 +49,7 @@ MonoBehaviour:
   sounds:
   - name: Pickup
     clip: {fileID: 8300000, guid: 0e9d93ab24fed65418456694edc3728e, type: 3}
-    volume: 1
+    volume: 0.65
     volumeVariance: 0.05
     pitch: 1
     pitchVariance: 0.05
