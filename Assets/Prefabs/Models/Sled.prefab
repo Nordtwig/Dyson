@@ -87,7 +87,7 @@ MeshCollider:
   m_GameObject: {fileID: 553758338908644968}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 9016872737203132940}
   - component: {fileID: 1865905361}
   - component: {fileID: 1865905360}
+  - component: {fileID: 500209545}
   m_Layer: 10
   m_Name: Sled
   m_TagString: Untagged
@@ -382,3 +383,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &500209545
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016872737203132938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.42140335
+  m_Height: 3.4151285
+  m_Direction: 2
+  m_Center: {x: -7.9115253e-10, y: 0.36815277, z: -0.15432262}
