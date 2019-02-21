@@ -36,8 +36,22 @@ public class MiningNodeSpawner : MonoBehaviour
             RaycastHit nodeSpawnPoint;
 
             if (Physics.Raycast(ray, out nodeSpawnPoint, 130, asteroidLayer)) {
-                GameObject myNode = Instantiate(miningNode, nodeSpawnPoint.point, Quaternion.LookRotation(Vector3.forward, Vector3.up), nodeParent.transform);
-                GameController.instance.nodes.Add(myNode);
+                bool failed = false;
+                Collider[] hitColliders = Physics.OverlapSphere(nodeSpawnPoint.point, 4);
+                for (int j = 0; j < hitColliders.Length; j++)
+                {
+                    if (hitColliders[j].tag == "Node")
+                    {
+                        failed = true;
+                        Debug.Log("failed nodePlacement, retyring");
+                    }
+                }
+                if (!failed)
+                {
+                    GameObject myNode = Instantiate(miningNode, nodeSpawnPoint.point, Quaternion.LookRotation(Vector3.forward, Vector3.up), nodeParent.transform);
+                    GameController.instance.nodes.Add(myNode);
+                }
+                else i--;
             }
         }
 
@@ -49,8 +63,24 @@ public class MiningNodeSpawner : MonoBehaviour
             RaycastHit nodeSpawnPoint;
 
             if (Physics.Raycast(ray, out nodeSpawnPoint, 130, asteroidLayer)) {
-                GameObject myNode = Instantiate(miningNode, nodeSpawnPoint.point, Quaternion.LookRotation(Vector3.forward, Vector3.up), nodeParent.transform);
-                GameController.instance.nodes.Add(myNode);
+
+                bool failed = false;
+                Collider[] hitColliders = Physics.OverlapSphere(nodeSpawnPoint.point, 4);
+                for (int j = 0; j < hitColliders.Length; j++)
+                {
+                    if (hitColliders[j].tag == "Node")
+                    {
+                        failed = true;
+                        Debug.Log("failed nodePlacement, retyring");
+                    }
+                }
+
+                if (!failed)
+                {
+                    GameObject myNode = Instantiate(miningNode, nodeSpawnPoint.point, Quaternion.LookRotation(Vector3.forward, Vector3.up), nodeParent.transform);
+                    GameController.instance.nodes.Add(myNode);
+                }
+                else i--;
             }
         }
     }
