@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &5840977419077768020
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929816768684339390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: dcd9eb7c862d3e14d9b1f92a66adc91a, type: 3}
 --- !u!1 &2421809077140139361
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,6 +91,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2052984731163308388
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593757174141987490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: dcd9eb7c862d3e14d9b1f92a66adc91a, type: 3}
 --- !u!1 &7493908052033068446
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,8 +227,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.6633703
+  m_Center: {x: 0.0724532, y: 0.016697288, z: 0}
 --- !u!114 &319875726757289655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,8 +242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceValue: 5
-  standardModel: {fileID: 0}
-  mixedModel: {fileID: 0}
   materialType: 0
 --- !u!1001 &1929816768684242458
 PrefabInstance:
@@ -281,6 +307,12 @@ PrefabInstance:
 --- !u!4 &1929816768684108952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: dcd9eb7c862d3e14d9b1f92a66adc91a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1929816768684242458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1929816768684339390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: dcd9eb7c862d3e14d9b1f92a66adc91a,
     type: 3}
   m_PrefabInstance: {fileID: 1929816768684242458}
   m_PrefabAsset: {fileID: 0}
@@ -364,6 +396,12 @@ PrefabInstance:
 --- !u!4 &6593757174142154372 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: dcd9eb7c862d3e14d9b1f92a66adc91a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6593757174142020614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6593757174141987490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: dcd9eb7c862d3e14d9b1f92a66adc91a,
     type: 3}
   m_PrefabInstance: {fileID: 6593757174142020614}
   m_PrefabAsset: {fileID: 0}
