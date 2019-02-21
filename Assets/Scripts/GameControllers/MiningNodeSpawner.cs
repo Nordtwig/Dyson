@@ -53,21 +53,5 @@ public class MiningNodeSpawner : MonoBehaviour
                 GameController.instance.nodes.Add(myNode);
             }
         }
-
-        //This function spawns x amount of nodes with random positions around the asteroid.
-        // 1st Iteration
-        //for (int i = 0; i < closeSpawnCount; i++)
-        //{
-        //    transform.rotation = Quaternion.Euler(-40, Random.Range(0, 360f), 0);
-
-        //    GameObject myNode = Instantiate(miningNode, transform.position, Quaternion.Euler(-40, Random.Range(0, 360f), 0));
-        //    myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
-        //}
-
-        //for (int i = closeSpawnCount; i < spawnCount; i++)
-        //{
-        //    GameObject myNode = Instantiate(miningNode, transform.position, Random.rotation);
-        //    myNode.transform.SetParent(FindObjectOfType<MiningNodeSpawner>().transform);
-        //}
     }
 }

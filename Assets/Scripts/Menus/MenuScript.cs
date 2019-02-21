@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using System;
 
 /// <summary>
 /// Christoffer Brandt
@@ -18,6 +19,7 @@ public class MenuScript : MonoBehaviour
     public GameObject[] menus;
     public GameObject currMenu;
     public GameObject currView;
+    private bool firstInitialisation = true;
 
     private Animator animator;
 
@@ -116,8 +118,46 @@ public class MenuScript : MonoBehaviour
         currMenu = menus[menu];
         for (int i = 0; i < menus.Length; i++)
         {
-            menus[i].SetActive(false);
+            if (firstInitialisation)
+                menus[i].GetComponent<CanvasGroup>().alpha = 0;
+            else if (menus[i] != currMenu)
+                StartCoroutine(CrossfadeCanvasAlpha(menus[i], 0));
         }
-        currMenu.SetActive(true);
+        if (firstInitialisation)
+        {
+            currMenu.GetComponent<CanvasGroup>().alpha = 1;
+            firstInitialisation = false;
+        }
+        else
+            StartCoroutine(CrossfadeCanvasAlpha(currMenu, 1));
+    }
+
+    private IEnumerator CrossfadeCanvasAlpha(GameObject canvasToFade, float fadeTargetAlpha)
+    {
+        canvasToFade.GetComponent<CanvasGroup>().interactable = false;
+        if (fadeTargetAlpha == 0)
+        {
+            float x = 1;
+            while (x > 0)
+            {
+                canvasToFade.GetComponent<CanvasGroup>().alpha -= 0.25f;
+                x -= 0.25f;
+                yield return new WaitForSeconds(0.1f);
+            }
+            canvasToFade.GetComponent<CanvasGroup>().interactable = true;
+            yield return null;
+        }
+        else if (fadeTargetAlpha == 1)
+        {
+            float x = 0;
+            while (x < 1)
+            {
+                canvasToFade.GetComponent<CanvasGroup>().alpha += 0.25f;
+                x += 0.25f;
+                yield return new WaitForSeconds(0.1f);
+            }
+            canvasToFade.GetComponent<CanvasGroup>().interactable = true;
+            yield return null;
+        }
     }
 }

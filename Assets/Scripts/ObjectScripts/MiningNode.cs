@@ -11,6 +11,8 @@ using UnityEngine;
 public class MiningNode : MonoBehaviour
 { 
     public int resourceValue;
+    GameObject standardModel;
+    GameObject mixedModel;
 	int metalRandom;
 
 	// States
@@ -18,6 +20,11 @@ public class MiningNode : MonoBehaviour
 
 	public void Start()
 	{
+        standardModel = transform.GetChild(0).gameObject;
+        mixedModel = transform.GetChild(1).gameObject;
+        standardModel.SetActive(false);
+        mixedModel.SetActive(false);
+
         transform.rotation = UnityEngine.Random.rotation;
 
         metalRandom = CalculateNodeType();
@@ -49,10 +56,11 @@ public class MiningNode : MonoBehaviour
         int cobaltCount = 0;
         int tungstenCount = 0;
         int cinnabarCount = 0;
+        int mixedCount = 0;
 
         foreach (GameObject node in GameController.instance.nodes) 
         {
-            switch (node.GetComponent<MiningNode>().materialType) 
+                switch (node.GetComponent<MiningNode>().materialType) 
             {
                 case GameController.MetalVarieties.COBALT:
                     cobaltCount++;
@@ -62,6 +70,9 @@ public class MiningNode : MonoBehaviour
                     break;
                 case GameController.MetalVarieties.CINNABAR:
                     cinnabarCount++;
+                    break;
+                case GameController.MetalVarieties.MIXED:
+                    mixedCount++;
                     break;
             }
         }
@@ -89,22 +100,25 @@ public class MiningNode : MonoBehaviour
 		if (materialType == GameController.MetalVarieties.CINNABAR)
 		{
             resourceValue = UnityEngine.Random.Range(2, 5);
+            standardModel.SetActive(true);
 			transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = GameController.instance.metalMaterials[0];
 		}
 		else if (materialType == GameController.MetalVarieties.TUNGSTEN)
 		{
             resourceValue = UnityEngine.Random.Range(3, 7);
+            standardModel.SetActive(true);
             transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = GameController.instance.metalMaterials[1];
         }
         else if (materialType == GameController.MetalVarieties.COBALT)
 		{
             resourceValue = UnityEngine.Random.Range(3, 9);
-            foreach (MeshRenderer m in transform.GetComponentsInChildren<MeshRenderer>())
+            standardModel.SetActive(true);
             transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = GameController.instance.metalMaterials[2];
         }
         else if (materialType == GameController.MetalVarieties.MIXED)
 		{
             resourceValue = UnityEngine.Random.Range(5, 11);
+            mixedModel.SetActive(true);
             int i = 0;
         }
     }
