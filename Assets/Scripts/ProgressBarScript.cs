@@ -46,18 +46,21 @@ public class ProgressBarScript : MonoBehaviour
 
     public void ProgressBarUpdate()
     {
-        progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseBoxAmount;
-        percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() * 100) / GameController.instance.phaseBoxAmount;
-        if (percentageNumber < 100)
+        if (progressBar)
         {
-            string temp = percentageNumber.ToString();
-            percentage.text = temp + "%";
-            boxAmount.text = GameController.instance.GetAmountOfDeliveredBoxes().ToString() + "/" + GameController.instance.phaseBoxAmount;
-        }
-        else
-        {
-            percentage.text = "Ready to launch!";
-            boxAmount.text = GameController.instance.GetAmountOfDeliveredBoxes().ToString() + "/" + GameController.instance.phaseBoxAmount;
+            progressBar.value = (float)GameController.instance.GetAmountOfDeliveredBoxes() / GameController.instance.phaseBoxAmount;
+            percentageNumber = (GameController.instance.GetAmountOfDeliveredBoxes() * 100) / GameController.instance.phaseBoxAmount;
+            if (percentageNumber < 100)
+            {
+                string temp = percentageNumber.ToString();
+                percentage.text = temp + "%";
+                boxAmount.text = GameController.instance.GetAmountOfDeliveredBoxes().ToString() + "/" + GameController.instance.phaseBoxAmount;
+            }
+            else
+            {
+                percentage.text = "Ready to launch!";
+                boxAmount.text = GameController.instance.GetAmountOfDeliveredBoxes().ToString() + "/" + GameController.instance.phaseBoxAmount;
+            }
         }
 
     }

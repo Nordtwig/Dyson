@@ -241,9 +241,9 @@ public class GameController : MonoBehaviour
             Debug.Log(phaseSpecifics.Length);
             phaseBoxAmount = phaseSpecifics[currentPhase].phaseBoxAmount;
             totalTimeInPhase = totalTimeInPhase/2 + phaseSpecifics[currentPhase].totalTimeInPhase;
-            ProgressBarScript.instance.ProgressBarUpdate();
-
             StartCoroutine(meteroidSpawner.CoSpawnMeteroids(phaseSpecifics[currentPhase].timeBetweenMeteroids));
+
+            ProgressBarScript.instance.ProgressBarUpdate();
         }
         else if (currentPhase == phaseSpecifics.Length - 1 && boxAmount == phaseBoxAmount)
         {
