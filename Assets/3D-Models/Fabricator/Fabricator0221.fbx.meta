@@ -1,49 +1,55 @@
 fileFormatVersion: 2
-guid: b33eb5d5e97cf8d45b024f27cdea4b4b
+guid: 113630265d74b674096c72c0b0842aed
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: Antenna_L
     100002: Antenna_S
-    100004: Basket
-    100006: Fabricator
+    100004: Fabricator
+    100006: //RootNode
     100008: Fabricator_display
     100010: Hatch
     100012: Hatch_frame
-    100014: //RootNode
+    100014: Tratt
     400000: Antenna_L
     400002: Antenna_S
-    400004: Basket
-    400006: Fabricator
+    400004: Fabricator
+    400006: //RootNode
     400008: Fabricator_display
     400010: Hatch
     400012: Hatch_frame
-    400014: //RootNode
-    2100000: No Name
+    400014: Tratt
+    2100000: FabricatorMtrl
     2300000: Antenna_L
     2300002: Antenna_S
-    2300004: Basket
-    2300006: Fabricator
-    2300008: Fabricator_display
-    2300010: Hatch
-    2300012: Hatch_frame
+    2300004: Fabricator
+    2300006: Fabricator_display
+    2300008: Hatch
+    2300010: Hatch_frame
+    2300012: Tratt
     3300000: Antenna_L
     3300002: Antenna_S
-    3300004: Basket
-    3300006: Fabricator
-    3300008: Fabricator_display
-    3300010: Hatch
-    3300012: Hatch_frame
-    4300000: Fabricator
-    4300002: Fabricator_display
-    4300004: Hatch
-    4300006: Hatch_frame
-    4300008: Antenna_L
-    4300010: Antenna_S
-    4300012: Basket
+    3300004: Fabricator
+    3300006: Fabricator_display
+    3300008: Hatch
+    3300010: Hatch_frame
+    3300012: Tratt
+    4300000: Fabricator_display
+    4300002: Hatch
+    4300004: Hatch_frame
+    4300006: Antenna_L
+    4300008: Antenna_S
+    4300010: Fabricator
+    4300012: Tratt
     7400000: Take 001
     9500000: //RootNode
-  externalObjects: {}
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FabricatorMtrl
+    second: {fileID: 2100000, guid: 536192cfd7bb4fd4982818913b40a302, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -95,7 +101,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.0254
+    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60

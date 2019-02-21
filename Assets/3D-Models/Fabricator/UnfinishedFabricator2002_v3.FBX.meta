@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b33eb5d5e97cf8d45b024f27cdea4b4b
+guid: e365f03d05e52e34d92d8046a3ca5a8b
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -43,7 +43,12 @@ ModelImporter:
     4300012: Basket
     7400000: Take 001
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 536192cfd7bb4fd4982818913b40a302, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
