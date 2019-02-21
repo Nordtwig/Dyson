@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
     private GameObject winText;
     private MeteroidSpawner meteroidSpawner;
     private Hexes dysonSphere;
+    private Light sunSource;
 
     //General
     private bool debugMode = false;
@@ -46,6 +47,7 @@ public class GameController : MonoBehaviour
     public int playerCredits = 0;
     public int boxCreditsReward = 5;
     public int phaseCreditReward = 50;
+    public float lightFadeAmount = 0.2f;
 
     //Phase Specifics
     [HideInInspector] public PhaseSpecifics[] phaseSpecifics;
@@ -131,6 +133,7 @@ public class GameController : MonoBehaviour
         creditsText = GameObject.Find("CreditsText").GetComponent<Text>();
         creditsTextUI = GameObject.Find("CreditsTextUI").GetComponent<Text>();
         winText = GameObject.Find("WinScreen");
+        sunSource = GameObject.Find("SunSourceWithFlare").GetComponent<Light>();
 
         meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
         dysonSphere = FindObjectOfType<Hexes>();
@@ -229,9 +232,10 @@ public class GameController : MonoBehaviour
                 FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
                 UpdateCredits(phaseCreditReward + Mathf.FloorToInt(totalTimeInPhase / 5));
                 Debug.Log("Bonus: " + Mathf.FloorToInt(totalTimeInPhase / 5));
+                StartCoroutine(CoFadeLight(sunSource.intensity, sunSource.intensity - lightFadeAmount));
             }
             currentPhase++;
-            dysonSphere.UpdateHexes();
+            //dysonSphere.UpdateHexes() //moved to CoFadeLight for timing purposes
             currentPhaseText.text = "Current Phase: " + currentPhase;
             Debug.Log(currentPhase);
             Debug.Log(phaseSpecifics.Length);
@@ -318,6 +322,19 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Cursor.visible = true;
         state = GameControllerState.MAINMENU;
+        yield return null;
+    }
+
+    public IEnumerator CoFadeLight(float currentLight, float targetLight)
+    {
+
+        while(currentLight >= targetLight)
+        {
+            currentLight -= 0.01f;
+            yield return new WaitForSeconds(0.2f);
+            sunSource.intensity = currentLight;      
+        }
+        dysonSphere.UpdateHexes();
         yield return null;
     }
 
