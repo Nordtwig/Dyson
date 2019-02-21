@@ -51,7 +51,10 @@ public class StoreWindow : MonoBehaviour
 
     public float MiningRigExtractionRate;
 
-    
+    //Note: This function is a little hard to grasp. It was originally built to handle the complete StoreWindow canvas logic,
+    //but when more layers had to be implemented I had to rebuild it completely. This is the remains of that original system,
+    //and handles the switching between UpgradesTab and EquipmentTab.
+
     public void ToggleCanvases(string buttonPressed)
     {
         if (buttonPressed == "Upgrades")

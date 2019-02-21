@@ -30,6 +30,7 @@ public class UpgradeButton : MonoBehaviour
         upgradeText.text = upgradeType + " " + upgradeIndex;
     }
 
+    //TODO rename this function, and remove upgradeBought string. Leaving it as is for now, due to presentation tomorrow
     public void DebugUpgradeBought(string upgradeBought)
     {
         playerCredits = gameController.playerCredits;
@@ -45,7 +46,8 @@ public class UpgradeButton : MonoBehaviour
                 upgradeIndex--;
                 //gameObject.SetActive(false);
                 GetComponent<Button>().interactable = false;
-                costText.text = "";
+                //costText.text = "";
+                costText.gameObject.SetActive(false);
             }
             else UpdateCost();
 
