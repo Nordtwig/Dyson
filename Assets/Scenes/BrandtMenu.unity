@@ -155,14 +155,14 @@ MonoBehaviour:
   - totalTimeInPhase: 480
     phaseBoxAmount: 5
     timeBetweenMeteroids: 1
-  playerCreditsMedium: 50
+  playerCreditsMedium: 150
   phaseSpecificsMedium:
   - totalTimeInPhase: 0
     phaseBoxAmount: 0
     timeBetweenMeteroids: 0
-  - totalTimeInPhase: 300
+  - totalTimeInPhase: 600
     phaseBoxAmount: 2
-    timeBetweenMeteroids: 2
+    timeBetweenMeteroids: 1
   - totalTimeInPhase: 300
     phaseBoxAmount: 4
     timeBetweenMeteroids: 1
@@ -222,11 +222,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
-    - target: {fileID: 6290416227273202111, guid: 649d601e5a2a4684ebfd4b5bc80b0a95,
-        type: 3}
-      propertyPath: state
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6290416227273202108, guid: 649d601e5a2a4684ebfd4b5bc80b0a95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -281,6 +276,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290416227273202111, guid: 649d601e5a2a4684ebfd4b5bc80b0a95,
+        type: 3}
+      propertyPath: state
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 649d601e5a2a4684ebfd4b5bc80b0a95, type: 3}
@@ -382,12 +382,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: audioMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: e01f830518fc69b4fa6b08bb0a2a5105,
-        type: 2}
     - target: {fileID: 7748159465845185341, guid: ac179cb405b0fea46a735a3385446d95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -443,6 +437,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac179cb405b0fea46a735a3385446d95, type: 3}
 --- !u!1 &1487437036
