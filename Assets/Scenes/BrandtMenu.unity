@@ -377,17 +377,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7748159465845185216, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
     - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
         type: 3}
       propertyPath: audioMixer
       value: 
       objectReference: {fileID: 24100000, guid: e01f830518fc69b4fa6b08bb0a2a5105,
         type: 2}
-    - target: {fileID: 7748159465845185216, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: m_Name
-      value: AudioManager
-      objectReference: {fileID: 0}
     - target: {fileID: 7748159465845185341, guid: ac179cb405b0fea46a735a3385446d95,
         type: 3}
       propertyPath: m_LocalPosition.x

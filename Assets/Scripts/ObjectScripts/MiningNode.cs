@@ -77,15 +77,15 @@ public class MiningNode : MonoBehaviour
             }
         }
 
-        if (cobaltCount < 2) 
+        if (cobaltCount < 1) 
         {
             return 1;
         }
-        if (tungstenCount < 2) 
+        if (tungstenCount < 1) 
         {
             return 3;
         }
-        if (cinnabarCount < 2) 
+        if (cinnabarCount < 1) 
         {
             return 7;
         }

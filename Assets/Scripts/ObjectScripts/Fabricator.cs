@@ -124,7 +124,7 @@ public class Fabricator : MonoBehaviour
 
     public void EjectBox()
     {
-        GameObject go = Instantiate(box, transform.position + transform.TransformDirection(Vector3.right * 3), Quaternion.identity);
+        GameObject go = Instantiate(box, transform.position + transform.TransformDirection(Vector3.right * 4), Quaternion.identity);
         go.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.up * 3 + Vector3.right * Random.Range(5, 15));
         deployBox.PlayDelayed(0.1f);
     }
