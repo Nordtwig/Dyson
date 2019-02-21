@@ -377,6 +377,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+        type: 2}
     - target: {fileID: 7748159465845185216, guid: ac179cb405b0fea46a735a3385446d95,
         type: 3}
       propertyPath: m_Name
@@ -437,12 +443,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: audioMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: e01f830518fc69b4fa6b08bb0a2a5105,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac179cb405b0fea46a735a3385446d95, type: 3}
 --- !u!1 &1487437036
@@ -669,6 +669,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 952331684615812299, guid: 12f4ab38949eb144cb92624d4c637daf,
+        type: 3}
+      propertyPath: m_Name
+      value: MenuAsteroid
+      objectReference: {fileID: 0}
     - target: {fileID: 5379920218593314979, guid: 12f4ab38949eb144cb92624d4c637daf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -684,11 +689,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 610512925}
-    - target: {fileID: 952331684615812299, guid: 12f4ab38949eb144cb92624d4c637daf,
-        type: 3}
-      propertyPath: m_Name
-      value: MenuAsteroid
-      objectReference: {fileID: 0}
     - target: {fileID: 6884287035186117083, guid: 12f4ab38949eb144cb92624d4c637daf,
         type: 3}
       propertyPath: m_LocalPosition.x
