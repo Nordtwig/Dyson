@@ -1800,7 +1800,7 @@ GameObject:
   - component: {fileID: 5507948041435716559}
   - component: {fileID: 3104602020122284723}
   m_Layer: 5
-  m_Name: YesRestartButton
+  m_Name: YesQuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2751,7 +2751,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6c5fce259607a934eaa522965ddb6a3d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3902,7 +3902,7 @@ GameObject:
   - component: {fileID: 6448944890174638105}
   - component: {fileID: 2887530341938100827}
   m_Layer: 5
-  m_Name: NoRestartButton
+  m_Name: NoQuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
