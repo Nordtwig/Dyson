@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] GameObject heldCobaltChunk;
     [SerializeField] GameObject heldCinnabarChunk;
     [SerializeField] GameObject heldSanctuary;
+    [SerializeField] GameObject DustCloud;
 
     Animator astronautController;
 
@@ -186,6 +187,16 @@ public class PlayerController : MonoBehaviour {
             grounded = true;
             astronautController.SetBool(JUMPING_BOOL_STRING, false);
         }
+
+        if (grounded && playerSpeed > 0)
+        {
+            DustCloud.GetComponent<ParticleSystem>().Play();
+        }
+
+        else
+        {
+            DustCloud.GetComponent<ParticleSystem>().Stop();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -201,6 +212,7 @@ public class PlayerController : MonoBehaviour {
     {
         grounded = false;
         astronautController.SetBool(JUMPING_BOOL_STRING, true);
+        DustCloud.GetComponent<ParticleSystem>().Stop();
     }
 
     public void ContinuedJump()

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1602098659748103221
+--- !u!1 &1879435685
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1602098659748103218}
-  - component: {fileID: 1602098659748103216}
-  - component: {fileID: 1602098659748103219}
+  - component: {fileID: 1879435686}
+  - component: {fileID: 1879435689}
+  - component: {fileID: 1879435687}
   m_Layer: 0
-  m_Name: 'DustCloud '
+  m_Name: DustCloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1602098659748103218
+--- !u!4 &1879435686
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1602098659748103221}
-  m_LocalRotation: {x: 0.70348746, y: -0.23519403, z: -0.5926026, w: 0.31402466}
-  m_LocalPosition: {x: 0.025000097, y: 0.0920003, z: -0.054000337}
+  m_GameObject: {fileID: 1879435685}
+  m_LocalRotation: {x: 0.63866764, y: 0.5884395, z: -0.38129485, w: -0.31694946}
+  m_LocalPosition: {x: 0.02500028, y: 0.09000015, z: -0.05400081}
   m_LocalScale: {x: 0.49999994, y: 0.5, z: 0.5000004}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &1602098659748103216
+  m_LocalEulerAnglesHint: {x: 2.515, y: -120.58401, z: -263.877}
+--- !u!198 &1879435689
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1602098659748103221}
+  m_GameObject: {fileID: 1879435685}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -659,7 +659,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 0
     angle: 21
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -4694,14 +4694,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &1602098659748103219
+--- !u!199 &1879435687
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1602098659748103221}
+  m_GameObject: {fileID: 1879435685}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
