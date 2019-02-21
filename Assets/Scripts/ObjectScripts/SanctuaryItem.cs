@@ -17,7 +17,8 @@ public class SanctuaryItem : PickupableObject
                 hitColliders[i].transform.GetComponent<MiningRig>().shielded = false;
             }
         }
-        base.PickUpItem(); 
+        base.PickUpItem();
+        shieldController.SetBool("IsDeployed", false);
         player.SetEnableHoldingSanctuary(true);
     }
 
