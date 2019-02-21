@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: eed2da64c77917d428885ca379469f0a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Antenna_Antenna
+    100002: armconectors_armconectors
+    100004: BackWheels_BackWheels
+    100006: BackWheelsbase_BackWheelsbase
+    100008: carrige_conector_carrige_conector
+    100010: conectorarms_conectorarms
+    100012: DroidBody_DroidBody
+    100014: FrontSmallWheels_FrontSmallWheels
+    100016: Krok_Krok
+    100018: KrokScrew_KrokScrew
+    100020: //RootNode
+    100022: Scoop_Scoop
+    400000: Antenna_Antenna
+    400002: armconectors_armconectors
+    400004: BackWheels_BackWheels
+    400006: BackWheelsbase_BackWheelsbase
+    400008: carrige_conector_carrige_conector
+    400010: conectorarms_conectorarms
+    400012: DroidBody_DroidBody
+    400014: FrontSmallWheels_FrontSmallWheels
+    400016: Krok_Krok
+    400018: KrokScrew_KrokScrew
+    400020: //RootNode
+    400022: Scoop_Scoop
+    2100000: Antenna_AntennaMat
+    2100002: armconectors_armconectorsMat
+    2100004: BackWheels_BackWheelsMat
+    2100006: BackWheelsbase_BackWheelsbaseMat
+    2100008: carrige_conector_carrige_conectorMat
+    2100010: conectorarms_conectorarmsMat
+    2100012: DroidBody_DroidBodyMat
+    2100014: FrontSmallWheels_FrontSmallWheelsMat
+    2100016: Krok_KrokMat
+    2100018: KrokScrew_KrokScrewMat
+    2100020: Scoop_ScoopMat
+    2300000: Antenna_Antenna
+    2300002: armconectors_armconectors
+    2300004: BackWheels_BackWheels
+    2300006: BackWheelsbase_BackWheelsbase
+    2300008: carrige_conector_carrige_conector
+    2300010: conectorarms_conectorarms
+    2300012: DroidBody_DroidBody
+    2300014: FrontSmallWheels_FrontSmallWheels
+    2300016: Krok_Krok
+    2300018: KrokScrew_KrokScrew
+    2300020: Scoop_Scoop
+    3300000: Antenna_Antenna
+    3300002: armconectors_armconectors
+    3300004: BackWheels_BackWheels
+    3300006: BackWheelsbase_BackWheelsbase
+    3300008: carrige_conector_carrige_conector
+    3300010: conectorarms_conectorarms
+    3300012: DroidBody_DroidBody
+    3300014: FrontSmallWheels_FrontSmallWheels
+    3300016: Krok_Krok
+    3300018: KrokScrew_KrokScrew
+    3300020: Scoop_Scoop
+    4300000: Antenna_Antenna
+    4300002: armconectors_armconectors
+    4300004: BackWheels_BackWheels
+    4300006: BackWheelsbase_BackWheelsbase
+    4300008: carrige_conector_carrige_conector
+    4300010: conectorarms_conectorarms
+    4300012: DroidBody_DroidBody
+    4300014: FrontSmallWheels_FrontSmallWheels
+    4300016: Krok_Krok
+    4300018: KrokScrew_KrokScrew
+    4300020: Scoop_Scoop
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Antenna_AntennaMat
+    second: {fileID: 2100000, guid: fd9cb96d451228f4095d86911174092d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BackWheels_BackWheelsMat
+    second: {fileID: 2100000, guid: d13ee0d2f7dcc8d4b9e78d9e676ac346, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BackWheelsbase_BackWheelsbaseMat
+    second: {fileID: 2100000, guid: d13ee0d2f7dcc8d4b9e78d9e676ac346, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DroidBody_DroidBodyMat
+    second: {fileID: 2100000, guid: fd9cb96d451228f4095d86911174092d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FrontSmallWheels_FrontSmallWheelsMat
+    second: {fileID: 2100000, guid: d13ee0d2f7dcc8d4b9e78d9e676ac346, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: KrokScrew_KrokScrewMat
+    second: {fileID: 2100000, guid: fd9cb96d451228f4095d86911174092d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Krok_KrokMat
+    second: {fileID: 2100000, guid: fd9cb96d451228f4095d86911174092d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scoop_ScoopMat
+    second: {fileID: 2100000, guid: d13ee0d2f7dcc8d4b9e78d9e676ac346, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: armconectors_armconectorsMat
+    second: {fileID: 2100000, guid: fd9cb96d451228f4095d86911174092d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carrige_conector_carrige_conectorMat
+    second: {fileID: 2100000, guid: d13ee0d2f7dcc8d4b9e78d9e676ac346, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: conectorarms_conectorarmsMat
+    second: {fileID: 2100000, guid: fd9cb96d451228f4095d86911174092d, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
