@@ -155,14 +155,14 @@ MonoBehaviour:
   - totalTimeInPhase: 480
     phaseBoxAmount: 5
     timeBetweenMeteroids: 1
-  playerCreditsMedium: 150
+  playerCreditsMedium: 50
   phaseSpecificsMedium:
   - totalTimeInPhase: 0
     phaseBoxAmount: 0
     timeBetweenMeteroids: 0
-  - totalTimeInPhase: 600
+  - totalTimeInPhase: 300
     phaseBoxAmount: 2
-    timeBetweenMeteroids: 1
+    timeBetweenMeteroids: 1.5
   - totalTimeInPhase: 300
     phaseBoxAmount: 4
     timeBetweenMeteroids: 1
