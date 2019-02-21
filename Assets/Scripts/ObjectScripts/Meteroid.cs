@@ -94,25 +94,39 @@ public class Meteroid : MonoBehaviour
 
         if (other.tag == "Asteroid")
         {
-            spawnValue = Random.Range(0f, 1f);
-            if (spawnValue <= randomNodeSpawnChance)
+            Collider[] nodeColliders = Physics.OverlapSphere(transform.position, 6f);
+            bool failed = false;
+            for (int i = 0; i < nodeColliders.Length; i++)
             {
-                Ray ray = new Ray(transform.position - rb.velocity, transform.parent.position - transform.position);
-
-                RaycastHit meteoroidImpactpoint;
-
-                if (Physics.Raycast(ray, out meteoroidImpactpoint, 130, asteroidLayer)) {
-                    GameObject myNode = Instantiate(miningNode, meteoroidImpactpoint.point, Quaternion.LookRotation(Vector3.forward, Vector3.up), GameObject.Find("Nodes").transform);
-                    GameController.instance.nodes.Add(myNode);
+                if (nodeColliders[i].tag == "Node")
+                {
+                    failed = true;
                 }
-
-                GameObject nodeSpawnedVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
-                Destroy(nodeSpawnedVFX, 30);
             }
-            else
+
+            if (!failed)
             {
-                GameObject groundImpactVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
-                Destroy(groundImpactVFX, 5);
+                spawnValue = Random.Range(0f, 1f);
+                if (spawnValue <= randomNodeSpawnChance)
+                {
+                    Ray ray = new Ray(transform.position - rb.velocity, transform.parent.position - transform.position);
+
+                    RaycastHit meteoroidImpactpoint;
+
+                    if (Physics.Raycast(ray, out meteoroidImpactpoint, 130, asteroidLayer))
+                    {
+                        GameObject myNode = Instantiate(miningNode, meteoroidImpactpoint.point, Quaternion.LookRotation(Vector3.forward, Vector3.up), GameObject.Find("Nodes").transform);
+                        GameController.instance.nodes.Add(myNode);
+                    }
+
+                    GameObject nodeSpawnedVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
+                    Destroy(nodeSpawnedVFX, 30);
+                }
+                else
+                {
+                    GameObject groundImpactVFX = Instantiate(MetroidImpactVFX, transform.position, miningNodeSpawnRotation, meteoroids);
+                    Destroy(groundImpactVFX, 5);
+                }
             }
             StartCoroutine(CoFadeOut(meteoriteLoop, 0.2f));
             Destroy(zone);
