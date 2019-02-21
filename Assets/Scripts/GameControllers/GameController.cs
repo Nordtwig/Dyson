@@ -305,6 +305,7 @@ public class GameController : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(CoMainMenu());
+        MusicManager.instance.CrossfadeMusic(MusicManager.instance.musicIntro, MusicManager.instance.menuMusicLoop, true);
     }
 
     public IEnumerator CoMainMenu()

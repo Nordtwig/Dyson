@@ -16,6 +16,7 @@ TagManager:
   - SanctuaryHolder
   - Chunk
   - AsteroidInside
+  - ShopScreen
   layers:
   - Default
   - TransparentFX

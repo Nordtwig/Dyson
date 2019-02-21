@@ -10,11 +10,13 @@ public class InteractionZone : MonoBehaviour
 {
     private GameObject player;
     private AudioManager audioManager;
+    private GameObject storeWindow;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         audioManager = FindObjectOfType<AudioManager>();
+        storeWindow = FindObjectOfType<StoreWindow>().transform.GetChild(0).gameObject;
     }
     
     public void OnTriggerEnter(Collider other)
@@ -55,6 +57,10 @@ public class InteractionZone : MonoBehaviour
         else if (other.tag == "Rig" && !player.GetComponent<PlayerController>().holdingItem)
         {
             other.gameObject.GetComponentInChildren<MiningRig>().PickUpItem();
+        }
+        else if (other.tag == "ShopScreen" && !player.GetComponent<PlayerController>().holdingItem)
+        {
+            storeWindow.SetActive(true);
         }
     }
 }
