@@ -12,6 +12,8 @@ public class InputController : MonoBehaviour
     //SINGLETON
     public static InputController instance;
 
+    public bool debugEnabled;
+
     PlayerController player;
 	ThrowPowerBarScript throwBar;
     private GameObject storeWindow;
@@ -53,7 +55,7 @@ public class InputController : MonoBehaviour
     // Runs the keys that have any functionality
     public void CheckKeys()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F1) && debugEnabled)
         {
             GameController.instance.SetDebugMode(!GameController.instance.GetDebugMode()); //inverts the value of DebugMode
             Debug.Log(GameController.instance.GetDebugMode());
