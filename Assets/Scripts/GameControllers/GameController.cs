@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject miningRig;
     [SerializeField] private GameObject node;
     [SerializeField] private GameObject chunk;
+    [SerializeField] private GameObject launchButton;
     [Tooltip("Do NOT touch")] public Material[] metalMaterials;
     private PlayerController player;
     private GameObject gameOverText;
@@ -138,6 +139,7 @@ public class GameController : MonoBehaviour
         meteroidSpawner = FindObjectOfType<MeteroidSpawner>();
         dysonSphere = FindObjectOfType<Hexes>();
         player = FindObjectOfType<PlayerController>();
+        launchButton = GameObject.Find("LaunchButton");
         AudioManager.instance.Play("Ambience");
         UpdateCredits(0);
         //AudioManager.instance.Play("Music Long");
@@ -219,11 +221,15 @@ public class GameController : MonoBehaviour
 		boxAmount++;
         FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
         UpdateCredits(boxCreditsReward);
+        if (boxAmount == phaseBoxAmount) {
+            launchButton.transform.GetChild(1).gameObject.SetActive(true);
+        }
 	}
 
 	// ============================= PHASE CHANGING STUFF HERE =============================
 	public void IncrementPhase()
     {
+        launchButton.transform.GetChild(1).gameObject.SetActive(false);
         if (currentPhase != phaseSpecifics.Length - 1)
         {
             boxAmount = 0;

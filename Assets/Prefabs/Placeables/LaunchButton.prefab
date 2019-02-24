@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 882240790}
   - component: {fileID: 882240791}
   m_Layer: 10
-  m_Name: Spot Light 1 (1)
+  m_Name: SpotLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882240789}
   m_LocalRotation: {x: 0.65182334, y: 0.14639178, z: -0.13024712, w: 0.7326196}
-  m_LocalPosition: {x: -0.0194, y: 1.8072, z: -0.0846}
+  m_LocalPosition: {x: -0.027, y: 2.076, z: -0.092}
   m_LocalScale: {x: 0.50000095, y: 0.49999997, z: 0.5000009}
   m_Children: []
   m_Father: {fileID: 197386386271142113}
@@ -42,7 +42,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 0, b: 0.03486824, a: 1}
-  m_Intensity: 2
+  m_Intensity: 20
   m_Range: 2
   m_SpotAngle: 42.553993
   m_CookieSize: 10
@@ -212,6 +212,22 @@ PrefabInstance:
     - target: {fileID: 400008, guid: dd19189720d0c9a4c90a394baf1b43c9, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: dd19189720d0c9a4c90a394baf1b43c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: dd19189720d0c9a4c90a394baf1b43c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.156
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: dd19189720d0c9a4c90a394baf1b43c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: dd19189720d0c9a4c90a394baf1b43c9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.62965953
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd19189720d0c9a4c90a394baf1b43c9, type: 3}
