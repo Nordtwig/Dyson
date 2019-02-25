@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Made by Robin, modified by Christoffer Brandt
+/// </summary>
+
+
 public class Sanctuary : MonoBehaviour
 {
     private object metroid;

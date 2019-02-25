@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Created by Noah Nordqvist
+/// </summary>
+
 public class GravityAttractor : MonoBehaviour {
 
     public float gravity = -10f;

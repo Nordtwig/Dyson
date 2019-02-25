@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 /// <summary>
-/// Christoffer Brandt, Modified by Robin
+/// Created by Christoffer Brandt, Modified by Robin
 /// </summary>
 
 public class ProgressBarScript : MonoBehaviour

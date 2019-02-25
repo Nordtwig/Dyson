@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Created by Robin
+/// </summary>
+
 public class SanctuaryItem : PickupableObject
 {
 

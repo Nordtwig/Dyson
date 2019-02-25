@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Created by Noah Nordqvist
+/// </summary>
+
 [RequireComponent (typeof (Rigidbody))]
 public class GravityBody : MonoBehaviour {
     [SerializeField] private bool rotationFreeze = true;

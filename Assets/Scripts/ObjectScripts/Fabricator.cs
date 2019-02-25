@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Created by Petter, modified by Heimer and Robin
+/// </summary>
+
 public class Fabricator : MonoBehaviour
 {
     private GameController.MetalVarieties[] chunks;

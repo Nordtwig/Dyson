@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Created by Petter, modified by Heimer
+/// </summary>
+
 public class MeteroidSpawner : MonoBehaviour
 {
     private GameObject meteoroid;
