@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour
     public int playerCredits = 0;
     public int boxCreditsReward = 5;
     public int phaseCreditReward = 50;
+    public int startingMoney = 0;
     public float lightFadeAmount = 0.2f;
 
     //Phase Specifics
@@ -141,7 +142,7 @@ public class GameController : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         launchButton = GameObject.Find("LaunchButton");
         AudioManager.instance.Play("Ambience");
-        UpdateCredits(0);
+        playerCredits = startingMoney;
         //AudioManager.instance.Play("Music Long");
 
 
@@ -307,6 +308,7 @@ public class GameController : MonoBehaviour
         currentPhase = 0;
         totalTimeInPhase = 0;
         boxAmount = 0;
+        playerCredits = startingMoney;
         int sceneAtm = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneAtm);
     } 

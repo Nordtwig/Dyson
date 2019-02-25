@@ -23,7 +23,7 @@ public class MissionPresets : MonoBehaviour
 
     public void Easy() {
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsEasy.Length];
-        GameController.instance.playerCredits = playerCreditsEasy;
+        GameController.instance.startingMoney = playerCreditsEasy;
 
         for (int i = 0; i < phaseSpecificsEasy.Length; i++) {
             GameController.instance.phaseSpecifics[i] = new PhaseSpecifics();
@@ -35,7 +35,7 @@ public class MissionPresets : MonoBehaviour
     }
     public void Medium() {
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsMedium.Length];
-        GameController.instance.playerCredits = playerCreditsMedium;
+        GameController.instance.startingMoney = playerCreditsMedium;
 
         for (int i = 0; i < phaseSpecificsMedium.Length; i++) {
             GameController.instance.phaseSpecifics[i] = new PhaseSpecifics();
@@ -47,7 +47,7 @@ public class MissionPresets : MonoBehaviour
     }
     public void Hard() {
         GameController.instance.phaseSpecifics = new PhaseSpecifics[phaseSpecificsHard.Length];
-        GameController.instance.playerCredits = playerCreditsHard;
+        GameController.instance.startingMoney = playerCreditsHard;
 
         for (int i = 0; i < phaseSpecificsHard.Length; i++) {
             GameController.instance.phaseSpecifics[i] = new PhaseSpecifics();
