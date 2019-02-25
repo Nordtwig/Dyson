@@ -3460,8 +3460,8 @@ MonoBehaviour:
   upgradeIndex: 1
   upgradeMaxIndex: 3
   upgradeText: {fileID: 4858451125429638612}
-  creditsCost: 40
-  CreditsCostMultiplier: 1.5
+  creditsCost: 50
+  CreditsCostMultiplier: 1.7
   costText: {fileID: 7816739699992375279}
 --- !u!114 &6240610310806216772
 MonoBehaviour:
@@ -4295,7 +4295,7 @@ MonoBehaviour:
   upgradeIndex: 1
   upgradeMaxIndex: 3
   upgradeText: {fileID: 4858451125035558825}
-  creditsCost: 20
+  creditsCost: 45
   CreditsCostMultiplier: 1.5
   costText: {fileID: 8157542376045156391}
 --- !u!114 &7901203512380453281
@@ -4549,8 +4549,8 @@ MonoBehaviour:
   upgradeIndex: 1
   upgradeMaxIndex: 3
   upgradeText: {fileID: 4858451124989907861}
-  creditsCost: 10
-  CreditsCostMultiplier: 1.5
+  creditsCost: 35
+  CreditsCostMultiplier: 1.4
   costText: {fileID: 158992610}
 --- !u!114 &9009493759527648221
 MonoBehaviour:
@@ -7143,7 +7143,7 @@ MonoBehaviour:
   upgradeIndex: 1
   upgradeMaxIndex: 3
   upgradeText: {fileID: 714698317487293453}
-  creditsCost: 50
+  creditsCost: 45
   CreditsCostMultiplier: 1.5
   costText: {fileID: 2147678759056561013}
 --- !u!114 &2018656177108010824
