@@ -238,6 +238,7 @@ public class GameController : MonoBehaviour
             boxAmount = 0;
             if (currentPhase != 0)
             {
+                iTween.PunchPosition(Camera.main.gameObject, UnityEngine.Random.insideUnitCircle * 3f, 1f);
                 FindObjectOfType<ProgressBarScript>().ProgressBarUpdate();
                 UpdateCredits(phaseCreditReward + Mathf.FloorToInt(totalTimeInPhase / 5));
                 Debug.Log("Bonus: " + Mathf.FloorToInt(totalTimeInPhase / 5));
