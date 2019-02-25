@@ -143,6 +143,8 @@ public class GameController : MonoBehaviour
         launchButton = GameObject.Find("LaunchButton");
         AudioManager.instance.Play("Ambience");
         playerCredits = startingMoney;
+        creditsText.text = playerCredits.ToString();
+        creditsTextUI.text = playerCredits.ToString();
         //AudioManager.instance.Play("Music Long");
 
 
@@ -309,6 +311,8 @@ public class GameController : MonoBehaviour
         totalTimeInPhase = 0;
         boxAmount = 0;
         playerCredits = startingMoney;
+        creditsText.text = playerCredits.ToString();
+        creditsTextUI.text = playerCredits.ToString();
         int sceneAtm = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneAtm);
     } 
