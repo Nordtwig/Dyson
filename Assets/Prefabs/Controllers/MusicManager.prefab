@@ -46,6 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f3872a89e42f3429f584839f1e3947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startedInMenu: 1
+  musicIntro: {fileID: 0}
+  musicLoop: {fileID: 0}
+  menuMusicLoop: {fileID: 0}
 --- !u!82 &8941504847349873181
 AudioSource:
   m_ObjectHideFlags: 0
@@ -255,7 +259,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

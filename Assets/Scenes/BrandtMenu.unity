@@ -351,11 +351,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -66.14101
       objectReference: {fileID: 0}
-    - target: {fileID: 8941504847349873179, guid: 6ea88f3277f1ae545942ff9fff91d817,
-        type: 3}
-      propertyPath: startedInMenu
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ea88f3277f1ae545942ff9fff91d817, type: 3}
 --- !u!114 &1221102104 stripped
@@ -377,6 +372,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
+        type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: e01f830518fc69b4fa6b08bb0a2a5105,
+        type: 2}
     - target: {fileID: 7748159465845185216, guid: ac179cb405b0fea46a735a3385446d95,
         type: 3}
       propertyPath: m_Name
@@ -437,12 +438,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7748159465845185219, guid: ac179cb405b0fea46a735a3385446d95,
-        type: 3}
-      propertyPath: audioMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: e01f830518fc69b4fa6b08bb0a2a5105,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac179cb405b0fea46a735a3385446d95, type: 3}
 --- !u!1 &1487437036
