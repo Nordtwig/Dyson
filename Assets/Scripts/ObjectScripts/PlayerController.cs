@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Script creator Ulrik. Modified/cleaned by Robin, 
+/// Script creator Ulrik. Modified/cleaned by Robin, slightly by Christoffer Brandt
 /// </summary>
 
 public class PlayerController : MonoBehaviour {

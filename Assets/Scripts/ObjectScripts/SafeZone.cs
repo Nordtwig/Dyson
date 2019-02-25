@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Made by Robin
+/// Made by Robin, modified by Christoffer Brandt
 /// </summary>
 
 public class SafeZone : MonoBehaviour

@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 /// <summary>
 ///  Created by Ulrik, Heavily modified by Robin now works of pickupable object SuperClass
 /// </summary>
+
 public class Chunk : PickupableObject
 {
     public GameController.MetalVarieties chunkType;

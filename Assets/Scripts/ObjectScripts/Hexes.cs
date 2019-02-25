@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Created by Christoffer Brandt, modified by Petter
+/// </summary>
+
 public class Hexes : MonoBehaviour
 {
     public GameObject Phase2Hexes;
