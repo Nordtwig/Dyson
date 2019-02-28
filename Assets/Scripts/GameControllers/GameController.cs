@@ -246,7 +246,7 @@ public class GameController : MonoBehaviour
             }
             currentPhase++;
             //dysonSphere.UpdateHexes() //moved to CoFadeLight for timing purposes
-            currentPhaseText.text = "Phase: " + currentPhase + "/" + phaseSpecifics.Length;
+            currentPhaseText.text = "Phase: " + currentPhase + "/" + phaseSpecifics.Length - 1;
             Debug.Log(currentPhase);
             Debug.Log(phaseSpecifics.Length);
             phaseBoxAmount = phaseSpecifics[currentPhase].phaseBoxAmount;
